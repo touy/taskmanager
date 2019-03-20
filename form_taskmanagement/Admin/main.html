@@ -1,0 +1,155 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../css/bootadmin.min.css">
+    <link rel="stylesheet" href="../css/datatables.min.css">
+    <link rel="stylesheet" href="../css/fullcalendar.min.css">
+
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/bootadmin.min.js"></script>
+    <script src="../js/datatables.min.js"></script>
+    <script src="../js/moment.min.js"></script>
+    <script src="../js/fullcalendar.min.js"></script>
+
+
+    
+    
+
+    <title>System Name</title>
+    
+</head>
+<body class="bg-light" style="font-family: 'Phetsarath OT'">
+
+<nav class="navbar navbar-expand navbar-dark bg-dark shadow">
+    <a class="sidebar-toggle mr-3" href="#"><i class="fa fa-bars"></i></a>
+    <a class="navbar-brand" href="#">System Name</a>
+
+    <div class="navbar-collapse collapse">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a href="../index.html" class="nav-link"><i class="material-icons"></i><font size="4"> ອອກຈາກລະບົບ</font></a></li>
+            
+        </ul>
+    </div>
+</nav>
+
+
+            
+
+<div class="bg-light py-5 text-center">
+        <div class="container">
+           
+    
+            <h1>Task Managerment</h1>
+            <p class="lead mb-4">A few reasons to choose BootAdmin.</p>
+    
+            <div class="row">
+                <div class="col-md-3 project">
+                <span class="fa-stack fa-5x mb-2">
+                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fas fa-file-powerpoint fa-stack-1x fa-inverse"></i>
+                    
+                </span>
+                    <h4>Project</h4>
+                    <p class="mb-4">ການດຳເນີນໂຄງການ</p>
+                </div>
+                <div class="col-md-3 manag">
+                <span class="fa-stack fa-5x mb-2">
+                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fas fa-tasks fa-stack-1x fa-inverse"></i>
+                  <!--  -->
+                    
+                </span>
+                    <h4>Flolow Project</h4>
+                    <p class="mb-4">ຕິດຕາມໂຄງການ</p>
+                </div>
+
+                <div class="col-md-3 user">
+                <span class="fa-stack fa-5x mb-2">
+                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fas fa-user fa-stack-1x fa-inverse"></i>
+                    
+                   
+                   
+                </span>
+                    <h4>User</h4>
+                    <p class="mb-4">ຜູ້ໃຊ້ລະບົບ</p>
+                </div>
+                 <div class="col-md-3">
+                <span class="fa-stack fa-5x mb-2">
+                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fas fa-chart-pie fa-stack-1x fa-inverse"></i>
+                   
+                </span>
+                    <h4>Report</h4>
+                    <p class="mb-4">ບົດລາຍງານ</p>
+                </div>
+               
+              
+                
+            </div>
+        </div>
+    </div>
+    
+          
+       
+  
+  
+ 
+
+  
+<script>
+        $(document).ready(function () {
+
+           
+
+           
+
+
+            
+
+             $(document).on('click', '.project', function(){  
+                 
+                window.location.replace('project/me.html');
+                  
+            });
+            $(document).on('click', '.user', function(){  
+                 
+                 window.location.replace('user/user.html');
+                   
+             });
+            $(document).on('click', '.manag', function(){  
+                 
+                 window.location.replace('service/Sell.php');
+                   
+             });
+             $(document).on('click', '.report', function(){  
+
+                 if($('#id_account').val() == 'Admin'){
+                    window.location.replace('report/Sell_report.php');
+                 }
+                 
+                 
+                   
+             });
+
+            
+        });
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>
