@@ -1,0 +1,10 @@
+@font-face
+{
+	font-family:"Souliyo Unicode";
+	src:url("Souliyo_Unicode.ttf");
+	font-weight: normal;
+	font-style: normal; 
+}
+html,body,h1,h2,h3,h4,h5,p,table,tr,td,th,tbody,thead{
+	font-family: "Open Sans", Helvetica, Arial, sans-serif,'Souliyo Unicode' !important;
+}

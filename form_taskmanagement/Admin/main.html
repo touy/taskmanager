@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../css/bootadmin.min.css">
     <link rel="stylesheet" href="../css/datatables.min.css">
     <link rel="stylesheet" href="../css/fullcalendar.min.css">
+    <link rel="stylesheet" href="../css/font.css">
 
 
     <script src="../js/jquery.min.js"></script>
@@ -57,18 +58,18 @@
                     <i class="fas fa-file-powerpoint fa-stack-1x fa-inverse"></i>
                     
                 </span>
-                    <h4>Project</h4>
-                    <p class="mb-4">ການດຳເນີນໂຄງການ</p>
+                    <h4>ການດຳເນີນໂຄງການ</h4>
+                    <p class="mb-4">Project</p>
                 </div>
-                <div class="col-md-3 manag">
+                <div class="col-md-3 follow">
                 <span class="fa-stack fa-5x mb-2">
                     <i class="fas fa-circle fa-stack-2x text-primary"></i>
                     <i class="fas fa-tasks fa-stack-1x fa-inverse"></i>
                   <!--  -->
                     
                 </span>
-                    <h4>Flolow Project</h4>
-                    <p class="mb-4">ຕິດຕາມໂຄງການ</p>
+                    <h4>ຈັດການໂຄງການ</h4>
+                    <p class="mb-4"> Manage Project</p>
                 </div>
 
                 <div class="col-md-3 user">
@@ -79,17 +80,17 @@
                    
                    
                 </span>
-                    <h4>User</h4>
-                    <p class="mb-4">ຜູ້ໃຊ້ລະບົບ</p>
+                    <h4>ຜູ້ໃຊ້ລະບົບ</h4>
+                    <p class="mb-4">User</p>
                 </div>
-                 <div class="col-md-3">
+                 <div class="col-md-3 report">
                 <span class="fa-stack fa-5x mb-2">
                     <i class="fas fa-circle fa-stack-2x text-primary"></i>
                     <i class="fas fa-chart-pie fa-stack-1x fa-inverse"></i>
                    
                 </span>
-                    <h4>Report</h4>
-                    <p class="mb-4">ບົດລາຍງານ</p>
+                    <h4>ບົດລາຍງານ</h4>
+                    <p class="mb-4">Report</p>
                 </div>
                
               
@@ -125,16 +126,16 @@
                  window.location.replace('user/user.html');
                    
              });
-            $(document).on('click', '.manag', function(){  
+            $(document).on('click', '.follow', function(){  
                  
-                 window.location.replace('service/Sell.php');
+                 window.location.replace('follow/follow.html');
                    
              });
              $(document).on('click', '.report', function(){  
 
-                 if($('#id_account').val() == 'Admin'){
-                    window.location.replace('report/Sell_report.php');
-                 }
+                 
+                    window.location.replace('report/report.html');
+                 
                  
                  
                    
