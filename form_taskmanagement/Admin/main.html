@@ -19,6 +19,7 @@
     <script src="../js/datatables.min.js"></script>
     <script src="../js/moment.min.js"></script>
     <script src="../js/fullcalendar.min.js"></script>
+    <script src="../js/sweetalert.min.js"></script>
 
 
     
@@ -52,7 +53,7 @@
             <p class="lead mb-4">A few reasons to choose BootAdmin.</p>
     
             <div class="row">
-                <div class="col-md-3 project">
+                <div class="col-md-4 project">
                 <span class="fa-stack fa-5x mb-2">
                     <i class="fas fa-circle fa-stack-2x text-primary"></i>
                     <i class="fas fa-file-powerpoint fa-stack-1x fa-inverse"></i>
@@ -61,7 +62,7 @@
                     <h4>ການດຳເນີນໂຄງການ</h4>
                     <p class="mb-4">Project</p>
                 </div>
-                <div class="col-md-3 follow">
+                <div class="col-md-4 follow">
                 <span class="fa-stack fa-5x mb-2">
                     <i class="fas fa-circle fa-stack-2x text-primary"></i>
                     <i class="fas fa-tasks fa-stack-1x fa-inverse"></i>
@@ -72,7 +73,7 @@
                     <p class="mb-4"> Manage Project</p>
                 </div>
 
-                <div class="col-md-3 user">
+                <div class="col-md-4 user">
                 <span class="fa-stack fa-5x mb-2">
                     <i class="fas fa-circle fa-stack-2x text-primary"></i>
                     <i class="fas fa-user fa-stack-1x fa-inverse"></i>
@@ -83,21 +84,281 @@
                     <h4>ຜູ້ໃຊ້ລະບົບ</h4>
                     <p class="mb-4">User</p>
                 </div>
-                 <div class="col-md-3 report">
-                <span class="fa-stack fa-5x mb-2">
-                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                    <i class="fas fa-chart-pie fa-stack-1x fa-inverse"></i>
-                   
-                </span>
-                    <h4>ບົດລາຍງານ</h4>
-                    <p class="mb-4">Report</p>
-                </div>
+               
                
               
                 
             </div>
+
+            <div class="row">
+                    <div class="col-md-4 jobs">
+                    <span class="fa-stack fa-5x mb-2">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fas fa-briefcase fa-stack-1x fa-inverse"></i>
+                        
+                    </span>
+                        <h4>ວຽກປະຈຳ</h4>
+                        <p class="mb-4">Jobs</p>
+                    </div>
+                   
+    
+                   
+                     <div class="col-md-4 report">
+                    <span class="fa-stack fa-5x mb-2">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fas fa-chart-pie fa-stack-1x fa-inverse"></i>
+                       
+                    </span>
+                        <h4>ບົດລາຍງານ</h4>
+                        <p class="mb-4">Report</p>
+                    </div>
+
+
+                    <div class="col-md-4 logout">
+                            <span class="fa-stack fa-5x mb-2">
+                                <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                                <i class="fas fa-sign-out-alt fa-stack-1x fa-inverse"></i>
+                                
+                              <!--  -->
+                                
+                            </span>
+                                <h4>ອອກຈາກລະບົບ</h4>
+                                <p class="mb-4"> Logout</p>
+                            </div>
+                   
+                  
+                    
+                </div>
         </div>
     </div>
+    <div class="d-flex">
+
+    
+            <div class="content p-4">
+            
+                
+                    <div class="card mb-4">
+                            <div class="card-header bg-white font-weight-bold">
+                                    <h2>ວຽກປະຈຳ</h2>
+                                    
+                            </div>
+                            <div class="card-body">
+                                <form>
+                                   
+                                    
+                                   
+                                   
+                                   
+                                    <div class="form-group row">
+                                            <label for="inputPassword3" class="col-sm-2 col-form-label">ວຽກທີຍັງຄ້າງ</label>
+                                            <div class="col-sm-10">
+            
+            
+                                                   
+                                                    <div class="table-responsive">
+                                                            <table id="example" class="table table-hover  " cellspacing="0" width="100%">
+                                                            
+                                                            <thead>
+                                                                    <tr>
+                                                                            <th>ລະຫັດ</th>
+                                                                            <th>ຫົວຂໍ້ວຽກ</th>
+                                                                           
+                                                                            <th>ສະຖານະ</th>
+                                                                            <th>Action</th>
+                                                                            
+                                                                        </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                    <tr>
+                                                                            <td>0001</td>
+                                                                            <td>ແປງຄອມ</td>
+                                                                            
+                                                                            <td><span class="badge  badge-primary float-center " ><font size="3"  >ກຳລັງດຳເນີນງານ</font></span></td>
+                                                                            <td>
+                                                                                    <button type="button" class="btn btn-pill btn-success View_data" data-toggle="tooltip" title="Edit"><i class="fas fa-file "></i></button>
+                                                                                        <button type="button" class="btn btn-pill btn-primary edit_data" data-toggle="tooltip" title="Edit">ສຳເລັດ</button>           
+                                                                            </td>
+                                                                                            
+                                                                    </tr>
+                                                                   
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    
+                
+                                            </div>
+                                            
+                                        </div>
+            
+                                        <div class="form-group row">
+                                                <label for="inputPassword3" class="col-sm-2 col-form-label">ຫນ້າວຽກຂອງມື້ນີ້</label>
+                                                <div class="col-sm-10">
+                
+                
+                                                       
+                                                        <div class="table-responsive">
+                                                                <table id="example2" class="table table-hover  " cellspacing="0" width="100%">
+                                                                
+                                                                <thead>
+                                                                <tr>
+                                                                    <th>ລະຫັດ</th>
+                                                                    <th>ຫົວຂໍ້ວຽກ</th>
+                                                                   
+                                                                    <th>ສະຖານະ</th>
+                                                                    <th>Action</th>
+                                                                    
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                       
+                                                                        <tr>
+                                                                                <td>0003</td>
+                                                                                <td>ອອກແບບເວັບໄຊ</td>
+                                                                                
+                                                                                <td><span class="badge  badge-primary float-center " ><font size="3"  >ກຳລັງດຳເນີນງານ</font></span></td>
+                                                                                <td>
+                                                                                         
+                                                                                        <button type="button" class="btn btn-pill btn-success View_data" data-toggle="tooltip" title="Edit"><i class="fas fa-file "></i></button>
+                                                                                        <button type="button" class="btn btn-pill btn-primary edit_data" data-toggle="tooltip" title="Edit">ສຳເລັດ</button>
+                                                                                    </td>
+                                                                        </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                        
+                                                        
+                                                </div>
+                                                
+                                            </div>
+            
+                                    
+                                    
+                                </form>
+                            </div>
+                            
+                        </div>
+            
+            
+            
+                        <!--                            //////                                    -->
+            
+            
+                        <div id="add_data_Modal" class="modal fade">
+                            <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                
+                                <h4 id="insert_h" class="modal-title">ເບິ່ງໜ້າວຽກ
+                                    
+                                </h4>
+                                
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                            <form method="post" id="insert_form" autocomplete="off">
+                                
+                                
+                                <div class="form-group row">
+                                    <label  class="col-sm-2 "><h5>ຫົວຂໍ້ວຽກ: </h5></label>
+                                    <div class="col-sm-8">
+                                        <h5>ໃບອອກວຽກນອກ</h5>
+                                    </div>
+                                    <div class="col-sm-2">
+                                                    <span class="badge  badge-success float-center " ><font size="3"  >ອະນຸມັດແລ້ວ</font></span>
+                                    </div>
+                                           
+                                </div>    
+                                
+                                <div class="form-group row">
+                                    <label  class="col-sm-2 "><h5>ລາຍລະອຽດ : </h5></label>
+                                    <div class="col-sm-10">
+                                        <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus cursus maximus lacus vel ullamcorper. Duis euismod, risus vel faucibus imperdiet, nisl massa congue dolor, ut mollis lacus tortor eget velit. Nam non urna risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis metus orci, consectetur sed risus at, accumsan imperdiet elit. Nullam semper finibus lacus nec volutpat. Fusce convallis nulla ipsum, et hendrerit elit feugiat non.</h6>
+                                    </div>
+                                    
+                                           
+                                </div> 
+                                <div class="form-group row">
+                                    <label class="col-sm-2 "><h5>ເວລາກຳນົດ :</h5></label>
+                                    <div class="col-sm-10">
+                                            
+                                        <h5>ເລີມວັນທີ 12/03/2019 ຫາວັນທີ 12/03/2019</h5>
+                
+                                    </div>
+                                    
+                                </div>
+                                <div class="form-group row">
+                                    <label  class="col-sm-2 "><h5>ສະມາຊີກ :</h5></label>
+                                    <div class="col-sm-10">
+                
+                
+                                           
+                                            <div class="table-responsive">
+                                                    <table id="example" class="table table-hover  " cellspacing="0" width="100%">
+                                                    
+                                                    <thead>
+                                                    <tr>
+                                                        <th>ລະຫັດ</th>
+                                                        <th>ຊື່ສະມາຊິກ</th>
+                                                        <th>ຄວາມສາມາດ</th>
+                                                        
+                                                        
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                            <tr>
+                                                                    <td>0001</td>
+                                                                    <td>ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ</td>
+                                                                    <td><span class="badge  badge-success float-center " ><font size="3"  >ຫົວຫນ້າທີມ</font></span></td>
+                                                                    
+                                                                    
+                                                            </tr>
+                                                            <tr>
+                                                                    <td>0002</td>
+                                                                    <td>ທ້າວ ສອນໄຊ ເກດແກ້ວ</td>
+                                                                    <td><span class="badge  badge-info float-center " ><font size="3"  >ຮ້ອງຫົວຫນ້າທີມ</font></span></td>
+                                                                    
+                                                                   
+                                                            </tr>
+                                                            <tr>
+                                                                    <td>0003</td>
+                                                                    <td>ທ້າວ ໄຊນະພາ ພົມວິຫານ</td>
+                                                                    <td><span class="badge  badge-primary float-center " ><font size="3"  >ວິຊາການ</font></span></td>
+                                                                   
+                                                            </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            
+                
+                                    </div>
+                                    
+                                </div>
+                
+                                
+                
+                            </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                            </div>
+                            </div>
+                            </div> 
+                    
+                          
+                        
+                    
+                              <!--                            //////                                    -->
+            
+                             
+                        
+                    
+                                                             
+                        
+                    
+                    
+                
+            </div>
     
           
        
@@ -118,7 +379,7 @@
 
              $(document).on('click', '.project', function(){  
                  
-                window.location.replace('project/me.html');
+                window.location.replace('project/menu.html');
                   
             });
             $(document).on('click', '.user', function(){  
@@ -128,18 +389,56 @@
              });
             $(document).on('click', '.follow', function(){  
                  
-                 window.location.replace('follow/follow.html');
+                 window.location.replace('follow/menu.html');
                    
              });
-             $(document).on('click', '.report', function(){  
+             $(document).on('click', '.logout', function(){  
 
                  
-                    window.location.replace('report/report.html');
-                 
-                 
-                 
-                   
+                    window.location.replace('../index.html');
+  
              });
+
+              $(document).on('click', '.jobs', function(){  
+
+                 
+                window.location.replace('job_of_day/jobs_of_day.html');
+
+                });
+
+              $(document).on('click', '.report', function(){  
+   
+                window.location.replace('report/report.html');
+
+            });
+
+
+             $('#example').DataTable();
+             $('#example2').DataTable();
+            $('#example3').DataTable();
+            $(document).on('click', '.View_data', function(){  
+                $('#add_data_Modal').modal('show');
+            });
+
+            $(document).on('click', '.edit_data', function(){  
+                
+                
+                swal({
+                        title: "ວຽກນີ້ສຳເລັດແລ້ວ",
+                        text: "ວຽກນີ້ສຳເລັດແລ້ວ ຫຼື່ບໍ່!",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                        })
+                        .then((willDelete) => {
+                        if (willDelete) {
+                            swal("ສຳເລັດ ການດຳເນີນງານ", {
+                            icon: "success",
+                            });
+                        }      
+                    });           
+                               
+            });
 
             
         });
