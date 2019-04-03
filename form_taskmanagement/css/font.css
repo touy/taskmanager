@@ -5,12 +5,10 @@
 	font-weight: normal;
 	font-style: normal; 
 }
-html,body,h1,h2,h3,h4,h5,p{
+h4,p{
 	font-family: "Open Sans", Helvetica, Arial, sans-serif,'Souliyo Unicode' !important;
 }
 table,th,tr,td{
 	font-family: "Open Sans", Helvetica, Arial, sans-serif,'Phetsarath OT' !important;
 }
-a{
-	color: green;
-}
+

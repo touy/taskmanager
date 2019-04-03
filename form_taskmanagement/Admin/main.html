@@ -139,101 +139,910 @@
                 
                     <div class="card mb-4">
                             <div class="card-header bg-white font-weight-bold">
-                                    <h2>ວຽກປະຈຳ</h2>
+                                    <h2>ໜ້າວຽກ</h2>
                                     
                             </div>
                             <div class="card-body">
-                                <form>
-                                   
-                                    
-                                   
-                                   
-                                   
-                                    <div class="form-group row">
-                                            <label for="inputPassword3" class="col-sm-2 col-form-label">ວຽກທີຍັງຄ້າງ</label>
-                                            <div class="col-sm-10">
-            
-            
-                                                   
-                                                    <div class="table-responsive">
-                                                            <table id="example" class="table table-hover  " cellspacing="0" width="100%">
-                                                            
-                                                            <thead>
-                                                                    <tr>
-                                                                            <th>ລະຫັດ</th>
-                                                                            <th>ຫົວຂໍ້ວຽກ</th>
-                                                                           
-                                                                            <th>ສະຖານະ</th>
-                                                                            <th>Action</th>
-                                                                            
-                                                                        </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                    <tr>
-                                                                            <td>0001</td>
-                                                                            <td>ແປງຄອມ</td>
-                                                                            
-                                                                            <td><span class="badge  badge-primary float-center " ><font size="3"  >ກຳລັງດຳເນີນງານ</font></span></td>
-                                                                            <td>
-                                                                                    <button type="button" class="btn btn-pill btn-success View_data" data-toggle="tooltip" title="Edit"><i class="fas fa-file "></i></button>
-                                                                                        <button type="button" class="btn btn-pill btn-primary edit_data" data-toggle="tooltip" title="Edit">ສຳເລັດ</button>           
-                                                                            </td>
-                                                                                            
-                                                                    </tr>
-                                                                   
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                    
-                
-                                            </div>
-                                            
-                                        </div>
-            
-                                        <div class="form-group row">
-                                                <label for="inputPassword3" class="col-sm-2 col-form-label">ຫນ້າວຽກຂອງມື້ນີ້</label>
-                                                <div class="col-sm-10">
-                
-                
-                                                       
-                                                        <div class="table-responsive">
-                                                                <table id="example2" class="table table-hover  " cellspacing="0" width="100%">
-                                                                
-                                                                <thead>
-                                                                <tr>
-                                                                    <th>ລະຫັດ</th>
-                                                                    <th>ຫົວຂໍ້ວຽກ</th>
-                                                                   
-                                                                    <th>ສະຖານະ</th>
-                                                                    <th>Action</th>
-                                                                    
-                                                                </tr>
-                                                                </thead>
-                                                                <tbody>
+
+                                    <ul class="nav nav-tabs nav-fill mb-3" id="myTab" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" id="home-tab-2" data-toggle="tab" href="#home-2" role="tab" aria-controls="ວຽກຂອງຂ້ອຍ" aria-selected="true">ວຽກຂອງຂ້ອຍ</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="profile-tab-2" data-toggle="tab" href="#profile-2" role="tab" aria-controls="profile" aria-selected="false">ວຽກທີເບິ່ງ</a>
+                                            </li>
+                                           
+                                        </ul>
+
+                                        <div class="tab-content" id="myTabContent">
+                                                <div class="tab-pane fade show active" id="home-2" role="tabpanel" aria-labelledby="home-tab-2">
+                                                        <form>    
+                                                    <div class="form-group row">
+                                                                <label for="inputPassword3" class="col-sm-2 col-form-label">ວຽກທີຍັງຄ້າງ</label>
+                                                                <div class="col-sm-10">
+                                
+                                
                                                                        
-                                                                        <tr>
-                                                                                <td>0003</td>
-                                                                                <td>ອອກແບບເວັບໄຊ</td>
+                                                                        <div class="table-responsive">
+                                                                                <table id="example" class="table table-bordered  " cellspacing="0" width="100%">
                                                                                 
-                                                                                <td><span class="badge  badge-primary float-center " ><font size="3"  >ກຳລັງດຳເນີນງານ</font></span></td>
-                                                                                <td>
-                                                                                         
-                                                                                        <button type="button" class="btn btn-pill btn-success View_data" data-toggle="tooltip" title="Edit"><i class="fas fa-file "></i></button>
-                                                                                        <button type="button" class="btn btn-pill btn-primary edit_data" data-toggle="tooltip" title="Edit">ສຳເລັດ</button>
-                                                                                    </td>
-                                                                        </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
+                                                                                <thead>
+                                                                                        <tr>
+                                                                                                <th>ລະຫັດ</th>
+                                                                                                <th>ຫົວຂໍ້ວຽກ</th>
+                                                                                               
+                                                                                                <th>ສະຖານະ</th>
+                                                                                                <th>Action</th>
+                                                                                                
+                                                                                            </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                        <tr>
+                                                                                                <td>0001</td>
+                                                                                                <td>ແປງຄອມ</td>
+                                                                                                
+                                                                                                <td><span class="badge  badge-primary float-center " ><font size="3"  >ກຳລັງດຳເນີນງານ</font></span></td>
+                                                                                                <td>
+                                                                                                        <button type="button" class="btn btn-pill btn-success View_data" data-toggle="tooltip" title="Edit"><i class="fas fa-file "></i></button>
+                                                                                                            <button type="button" class="btn btn-pill btn-primary edit_data" data-toggle="tooltip" title="Edit">ສຳເລັດ</button>           
+                                                                                                </td>
+                                                                                                                
+                                                                                        </tr>
+                                                                                       
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                        
+                                    
+                                                                </div>
+                                                                
+                                                            </div>
+                                
+                                                            <div class="form-group row">
+                                                                    <label for="inputPassword3" class="col-sm-2 col-form-label">ຫນ້າວຽກປະຈຳ</label>
+                                                                    <div class="col-sm-10">
+                                    
+                                    
+                                                                           
+                                                                            <div class="table-responsive">
+                                                                                    <table id="example2" class="table table-bordered  " cellspacing="0" width="100%">
+                                                                                    
+                                                                                    <thead>
+                                                                                    <tr>
+                                                                                        <th>ລະຫັດ</th>
+                                                                                        <th>ຫົວຂໍ້ວຽກ</th>
+                                                                                       
+                                                                                        <th>ສະຖານະ</th>
+                                                                                        <th>Action</th>
+                                                                                        
+                                                                                    </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                           
+                                                                                            <tr>
+                                                                                                    <td>0003</td>
+                                                                                                    <td>ອອກແບບເວັບໄຊ</td>
+                                                                                                    
+                                                                                                    <td><span class="badge  badge-primary float-center " ><font size="3"  >ກຳລັງດຳເນີນງານ</font></span></td>
+                                                                                                    <td>
+                                                                                                             
+                                                                                                            <button type="button" class="btn btn-pill btn-success View_data" data-toggle="tooltip" title="Edit"><i class="fas fa-file "></i></button>
+                                                                                                            <button type="button" class="btn btn-pill btn-primary edit_data" data-toggle="tooltip" title="Edit">ສຳເລັດ</button>
+                                                                                                        </td>
+                                                                                            </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                            
+                                                                            
+                                                                    </div>
+                                                                    
+                                                                </div>
+                    
+                    
+                    
+                    
+                                                                <div class="form-group row">
+                                                                        <label for="inputPassword3" class="col-sm-2 col-form-label">ຫນ້າວຽກທີສຳເລັດແລ້ວ</label>
+                                                                        <div class="col-sm-10">
+                                        
+                                        
+                                                                               
+                                                                                <div class="table-responsive">
+                                                                                        <table id="example4" class="table table-bordered  " cellspacing="0" width="100%">
+                                                                                        
+                                                                                        <thead>
+                                                                                        <tr>
+                                                                                            <th>ລະຫັດ</th>
+                                                                                            <th>ຫົວຂໍ້ວຽກ</th>
+                                                                                           
+                                                                                            <th>ສະຖານະ</th>
+                                                                                            <th>Action</th>
+                                                                                            
+                                                                                        </tr>
+                                                                                        </thead>
+                                                                                        <tbody>
+                                                                                               
+                                                                                                <tr>
+                                                                                                        <td>0003</td>
+                                                                                                        <td>ອອກແບບເວັບໄຊ</td>
+                                                                                                        
+                                                                                                        <td><span class="badge  badge-primary float-center " ><font size="3"  >ກຳລັງດຳເນີນງານ</font></span></td>
+                                                                                                        <td>
+                                                                                                                 
+                                                                                                                <button type="button" class="btn btn-pill btn-success View_data" data-toggle="tooltip" title="Edit"><i class="fas fa-file "></i></button>
+                                                                                                                
+                                                                                                            </td>
+                                                                                                </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                                
+                                                                                
+                                                                        </div>
+                                                                        
+                                                                    </div>
+                                    
+                                
                                                         
                                                         
+                                                    </form>
                                                 </div>
+
+
+
+
+
+
+                                                <div class="tab-pane fade" id="profile-2" role="tabpanel" aria-labelledby="profile-tab-2">
+                                                        <div class="form-group row">
+                                                                <label for="inputPassword3" class="col-sm-2 col-form-label">ວຽກທີຍັງຄ້າງ</label>
+                                                                <div class="col-sm-10">
+                                
+                                
+                                                                       
+                                                                        <div class="table-responsive">
+                                                                                <table id="example" class="table table-bordered  " cellspacing="0" width="100%">
+                                                                                
+                                                                                <thead>
+                                                                                        <tr>
+                                                                                                <th>ລະຫັດ</th>
+                                                                                                <th>ຫົວຂໍ້ວຽກ</th>
+                                                                                                <th>ຜູ້ປະຕິບັດ</th>
+                                                                                                <th>ສະຖານະ</th>
+                                                                                                <th>Action</th>
+                                                                                                
+                                                                                            </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                        <tr>
+                                                                                                <td>0001</td>
+                                                                                                <td>ແປງຄອມ</td>
+                                                                                                <td>ທ້າວ ກ</td>
+                                                                                                <td><span class="badge  badge-primary float-center " ><font size="3"  >ກຳລັງດຳເນີນງານ</font></span></td>
+                                                                                                <td>
+                                                                                                        <button type="button" class="btn btn-pill btn-success View_data" data-toggle="tooltip" title="Edit"><i class="fas fa-file "></i></button>
+                                                                                                            <button type="button" class="btn btn-pill btn-primary edit_data" data-toggle="tooltip" title="Edit">ສຳເລັດ</button>           
+                                                                                                </td>
+                                                                                                                
+                                                                                        </tr>
+                                                                                       
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                        
+                                    
+                                                                </div>
+                                                                
+                                                            </div>
+                                                            <!--- -->
+
+                                                            <div class="form-group row">
+                                                                    <label for="inputPassword3" class="col-sm-2 col-form-label">ວຽກທີຍັງຄ້າງ</label>
+                                                                    <div class="col-md-2">
+
+                                                                            <label >ຜູ້ປະຕິບັດ</label>
+                                                                                <select class="form-control" >
+                                                                                    <option>ເລືອກ</option>
+                                                                                    <option>ທ້າວ ກ</option>
+                                                                                    <option>ນາງ ຈັນ</option>
+                                                                                    <option>ທ້າວ ແກ້ວ</option>
+                                                                                    
+                                                                                    
+                                                                            </select>
+                                                                           
+                                                                    </div>
+                                                                    <div class="col-md-2">
+
+                                                                            <label >ໄລຍະເວລາ</label>
+                                                                                <select class="form-control" >
+                                                                                    <option>ເລືອກ</option>
+                                                                                    <option>ອາທິດ</option>
+                                                                                    <option>ເດືອນ</option>
+                                                                                    <option>ປີ</option>
+                                                                                    
+                                                                                    
+                                                                            </select>
+                                                                            
+                                                                           
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                        <!-- -->
+
+                                                            <div class="form-group row">
+                                                                    <label for="inputPassword3" class="col-sm-2 col-form-label"></label>
+                                                                    <div class="col-md-6">
+                                                                            <div class="card mb-4">
+                                                                                <div class="card-header bg-white font-weight-bold">
+                                                                                    cart
+                                                                                </div>
+                                                                                <div class="card-body">
+                                                                                    <div id="chart_div_3" style="width: 100%;"></div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    
+                                                                </div>
+                                                        <!-- -->
+
+                                                        <div class="form-group row">
+                                                                <label for="inputPassword3" class="col-sm-2 col-form-label">ສະແດງໄລຍະເວລາ</label>
+                                                                <div class="col-sm-10">
+                                
+                                
+                                                                       
+                                                                        <div class="table-responsive">
+                                                                                <table id="example" class="table table-bordered  " cellspacing="0" width="100%">
+                                                                                
+                                                                                
+                                                                                    <tr>
+                                                                                        <td colspan="32" align="center">ເດືອນ2</td>
+                                                                                    <tr>
+                                                                                    <tr>
+                                                                                        <td>ວັນທີ</td>
+                                                                                        <td>1</td>
+                                                                                        <td>2</td>
+                                                                                        <td>3</td>
+                                                                                        <td>4</td>
+                                                                                        <td>5</td>
+                                                                                        <td>6</td>
+                                                                                        <td>7</td>
+                                                                                        <td>8</td>
+                                                                                        <td>9</td>
+                                                                                        <td>10</td>
+
+                                                                                        <td>11</td>
+                                                                                        <td>12</td>
+                                                                                        <td>13</td>
+                                                                                        <td>14</td>
+                                                                                        <td>15</td>
+                                                                                        <td>16</td>
+                                                                                        <td>17</td>
+                                                                                        <td>18</td>
+                                                                                        <td>19</td>
+                                                                                        <td>20</td>
+
+                                                                                        <td>21</td>
+                                                                                        <td>22</td>
+                                                                                        <td>23</td>
+                                                                                        <td>24</td>
+                                                                                        <td>25</td>
+                                                                                        <td>26</td>
+                                                                                        <td>27</td>
+                                                                                        <td>28</td>
+                                                                                        <td>29</td>
+                                                                                        <td>30</td>
+                                                                                        <td>31</td>
+                                                                                    </tr> 
+                                                                                       
+                                                                                    <tr>
+                                                                                        <td>Jobs</td>
+                                                                                        <td></td>
+                                                                                        <td></td>
+                                                                                        <td></td>
+                                                                                        <td bgcolor="#00FF00"></td>
+                                                                                        <td bgcolor="#00FF00"></td>
+                                                                                        <td bgcolor="#00FF00"></td>
+                                                                                        <td bgcolor="#00FF00"></td>
+                                                                                        <td bgcolor="#00FF00"></td>
+                                                                                        <td bgcolor="#00FF00"></td>
+                                                                                        <td></td>
+
+                                                                                        <td></td>
+                                                                                        <td></td>
+                                                                                        <td></td>
+                                                                                        <td></td>
+                                                                                        <td></td>
+                                                                                        <td></td>
+                                                                                        <td></td>
+                                                                                        <td></td>
+                                                                                        <td></td>
+                                                                                        <td></td>
+
+                                                                                        <td></td>
+                                                                                        <td></td>
+                                                                                        <td></td>
+                                                                                        <td></td>
+                                                                                        <td></td>
+                                                                                        <td></td>
+                                                                                        <td></td>
+                                                                                        <td></td>
+                                                                                        <td></td>
+                                                                                        <td></td>
+                                                                                        <td></td>
+                                                                                        
+                                                                                        
+                                                                                </tr>
+                                                                               
+                                                                                <tr>
+                                                                                    <td>Jobs</td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td  bgcolor="#FFF933"></td>
+                                                                                    <td  bgcolor="#FFF933"></td>
+                                                                                    <td  bgcolor="#FFF933"></td>
+                                                                                    <td  bgcolor="#FFF933"></td>
+
+                                                                                    <td  bgcolor="#FFF933"></td>
+                                                                                    <td  bgcolor="#FFF933"></td>
+                                                                                    <td  bgcolor="#FFF933"></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                   
+                                                                                    
+                                                                            </tr>
+
+                                                                                <tr>
+                                                                                    <td>Jobs</td>
+                                                                                    <td bgcolor="#3393FF"></td>
+                                                                                    <td bgcolor="#3393FF"></td>
+                                                                                    <td bgcolor="#3393FF"></td>
+                                                                                    <td bgcolor="#3393FF"></td>
+                                                                                    <td bgcolor="#3393FF"></td>
+                                                                                    <td bgcolor="#3393FF"></td>
+                                                                                    <td bgcolor="#3393FF"></td>
+                                                                                    <td bgcolor="#3393FF"></td>
+                                                                                    <td bgcolor="#3393FF"></td>
+                                                                                    <td bgcolor="#3393FF"></td>
+
+                                                                                    <td bgcolor="#3393FF"></td>
+                                                                                    <td bgcolor="#3393FF"></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    
+                                                                                    
+                                                                                </tr>
+
+                                                                                <tr>
+                                                                                    <td>Jobs</td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td bgcolor="#FF9C33"></td>
+                                                                                    <td bgcolor="#FF9C33"></td>
+                                                                                    <td bgcolor="#FF9C33"></td>
+                                                                                    <td bgcolor="#FF9C33"></td>
+
+                                                                                    <td bgcolor="#FF9C33"></td>
+                                                                                    <td bgcolor="#FF9C33"></td>
+                                                                                    <td bgcolor="#FF9C33"></td>
+                                                                                    <td bgcolor="#FF9C33"></td>
+                                                                                    <td bgcolor="#FF9C33"></td>
+                                                                                    <td bgcolor="#FF9C33"></td>
+                                                                                    <td bgcolor="#FF9C33"></td>
+                                                                                    <td bgcolor="#FF9C33"></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    
+                                                                                    
+                                                                                </tr>
+
+                                                                                <tr>
+                                                                                    <td>Jobs</td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td bgcolor="#9033FF"></td>
+
+                                                                                    <td bgcolor="#9033FF"></td>
+                                                                                    <td bgcolor="#9033FF"></td>
+                                                                                    <td bgcolor="#9033FF"></td>
+                                                                                    <td bgcolor="#9033FF"></td>
+                                                                                    <td bgcolor="#9033FF"></td>
+                                                                                    <td bgcolor="#9033FF"></td>
+                                                                                    <td bgcolor="#9033FF"></td>
+                                                                                    <td bgcolor="#9033FF"></td>
+                                                                                    <td bgcolor="#9033FF"></td>
+                                                                                    <td bgcolor="#9033FF"></td>
+
+                                                                                    <td bgcolor="#9033FF"></td>
+                                                                                    <td bgcolor="#9033FF"></td>
+                                                                                    <td bgcolor="#9033FF"></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    
+                                                                                    
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Jobs</td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td bgcolor="#FF4F33"></td>
+                                                                                    <td bgcolor="#FF4F33"></td>
+                                                                                    <td bgcolor="#FF4F33"></td>
+                                                                                    <td bgcolor="#FF4F33"></td>
+
+                                                                                    <td bgcolor="#FF4F33"></td>
+                                                                                    <td bgcolor="#FF4F33"></td>
+                                                                                    <td bgcolor="#FF4F33"></td>
+                                                                                    <td bgcolor="#FF4F33"></td>
+                                                                                    <td bgcolor="#FF4F33"></td>
+                                                                                    <td bgcolor="#FF4F33"></td>
+                                                                                    <td bgcolor="#FF4F33"></td>
+                                                                                    <td bgcolor="#FF4F33"></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    
+                                                                                    
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Jobs</td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    
+                                                                                    
+                                                                                </tr>
+                                                                                
+                                                                                        
+                                                                                       
+                                                                                
+                                                                            </table>
+                                                                        </div>
+                                                                        
+                                    
+                                                                </div>
+                                                                
+                                                            </div>
+
+
+                                                        <!-- -->
+
+                                                            <div class="form-group row">
+                                                                <label for="inputPassword3" class="col-sm-2 col-form-label"></label>
+                                                                <div class="col-sm-10">
+                                
+                                
+                                                                       
+                                                                        <div class="table-responsive">
+                                                                                <table id="example" class="table table-bordered  " cellspacing="0" width="100%">
+                                                                                
+                                                                                <thead>
+                                                                                        <tr>
+                                                                                                <th>ຫົວຂໍວຽກ</th>
+                                                                                                <th>ລາຍລະອຽດ</th>
+                                                                                                <th>ສະຖານະ</th>
+                                                                                                <th>Action</th>
+                                                                                                
+                                                                                            </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                        <tr>
+                                                                                                <td>ແປງຄອມ</td>
+                                                                                                <td>ກຳລັງດຳເນີນງາ</td>
+                                                                                                <td><span class="badge  badge-primary float-center " ><font size="3"  >ກຳລັງດຳເນີນງານ</font></span></td>
+                                                                                                <td></td>
+                                                                                               
+                                                                                                                
+                                                                                        </tr>
+                                                                                       
+                                                                                </tbody>
+                                                                                </table>
+                                                                        </div>
+
+                                                                        
+
+                                                                        
+                                                                        
+                                    
+                                                                </div>
+                                                                
+                                                            </div>
+                                                               
+                                                <!--- -->
+                                                            <div class="form-group row">
+                                                                <label for="inputPassword3" class="col-sm-2 col-form-label">ຄະແນນຜູ້ດູແລ</label>
+                                                                <div class="col-sm-10">
+                                
+                                
+                                                                    
+                                                                        <div class="table-responsive">
+                                                                                <table id="example" class="table table-bordered  " cellspacing="0" width="100%">
+                                                                                
+                                                                                <thead>
+                                                                                        <tr>
+                                                                                                <th>ລະຫັດ</th>
+                                                                                                <th>ຫົວຂໍ້ວຽກ</th>
+                                                                                                <th>ຜູ້ປະຕິບັດ</th>
+                                                                                                <th>ສະຖານະ</th>
+                                                                                                <th>Action</th>
+                                                                                                
+                                                                                            </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                        <tr>
+                                                                                                <td>0001</td>
+                                                                                                <td>ແປງຄອມ</td>
+                                                                                                <td>ທ້າວ ກ</td>
+                                                                                                <td><span class="badge  badge-primary float-center " ><font size="3"  >ກຳລັງດຳເນີນງານ</font></span></td>
+                                                                                                <td>
+                                                                                                        <button type="button" class="btn btn-pill btn-success View_data" data-toggle="tooltip" title="Edit"><i class="fas fa-file "></i></button>
+                                                                                                            <button type="button" class="btn btn-pill btn-primary edit_data" data-toggle="tooltip" title="Edit">ສຳເລັດ</button>           
+                                                                                                </td>
+                                                                                                                
+                                                                                        </tr>
+                                                                                    
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+
+                                                                        
+
+                                                                        
+                                                                        
+                                    
+                                                                </div>
+                                                                
+                                                            </div>
+                                                        
+                                    <!--- -->
+                                    <!--- -->
+                                                            <div class="form-group row">
+                                                                    <label for="inputPassword3" class="col-sm-2 col-form-label">ຫນ້າວຽກລູກນ້ອງແຕ່ລະຄົນ</label>
+                                                                    <div class="col-sm-10">
+                                    
+                                    
+                                                                        
+                                                                        
+
+                                                                            <table class=" table-responsive"  width="100%" >
+                                                                                    <tr>
+                                                                                        <div class="col-sm-3" style='padding: 8px;'>
+                                                                                        <input type="text" class="form-control"  >
+                                                                                        </div>
+                                                                                      
+                                                                                    </tr>   
+                                                                                <tr>
+
+                                                                                    <td>
+                                                                                            <div style='padding: 3px;'>
+                                                                                                    <div class="card" style="width: 150px; height: 190px;">
+                                                                                                     <img class="card-img-top" height="200" width="120" src="http://via.placeholder.com/200x120" alt="Card image cap">
+                                                                                                     <div class="card-body">
+                                                                                                         <h5 class="card-title">ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ</h5>
+                                                                                                         
+                                                                                                    </div>
+                                                                                                     </div>
+                                                                                            </div>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                            <div style='padding: 3px;'>
+                                                                                                    <div class="card" style="width: 150px; height: 190px;">
+                                                                                                     <img class="card-img-top" height="200" width="120" src="http://via.placeholder.com/200x120" alt="Card image cap">
+                                                                                                     <div class="card-body">
+                                                                                                         <h5 class="card-title">ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ</h5>
+                                                                                                         
+                                                                                                    </div>
+                                                                                                     </div>
+                                                                                            </div>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                            <div style='padding: 3px;'>
+                                                                                                    <div class="card" style="width: 150px; height: 190px;">
+                                                                                                     <img class="card-img-top" height="200" width="120" src="http://via.placeholder.com/200x120" alt="Card image cap">
+                                                                                                     <div class="card-body">
+                                                                                                         <h5 class="card-title">ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ</h5>
+                                                                                                         
+                                                                                                    </div>
+                                                                                                     </div>
+                                                                                            </div>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                            <div style='padding: 3px;'>
+                                                                                                    <div class="card" style="width: 150px; height: 190px;">
+                                                                                                     <img class="card-img-top" height="200" width="120" src="http://via.placeholder.com/200x120" alt="Card image cap">
+                                                                                                     <div class="card-body">
+                                                                                                         <h5 class="card-title">ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ</h5>
+                                                                                                         
+                                                                                                    </div>
+                                                                                                     </div>
+                                                                                            </div>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                            <div style='padding: 3px;'>
+                                                                                                    <div class="card" style="width: 150px; height: 190px;">
+                                                                                                     <img class="card-img-top" height="200" width="120" src="http://via.placeholder.com/200x120" alt="Card image cap">
+                                                                                                     <div class="card-body">
+                                                                                                         <h5 class="card-title">ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ</h5>
+                                                                                                         
+                                                                                                    </div>
+                                                                                                     </div>
+                                                                                            </div>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                            <div style='padding: 3px;'>
+                                                                                                    <div class="card" style="width: 150px; height: 190px;">
+                                                                                                     <img class="card-img-top" height="200" width="120" src="http://via.placeholder.com/200x120" alt="Card image cap">
+                                                                                                     <div class="card-body">
+                                                                                                         <h5 class="card-title">ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ</h5>
+                                                                                                         
+                                                                                                    </div>
+                                                                                                     </div>
+                                                                                            </div>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                            <div style='padding: 3px;'>
+                                                                                                    <div class="card" style="width: 150px; height: 190px;">
+                                                                                                     <img class="card-img-top" height="200" width="120" src="http://via.placeholder.com/200x120" alt="Card image cap">
+                                                                                                     <div class="card-body">
+                                                                                                         <h5 class="card-title">ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ</h5>
+                                                                                                         
+                                                                                                    </div>
+                                                                                                     </div>
+                                                                                            </div>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                            <div style='padding: 3px;'>
+                                                                                                    <div class="card" style="width: 150px; height: 190px;">
+                                                                                                     <img class="card-img-top" height="200" width="120" src="http://via.placeholder.com/200x120" alt="Card image cap">
+                                                                                                     <div class="card-body">
+                                                                                                         <h5 class="card-title">ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ</h5>
+                                                                                                         
+                                                                                                    </div>
+                                                                                                     </div>
+                                                                                            </div>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                            <div style='padding: 3px;'>
+                                                                                                    <div class="card" style="width: 150px; height: 190px;">
+                                                                                                     <img class="card-img-top" height="200" width="120" src="http://via.placeholder.com/200x120" alt="Card image cap">
+                                                                                                     <div class="card-body">
+                                                                                                         <h5 class="card-title">ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ</h5>
+                                                                                                         
+                                                                                                    </div>
+                                                                                                     </div>
+                                                                                            </div>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                            <div style='padding: 3px;'>
+                                                                                                    <div class="card" style="width: 150px; height: 190px;">
+                                                                                                     <img class="card-img-top" height="200" width="120" src="http://via.placeholder.com/200x120" alt="Card image cap">
+                                                                                                     <div class="card-body">
+                                                                                                         <h5 class="card-title">ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ</h5>
+                                                                                                         
+                                                                                                    </div>
+                                                                                                     </div>
+                                                                                            </div>
+                                                                                    </td>
+                                                                                   
+                                                                                       
+                                                                                </tr>
+                                                                               
+                                                                            </table>
+                                                                        
+                                                                        </div>
+                                                                    </div>
+                                                            <!--- --> 
+                                                            <div class="form-group row">
+                                                                   
+
+                                                            </div>  
+
+                                                            <div class="form-group row">
+                                                                    <label for="inputPassword3" class="col-sm-2 col-form-label"></label>
+                                                                    <div class="col-sm-10">
+                                    
+                                                                            <div class="form-group row">
+                                                                                    <div class="col-sm-3">
+                                                                                        <h4>ໜ້າວຽກຂອງພະນັກງານ</h4>
+                                                                                    </div>
+                                                                                    <div class="col-sm-3">
+                                                                                            <input type="text" class="form-control"  >
+                                                                                    </div>
+                                                                                    <div class="col-sm-3">
+                                                                                            <input type="text" class="form-control"  >
+                                                                                    </div>
+                                                                                    <div class="col-sm-1">
+                                                                                        
+                                                                                    </div>
+                                                                                    <div class="col-sm-1">
+                                                                                            
+                                                                                    </div>
+                                                                                    <div class="col-sm-1">
+                                                                                        <button type="button" class="btn btn-success" title="ເພີ້ມ" name="add" id="add" >ພືມ</button>
+                                                                                    </div>
+
+                                                                            </div>
+                                                                            
+                                                                            <div class="table-responsive">
+                                                                                    <table id="example" class="table table-bordered  " cellspacing="0" width="100%">
+                                                                                    
+                                                                                    <thead>
+                                                                                            <tr>
+                                                                                                    <th>ລະຫັດ</th>
+                                                                                                    <th>ຫົວຂໍ້ວຽກ</th>
+                                                                                                    <th>ຜູ້ປະຕິບັດ</th>
+                                                                                                    <th>ສະຖານະ</th>
+                                                                                                    <th>Action</th>
+                                                                                                    
+                                                                                                </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                            <tr>
+                                                                                                    <td>0001</td>
+                                                                                                    <td>ແປງຄອມ</td>
+                                                                                                    <td>ທ້າວ ກ</td>
+                                                                                                    <td><span class="badge  badge-primary float-center " ><font size="3"  >ກຳລັງດຳເນີນງານ</font></span></td>
+                                                                                                    <td>
+                                                                                                            <button type="button" class="btn btn-pill btn-success View_data" data-toggle="tooltip" title="Edit"><i class="fas fa-file "></i></button>
+                                                                                                                <button type="button" class="btn btn-pill btn-primary edit_data" data-toggle="tooltip" title="Edit">ສຳເລັດ</button>           
+                                                                                                    </td>
+                                                                                                                    
+                                                                                            </tr>
+                                                                                        
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+    
+                                                                            
+    
+                                                                            
+                                                                            
+                                        
+                                                                    </div>
+                                                                    
+                                                                </div>
+
+
+
+
+
+
+
+
+
+
+
+                                                            <!--- end tab 2 -->
+                                                        </div>
+
+                                                    </div>
                                                 
                                             </div>
-            
+                                        </div>
+                                
+                            
+
+                                
+                                   
                                     
+                                   
+                                   
+                                   
                                     
-                                </form>
                             </div>
                             
                         </div>
@@ -363,7 +1172,103 @@
           
        
   
-  
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart1);
+        google.charts.setOnLoadCallback(drawChart2);
+        google.charts.setOnLoadCallback(drawChart3);
+        google.charts.setOnLoadCallback(drawChart4);
+
+        function drawChart1() {
+            var data = google.visualization.arrayToDataTable([
+                ['Age', 'Weight'],
+                [ 8,      12],
+                [ 4,      5.5],
+                [ 11,     14],
+                [ 4,      5],
+                [ 3,      3.5],
+                [ 6.5,    7]
+            ]);
+
+            var options = {
+                title: 'Age vs. Weight comparison',
+                hAxis: {title: 'Age', minValue: 0, maxValue: 15},
+                vAxis: {title: 'Weight', minValue: 0, maxValue: 15},
+                legend: 'none'
+            };
+
+            var chart = new google.visualization.ScatterChart(document.getElementById('chart_div_1'));
+
+            chart.draw(data, options);
+        }
+
+        function drawChart2() {
+            var data = google.visualization.arrayToDataTable([
+                ["Element", "Density", { role: "style" } ],
+                ["Copper", 8.94, "#b87333"],
+                ["Silver", 10.49, "silver"],
+                ["Gold", 19.30, "gold"],
+                ["Platinum", 21.45, "color: #e5e4e2"]
+            ]);
+
+            var view = new google.visualization.DataView(data);
+            view.setColumns([0, 1,
+                { calc: "stringify",
+                    sourceColumn: 1,
+                    type: "string",
+                    role: "annotation" },
+                2]);
+
+            var options = {
+                title: "Density of Precious Metals, in g/cm^3",
+                bar: {groupWidth: "95%"},
+                legend: { position: "none" },
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById("chart_div_2"));
+
+            chart.draw(view, options);
+        }
+
+        function drawChart3() {
+            var data = google.visualization.arrayToDataTable([
+                ['Year', 'Sales', 'Expenses'],
+                ['2013',  1000,      400],
+                ['2014',  1170,      460],
+                ['2015',  660,       1120],
+                ['2016',  1030,      540]
+            ]);
+
+            var options = {
+                title: 'Company Performance',
+                hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+                vAxis: {minValue: 0}
+            };
+
+            var chart = new google.visualization.AreaChart(document.getElementById('chart_div_3'));
+            chart.draw(data, options);
+        }
+
+        function drawChart4() {
+            var data = google.visualization.arrayToDataTable([
+                ['Task', 'Hours per Day'],
+                ['Work',     11],
+                ['Eat',      2],
+                ['Commute',  2],
+                ['Watch TV', 2],
+                ['Sleep',    7]
+            ]);
+
+            var options = {
+                title: 'My Daily Activities'
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('chart_div_4'));
+
+            chart.draw(data, options);
+        }
+    </script>
  
 
   
@@ -371,7 +1276,10 @@
         $(document).ready(function () {
 
            
-
+           $('#example').DataTable();
+           $('#example2').DataTable();
+           $('#example4').DataTable();
+           $('#example1').DataTable();
            
 
 
@@ -413,9 +1321,8 @@
             });
 
 
-             $('#example').DataTable();
-             $('#example2').DataTable();
-            $('#example3').DataTable();
+             
+            
             $(document).on('click', '.View_data', function(){  
                 $('#add_data_Modal').modal('show');
             });
