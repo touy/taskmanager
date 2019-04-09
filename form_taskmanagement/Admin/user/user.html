@@ -64,10 +64,10 @@
                 
                 <thead>
                 <tr>
-                    <th>ລະຫັດ</th>
+                    <th>ຮູບພາບ</th>
                     <th>ຊື່ຜູ້ໃຊ້</th>
                     <th>ນາມສະກຸນ</th>
-                    <th>ທີຢູ່</th>
+                    
                     <th>ພະແນກ</th>
                     <th>ຄວາມສາມາດ</th>
                     <th>Action</th>
@@ -75,10 +75,14 @@
                 </thead>
                 <tbody>
                         <tr>
-                                <td>0001</td>
+                                <td>
+                                        <div class="card" style="width: 70px; height: 80px;">
+                                                <img class="card-img-top" height="80" width="70" src="http://via.placeholder.com/100x100" alt="Card image cap">
+                                        </div>
+                                </td>
                                 <td>ທ້າວ ໂຊກໄຊ</td>
                                 <td>ແກ້ວພິລາວັນ</td>
-                                <td>ບ້ານ ດອນກອຍ ເມືອງສີສັດຕະນາກ</td>
+                               
                                 <td>IT font End</td>
                                 <td><span class="badge badge-secondary float-center " ><font size="3"  >ພະນັກງານ</font></span></td>
                                 <td>
@@ -130,45 +134,37 @@
                                 <input type="text" class="form-control"  >
                         </div>
                         <div class="col-sm-3">
-                            <label >ພະແນກ</label>
-                            <select class="form-control" >
-                                <option>ເລືອກ</option>
-                                <option>Font End</option>
-                                <option>black End</option>
-                                
-                                
-                            </select>
-                       
-                         </div>
-                         <div class="col-sm-3">
-                            <label >ສິດ</label>
-                            <select class="form-control" >
-                                <option>Admin</option>
-                                <option>Header</option>
-                                <option>leader</option>
-                                <option>Employee</option>
-                                
-                                
-                            </select>
+                                <label >ຮູບພາບ</label>
+                                <input type="file" class="form-control"  >
                         </div>
+                     
                        
                 </div>
+             
                 <div class="form-group row">
-                        
-                       
-                        <div class="col-sm-12">
-                                <label >ທີຢູ່ປັດຈຸບັນ</label>
-                                <textarea class="form-control"  rows="3"></textarea>
+                        <div class="col-sm-3">
+                                <label >ພະແນກ</label>
+                                <select class="form-control" >
+                                    <option>ເລືອກ</option>
+                                    <option>Font End</option>
+                                    <option>black End</option>
+                                    
+                                    
+                                </select>
+                           
+                             </div>
+                             <div class="col-sm-3">
+                                <label >ສິດ</label>
+                                <select class="form-control" >
+                                    <option>Admin</option>
+                                    <option>Header</option>
+                                    <option>leader</option>
+                                    <option>Employee</option>
+                                    
+                                    
+                                </select>
+                            </div>
 
-                        </div>
-                </div>
-                <div class="form-group row">
-
-                    <div class="col-sm-3">
-                            <label >Username</label>
-                            <input type="text" class="form-control"  >
-
-                    </div>
                     <div class="col-sm-3">
                         <label >ຜູ້ດູແລ</label>
                         <select class="form-control" >
@@ -184,6 +180,12 @@
                 </div>
                 </div>
                 <div class="form-group row">
+                    
+                        <div class="col-sm-3">
+                                <label >Username</label>
+                                <input type="text" class="form-control"  >
+    
+                        </div>
 
                     <div class="col-sm-3">
                             <label >Password</label>
