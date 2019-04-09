@@ -1,0 +1,547 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../css/bootadmin.min.css">
+    <link rel="stylesheet" href="../css/datatables.min.css">
+    <link rel="stylesheet" href="../css/fullcalendar.min.css">
+    <link rel="stylesheet" href="../css/font.css">
+
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/bootadmin.min.js"></script>
+    <script src="../js/datatables.min.js"></script>
+    <script src="../js/moment.min.js"></script>
+    <script src="../js/fullcalendar.min.js"></script>
+    <script src="../js/sweetalert.min.js"></script>
+
+
+    
+    
+
+    <title>System Name</title>
+    
+</head>
+<body class="bg-light" style="font-family: 'Phetsarath OT'">
+
+<nav class="navbar navbar-expand navbar-dark bg-dark shadow">
+    <a class="sidebar-toggle mr-3" href="#"><i class="fa fa-bars"></i></a>
+    <a class="navbar-brand" href="#">System Name</a>
+
+    <div class="navbar-collapse collapse">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a href="../index.html" class="nav-link"><i class="material-icons"></i><font size="4"> ອອກຈາກລະບົບ</font></a></li>
+            
+        </ul>
+    </div>
+</nav>
+
+
+            
+
+<div class="bg-light py-5 text-center">
+        <div class="container">
+           
+    
+            <h1>Task Managerment</h1>
+            <p class="lead mb-4">A few reasons to choose BootAdmin.</p>
+    
+            <div class="row">
+                <div class="col-md-4 project">
+                <span class="fa-stack fa-5x mb-2">
+                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fas fa-file-powerpoint fa-stack-1x fa-inverse"></i>
+                    
+                </span>
+                    <h4>ການດຳເນີນໂຄງການ</h4>
+                    <p class="mb-4">Project</p>
+                </div>
+                <div class="col-md-4 follow">
+                <span class="fa-stack fa-5x mb-2">
+                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fas fa-tasks fa-stack-1x fa-inverse"></i>
+                  <!--  -->
+                    
+                </span>
+                    <h4>ຈັດການໂຄງການ</h4>
+                    <p class="mb-4"> Manage Project</p>
+                </div>
+
+                <div class="col-md-4 user">
+                <span class="fa-stack fa-5x mb-2">
+                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fas fa-user fa-stack-1x fa-inverse"></i>
+                    
+                   
+                   
+                </span>
+                    <h4>ຜູ້ໃຊ້ລະບົບ</h4>
+                    <p class="mb-4">User</p>
+                </div>
+               
+               
+              
+                
+            </div>
+
+            <div class="row">
+                    <div class="col-md-4 jobs">
+                    <span class="fa-stack fa-5x mb-2">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fas fa-briefcase fa-stack-1x fa-inverse"></i>
+                        
+                    </span>
+                        <h4>ວຽກປະຈຳ</h4>
+                        <p class="mb-4">Jobs</p>
+                    </div>
+                   
+    
+                   
+                     <div class="col-md-4 report">
+                    <span class="fa-stack fa-5x mb-2">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fas fa-chart-pie fa-stack-1x fa-inverse"></i>
+                       
+                    </span>
+                        <h4>ບົດລາຍງານ</h4>
+                        <p class="mb-4">Report</p>
+                    </div>
+
+
+                    <div class="col-md-4 logout">
+                            <span class="fa-stack fa-5x mb-2">
+                                <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                                <i class="fas fa-sign-out-alt fa-stack-1x fa-inverse"></i>
+                                
+                              <!--  -->
+                                
+                            </span>
+                                <h4>ອອກຈາກລະບົບ</h4>
+                                <p class="mb-4"> Logout</p>
+                            </div>
+                   
+                  
+                    
+                </div>
+        </div>
+    </div>
+    <div class="d-flex">
+
+    
+            <div class="content p-4">
+            
+                
+                    <div class="card mb-4">
+                            <div class="card-header bg-primary font-weight-bold">
+                                    <span class="text-white ">User Active  </span>
+
+                            </div>
+                            
+                          
+                            <div class="card-body">
+                                    <div class="form-group row">
+                                            <div class="col-sm-12">
+
+                                                    <div class="table-responsive">
+                                                            <table id="example2" class="table table-hover  " cellspacing="0" width="100%">
+                                                            
+                                                            <thead>
+                                                            <tr>
+                                                                <th>UserName</th>
+                                                                <th>Time login</th>
+                                                                <th>Time logout</th>
+                                                                <th>IP Address</th>
+                                                                
+                                                                
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                    <tr>
+                                                                            <td><img src="http://via.placeholder.com/100x100" class="rounded-circle" alt="Cinque Terre" width="35" height="35">
+                                                                                ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ
+                                                                            </td>
+                                                                            <td> 18/04/2019 9:02</td>
+                                                                            <td> 18/04/2019 12:05</td>
+                                                                            <td>192.168.0.43</td>
+                                                                            
+                                                                            
+                                                                    </tr>
+                                                                    <tr>
+                                                                            <td><img src="http://via.placeholder.com/100x100" class="rounded-circle" alt="Cinque Terre" width="35" height="35">
+                                                                                ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ
+                                                                            </td>
+                                                                            <td> 18/04/2019 9:02</td>
+                                                                            <td> 18/04/2019 12:05</td>
+                                                                            <td>192.168.0.43</td>
+                                                                            
+                                                                            
+                                                                    </tr>
+                                                                    <tr>
+                                                                            <td><img src="http://via.placeholder.com/100x100" class="rounded-circle" alt="Cinque Terre" width="35" height="35">
+                                                                                ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ
+                                                                            </td>
+                                                                            <td> 18/04/2019 9:02</td>
+                                                                            <td> 18/04/2019 12:05</td>
+                                                                            <td>192.168.0.43</td>
+                                                                            
+                                                                            
+                                                                    </tr>
+                                                                    <tr>
+                                                                            <td><img src="http://via.placeholder.com/100x100" class="rounded-circle" alt="Cinque Terre" width="35" height="35">
+                                                                                ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ
+                                                                            </td>
+                                                                            <td> 18/04/2019 9:02</td>
+                                                                            <td> 18/04/2019 12:05</td>
+                                                                            <td>192.168.0.43</td>
+                                                                            
+                                                                            
+                                                                    </tr>
+                                                                   
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+
+                                            </div>
+                                    </div>
+                                
+                            
+
+                                
+                                   
+                                    
+                                   
+                                   
+                                   
+                                    
+                            </div>
+                            
+                    </div>
+
+                    <div class="card mb-4">
+                            <div class="card-header bg-primary font-weight-bold">
+                                    <span class="text-white ">User Activity console </span>
+
+                            </div>
+                            
+                          
+                            <div class="card-body">
+                                    <div class="form-group row">
+                                            <div class="col-sm-12">
+
+                                                    <div class="table-responsive">
+                                                            <table id="example4" class="table table-hover  " cellspacing="0" width="100%">
+                                                            
+                                                            <thead>
+                                                            <tr>
+                                                                <th>UserName</th>
+                                                                <th>Use Form</th>
+                                                                <th>Time</th>
+                                                                <th>IP Address</th>
+                                                                
+                                                                
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                    <tr>
+                                                                            <td><img src="http://via.placeholder.com/100x100" class="rounded-circle" alt="Cinque Terre" width="35" height="35">
+                                                                                ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ
+                                                                            </td>
+                                                                            <td>From main</td>
+                                                                            <td> 18/04/2019 12:05</td>
+                                                                            <td>192.168.0.43</td>
+                                                                            
+                                                                            
+                                                                    </tr>
+                                                                    <tr>
+                                                                            <td><img src="http://via.placeholder.com/100x100" class="rounded-circle" alt="Cinque Terre" width="35" height="35">
+                                                                                ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ
+                                                                            </td>
+                                                                            <td> From main</td>
+                                                                            <td> 18/04/2019 12:05</td>
+                                                                            <td>192.168.0.43</td>
+                                                                            
+                                                                            
+                                                                    </tr>
+                                                                    <tr>
+                                                                            <td><img src="http://via.placeholder.com/100x100" class="rounded-circle" alt="Cinque Terre" width="35" height="35">
+                                                                                ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ
+                                                                            </td>
+                                                                            <td> From main</td>
+                                                                            <td> 18/04/2019 12:05</td>
+                                                                            <td>192.168.0.43</td>
+                                                                            
+                                                                            
+                                                                    </tr>
+                                                                    <tr>
+                                                                            <td><img src="http://via.placeholder.com/100x100" class="rounded-circle" alt="Cinque Terre" width="35" height="35">
+                                                                                ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ
+                                                                            </td>
+                                                                            <td> From main</td>
+                                                                            <td> 18/04/2019 12:05</td>
+                                                                            <td>192.168.0.43</td>
+                                                                            
+                                                                            
+                                                                    </tr>
+                                                                   
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+
+                                            </div>
+                                    </div>
+
+                                   
+                                
+                            
+
+                                
+                                   
+                                    
+                                   
+                                   
+                                   
+                                    
+                            </div>
+                            
+                    </div>
+
+                    <div class="card mb-4">
+                            <div class="card-header bg-primary font-weight-bold">
+                                    <span class="text-white ">Config </span>
+
+                            </div>
+                            
+                          
+                            <div class="card-body">
+                            </div>
+                    </div>
+
+
+
+
+
+            </div>
+    </div>
+            
+            
+                        <!--                            //////                                    -->
+            
+            
+                        <div id="add_data_Modal" class="modal fade">
+                            <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                
+                                <h4 id="insert_h" class="modal-title">ເບິ່ງໜ້າວຽກ
+                                    
+                                </h4>
+                                
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                            <form method="post" id="insert_form" autocomplete="off">
+                                
+                                
+                                <div class="form-group row">
+                                    <label  class="col-sm-2 "><h5>ຫົວຂໍ້ວຽກ: </h5></label>
+                                    <div class="col-sm-8">
+                                        <h5>ໃບອອກວຽກນອກ</h5>
+                                    </div>
+                                    <div class="col-sm-2">
+                                                    <span class="badge  badge-success float-center " ><font size="3"  >ອະນຸມັດແລ້ວ</font></span>
+                                    </div>
+                                           
+                                </div>    
+                                
+                                <div class="form-group row">
+                                    <label  class="col-sm-2 "><h5>ລາຍລະອຽດ : </h5></label>
+                                    <div class="col-sm-10">
+                                        <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus cursus maximus lacus vel ullamcorper. Duis euismod, risus vel faucibus imperdiet, nisl massa congue dolor, ut mollis lacus tortor eget velit. Nam non urna risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis metus orci, consectetur sed risus at, accumsan imperdiet elit. Nullam semper finibus lacus nec volutpat. Fusce convallis nulla ipsum, et hendrerit elit feugiat non.</h6>
+                                    </div>
+                                    
+                                           
+                                </div> 
+                                <div class="form-group row">
+                                    <label class="col-sm-2 "><h5>ເວລາກຳນົດ :</h5></label>
+                                    <div class="col-sm-10">
+                                            
+                                        <h5>ເລີມວັນທີ 12/03/2019 ຫາວັນທີ 12/03/2019</h5>
+                
+                                    </div>
+                                    
+                                </div>
+                                <div class="form-group row">
+                                    <label  class="col-sm-2 "><h5>ສະມາຊີກ :</h5></label>
+                                    <div class="col-sm-10">
+                
+                
+                                           
+                                            <div class="table-responsive">
+                                                    <table id="example" class="table table-hover  " cellspacing="0" width="100%">
+                                                    
+                                                    <thead>
+                                                    <tr>
+                                                        <th>ລະຫັດ</th>
+                                                        <th>ຊື່ສະມາຊິກ</th>
+                                                        <th>ຄວາມສາມາດ</th>
+                                                        
+                                                        
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                            <tr>
+                                                                    <td>0001</td>
+                                                                    <td>ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ</td>
+                                                                    <td><span class="badge  badge-success float-center " ><font size="3"  >ຫົວຫນ້າທີມ</font></span></td>
+                                                                    
+                                                                    
+                                                            </tr>
+                                                            <tr>
+                                                                    <td>0002</td>
+                                                                    <td>ທ້າວ ສອນໄຊ ເກດແກ້ວ</td>
+                                                                    <td><span class="badge  badge-info float-center " ><font size="3"  >ຮ້ອງຫົວຫນ້າທີມ</font></span></td>
+                                                                    
+                                                                   
+                                                            </tr>
+                                                            <tr>
+                                                                    <td>0003</td>
+                                                                    <td>ທ້າວ ໄຊນະພາ ພົມວິຫານ</td>
+                                                                    <td><span class="badge  badge-primary float-center " ><font size="3"  >ວິຊາການ</font></span></td>
+                                                                   
+                                                            </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            
+                
+                                    </div>
+                                    
+                                </div>
+                
+                                
+                
+                            </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                            </div>
+                            </div>
+                            </div> 
+                    
+                          
+                        
+                    
+                              <!--                            //////                                    -->
+            
+                             
+                        
+                    
+                                                             
+                        
+                    
+                    
+                
+            </div>
+    
+          
+       
+  
+
+ 
+
+  
+<script>
+        $(document).ready(function () {
+
+           
+           $('#example').DataTable();
+           $('#example2').DataTable();
+           $('#example4').DataTable();
+           $('#example1').DataTable();
+           
+
+
+            
+
+             $(document).on('click', '.project', function(){  
+                 
+                window.location.replace('project/menu.html');
+                  
+            });
+            $(document).on('click', '.user', function(){  
+                 
+                 window.location.replace('user/user.html');
+                   
+             });
+            $(document).on('click', '.follow', function(){  
+                 
+                 window.location.replace('follow/menu.html');
+                   
+             });
+             $(document).on('click', '.logout', function(){  
+
+                 
+                    window.location.replace('../index.html');
+  
+             });
+
+              $(document).on('click', '.jobs', function(){  
+
+                 
+                window.location.replace('job_of_day/jobs_of_day.html');
+
+                });
+
+              $(document).on('click', '.report', function(){  
+   
+                window.location.replace('report/report.html');
+
+            });
+
+
+             
+            
+            $(document).on('click', '.View_data', function(){  
+                $('#add_data_Modal').modal('show');
+            });
+
+            $(document).on('click', '.edit_data', function(){  
+                
+                
+                swal({
+                        title: "ວຽກນີ້ສຳເລັດແລ້ວ",
+                        text: "ວຽກນີ້ສຳເລັດແລ້ວ ຫຼື່ບໍ່!",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                        })
+                        .then((willDelete) => {
+                        if (willDelete) {
+                            swal("ສຳເລັດ ການດຳເນີນງານ", {
+                            icon: "success",
+                            });
+                        }      
+                    });           
+                               
+            });
+
+            
+        });
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>
