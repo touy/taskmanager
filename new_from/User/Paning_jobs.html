@@ -249,9 +249,9 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="x_panel">
                 <div class="x_title">
-                  <label ><font size="4">ຜູ້ໃຊ້ລະບົບ</font> </label>
+                  <label ><font size="4">ແຜນວຽກ</font> </label>
                   <ul class="nav navbar-right panel_toolbox">
-                      <li> <button type="button" class="btn btn-success" title="ເພີ້ມ" name="add" id="add" ><i class="fa fa-plus"></i></button>
+                      <li> <button type="button" class="btn btn-success Add" title="ເພີ້ມ" name="add" id="add" ><i class="fa fa-plus"></i></button>
                       </li>
                     </ul>
                  
@@ -263,48 +263,33 @@
                     
                     <thead>
                     <tr>
-                        <th><font size="3">ຮູບພາບ</font></th>
-                        <th><font size="3">ຊື່ຜູ້ໃຊ້</font></th>
-                        <th><font size="3">ນາມສະກຸນ</font></th>
+                        <th><font size="3">ລະຫັດ</font></th>
+                        <th><font size="3">ຫົວຂໍ້</font></th>
+                        <th><font size="3">ວັນທີເລີມ</font></th>
                         
-                        <th><font size="3">ພະແນກ</font></th>
-                        <th><font size="3">ຄວາມສາມາດ</font></th>
+                        <th><font size="3">ວັນທີກຳນົດ</font></th>
+                        <th><font size="3">ສະຖານະ</font></th>
                         <th><font size="3">Action</font></th>
                     </tr>
                     </thead>
                     <tbody>
                             <tr >
                                     <td>
-                                        <img src="images/img.jpg" class="circle btn-round " alt="Cinque Terre" width="35" height="35">
+                                      <font size="3">0001</font>
                                     </td>
-                                    <td  class="mx-auto"><font size="3">ທ້າວ ໂຊກໄຊ</font></td>
-                                    <td><font size="3">ແກ້ວພິລາວັນ</font></td>
+                                    <td><font size="3">ໃບອອກວຽກນອກ</font></td>
+                                    <td><font size="3">12/04/2019</font></td>
                                    
-                                    <td><font size="3">IT font End</font></td>
-                                    <td><span class="badge badge-secondary float-center " ><font size="3"  >ພະນັກງານ</font></span></td>
+                                    <td><font size="3">12/04/2019</font></td>
+                                    <td><span class="badge bg-green " ><font size="3"  >ສຳເລັດ</font></span></td>
                                     <td>
-                                        <button type="button" class="btn btn-round btn-primary">ແກ້ໄຂ</button>
-                                        <button type="button" class="btn btn-round btn-danger">ລົບ</button>
-                           
-    
+                                        <a id="" class="btn btn-round btn-success  View_data" data-toggle="tooltip" title="View"><i class="fa fa-file"></i></a> 
+                                        <a  id="" class="btn btn-round btn-primary edit_data" data-toggle="tooltip" title="Edit"><i class="fa fa-fw fa-edit"></i></a> 
+                                        <a  id="" class="btn btn-round btn-danger  delete_data" data-toggle="tooltip" title="Delete"><i class="fa fa-fw fa-trash"></i></a>
+                                        
                                     </td>
                             </tr>
-                            <tr >
-                                <td>
-                                    <img src="images/img.jpg" class="circle btn-round " alt="Cinque Terre" width="35" height="35">
-                                </td>
-                                <td  class="mx-auto"><font size="3">ທ້າວ ໂຊກໄຊ</font></td>
-                                <td><font size="3">ແກ້ວພິລາວັນ</font></td>
-                               
-                                <td><font size="3">IT font End</font></td>
-                                <td><span class="badge badge-secondary float-center " ><font size="3"  >ພະນັກງານ</font></span></td>
-                                <td>
-                                    <button type="button" class="btn btn-round btn-primary">ແກ້ໄຂ</button>
-                                    <button type="button" class="btn btn-round btn-danger">ລົບ</button>
-                       
-
-                                </td>
-                        </tr>
+                            
                           
                          
                     
@@ -338,100 +323,157 @@
                 <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <div class="row">
-                        <div class="col-sm-11">
-                          <label ><font size="4">ຂໍ້ມູນຜູ້ໃຊ້ລະບົບ</font> </label>
-                          
-                        </div>
-                        <div class="col-sm-1">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          </div>
+                  <div class="row">
+                    <div class="col-sm-11">
+                      <label ><font size="4">ແຜນວຽກ</font> </label>
+                      
                     </div>
+                    <div class="col-sm-1">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+                </div>
                 </div>
                 <div class="modal-body">
                 <form method="post" id="insert_form" autocomplete="off">
-                               
+                    
+                    
                     <div class="form-group row">
-                                    
-                        <div class="col-sm-3">
-                            <label  ><font size="3">ຊື່ຜູ້ໃຊ້</font></label>
-                            <input type="text" class="form-control"  >
+                        <label  class="col-sm-2 "><font size="3">ຫົວຂໍ້ວຽກ:</font></label>
+                        <div class="col-sm-8">
+                            <font size="3">ໃບອອກວຽກນອກ</font>
+                            
+                        </div>
+                        <div class="col-sm-2">
+                                <span class="badge  float-center " ><font size="3"  >ລໍຖ້າອະນຸມັດ</font></span>
+                        </div>
+                               
+                    </div> 
+                    <!--   
+                    <div class="form-group row">
+                        <label  class="col-sm-2 "><font size="3"  >ຜູ້ອະນຸມັດ :</font></label>
+                        <div class="col-sm-10">
+                            <font size="3"  >ອຳນວຍການ</font>
+                            
                         </div>
                         
-                        <div class="col-sm-3">
-                                <label ><font size="3">ນາມສະກຸນ</font></label>
-                                <input type="text" class="form-control"  >
+                               
+                    </div>  -->
+                    <div class="form-group row">
+                        <label  class="col-sm-2 "><font size="3"  >ລາຍລະອຽດ :</font></label>
+                        <div class="col-sm-10">
+                            <font size="3"  >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus cursus maximus lacus vel ullamcorper. Duis euismod, risus vel faucibus imperdiet, nisl massa congue dolor, ut mollis lacus tortor eget velit. Nam non urna risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis metus orci, consectetur sed risus at, accumsan imperdiet elit. Nullam semper finibus lacus nec volutpat. Fusce convallis nulla ipsum, et hendrerit elit feugiat non.</font>
                         </div>
-                        <div class="col-sm-3">
-                                <label ><font size="3">ຮູບພາບ</font></label>
-                                <input type="file" class="form-control"  >
-                        </div>
-                     
-                       
-                </div>
-             
-                <div class="form-group row">
-                        <div class="col-sm-3">
-                                <label ><font size="3">ພະແນກ</font></label>
-                                <select class="form-control" >
-                                    <option>ເລືອກ</option>
-                                    <option>Font End</option>
-                                    <option>black End</option>
-                                    
-                                    
-                                </select>
-                           
-                             </div>
-                             <div class="col-sm-3">
-                                <label ><font size="3">ສິດ</font></label>
-                                <select class="form-control" >
-                                    <option>Admin</option>
-                                    <option>Header</option>
-                                    <option>leader</option>
-                                    <option>Employee</option>
-                                    
-                                    
-                                </select>
-                            </div>
-
-                    <div class="col-sm-3">
-                        <label ><font size="3">ຜູ້ດູແລ</font></label>
-                        <select class="form-control" >
-                            <option></option>
-                            <option>ທ້າວ ກ</option>
-                            <option>ທ້າວ ຂ</option>
-                            <option>ນາງ ງ</option>
-                            <option>ທ້າວ ຈ</option>
+                        
+                               
+                    </div> 
+                    <div class="form-group row">
+                        <label class="col-sm-2 "><font size="3"  >ເວລາກຳນົດ :</font></label>
+                        <div class="col-sm-10">
+                            <font size="3">ເລີມວັນທີ 12/03/2019 ຫາວັນທີ 12/03/2019</font>
                             
-                            
-                        </select>
-
-                </div>
-                </div>
-                <div class="form-group row">
-                    
-                        <div class="col-sm-3">
-                                <label ><font size="3"></font>Username</label>
-                                <input type="text" class="form-control"  >
     
                         </div>
-
-                    <div class="col-sm-3">
-                            <label ><font size="3"></font>Password</label>
-                            <input type="text" class="form-control"  >
-
+                        
                     </div>
-                </div>
-                                <input type="submit" name="insert" id="insert" value="ເພີ້ມຊື່ຜູ້ໃຊ້" class="btn btn-success" />
+                    <div class="form-group row">
+                        <label  class="col-sm-2 "><font size="3"  >ສະມາຊີກ :</font></label>
+                        <div class="col-sm-10">
+    
+    
+                               
+                                <div class="table-responsive">
+                                        <table id="example" class="table table-bordered" >
+                                        
+                                        <thead>
+                                        <tr>
+                                            <th><font size="3">ລະຫັດ</font></th>
+                                            <th><font size="3">ຊື່ສະມາຊິກ</font></th>
+                                            <th><font size="3">ຄວາມສາມາດ</font></th>
+                                           
+                                            
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td><font size="3">0001</font></td>
+                                                        <td><font size="3">ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ</font></td>
+                                                        <td><span class="badge  bg-green float-center " ><font size="3"  >ຫົວຫນ້າທີມ</font></span></td>
+                                                       
+                                                        
+                                                </tr>
+                                                <tr>
+                                                        <td><font size="3">0002</font></td>
+                                                        <td><font size="3">ທ້າວ ສອນໄຊ ເກດແກ້ວ</font></td>
+                                                        <td></td>
+                                                        
+                                                       
+                                                </tr>
+                                                <tr>
+                                                        <td><font size="3">0003</font></td>
+                                                        <td><font size="3">ທ້າວ ໄຊນະພາ ພົມວິຫານ</font></td>
+                                                        <td></td>
+                                                        
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                                 
-
-                                <h5> </h5>
-                                        <div id="myAlert" class="alert alert-danger collapse">
-                                                <button type="button" class="close" id="linkClose">&times;</button>
-                                                <strong>ຜິດພາດ! :</strong> ກະລູນາປ້ອນຂໍ້ມູນໃຫ້ຄົບ ຂໍຂອບໃຈ.
-                                        </div>
-
-                            </form>
+    
+                        </div>
+                        
+                    </div>
+                    <!--
+                    <div class="form-group row">
+                            <label  class="col-sm-2 "><font size="3"  >ຫນ້າວຽກ :</font></label>
+                            <div class="col-sm-10">
+    
+    
+                                   
+                                    <div class="table-responsive">
+                                            <table id="example2" class="table table-bordered" >
+                                            
+                                            <thead>
+                                            <tr>
+                                                <th><font size="3">ລະຫັດ</font></th>
+                                                <th><font size="3">ຫົວຂໍ້ວຽກ</font></th>
+                                                <th><font size="3">ວັນທີເລີມ</font></th>
+                                                <th><font size="3">ວັນທີກຳນົດ</font></th>
+                                               
+                                                
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td><font size="3">0001</font></td>
+                                                            <td><font size="3">ແປງຄອມ</font></td>
+                                                            <td><font size="3">12/3/2019</font></td>
+                                                            <td><font size="3">13/3/2019</font></td>
+                                                          
+                                                            
+                                                    </tr>
+                                                    <tr>
+                                                            <td><font size="3">0002</font></td>
+                                                            <td><font size="3">ເຊັກ Server</font></td>
+                                                            <td><font size="3">12/3/2019</font></td>
+                                                            <td><font size="3">13/3/2019</font></td>
+                                                           
+                                                           
+                                                    </tr>
+                                                    <tr>
+                                                            <td><font size="3">0003</font></td>
+                                                            <td><font size="3">ອອກແບບເວັບໄຊ</font></td>
+                                                            <td><font size="3">19/3/2019</font></td>
+                                                            <td><font size="3">22/3/2019</font></td>
+                                                            
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                             </div>
+                            
+                        </div>
+                      -->   
+                </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -439,6 +481,7 @@
                 </div>
                 </div>
                 </div>
+  
 
 
 
@@ -493,10 +536,14 @@
 
                   $('#table_date').DataTable();
 
-                  $('#add').click(function () {
-                    
-                    $('#add_data_Modal').modal('show');
+                   $(document).on('click', '.View_data', function(){  
+                     $('#add_data_Modal').modal('show');
                   });
+
+                   $(document).on('click', '.Add', function(){  
+                      window.location.replace('Add_jobs.html');
+                  });
+            
 
 
 

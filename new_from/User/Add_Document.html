@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>DataTables | Gentelella</title>
+
+   
+
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+     <!-- bootstrap-daterangepicker -->
+     <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+     <!-- bootstrap-datetimepicker -->
+     <link href="../vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
+
+    
+  
+    <!-- Font Awesome -->
+    <link href="../font.css" rel="stylesheet">
+    <link href="../cart.css" rel="stylesheet">
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+
+    <!-- Datatables -->
+    <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="../build/css/custom.min.css" rel="stylesheet">
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+                <a href="desbord_user.html" class="site_title"><span>Task Managerment</span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+              <div class="profile_pic">
+                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                <span>Welcome,</span>
+                <h2>John Doe</h2>
+              </div>
+            </div>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                <div class="menu_section">
+                  <h3>Menu</h3>
+                  <ul class="nav side-menu">
+                    <li><a><i class="fa fa-file"></i> Paning <span class="fa fa-chevron-down"></span></a>
+                      <ul class="nav child_menu">
+                          <li><a>Document<span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                              <li class="sub_menu"><a href="Document.html">ຂອງຂ້ອຍ</a>
+                              </li>
+                              <li><a href="#">ກຸ່ມ</a>
+                              </li>
+                              <li><a href="#">ທີມ</a>
+                              </li>
+                              <li><a href="#">ພະແນກ</a>
+                              </li>
+                            </ul>
+                          </li>
+                        <li><a href="Paning_jobs.html">Jobs</a></li>
+                        
+                      </ul>
+                    </li>
+                    <li><a><i class="fa fa-list-ul"></i> Manage <span class="fa fa-chevron-down"></span></a>
+                      <ul class="nav child_menu">
+                        <li><a href="Apply.html"> Apply Document</a></li>
+                        <li><a href="Score.html">Score</a></li>
+                        
+                      </ul>
+                    </li>
+                    <li><a ><i class="fa fa-briefcase"></i> Jobs <span class="fa fa-chevron-down"></span></a>
+                      <ul class="nav child_menu">
+                        <li><a href="jobs.html">ວຽກປະຈຳ</a></li>
+                       
+                      </ul>
+                    </li>
+                    <li><a><i class="fa fa-user"></i> User <span class="fa fa-chevron-down"></span></a>
+                      <ul class="nav child_menu">
+                        <li><a href="User.html">ຜູ້ໃຊ້ລະບົບ</a></li>
+                       
+                      </ul>
+                    </li>
+  
+                    <li><a><i class="fa fa-bar-chart-o"></i> Report <span class="fa fa-chevron-down"></span></a>
+                      <ul class="nav child_menu">
+                        <li><a href="#">Report 1</a></li>
+                        <li><a href="#">Report 2</a></li>
+                       
+                      </ul>
+                    </li>
+                   
+                  </ul>
+                </div>
+  
+                
+  
+              </div>
+            <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+            <div class="sidebar-footer hidden-small">
+              <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              </a>
+            </div>
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+            <nav>
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <img src="images/img.jpg" alt="">John Doe
+                    <span class=" fa fa-angle-down"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                    <li><a href="javascript:;"> Profile</a></li>
+                    <li>
+                      <a href="javascript:;">
+                        <span class="badge bg-red pull-right">50%</span>
+                        <span>Settings</span>
+                      </a>
+                    </li>
+                    <li><a href="javascript:;">Help</a></li>
+                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                  </ul>
+                </li>
+
+                <li role="presentation" class="dropdown">
+                  <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-envelope-o"></i>
+                    <span class="badge bg-green">6</span>
+                  </a>
+                  <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <div class="text-center">
+                        <a>
+                          <strong>See All Alerts</strong>
+                          <i class="fa fa-angle-right"></i>
+                        </a>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+               
+              </div>
+
+             
+            </div>
+
+            <div class="clearfix"></div>
+            <div class="row">
+                
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                  <div class="x_panel">
+                    <div class="x_title">
+                        <label ><font size="4">ສ້າງເອກະສານ</font> </label>
+                      
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                      <br />
+                      <form class="form-horizontal form-label-left">
+                          <div class="form-group row">
+                              <label  class="col-sm-2 "><font size="3">ຫົວຂໍ້ວຽກ:</font></label>
+                              <div class="col-sm-10">
+                                  <input type="text" class="form-control"  >
+                                  
+                              </div>
+                              <!--<div class="col-sm-2">
+                                      <span class="badge  float-center " ><font size="3"  >ລໍຖ້າອະນຸມັດ</font></span>
+                              </div> -->
+                                     
+                          </div>  
+                          <div class="form-group row">
+                              <label class="col-sm-2 "><font size="3"  >ສົງຫາຜູ້ອານຸມັດ</font></label>
+                              <div class="col-sm-4">
+                                      <select class="form-control" id="exampleFormControlSelect1">
+                                              <option>ເລືອກ</option>
+                                              <option>ຫນ້າພະແນກ</option>
+                                              <option>ອຳນວຍການ</option>
+                                             
+                                          </select>
+                      
+                              </div>
+                          </div>  
+                       
+                          <div class="form-group row">
+                              <label  class="col-sm-2 "><font size="3"  >ລາຍລະອຽດ :</font></label>
+                              <div class="col-sm-10">
+                                  <textarea id="textarea" required="required" name="textarea" class="form-control "></textarea>
+                              </div>
+                              
+                                     
+                          </div> 
+                          <div class="form-group row">
+                              <label class="col-sm-2 "><font size="3"  >ເວລາກຳນົດ :</font></label>
+                             
+                              
+                                  <div class='col-sm-4'>
+                                     
+                                      <div class="form-group">
+                                          <div class='input-group date' id='DateStart'>
+                                              <input type='text' class="form-control" />
+                                              <span class="input-group-addon">
+                                                 <span class="glyphicon glyphicon-calendar"></span>
+                                              </span>
+                                          </div>
+                                      </div>
+                                  </div>
+          
+                                  <label  class="col-sm-1"><font size="3">ຫາວັນທີ </font></label>
+          
+                                  <div class='col-sm-4'>
+                                      
+                                      <div class="form-group">
+                                          <div class='input-group date' id='DateEnd'>
+                                              <input type='text' class="form-control" />
+                                              <span class="input-group-addon">
+                                                 <span class="glyphicon glyphicon-calendar"></span>
+                                              </span>
+                                          </div>
+                                      </div>
+                                  </div>
+          
+          
+                              
+                              
+                              
+                          </div>
+                          <div class="form-group row">
+                              <label class="col-sm-2 "><font size="3"  >ເອກະສານຕິດຄັດ</font></label>
+                              <div class="col-sm-3">
+                                     
+                                      <input id="file"  type="file" class="form-control" multiple>
+  
+                              </div>
+                             
+                              
+                      </div>
+                          <div class="form-group row">
+                              <label  class="col-sm-2 "><font size="3"  >ສະມາຊີກ :</font></label>
+                              <div class="col-sm-10">
+          
+          
+                                     
+                                  <div class="table-responsive">
+                                      <table id="example" class="table table-bordered" >
+                                      
+                                      <thead>
+                                      <tr>
+                                          <th width="10%"><font size="3">ຮູບພາບ</font></th>
+                                          <th><font size="3">ຊື່ສະມາຊິກ</font></th>
+                                          <th width="15%"><font size="3">ຫົວໜ້າທີມ</font></th>
+                                         
+                                          
+                                      </tr>
+                                      </thead>
+                                      <tbody>
+                                              <tr>
+                                                      <td>
+                                                          <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                              <img src="images/img.jpg" alt="">
+                                                              
+                                                            </a>
+                                                      </td>
+                                                      <td><font size="3">ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ</font></td>
+                                                      <td>
+                                                          <div class="form-check">
+                                                              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" >     
+                                                          </div>
+                                                      </td>
+                                                     
+                                                      
+                                              </tr>
+                                              <tr>
+                                                      <td>
+                                                          <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                              <img src="images/img.jpg" alt="">
+                                                              
+                                                            </a>
+                                                      </td>
+                                                      <td><font size="3">ທ້າວ ສອນໄຊ ເກດແກ້ວ</font></td>
+                                                      <td>
+                                                          <div class="form-check">
+                                                              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" >
+                                                          </div>
+                                                      </td>
+                                                      
+                                                     
+                                              </tr>
+                                              <tr>
+                                                      <td>
+                                                          <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                              <img src="images/img.jpg" alt="">
+                                                              
+                                                            </a>
+                                                      </td>
+                                                      <td><font size="3">ທ້າວ ໄຊນະພາ ພົມວິຫານ</font></td>
+                                                      <td>
+                                                          <div class="form-check">
+                                                              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" >
+                                                          </div>
+                                                      </td>
+                                                      
+                                              </tr>
+                                      </tbody>
+                                  </table>
+                                  
+                                  </div>
+                                      <button type="button" class="btn btn-success Menber" title="Add Menber" name="add" id="add" >ເພີ້ມສະມາຊິກ</button>
+                                      
+          
+                              </div>
+                              
+                          </div>
+
+                          <div class="form-group row">
+                              <label  class="col-sm-2 "><font size="3"  >ຫນ້າວຽກທີປະຕິບັນ</label></label>
+                              <div class="col-sm-10">
+
+
+                                     
+                                      <div class="table-responsive">
+                                              <table id="example2" class="table table-bordered" cellspacing="0" width="100%">
+                                              
+                                              <thead>
+                                              <tr>
+                                                  
+                                                  <th><font size="3">ລະຫັດ</font></th>
+                                                  <th><font size="3">ຫົວຂໍ້ວຽກ</font></th>
+                                                  <th><font size="3">ວັນທີເລີມ</font></th>
+                                                  <th><font size="3">ວັນທີກຳນົດ</font></th>
+                                                  <th><font size="3">ສະຖານະ</font></th>
+                                                  <th><font size="3">Action</font></th>
+                                              </tr>
+                                              </thead>
+                                              <tbody>
+                                                      <tr>
+                                                              <td>0001</td>
+                                                              <td>ແປງຄອມ</td>
+                                                              <td>12/3/2019</td>
+                                                              <td>13/3/2019</td>
+                                                              <td><span class="badge  badge-success float-center " ><font size="3"  >ສຳເລັດ</font></span></td>
+                                                              <td>
+                                                                  <a id="" class="btn btn-round btn-success  View_data" data-toggle="tooltip" title="View"><i class="fa fa-file"></i></a> 
+                                                                      
+                                                              </td>
+                                                              
+                                                      </tr>
+                                                      <tr>
+                                                              <td>0002</td>
+                                                              <td>ເຊັກ Server</td>
+                                                              <td>12/3/2019</td>
+                                                              <td>13/3/2019</td>
+                                                              <td><span class="badge  badge-danger float-center " ><font size="3"  >ໂຈການເຮັດວຽກ</font></span></td>
+                                                              <td>
+                                                                  <a id="" class="btn btn-round btn-success  View_data" data-toggle="tooltip" title="View"><i class="fa fa-file"></i></a> 
+                                                                     
+                                                              </td>
+                                                             
+                                                      </tr>
+                                                      <tr>
+                                                              <td>0003</td>
+                                                              <td>ອອກແບບເວັບໄຊ</td>
+                                                              <td>19/3/2019</td>
+                                                              <td>22/3/2019</td>
+                                                              <td><span class="badge  badge-primary float-center " ><font size="3"  >ກຳລັງດຳເນີນງານ</font></span></td>
+                                                              <td>
+                                                                  <a id="" class="btn btn-round btn-success  View_data" data-toggle="tooltip" title="View"><i class="fa fa-file"></i></a> 
+                                                                     
+                                                              </td>
+                                                      </tr>
+                                              </tbody>
+                                          </table>
+                                      </div>
+                                      <button type="button" class="btn btn-success addjobs_data" title="Add Jobs" name="add" id="addjobs_data" >ເລືອກວຽກ</button>
+                                      <button type="button" class="btn btn-success" title="Crate Jobs" name="add" id="add" >ສ້າງວຽກ</button>
+                              </div>
+                              
+                          </div>
+                        
+  
+                        <div class="form-group">
+                            <hr/>
+                            <button type="submit" class="btn btn-primary">ບັນທືກ</button>
+                            
+                         
+                        </div>
+  
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                </div>
+
+            
+           
+
+           
+
+            
+           
+
+            <div class="row">
+
+            </div>
+
+            <div id="add_member" class="modal fade">
+                <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                <div class="modal-header">
+                  <div class="row">
+                    <div class="col-sm-11">
+                      <label ><font size="4">ເລືອກພະນັກງານ</font> </label>
+                      
+                    </div>
+                    <div class="col-sm-1">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+                </div>
+                </div>
+                <div class="modal-body">
+                <form method="post" id="insert_form" autocomplete="off">
+                    
+                    
+                  
+                    <div class="form-group row">
+                        
+                        <div class="col-sm-12">
+    
+    
+                               
+                                <div class="table-responsive">
+                                        <table id="example" class="table table-bordered" >
+                                        
+                                        <thead>
+                                        <tr>
+                                            <th  width="10%"><font size="3">ເລືອກ</font></th>
+                                            <th  width="10%"><font size="3">ຮູບພາບ</font></th>
+                                            <th><font size="3">ຊື່ສະມາຊິກ</font></th>
+                                            
+                                           
+                                            
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>
+                                                            <div class="form-group form-check mb-0">
+                                                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                                
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                                <img src="images/img.jpg" alt="">
+                                                                
+                                                              </a>
+                                                        </td>
+                                                        <td><font size="3">ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ</font></td>
+                                                       
+                                                       
+                                                        
+                                                </tr>
+                                                <tr>
+                                                        <td>
+                                                            <div class="form-group form-check mb-0">
+                                                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                            </div>  
+                                                        </td>
+                                                        <td>
+                                                            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                                <img src="images/img.jpg" alt="">
+                                                                
+                                                              </a>
+                                                        </td>
+                                                        <td><font size="3">ທ້າວ ສອນໄຊ ເກດແກ້ວ</font></td>
+                                                        
+                                                        
+                                                       
+                                                </tr>
+                                                <tr>
+                                                        <td>
+                                                            <div class="form-group form-check mb-0">
+                                                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                            </div> 
+                                                        </td>
+                                                        <td>
+                                                            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                                <img src="images/img.jpg" alt="">
+                                                                
+                                                              </a>
+                                                        </td>
+                                                        <td><font size="3">ທ້າວ ໄຊນະພາ ພົມວິຫານ</font></td>
+                                                       
+                                                        
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+    
+                        </div>
+                        
+                    </div>
+                    <!--
+                    <div class="form-group row">
+                            <label  class="col-sm-2 "><font size="3"  >ຫນ້າວຽກ :</font></label>
+                            <div class="col-sm-10">
+    
+    
+                                   
+                                    <div class="table-responsive">
+                                            <table id="example2" class="table table-bordered" >
+                                            
+                                            <thead>
+                                            <tr>
+                                                <th><font size="3">ລະຫັດ</font></th>
+                                                <th><font size="3">ຫົວຂໍ້ວຽກ</font></th>
+                                                <th><font size="3">ວັນທີເລີມ</font></th>
+                                                <th><font size="3">ວັນທີກຳນົດ</font></th>
+                                               
+                                                
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td><font size="3">0001</font></td>
+                                                            <td><font size="3">ແປງຄອມ</font></td>
+                                                            <td><font size="3">12/3/2019</font></td>
+                                                            <td><font size="3">13/3/2019</font></td>
+                                                          
+                                                            
+                                                    </tr>
+                                                    <tr>
+                                                            <td><font size="3">0002</font></td>
+                                                            <td><font size="3">ເຊັກ Server</font></td>
+                                                            <td><font size="3">12/3/2019</font></td>
+                                                            <td><font size="3">13/3/2019</font></td>
+                                                           
+                                                           
+                                                    </tr>
+                                                    <tr>
+                                                            <td><font size="3">0003</font></td>
+                                                            <td><font size="3">ອອກແບບເວັບໄຊ</font></td>
+                                                            <td><font size="3">19/3/2019</font></td>
+                                                            <td><font size="3">22/3/2019</font></td>
+                                                            
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                             </div>
+                            
+                        </div>
+                      -->   
+                </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">ບັນທືກ</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+                </div>
+                </div>
+                </div>
+            
+
+            <div id="add_data_Modal" class="modal fade">
+                <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                <div class="modal-header">
+                  <div class="row">
+                    <div class="col-sm-11">
+                      <label ><font size="4">ແຜນວຽກ</font> </label>
+                      
+                    </div>
+                    <div class="col-sm-1">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+                </div>
+                </div>
+                <div class="modal-body">
+                <form method="post" id="insert_form" autocomplete="off">
+                    
+                    
+                    <div class="form-group row">
+                        <label  class="col-sm-2 "><font size="3">ຫົວຂໍ້ວຽກ:</font></label>
+                        <div class="col-sm-8">
+                            <font size="3">ໃບອອກວຽກນອກ</font>
+                            
+                        </div>
+                        <div class="col-sm-2">
+                                <span class="badge  float-center " ><font size="3"  >ລໍຖ້າອະນຸມັດ</font></span>
+                        </div>
+                               
+                    </div> 
+                 
+                    <div class="form-group row">
+                        <label  class="col-sm-2 "><font size="3"  >ລາຍລະອຽດ :</font></label>
+                        <div class="col-sm-10">
+                            <font size="3"  >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus cursus maximus lacus vel ullamcorper. Duis euismod, risus vel faucibus imperdiet, nisl massa congue dolor, ut mollis lacus tortor eget velit. Nam non urna risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis metus orci, consectetur sed risus at, accumsan imperdiet elit. Nullam semper finibus lacus nec volutpat. Fusce convallis nulla ipsum, et hendrerit elit feugiat non.</font>
+                        </div>
+                        
+                               
+                    </div> 
+                    <div class="form-group row">
+                        <label class="col-sm-2 "><font size="3"  >ເວລາກຳນົດ :</font></label>
+                        <div class="col-sm-10">
+                            <font size="3">ເລີມວັນທີ 12/03/2019 ຫາວັນທີ 12/03/2019</font>
+                            
+    
+                        </div>
+                        
+                    </div>
+                    <div class="form-group row">
+                        <label  class="col-sm-2 "><font size="3"  >ສະມາຊີກ :</font></label>
+                        <div class="col-sm-10">
+    
+    
+                               
+                                <div class="table-responsive">
+                                        <table id="example" class="table table-bordered" >
+                                        
+                                        <thead>
+                                        <tr>
+                                            <th><font size="3">ຮູບພາບ</font></th>
+                                            <th><font size="3">ຊື່ສະມາຊິກ</font></th>
+                                            <th><font size="3">ຄວາມສາມາດ</font></th>
+                                           
+                                            
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>
+                                                            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                                <img src="images/img.jpg" alt="">
+                                                                
+                                                              </a>
+                                                        </td>
+                                                        <td><font size="3">ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ</font></td>
+                                                        <td><span class="badge  bg-green float-center " ><font size="3"  >ຫົວຫນ້າທີມ</font></span></td>
+                                                       
+                                                        
+                                                </tr>
+                                                <tr>
+                                                        <td>
+                                                            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                                <img src="images/img.jpg" alt="">
+                                                                
+                                                              </a>
+                                                        </td>
+                                                        <td><font size="3">ທ້າວ ສອນໄຊ ເກດແກ້ວ</font></td>
+                                                        <td></td>
+                                                        
+                                                       
+                                                </tr>
+                                                <tr>
+                                                        <td>
+                                                            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                                <img src="images/img.jpg" alt="">
+                                                                
+                                                              </a>
+                                                        </td>
+                                                        <td><font size="3">ທ້າວ ໄຊນະພາ ພົມວິຫານ</font></td>
+                                                        <td></td>
+                                                        
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+    
+                        </div>
+                        
+                    </div>
+ <!--
+                    <div class="form-group row">
+                            <label  class="col-sm-2 "><font size="3"  >ຫນ້າວຽກ :</font></label>
+                            <div class="col-sm-10">
+    
+    
+                                   
+                                    <div class="table-responsive">
+                                            <table id="example2" class="table table-bordered" >
+                                            
+                                            <thead>
+                                            <tr>
+                                                <th><font size="3">ລະຫັດ</font></th>
+                                                <th><font size="3">ຫົວຂໍ້ວຽກ</font></th>
+                                                <th><font size="3">ວັນທີເລີມ</font></th>
+                                                <th><font size="3">ວັນທີກຳນົດ</font></th>
+                                               
+                                                
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td><font size="3">0001</font></td>
+                                                            <td><font size="3">ແປງຄອມ</font></td>
+                                                            <td><font size="3">12/3/2019</font></td>
+                                                            <td><font size="3">13/3/2019</font></td>
+                                                          
+                                                            
+                                                    </tr>
+                                                    <tr>
+                                                            <td><font size="3">0002</font></td>
+                                                            <td><font size="3">ເຊັກ Server</font></td>
+                                                            <td><font size="3">12/3/2019</font></td>
+                                                            <td><font size="3">13/3/2019</font></td>
+                                                           
+                                                           
+                                                    </tr>
+                                                    <tr>
+                                                            <td><font size="3">0003</font></td>
+                                                            <td><font size="3">ອອກແບບເວັບໄຊ</font></td>
+                                                            <td><font size="3">19/3/2019</font></td>
+                                                            <td><font size="3">22/3/2019</font></td>
+                                                            
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                             </div>
+                            
+                        </div>
+                      -->   
+                </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+                </div>
+                </div>
+                </div>
+
+                <div id="add_jobs" class="modal fade">
+                    <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                      <div class="row">
+                        <div class="col-sm-11">
+                          <label ><font size="4">ເລືອກວຽກ</font> </label>
+                          
+                        </div>
+                        <div class="col-sm-1">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          </div>
+                    </div>
+                    </div>
+                    <div class="modal-body">
+                    <form method="post" id="insert_form" autocomplete="off">
+                        
+                        
+                      
+                        <div class="form-group row">
+                            
+                            <div class="col-sm-12">
+        
+        
+                                   
+                                    <div class="table-responsive">
+                                            <table id="example" class="table table-bordered" >
+                                            
+                                            <thead>
+                                            <tr>
+                                                <th  width="10%"><font size="3">ເລືອກ</font></th>
+                                                <th><font size="3">ຫົວຂໍ້ວຽກ</font></th>
+                                                <th  width="15%"><font size="3">ສ້າງວັນທີ</font></th>
+                                                <th  width="15%"><font size="3">ຜູ້ສ້າງ</font></th>
+                                                
+                                               
+                                                
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>
+                                                                <div class="form-group form-check mb-0">
+                                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                                    
+                                                                </div>
+                                                            </td>
+                                                            
+                                                            <td><font size="3">ອອກແບບເວັບໄຊ</font></td>
+                                                            <td><font size="3">12/04/2019</font></td>
+                                                            <td><font size="3">ທ້າວ ແກ້ວ</font></td>
+                                                           
+                                                            
+                                                    </tr>
+                                                    <tr>
+                                                            <td>
+                                                                <div class="form-group form-check mb-0">
+                                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                                </div>  
+                                                            </td>
+                                                            
+                                                            <td><font size="3">ເຊັກ server</font></td>
+                                                            <td><font size="3">12/04/2019</font></td>
+                                                            <td><font size="3">ທ້າວ ແກ້ວ</font></td>
+                                                            
+                                                           
+                                                    </tr>
+                                                    <tr>
+                                                            <td>
+                                                                <div class="form-group form-check mb-0">
+                                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                                </div> 
+                                                            </td>
+                                                            
+                                                            <td><font size="3">ແປງຄອມ</font></td>
+                                                            <td><font size="3">12/04/2019</font></td>
+                                                            <td><font size="3">ທ້າວ ແກ້ວ</font></td>
+                                                           
+                                                            
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    
+        
+                            </div>
+                            
+                        </div>
+                        
+                        
+                    </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">ບັນທືກ</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                    </div>
+                    </div>
+                </div>
+  
+
+
+
+          </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+    
+    <!-- jQuery -->
+    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+   
+    <!-- bootstrap-daterangepicker -->
+    <script src="../vendors/moment/min/moment.min.js"></script>
+    <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- bootstrap-datetimepicker -->    
+    <script src="../vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+    <!-- Datatables -->
+    <script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="../vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="../vendors/jszip/dist/jszip.min.js"></script>
+    <script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="../build/js/custom.min.js"></script>
+
+    <script>
+             
+             $(document).ready(function () {
+
+
+                  $('#DateStart').datetimepicker({
+                      format: 'DD/MM/YYYY'
+                  });
+                  $('#DateEnd').datetimepicker({
+                  format: 'DD/MM/YYYY'
+                  });
+                  $('#table_date').DataTable();
+               
+
+                   $(document).on('click', '.View_data', function(){  
+                     $('#add_data_Modal').modal('show');
+                  });
+
+                   $(document).on('click', '.Menber', function(){  
+                     $('#add_member').modal('show');
+                  });
+
+                    $(document).on('click', '.addjobs_data', function(){  
+                     $('#add_jobs').modal('show');
+                  });
+            
+            
+
+
+
+
+             });
+    
+    
+    </script>
+
+  </body>
+</html>
