@@ -8,12 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>DataTables | Gentelella</title>
-
+    
     <!-- Animate.css -->
     <link href="../vendors/animate.css/animate.min.css" rel="stylesheet">
 
     <!-- Bootstrap -->
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <!-- Font Awesome -->
     <link href="../font.css" rel="stylesheet">
     <link href="../cart.css" rel="stylesheet">
@@ -29,11 +30,31 @@
     <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
     <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
 
+   
+  
+   <!-- PNotify -->
+   <link href="../vendors/pnotify/dist/pnotify.css" rel="stylesheet">
+   <link href="../vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
+   <link href="../vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
+ 
+ <!-- jQuery -->
+ <script src="../vendors/jquery/dist/jquery.min.js"></script>
+ <!-- Bootstrap -->
+ <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+ 
+
+ 
+ 
+  <!-- PNotify -->
+  <script src="../vendors/pnotify/dist/pnotify.js"></script>
+  <script src="../vendors/pnotify/dist/pnotify.buttons.js"></script>
+
     <!-- Custom Theme Style -->
     <link href="../build/css/custom.min.css" rel="stylesheet">
+    
   </head>
 
-  <body class="nav-md">
+  <body class="nav-md" onload="getClient();"  style="font-family: 'Saysettha OT'">
     <div class="container body">
       <div class="main_container">
         <div class="col-md-3 left_col">
@@ -57,64 +78,68 @@
             <!-- /menu profile quick info -->
 
             <br />
-
+            
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-                <div class="menu_section">
-                  <h3>Menu</h3>
-                  <ul class="nav side-menu">
-                    <li><a><i class="fa fa-file"></i> Paning <span class="fa fa-chevron-down"></span></a>
-                      <ul class="nav child_menu">
-                          <li><a>Document<span class="fa fa-chevron-down"></span></a>
-                            <ul class="nav child_menu">
-                              <li class="sub_menu"><a href="Document.html">ຂອງຂ້ອຍ</a>
-                              </li>
-                              <li><a href="#">ກຸ່ມ</a>
-                              </li>
-                              <li><a href="#">ທີມ</a>
-                              </li>
-                              <li><a href="#">ພະແນກ</a>
-                              </li>
-                            </ul>
-                          </li>
-                        <li><a href="Paning_jobs.html">Jobs</a></li>
-                        
-                      </ul>
-                    </li>
-                    <li><a><i class="fa fa-list-ul"></i> Manage <span class="fa fa-chevron-down"></span></a>
-                      <ul class="nav child_menu">
-                        <li><a href="Apply.html"> Apply Document</a></li>
-                        <li><a href="Score.html">Score</a></li>
-                        
-                      </ul>
-                    </li>
-                    <li><a ><i class="fa fa-briefcase"></i> Jobs <span class="fa fa-chevron-down"></span></a>
-                      <ul class="nav child_menu">
-                        <li><a href="jobs.html">ວຽກປະຈຳ</a></li>
-                       
-                      </ul>
-                    </li>
-                    <li><a><i class="fa fa-user"></i> User <span class="fa fa-chevron-down"></span></a>
-                      <ul class="nav child_menu">
-                        <li><a href="User.html">ຜູ້ໃຊ້ລະບົບ</a></li>
-                       
-                      </ul>
-                    </li>
-  
-                    <li><a><i class="fa fa-bar-chart-o"></i> Report <span class="fa fa-chevron-down"></span></a>
-                      <ul class="nav child_menu">
-                        <li><a href="#">Report 1</a></li>
-                        <li><a href="#">Report 2</a></li>
-                       
-                      </ul>
-                    </li>
-                   
-                  </ul>
-                </div>
+              <div class="menu_section">
+                <h3>Menu</h3>
+                <ul class="nav side-menu">
+                  <li><a><i class="fa fa-file"></i> Paning <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a>Document<span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu">
+                            <li class="sub_menu"><a href="Document.html" onclick="saveClient();">ຂອງຂ້ອຍ</a>
+                            </li>
+                            <li><a href="#">ກຸ່ມ</a>
+                            </li>
+                            <li><a href="#">ທີມ</a>
+                            </li>
+                            <li><a href="#">ພະແນກ</a>
+                            </li>
+                          </ul>
+                        </li>
+                      <li><a href="Paning_jobs.html" onclick="saveClient();">Jobs</a></li>
+                      
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-list-ul"></i> Manage <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="Apply.html" onclick="saveClient();"> Apply Document</a></li>
+                      <li><a href="Score.html" onclick="saveClient();">Score</a></li>
+                      
+                    </ul>
+                  </li>
+                  <li><a ><i class="fa fa-briefcase"></i> Jobs <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="jobs.html" onclick="saveClient();">ວຽກປະຈຳ</a></li>
+                     
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-user"></i> User <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="User.html" onclick="saveClient();">ຜູ້ໃຊ້ລະບົບ</a></li>
+                     
+                    </ul>
+                  </li>
+          
+                  <li><a><i class="fa fa-bar-chart-o"></i> Report <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="#">Report 1</a></li>
+                      <li><a href="#">Report 2</a></li>
+                     
+                    </ul>
+                  </li>
+                 
+                </ul>
+              </div>
+          
+              
+          
+            </div>
   
                 
-  
-              </div>
+   
+              
             <!-- /sidebar menu -->
 
           
@@ -122,7 +147,7 @@
         </div>
 
         <!-- top navigation -->
-        <div class="top_nav">
+        <div class="top_nav" id="top_nav">
           <div class="nav_menu">
             <nav>
               <div class="nav toggle">
@@ -230,7 +255,12 @@
             </div>
 
             <div class="clearfix"></div>
-
+            <div align="right">
+                <div id="notificationpanel"></div>
+                <div id="notificationpanellist"></div>
+                <div id="errorpanel"></div>
+                <div id="errorpanellist"></div>
+            </div>
             <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="x_panel">
                 <div class="x_title">
@@ -258,7 +288,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                            <tr >
+                            <tr id='row1'>
                                     <td>
                                         <img src="images/img.jpg" class="circle btn-round " alt="Cinque Terre" width="35" height="35">
                                     </td>
@@ -268,13 +298,13 @@
                                     <td><font size="3">IT font End</font></td>
                                     <td><span class="badge badge-secondary float-center " ><font size="3"  >ພະນັກງານ</font></span></td>
                                     <td>
-                                        <button type="button" class="btn btn-round btn-primary">ແກ້ໄຂ</button>
-                                        <button type="button" class="btn btn-round btn-danger">ລົບ</button>
+                                        <button type="button" data-row="1" class="btn btn-round btn-primary Edit">ແກ້ໄຂ</button>
+                                        <button type="button" data-row="1" class="btn btn-round btn-danger Delete">ລົບ</button>
                            
     
                                     </td>
                             </tr>
-                            <tr >
+                            <tr id='row2'>
                                 <td>
                                     <img src="images/img.jpg" class="circle btn-round " alt="Cinque Terre" width="35" height="35">
                                 </td>
@@ -284,8 +314,8 @@
                                 <td><font size="3">IT font End</font></td>
                                 <td><span class="badge badge-secondary float-center " ><font size="3"  >ພະນັກງານ</font></span></td>
                                 <td>
-                                    <button type="button" class="btn btn-round btn-primary">ແກ້ໄຂ</button>
-                                    <button type="button" class="btn btn-round btn-danger">ລົບ</button>
+                                    <button type="button" data-row="2" class="btn btn-round btn-primary Edit">ແກ້ໄຂ</button>
+                                    <button type="button" data-row="2" class="btn btn-round btn-danger Delete">ລົບ</button>
                        
 
                                 </td>
@@ -334,18 +364,18 @@
                     </div>
                 </div>
                 <div class="modal-body">
-                <form method="post" id="insert_form" autocomplete="off">
+                <form method="post" id="form" autocomplete="off">
                                
                     <div class="form-group row">
                                     
                         <div class="col-sm-3">
                             <label  ><font size="3">ຊື່ຜູ້ໃຊ້</font></label>
-                            <input type="text" class="form-control"  >
+                            <input id="First_name" type="text" class="form-control"  >
                         </div>
                         
                         <div class="col-sm-3">
                                 <label ><font size="3">ນາມສະກຸນ</font></label>
-                                <input type="text" class="form-control"  >
+                                <input id="List_name" type="text" class="form-control"  >
                         </div>
                         <div class="col-sm-3">
                                 <label ><font size="3">ຮູບພາບ</font></label>
@@ -358,10 +388,10 @@
                 <div class="form-group row">
                         <div class="col-sm-3">
                                 <label ><font size="3">ພະແນກ</font></label>
-                                <select class="form-control" >
-                                    <option>ເລືອກ</option>
-                                    <option>Font End</option>
-                                    <option>black End</option>
+                                <select id="department" class="form-control" >
+                                    <option value="">ເລືອກ</option>
+                                    <option value="Font End">Font End</option>
+                                    <option value="">black End</option>
                                     
                                     
                                 </select>
@@ -369,11 +399,11 @@
                              </div>
                              <div class="col-sm-3">
                                 <label ><font size="3">ສິດ</font></label>
-                                <select class="form-control" >
-                                    <option>Admin</option>
-                                    <option>Header</option>
-                                    <option>leader</option>
-                                    <option>Employee</option>
+                                <select id="Permission" class="form-control" >
+                                    <option value="Admin">Admin</option>
+                                    <option value="">Header</option>
+                                    <option value="">leader</option>
+                                    <option value="">Employee</option>
                                     
                                     
                                 </select>
@@ -381,12 +411,12 @@
 
                     <div class="col-sm-3">
                         <label ><font size="3">ຜູ້ດູແລ</font></label>
-                        <select class="form-control" >
-                            <option></option>
-                            <option>ທ້າວ ກ</option>
-                            <option>ທ້າວ ຂ</option>
-                            <option>ນາງ ງ</option>
-                            <option>ທ້າວ ຈ</option>
+                        <select id="Parent" class="form-control" >
+                            <option value="">ເລືອກ</option>
+                            <option value="ທ້າວ ກ">ທ້າວ ກ</option>
+                            <option value="">ທ້າວ ຂ</option>
+                            <option value="">ນາງ ງ</option>
+                            <option value="">ທ້າວ ຈ</option>
                             
                             
                         </select>
@@ -397,17 +427,19 @@
                     
                         <div class="col-sm-3">
                                 <label ><font size="3"></font>Username</label>
-                                <input type="text" class="form-control"  >
+                                <input id="Username" type="text" class="form-control"  >
     
                         </div>
 
                     <div class="col-sm-3">
                             <label ><font size="3"></font>Password</label>
-                            <input type="text" class="form-control"  >
+                            <input id="Password" type="text" class="form-control"  >
 
                     </div>
+                    <input type="hidden" class="form-control" id="type" >
+                    <input type="hidden" class="form-control" id="ues_id" >
                 </div>
-                                <input type="submit" name="insert" id="insert" value="ເພີ້ມຊື່ຜູ້ໃຊ້" class="btn btn-success" />
+                                <input type="button" name="insert" id="save" value="ເພີ້ມຊື່ຜູ້ໃຊ້" class="btn btn-success" />
                                 
 
                                 <h5> </h5>
@@ -442,17 +474,14 @@
       </div>
     </div>
 
-    <script src="../vendors/Chart.js/dist/Chart.min.js"></script>
-    <!-- jQuery -->
-    <script src="../vendors/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- FastClick -->
-    <script src="../vendors/fastclick/lib/fastclick.js"></script>
-    <!-- NProgress -->
-    <script src="../vendors/nprogress/nprogress.js"></script>
-    <!-- iCheck -->
-    <script src="../vendors/iCheck/icheck.min.js"></script>
+   
+    
+
+    
+  
+
+    
+    
     <!-- Datatables -->
     <script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
@@ -469,27 +498,378 @@
     <script src="../vendors/jszip/dist/jszip.min.js"></script>
     <script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
     <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
+    <script src="../sweetalert.min.js"></script>
 
     <!-- Custom Theme Scripts -->
-    <script src="../build/js/custom.min.js"></script>
+    <script src="../build/js/custom.js"></script>
+    
+    <script type="text/javascript">
+        
+      function addDelete(){
 
-    <script>
-             $(document).ready(function () {
-
-                  $('#table_date').DataTable();
-
-                  $('#add').click(function () {
+         $('#table_date').DataTable();
+         $('.Edit').click(function () {
                     
+
+                $('#First_name').val(this.getAttribute("data-Name"));
+                $('#List_name').val(this.getAttribute("data-Surname"));
+                $('#department').val(this.getAttribute("data-department"));
+                $('#Permission').val(this.getAttribute("data-Permission"));
+                $('#Username').val(this.getAttribute("data-Username"));
+                $('#Password').val(this.getAttribute("data-Password"));
+
                     $('#add_data_Modal').modal('show');
-                  });
+                    $('#type').val('Edit');
+                    $('#save').val('ແກ້ໄຂ');
+                    
+                    //var x = $(this).attr("id");  
+                    $('#ues_id').val(this.getAttribute("data-Name"));
+                });
+        $('.Delete').click(function () {
+                    
+                    var delete_row = $(this).data("row");
+                   
+                    var table = document.getElementById("table_date");
+                      swal({
+                            title: "ລົບຂໍ້ມູນຜູ້ໃຊ້",
+                            text: "ລົບຂໍ້ມູນຜູ້ໃຊ້ ຫຼື່ບໍ່!",
+                            icon: "warning",
+                            buttons: true,
+                            dangerMode: true,
+                            })
+                            .then((willDelete) => {
+                              if (willDelete) {
+          
+                              $('#row' + delete_row).remove();
+                              
+                               new PNotify({
+                                      title: 'ແຈ້ງເຕືອນ',
+                                      text: 'ລົບຂໍ້ມູນ ! ສຳເລັດ.',
+                                      type: 'success',
+                                      
+                                      styling: 'bootstrap3'
+                                      });   
+                                  
+                              }      
+                        });   
+                         
+                              
+                    });
+                   
+      }
+       
+       
+
+        $('#add').click(function () {
+                    
+          $('#add_data_Modal').modal('show');
+          $('#form')[0].reset();
+          $('#type').val('Insert');
+          $('#save').val('ເພີ້ມຊື່ຜູ້ໃຊ້');
+         
+         
+         
+           
+           
+        });
+
+       
+
+         addDelete();
+
+         $('#save').click(function () {
+
+              if($('#First_name').val() == ''){
+                new PNotify({
+                            title: 'ແຈ້ງເຕືອນ',
+                            text: 'ບໍ່ມີຂໍ້ມູນຊື້່ຜູ້ໃຊ້ ! ລະລຸນາປ້ອມຂໍ້ມູນໃຫ້ຄົບ.',
+                            hide: false,
+                            
+                            styling: 'bootstrap3'
+                            });   
+                        
+                    
+
+              }else if($('#List_name').val() == ''){
+
+                 new PNotify({
+                            title: 'ແຈ້ງເຕືອນ',
+                            text: 'ບໍ່ມີຂໍ້ມູນນາມສະກຸນ ! ລະລຸນາປ້ອມຂໍ້ມູນໃຫ້ຄົບ.',
+                            hide: false,
+                            
+                            styling: 'bootstrap3'
+                            });  
+
+              }else if($('#Username').val() == ''){
+                new PNotify({
+                            title: 'ແຈ້ງເຕືອນ',
+                            text: 'ບໍ່ມີຂໍ້ມູນ User ! ລະລຸນາປ້ອມຂໍ້ມູນໃຫ້ຄົບ.',
+                            hide: false,
+                            
+                            styling: 'bootstrap3'
+                            });  
+
+              }else if($('#Password').val() == ''){
+
+                new PNotify({
+                            title: 'ແຈ້ງເຕືອນ',
+                            text: 'ບໍ່ມີຂໍ້ມູນ Password ! ລະລຸນາປ້ອມຂໍ້ມູນໃຫ້ຄົບ.',
+                            hide: false,
+                            
+                            styling: 'bootstrap3'
+                            });  
+
+              }else if($('#department').val() == ''){
+
+                   new PNotify({
+                            title: 'ແຈ້ງເຕືອນ',
+                            text: 'ບໍ່ມີຂໍ້ມູນ ພະແນກ ! ລະລຸນາປ້ອມຂໍ້ມູນໃຫ້ຄົບ.',
+                            hide: false,
+                            
+                            styling: 'bootstrap3'
+                            }); 
+        
+              }else if($('#Permission').val() == ''){
+
+                new PNotify({
+                            title: 'ແຈ້ງເຕືອນ',
+                            text: 'ບໍ່ມີຂໍ້ມູນ ສິດທິ ! ລະລຸນາປ້ອມຂໍ້ມູນໃຫ້ຄົບ.',
+                            hide: false,
+                            
+                            styling: 'bootstrap3'
+                            });
+                
+              }
+              else if($('#Parent').val() == ''){
+
+                new PNotify({
+                            title: 'ແຈ້ງເຕືອນ',
+                            text: 'ບໍ່ມີຂໍ້ມູນ ຜູ້ດູແລ ! ລະລຸນາປ້ອມຂໍ້ມູນໃຫ້ຄົບ.',
+                            hide: false,
+                            
+                            styling: 'bootstrap3'
+                            });
+                
+              }
+              else{
+
+                
+                  if($('#type').val() == 'Insert'){
+                    //qry('createuser');
+                    var table = document.getElementById("table_date");
+                    var rows = table.getElementsByTagName("tr");
+                    var data_code = rows.length;
+                    var html_code = "<tr id='row"+data_code+"'>";
+                        html_code += '<td > <img src="images/img.jpg" class="circle btn-round " alt="Cinque Terre" width="35" height="35"></td>';
+                        html_code += "<td >"+$('#First_name').val()+"</td>";
+                        html_code += "<td >"+$('#List_name').val()+"</td>";                  
+                        html_code += "<td >"+$('#department').val()+"</td>";                   
+                        html_code += '<td ><span class="badge badge-secondary float-center " ><font size="3"  >ພະນັກງານ</font></span></td>';
+                        html_code += '<td> <button type="button" data-Name="'+$('#First_name').val()+'"'; 
+                        html_code += '                           data-Surname="'+$('#List_name').val()+'"';
+                        html_code += '                           data-department="'+$('#department').val()+'"'; 
+                        html_code += '                           data-Permission="'+$('#Permission').val()+'" '; 
+                        html_code += '                           data-Username="'+$('#Username').val()+'" '; 
+                        html_code += '                           data-Password="'+$('#Password').val()+'" '; 
+                        html_code += 'class="btn btn-round btn-primary Edit">ແກ້ໄຂ</button>';
+                        html_code += ' <button type="button" data-row="'+data_code+'" class="btn btn-round btn-danger Delete">ລົບ</button></td>';
+ 
+                        
+                        html_code += "</tr>";  
+                        $('#table_date').append(html_code);
+                    new PNotify({
+                                title: 'ແຈ້ງເຕືອນ',
+                                text: 'ເພີ້ມຂໍ້ມູນ ! ສຳເລັດ.',
+                                type: 'success',
+                                
+                                styling: 'bootstrap3'
+                                });
+                  addDelete();
+                  }else if($('#type').val() == 'Edit'){
+                    //qry('updateuser');
+                    
+                    var table = document.getElementById("table_date");
+                    
+                    var delete_row =$('#ues_id').val() ;
+                for (var i = 0, row; row = table.rows[i]; i++) {
+                
+                    var x  = document.getElementById("table_date").rows[i].cells.item(1).innerHTML;
+                    if(x == delete_row){
+                        
+                      document.getElementById("table_date").rows[i].cells.item(1).innerHTML=$('#First_name').val();
+                      document.getElementById("table_date").rows[i].cells.item(2).innerHTML=$('#List_name').val();
+                      document.getElementById("table_date").rows[i].cells.item(3).innerHTML=$('#department').val();
+                    
+                        
+                    }
+                
+                }
+               
+
+                    new PNotify({
+                                title: 'ແຈ້ງເຕືອນ',
+                                text: 'ແກ້ຂໍ້ມູນ ! ສຳເລັດ.',
+                                type: 'success',
+                                
+                                styling: 'bootstrap3'
+                                });   
+
+                 
+                  }
+                  $('#add_data_Modal').modal('hide');
+
+              }
+
+
+                    
+              
+            
+                   
+          });
 
 
 
-
-             });
+             
     
     
-    </script>
+    
+    
+      // DEFAULT FORMAT FOR CLIENT
+          var _client = {
+              accessedtime: new Date(),
+              clientip: "",
+              data: {},
+              gui: "",
+              lastupdate: "",
+              loginip: "",
+              logintime: "",
+              logintoken: "",
+              timeout: 86400,
+              username: "",
+          };
+      
+          function qry(command) {
+              var First_name = $('#First_name').val();
+              var List_name = $('#List_name').val();
+              var user = $('#Username').val();
+              var pass = $('#Password').val();
+              var department = $('#department').val();
+              var Permission = $('#Permission').val();
+              var Parent = $('#Parent').val();
+
+              // all request data 
+              _client.data.user.First_name = Name;
+              _client.data.user.List_name = surname;
+              _client.data.user.username = user;
+              _client.data.user.password = pass;
+              _client.data.user.department = department;
+              _client.data.user.Permission = Permission;
+              _client.data.user.Parent = Parent;
+              _client.data.command=command;
+              // command list : 
+              // login 
+              // forgotpassword
+              // forgotusername
+              // changepassword 
+              // profile
+              // createuser
+              // updateuser
+              // verticalusersline
+              // 
+              // createdoc
+              // updatedoc
+              // createjob
+              // updatejob
+              // doclist
+              // joblist 
+              // approvaluserlist
+              // pendingapprovelist
+              // 
+      
+      
+      
+      
+              // HOW TO SET TO SERVER
+              $.ajax({
+                  type: 'POST', // METHOD 
+                  url: '/user', // PATH  or /admin
+                  contentType: 'application/json; charset=utf-8',
+                  dataType: 'json',
+                  data: _client, // DATA TO SEND
+                  success: function (data) {
+                      _client=data;
+                      bindData();
+                      $('#notificationpanel').html = "<p>" +_client.data.message + "</p>";
+                      $("#notificationpanel").fadeIn("slow",function(){
+                          $('#notificationpanel').fadeOut( "slow" );
+                      });
+      
+                      $('#notificationpanellist').append("<p>" +_client.data.message + "</p>");
+                      
+                  },
+                  failure: function (data) {
+                      _client=data;
+      
+                      $('#errorpanel').html = "<p>" + _client.data.errormessage + "</p>";
+                      $('#errorpanel').fadeIn("slow",function(){
+                          $('#errorpanel').fadeOut( "slow" );
+                      });
+                      // 
+                      $('#errorpanellist').append = ("<p>" + _client.data.errormessage + "</p>");
+                      console.log(_client.data.message);
+                  }
+              });
+          }
+          
+          function bindData(){
+              var username=_client.username;
+              var ip = _client.loginip;
+              var logintime=_client.logintime;
+              $("#loginusername").text("welcome: "+username);
+              $("#loginip").text("IP: "+ip);
+              $("#logintime").text("login time: "+logintime);
+          }
+          function saveClient() {
+
+               new PNotify({
+                                title: 'ແຈ້ງເຕືອນ',
+                                text: 'ແກ້ຂໍ້ມູນ ! ສຳເລັດ.',
+                                type: 'success',
+                                
+                                styling: 'bootstrap3'
+                                }); 
+
+              localStorage.setItem('taskmanagerclient', JSON.stringify(_client));
+          }
+      
+          function getClient() {
+              // check if it is set
+              
+              
+              try {
+                  _client = JSON.parse(localStorage.getItem('taskmanagerclient'));
+              } catch (error) {
+                  console.log('localstorage empty');
+                  // reset all data when local storage is empty
+                  _client = {
+                      accessedtime: new Date(),
+                      clientip: "",
+                      data: {},
+                      gui: "",
+                      lastupdate: "",
+                      loginip: "",
+                      logintime: "",
+                      logintoken: "",
+                      timeout: 86400,
+                      username: "",
+                      
+                  };
+                  window.location.replace("../index.html");
+      
+              }
+      
+          }
+      </script>
 
   </body>
 </html>
