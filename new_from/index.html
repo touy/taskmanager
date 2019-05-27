@@ -45,7 +45,7 @@
    
   </head>
 
-  <body class="login" style="font-family: 'Saysettha OT'">
+  <body class="login"  style="font-family: 'Saysettha OT'">
     <div align="right">
             <div id="notificationpanel"></div>
             <div id="notificationpanellist"></div>
@@ -76,8 +76,8 @@
               <div class="clearfix"></div>
              
               <div class="separator">
-                <p class="change_link">ປ່ຽນລະຫັດຜ່ານ :
-                    <a href="#signup" class="to_register"> Chang password </a>
+                <p class="change_link">ລືມລະຫັດຜ່ານ :
+                    <a href="#signup" class="to_register"> forgot password </a>
                   </p>
               </div>
               
@@ -89,18 +89,18 @@
         <div id="register" class="animate form registration_form">
             <section class="login_content">
               <form>
-                <h1>Chang password</h1>
+                <h3>ລືມລະຫັດຜ່ານ</h3>
                 <div>
                   <input id="User_change" type="text" class="form-control" placeholder="Username" required="" />
                 </div>
                 <div>
-                  <input id="Old_password" type="password" class="form-control" placeholder="Old Password" required="" />
+                  <input id="Old_password" type="mail" class="form-control" placeholder="E-Mail" required="" />
                 </div>
-                <div>
+               <!-- <div>
                   <input id ="New_password"type="password" class="form-control" placeholder="New Password" required="" />
-                </div>
+                </div> -->
                 <div>
-                  <a class="btn btn-default chang_password">Change Password</a>
+                  <a class="btn btn-default chang_password">Send Password</a>
                 </div>
   
                 <div class="clearfix"></div>
@@ -189,23 +189,15 @@
                 
             new PNotify({
             title: 'ແຈ້ງເຕືອນ',
-            text: 'ຂໍ້ມູບໍ່ຄົບ ! ກະລຸນາປ້ອມຂໍ້ມູນລະຫັດຜ່ານເກົ່າ.',
+            text: 'ຂໍ້ມູບໍ່ຄົບ ! ກະລຸນາປ້ອມຂໍ້ມູນ E-Mail.',
             hide: false,
             
             styling: 'bootstrap3'
             });
            
-        }else if($('#New_password').val()==''){
-                
-            new PNotify({
-            title: 'ແຈ້ງເຕືອນ',
-            text: 'ຂໍ້ມູບໍ່ຄົບ ! ກະລຸນາປ້ອມຂໍ້ມູນລະຫັດຜ່ານໃໝ່.',
-            hide: false,
-            
-            styling: 'bootstrap3'
-            });
+        }
                
-        }else{
+        else{
             new PNotify({
             title: 'ແຈ້ງເຕືອນ',
             text: 'ກຳລັງປະມວນຜົນ...',
