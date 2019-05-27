@@ -282,7 +282,7 @@
                                     <td>
                                       <font size="3">0001</font>
                                     </td>
-                                    <td><font size="3">ໃບອອກວຽກນອກ</font></td>
+                                    <td><font size="3">ພົວພັນ ອ.ຍ ຈາກກະຊວງຖາທາລະນະສຸກ</font></td>
                                     <td><font size="3">12/04/2019</font></td>
                                     <td><span class="badge  float-center " ><font size="3"  >ລໍຖ້າອະນຸມັດ</font></span></td>
                                     <td><font size="3">IT font End</font></td>
@@ -347,7 +347,7 @@
                   <div class="form-group row">
                       <label  class="col-sm-2 "><font size="3">ຫົວຂໍ້ເອກະສານ:</font></label>
                       <div class="col-sm-8">
-                          <font size="3">ໃບອອກວຽກນອກ</font>
+                          <font size="3">ພົວພັນ ອ.ຍ ຈາກກະຊວງຖາທາລະນະສຸກ</font>
                           
                       </div>
                       <div class="col-sm-2">
@@ -449,6 +449,7 @@
                                           </tr>
                                           </thead>
                                           <tbody>
+                                                  <!--
                                                   <tr>
                                                           <td><font size="3">0001</font></td>
                                                           <td><font size="3">ແປງຄອມ</font></td>
@@ -471,7 +472,7 @@
                                                           <td><font size="3">19/3/2019</font></td>
                                                           <td><font size="3">22/3/2019</font></td>
                                                           
-                                                  </tr>
+                                                  </tr> -->
                                           </tbody>
                                       </table>
                                   </div>
@@ -558,6 +559,7 @@
                               .then((willDelete) => {
                               if (willDelete) {
                                       //qry(x,'Apply')
+                                      document.getElementById("table_date").rows[1].cells.item(3).innerHTML=' <span class="badge bg-green " ><font size="3"  >ອະນຸມັດແລ້ວ</font></span>';
                                       new PNotify({
                                               title: 'ແຈ້ງເຕືອນ',
                                               text: '"ອານຸມັດໂຄງການ ! ສຳເລັດ.',

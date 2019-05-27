@@ -257,7 +257,7 @@
                           <div class="form-group row">
                               <label  class="col-sm-2 "><font size="3">ຫົວຂໍ້ວຽກ:</font></label>
                               <div class="col-sm-10">
-                                  <input type="text" class="form-control"  >
+                                  <input type="text" class="form-control" id="titel" >
                                   
                               </div>
                               <!--<div class="col-sm-2">
@@ -268,7 +268,7 @@
                           <div class="form-group row">
                               <label class="col-sm-2 "><font size="3"  >ສົງຫາຜູ້ອານຸມັດ</font></label>
                               <div class="col-sm-4">
-                                      <select class="form-control" id="exampleFormControlSelect1">
+                                      <select class="form-control" id="Select1">
                                               <option>ເລືອກ</option>
                                               <option>ຫນ້າພະແນກ</option>
                                               <option>ອຳນວຍການ</option>
@@ -281,7 +281,7 @@
                           <div class="form-group row">
                               <label  class="col-sm-2 "><font size="3"  >ລາຍລະອຽດ :</font></label>
                               <div class="col-sm-10">
-                                  <textarea id="textarea" required="required" name="textarea" class="form-control "></textarea>
+                                  <textarea id="description" required="required" name="textarea" class="form-control "></textarea>
                               </div>
                               
                                      
@@ -294,7 +294,7 @@
                                      
                                       <div class="form-group">
                                           <div class='input-group date' id='DateStart'>
-                                              <input type='text' class="form-control" />
+                                              <input type='text' class="form-control" id="DateStartVal" />
                                               <span class="input-group-addon">
                                                  <span class="glyphicon glyphicon-calendar"></span>
                                               </span>
@@ -308,7 +308,7 @@
                                       
                                       <div class="form-group">
                                           <div class='input-group date' id='DateEnd'>
-                                              <input type='text' class="form-control" />
+                                              <input type='text' class="form-control" id="DateEndVal"/>
                                               <span class="input-group-addon">
                                                  <span class="glyphicon glyphicon-calendar"></span>
                                               </span>
@@ -338,65 +338,20 @@
           
                                      
                                   <div class="table-responsive">
-                                      <table id="example" class="table table-bordered" >
+                                      <table id="table_custom" class="table table-bordered" >
                                       
-                                      <thead>
+                                      <thead >
                                       <tr>
-                                          <th width="10%"><font size="3">ຮູບພາບ</font></th>
-                                          <th><font size="3">ຊື່ສະມາຊິກ</font></th>
-                                          <th width="15%"><font size="3">ຫົວໜ້າທີມ</font></th>
+                                          <th width="10%">ຮູບພາບ</th>
+                                          <th>ຊື່ສະມາຊິກ</th>
+                                          <th width="15%">ຫົວໜ້າທີມ</th>
                                          
                                           
                                       </tr>
                                       </thead>
-                                      <tbody>
-                                              <tr>
-                                                      <td>
-                                                          <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                                              <img src="images/img.jpg" alt="">
-                                                              
-                                                            </a>
-                                                      </td>
-                                                      <td><font size="3">ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ</font></td>
-                                                      <td>
-                                                          <div class="form-check">
-                                                              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" >     
-                                                          </div>
-                                                      </td>
-                                                     
-                                                      
-                                              </tr>
-                                              <tr>
-                                                      <td>
-                                                          <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                                              <img src="images/img.jpg" alt="">
-                                                              
-                                                            </a>
-                                                      </td>
-                                                      <td><font size="3">ທ້າວ ສອນໄຊ ເກດແກ້ວ</font></td>
-                                                      <td>
-                                                          <div class="form-check">
-                                                              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" >
-                                                          </div>
-                                                      </td>
-                                                      
-                                                     
-                                              </tr>
-                                              <tr>
-                                                      <td>
-                                                          <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                                              <img src="images/img.jpg" alt="">
-                                                              
-                                                            </a>
-                                                      </td>
-                                                      <td><font size="3">ທ້າວ ໄຊນະພາ ພົມວິຫານ</font></td>
-                                                      <td>
-                                                          <div class="form-check">
-                                                              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" >
-                                                          </div>
-                                                      </td>
-                                                      
-                                              </tr>
+                                      <tbody id="list_custom">
+                                             
+                                            
                                       </tbody>
                                   </table>
                                   
@@ -409,13 +364,13 @@
                           </div>
 
                           <div class="form-group row">
-                              <label  class="col-sm-2 "><font size="3"  >ຫນ້າວຽກທີປະຕິບັນ</label></label>
+                              <label  class="col-sm-2 "><font size="3"  >ຫນ້າວຽກທີປະຕິບັດ</label></label>
                               <div class="col-sm-10">
 
 
                                      
                                       <div class="table-responsive">
-                                              <table id="example2" class="table table-bordered" cellspacing="0" width="100%">
+                                              <table  id="table_job"  class="table table-bordered" cellspacing="0" width="100%">
                                               
                                               <thead>
                                               <tr>
@@ -428,47 +383,13 @@
                                                   <th><font size="3">Action</font></th>
                                               </tr>
                                               </thead>
-                                              <tbody>
-                                                      <tr>
-                                                              <td>0001</td>
-                                                              <td>ແປງຄອມ</td>
-                                                              <td>12/3/2019</td>
-                                                              <td>13/3/2019</td>
-                                                              <td><span class="badge  badge-success float-center " ><font size="3"  >ສຳເລັດ</font></span></td>
-                                                              <td>
-                                                                  <a id="" class="btn btn-round btn-success  View_data" data-toggle="tooltip" title="View"><i class="fa fa-file"></i></a> 
-                                                                      
-                                                              </td>
-                                                              
-                                                      </tr>
-                                                      <tr>
-                                                              <td>0002</td>
-                                                              <td>ເຊັກ Server</td>
-                                                              <td>12/3/2019</td>
-                                                              <td>13/3/2019</td>
-                                                              <td><span class="badge  badge-danger float-center " ><font size="3"  >ໂຈການເຮັດວຽກ</font></span></td>
-                                                              <td>
-                                                                  <a id="" class="btn btn-round btn-success  View_data" data-toggle="tooltip" title="View"><i class="fa fa-file"></i></a> 
-                                                                     
-                                                              </td>
-                                                             
-                                                      </tr>
-                                                      <tr>
-                                                              <td>0003</td>
-                                                              <td>ອອກແບບເວັບໄຊ</td>
-                                                              <td>19/3/2019</td>
-                                                              <td>22/3/2019</td>
-                                                              <td><span class="badge  badge-primary float-center " ><font size="3"  >ກຳລັງດຳເນີນງານ</font></span></td>
-                                                              <td>
-                                                                  <a id="" class="btn btn-round btn-success  View_data" data-toggle="tooltip" title="View"><i class="fa fa-file"></i></a> 
-                                                                     
-                                                              </td>
-                                                      </tr>
+                                              <tbody id="list_job">
+                                                     
                                               </tbody>
                                           </table>
                                       </div>
                                       <button type="button" class="btn btn-success addjobs_data" title="Add Jobs" name="add" id="addjobs_data" >ເລືອກວຽກ</button>
-                                      <button type="button" class="btn btn-success" title="Crate Jobs" name="add" id="add" >ສ້າງວຽກ</button>
+                                      <button type="button" class="btn btn-success" title="Crate Jobs"  id="createjob" >ສ້າງວຽກ</button>
                               </div>
                               
                           </div>
@@ -476,7 +397,8 @@
   
                         <div class="form-group">
                             <hr/>
-                            <button type="submit" class="btn btn-primary">ບັນທືກ</button>
+                            <button type="button" class="btn btn-primary save_doc">ບັນທືກ</button>
+                            <a href="Document.html" class="btn btn-default ">ຍົກເລີກ</a>
                             
                          
                         </div>
@@ -525,7 +447,7 @@
     
                                
                                 <div class="table-responsive">
-                                        <table id="example" class="table table-bordered" >
+                                        <table id="data_employee" class="table table-bordered" >
                                         
                                         <thead>
                                         <tr>
@@ -537,11 +459,11 @@
                                             
                                         </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody >
                                                 <tr>
                                                         <td>
                                                             <div class="form-group form-check mb-0">
-                                                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                                <input type="checkbox" class="form-check-input" name="exampleCheck1">
                                                                 
                                                             </div>
                                                         </td>
@@ -551,7 +473,7 @@
                                                                 
                                                               </a>
                                                         </td>
-                                                        <td><font size="3">ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ</font></td>
+                                                        <td>ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ</td>
                                                        
                                                        
                                                         
@@ -559,7 +481,7 @@
                                                 <tr>
                                                         <td>
                                                             <div class="form-group form-check mb-0">
-                                                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                                <input type="checkbox" class="form-check-input" name="exampleCheck1">
                                                             </div>  
                                                         </td>
                                                         <td>
@@ -568,7 +490,7 @@
                                                                 
                                                               </a>
                                                         </td>
-                                                        <td><font size="3">ທ້າວ ສອນໄຊ ເກດແກ້ວ</font></td>
+                                                        <td>ທ້າວ ສອນໄຊ ເກດແກ້ວ</td>
                                                         
                                                         
                                                        
@@ -576,7 +498,7 @@
                                                 <tr>
                                                         <td>
                                                             <div class="form-group form-check mb-0">
-                                                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                                <input type="checkbox" class="form-check-input" name="exampleCheck1">
                                                             </div> 
                                                         </td>
                                                         <td>
@@ -585,7 +507,7 @@
                                                                 
                                                               </a>
                                                         </td>
-                                                        <td><font size="3">ທ້າວ ໄຊນະພາ ພົມວິຫານ</font></td>
+                                                        <td>ທ້າວ ໄຊນະພາ ພົມວິຫານ</td>
                                                        
                                                         
                                                 </tr>
@@ -597,61 +519,11 @@
                         </div>
                         
                     </div>
-                    <!--
-                    <div class="form-group row">
-                            <label  class="col-sm-2 "><font size="3"  >ຫນ້າວຽກ :</font></label>
-                            <div class="col-sm-10">
-    
-    
-                                   
-                                    <div class="table-responsive">
-                                            <table id="example2" class="table table-bordered" >
-                                            
-                                            <thead>
-                                            <tr>
-                                                <th><font size="3">ລະຫັດ</font></th>
-                                                <th><font size="3">ຫົວຂໍ້ວຽກ</font></th>
-                                                <th><font size="3">ວັນທີເລີມ</font></th>
-                                                <th><font size="3">ວັນທີກຳນົດ</font></th>
-                                               
-                                                
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                                    <tr>
-                                                            <td><font size="3">0001</font></td>
-                                                            <td><font size="3">ແປງຄອມ</font></td>
-                                                            <td><font size="3">12/3/2019</font></td>
-                                                            <td><font size="3">13/3/2019</font></td>
-                                                          
-                                                            
-                                                    </tr>
-                                                    <tr>
-                                                            <td><font size="3">0002</font></td>
-                                                            <td><font size="3">ເຊັກ Server</font></td>
-                                                            <td><font size="3">12/3/2019</font></td>
-                                                            <td><font size="3">13/3/2019</font></td>
-                                                           
-                                                           
-                                                    </tr>
-                                                    <tr>
-                                                            <td><font size="3">0003</font></td>
-                                                            <td><font size="3">ອອກແບບເວັບໄຊ</font></td>
-                                                            <td><font size="3">19/3/2019</font></td>
-                                                            <td><font size="3">22/3/2019</font></td>
-                                                            
-                                                    </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                             </div>
-                            
-                        </div>
-                      -->   
+                
                 </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-success">ບັນທືກ</button>
+                    <button type="submit" class="btn btn-success add_custom">ບັນທືກ</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
                 </div>
@@ -768,57 +640,7 @@
                         </div>
                         
                     </div>
- <!--
-                    <div class="form-group row">
-                            <label  class="col-sm-2 "><font size="3"  >ຫນ້າວຽກ :</font></label>
-                            <div class="col-sm-10">
-    
-    
-                                   
-                                    <div class="table-responsive">
-                                            <table id="example2" class="table table-bordered" >
-                                            
-                                            <thead>
-                                            <tr>
-                                                <th><font size="3">ລະຫັດ</font></th>
-                                                <th><font size="3">ຫົວຂໍ້ວຽກ</font></th>
-                                                <th><font size="3">ວັນທີເລີມ</font></th>
-                                                <th><font size="3">ວັນທີກຳນົດ</font></th>
-                                               
-                                                
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                                    <tr>
-                                                            <td><font size="3">0001</font></td>
-                                                            <td><font size="3">ແປງຄອມ</font></td>
-                                                            <td><font size="3">12/3/2019</font></td>
-                                                            <td><font size="3">13/3/2019</font></td>
-                                                          
-                                                            
-                                                    </tr>
-                                                    <tr>
-                                                            <td><font size="3">0002</font></td>
-                                                            <td><font size="3">ເຊັກ Server</font></td>
-                                                            <td><font size="3">12/3/2019</font></td>
-                                                            <td><font size="3">13/3/2019</font></td>
-                                                           
-                                                           
-                                                    </tr>
-                                                    <tr>
-                                                            <td><font size="3">0003</font></td>
-                                                            <td><font size="3">ອອກແບບເວັບໄຊ</font></td>
-                                                            <td><font size="3">19/3/2019</font></td>
-                                                            <td><font size="3">22/3/2019</font></td>
-                                                            
-                                                    </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                             </div>
-                            
-                        </div>
-                      -->   
+ 
                 </form>
                 </div>
                 <div class="modal-footer">
@@ -854,14 +676,14 @@
         
                                    
                                     <div class="table-responsive">
-                                            <table id="example" class="table table-bordered" >
+                                            <table id="data_job" class="table table-bordered" >
                                             
                                             <thead>
                                             <tr>
                                                 <th  width="10%"><font size="3">ເລືອກ</font></th>
                                                 <th><font size="3">ຫົວຂໍ້ວຽກ</font></th>
-                                                <th  width="15%"><font size="3">ສ້າງວັນທີ</font></th>
-                                                <th  width="15%"><font size="3">ຜູ້ສ້າງ</font></th>
+                                                <th  width="15%">ວັນທີເລີມ</th>
+                                                <th  width="15%">ວັນທີກຳນົດ</th>
                                                 
                                                
                                                 
@@ -871,40 +693,40 @@
                                                     <tr>
                                                             <td>
                                                                 <div class="form-group form-check mb-0">
-                                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                                    <input type="checkbox" class="form-check-input" name="Check_job">
                                                                     
                                                                 </div>
                                                             </td>
                                                             
-                                                            <td><font size="3">ອອກແບບເວັບໄຊ</font></td>
-                                                            <td><font size="3">12/04/2019</font></td>
-                                                            <td><font size="3">ທ້າວ ແກ້ວ</font></td>
+                                                            <td>ອອກແບບເວັບໄຊ</td>
+                                                            <td>12/04/2019</td>
+                                                            <td>13/04/2019</td>
                                                            
                                                             
                                                     </tr>
                                                     <tr>
                                                             <td>
                                                                 <div class="form-group form-check mb-0">
-                                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                                    <input type="checkbox" class="form-check-input" name="Check_job">
                                                                 </div>  
                                                             </td>
                                                             
-                                                            <td><font size="3">ເຊັກ server</font></td>
-                                                            <td><font size="3">12/04/2019</font></td>
-                                                            <td><font size="3">ທ້າວ ແກ້ວ</font></td>
+                                                            <td>ເຊັກ server</td>
+                                                            <td>12/04/2019</td>
+                                                            <td>13/04/2019</td>
                                                             
                                                            
                                                     </tr>
                                                     <tr>
                                                             <td>
                                                                 <div class="form-group form-check mb-0">
-                                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                                    <input type="checkbox" class="form-check-input" name="Check_job">
                                                                 </div> 
                                                             </td>
                                                             
-                                                            <td><font size="3">ແປງຄອມ</font></td>
-                                                            <td><font size="3">12/04/2019</font></td>
-                                                            <td><font size="3">ທ້າວ ແກ້ວ</font></td>
+                                                            <td>ແປງຄອມ</td>
+                                                            <td>12/04/2019</td>
+                                                            <td>13/04/2019</td>
                                                            
                                                             
                                                     </tr>
@@ -921,7 +743,7 @@
                     </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-success">ບັນທືກ</button>
+                        <button type="submit" id="add_job" class="btn btn-success">ບັນທືກ</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                     </div>
@@ -980,6 +802,74 @@
              
              $(document).ready(function () {
 
+              try {
+                    var url_string = (window.location.href).toLowerCase();
+                    var url = new URL(url_string);
+                    var titel = url.searchParams.get("titel");
+                    var datestart = url.searchParams.get("datestart");
+                    var dateend = url.searchParams.get("dateend");
+                    var apply = url.searchParams.get("apply");
+                    var description = url.searchParams.get("description");
+                    var table = url.searchParams.get("custom");
+                   
+                    $('#titel').val(titel);
+                    $('#DateStartVal').val(datestart);
+                    $('#DateEndVal').val(dateend);
+                    $('#Select1').val(apply);
+                    $('#description').val(description);
+
+                    table=JSON.parse(table);
+                    
+
+                    var html_code = ' ';
+                   
+                    for ( i in table.menber) {
+                      
+                      html_code +="<tr class='rj'>";
+                                  html_code +='<td><a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">';
+                                  html_code +='<img src="images/img.jpg" alt="">';              
+                                  html_code +='</a></td>';
+                                  
+                                  html_code +="<td>"+ table.menber[i]["name"]+"</td>";
+                                  
+                                  html_code +="<td>";
+                                  html_code +='<div class="form-check">';
+                                  html_code +='<input class="form-check-input" type="radio" name="exampleRadios"  value="option1" >';
+                                  html_code +='</div>';          
+                                  html_code +='</td>';
+                                  html_code +="</tr >";
+                     
+                    }
+                   
+                   
+                    $('#list_custom').append(html_code);
+                    
+                    var table_job = url.searchParams.get("jobs");                  
+                    table_job=JSON.parse(table_job);
+                   
+                    var html_job = ' '; 
+                    for ( i in table_job.job) {
+                      
+                      html_job +="<tr class='rjs'>";
+                      html_job +='<td>'+ table_job.job[i]["id"]+'</td>';
+                      html_job +='<td>'+ table_job.job[i]["name"]+'</td>';
+                      html_job +='<td>'+ table_job.job[i]["datesart"]+'</td>';
+                      html_job +='<td>'+ table_job.job[i]["dateend"]+'</td>';
+                      html_job +='<td></td>';
+                      html_job +='<td><a id="" class="btn btn-round btn-success  View_data" data-toggle="tooltip" title="View"><i class="fa fa-file"></i></a> </td>';
+                      html_job +="</tr >";
+
+
+
+                      }
+                    $('#list_job').append(html_job); 
+
+
+                  } catch (err) {
+                   
+                  }
+
+              
 
                   $('#DateStart').datetimepicker({
                       format: 'DD/MM/YYYY'
@@ -993,6 +883,9 @@
                    $(document).on('click', '.View_data', function(){  
                      $('#add_data_Modal').modal('show');
                   });
+                  $(document).on('click', '#createjob', function(){  
+                    window.location.replace("Add_jobs.html");
+                  });
 
                    $(document).on('click', '.Menber', function(){  
                      $('#add_member').modal('show');
@@ -1000,6 +893,147 @@
 
                     $(document).on('click', '.addjobs_data', function(){  
                      $('#add_jobs').modal('show');
+                  });
+
+                  $(document).on('click', '.add_custom', function(){  
+                    
+                    var html_code = ' ';
+                    var table = document.getElementById("data_employee");
+                    var checkboxes = document.getElementsByName("exampleCheck1");
+                    
+                    for(var i = 0; i < checkboxes.length; i++){
+                            if(checkboxes[i].checked)
+                                {
+                                 
+                                  html_code +="<tr class='rj'>";
+                                  html_code +='<td><a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">';
+                                  html_code +='<img src="images/img.jpg" alt="">';              
+                                  html_code +='</a></td>';
+                                  html_code +="<td>"+ document.getElementById("data_employee").rows[i+1].cells.item(2).innerHTML+"</td>";
+                             
+                                  html_code +="<td>";
+                                  html_code +='<div class="form-check">';
+                                  html_code +='<input class="form-check-input" type="radio" name="exampleRadios"  value="option1" >';
+                                  html_code +='</div>';          
+                                  html_code +='</td>';
+                                  html_code +="</tr >";
+                                  
+                                  
+                                }
+
+                                 
+                    
+                    }    
+                    $('.rj').remove();  
+                    $('#list_custom').append(html_code);
+                    $('#add_member').modal('hide');
+                    
+                   
+                  });
+
+                  
+                  $(document).on('click', '.save_doc', function(){  
+                     
+                    
+                     var titel = $('#titel').val();
+                     var description = $('#description').val();
+                     var datestart = $('#DateStartVal').val();
+                     var dateend = $('#DateEndVal').val(); 
+                     var Apply = $('#Select1').val(); 
+                    
+
+                     var table = document.getElementById("table_custom");
+                     var data_menber = '{"menber":[';
+                      for (var i = 0, row; row = table.rows[i]; i++) {
+                      
+                        
+                          if(i == 1){
+                            
+                            data_menber+='{"Name":"'+document.getElementById("table_custom").rows[i].cells.item(1).innerHTML+'"}';
+                            
+                          
+                          }
+                          if(i > 1){
+                            data_menber+=',{"Name":"'+document.getElementById("table_custom").rows[i].cells.item(1).innerHTML+'"}';
+                          }
+                         
+                      
+                      }
+
+                    data_menber+=']}';
+
+
+                    data_menber=JSON.parse(data_menber);
+                    data_menber=JSON.stringify(data_menber);
+
+                    var table_job = document.getElementById("table_job");
+                     var data_job = '{"job":[';
+                      for (var i = 0, row; row = table_job.rows[i]; i++) {
+                      
+                        
+                          if(i == 1){
+                            
+                            data_job+='{"id":"'+document.getElementById("table_job").rows[i].cells.item(0).innerHTML+'"';
+                            data_job+=',"Name":"'+document.getElementById("table_job").rows[i].cells.item(1).innerHTML+'"';
+                            data_job+=',"datesart":"'+document.getElementById("table_job").rows[i].cells.item(2).innerHTML+'"';
+                            data_job+=',"dateend":"'+document.getElementById("table_job").rows[i].cells.item(3).innerHTML+'"}';
+                            
+                          
+                          }
+                          if(i > 1){
+                            data_job+=',{"id":"'+document.getElementById("table_job").rows[i].cells.item(0).innerHTML+'"';
+                            data_job+=',"Name":"'+document.getElementById("table_job").rows[i].cells.item(1).innerHTML+'"';
+                            data_job+=',"datesart":"'+document.getElementById("table_job").rows[i].cells.item(2).innerHTML+'"';
+                            data_job+=',"dateend":"'+document.getElementById("table_job").rows[i].cells.item(3).innerHTML+'"}';
+                          }
+                         
+                      
+                      }
+
+                      data_job+=']}';
+                   
+                      
+                     
+                      data_job=JSON.parse(data_job);
+                      data_job=JSON.stringify(data_job);
+                    
+                      
+                      window.location.replace("Document.html?titel="+titel+"&description="+description+"&datestart="+datestart+"&dateend="+dateend+"&Apply="+Apply+"&json="+data_menber+"&data_job="+data_job);
+                 
+                   });
+
+                  $(document).on('click', '#add_job', function(){  
+                   
+                    var html_code = ' ';
+                    var table = document.getElementById("data_job");
+                    var checkboxes = document.getElementsByName("Check_job");
+                    
+                    for(var i = 0; i < checkboxes.length; i++){
+                            if(checkboxes[i].checked)
+                                {
+                                  var id = i+1;
+                                  html_code +="<tr class='rjs'>";
+                                  html_code +='<td>000'+id+'</td>';
+                                  html_code +="<td>"+ document.getElementById("data_job").rows[i+1].cells.item(1).innerHTML+"</td>";
+                                  html_code +='<td>'+ document.getElementById("data_job").rows[i+1].cells.item(2).innerHTML+'</td>';
+                                  html_code +='<td>'+ document.getElementById("data_job").rows[i+1].cells.item(3).innerHTML+'</td>';
+                                  html_code +='<td></td>';
+                                  html_code +='<td><a id="" class="btn btn-round btn-success  View_data" data-toggle="tooltip" title="View"><i class="fa fa-file"></i></a> </td>';
+                                  html_code +="</tr >";
+
+                                 
+                                  
+                                  
+                                }
+
+                                 
+                    
+                    }    
+                    $('.rjs').remove();  
+                    $('#list_job').append(html_code);
+                    $('#add_jobs').modal('hide');
+                    
+                   
                   });
             
             

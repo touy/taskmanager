@@ -67,7 +67,7 @@
                       <ul class="nav child_menu">
                           <li><a>Document<span class="fa fa-chevron-down"></span></a>
                             <ul class="nav child_menu">
-                              <li class="sub_menu"><a href="level2.html">ຂອງຂ້ອຍ</a>
+                              <li class="sub_menu"><a href="Document.html">ຂອງຂ້ອຍ</a>
                               </li>
                               <li><a href="#">ກຸ່ມ</a>
                               </li>
@@ -264,7 +264,7 @@
                        
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="list_date">
                             <tr >
                                     <td>
                                       <font size="3">0001</font>
@@ -525,6 +525,46 @@
     <script>
              $(document).ready(function () {
 
+              try {
+                        var url_string = (window.location.href).toLowerCase();
+                        var url = new URL(url_string);
+                        var titel = url.searchParams.get("titel");
+                        var datestart = url.searchParams.get("datestart");//{name:"A",phone="123456"}
+                        var dateend = url.searchParams.get("dateend");
+                        var apply = url.searchParams.get("apply");
+                       
+                           
+                        var table_custom = url.searchParams.get("json");
+                        table_custom=JSON.parse(table_custom);
+                        table_custom=JSON.stringify(table_custom);
+                       
+                       
+                        if(titel){
+                          var html_code = "<tr id='row0002'>";
+                          
+                          html_code += "<td >0002</td>";
+                          html_code += "<td >"+titel+"</td>";
+                          html_code += "<td >"+datestart+"</td>";  
+                          html_code += "<td ></td>"; 
+                          html_code += "<td >IT FontEnd</td>";
+                          html_code += "<td ></td>";   
+                          html_code +='<td>';
+                          html_code +='<a id="1" class="btn btn-round btn-success  View_data" data-toggle="tooltip" title="View"><i class="fa fa-file"></i></a>'; 
+                          html_code +='<a   class="btn btn-round btn-primary edit_data" data-toggle="tooltip" title="Edit"><i class="fa fa-fw fa-edit"></i></a>';
+                          html_code +='<a  id="1" class="btn btn-round btn-danger  delete_data" data-toggle="tooltip" title="Delete"><i class="fa fa-fw fa-trash"></i></a>';
+                          html_code +='</td>';                      
+
+                          html_code += "</tr>";  
+                          $('#list_date').append(html_code);
+
+                        }
+                       
+                            
+                      } catch (err) {
+                      
+                      }
+
+
                   $('#table_date').DataTable();
 
                    $(document).on('click', '.View_data', function(){  
@@ -534,6 +574,26 @@
                    $(document).on('click', '.Add', function(){  
                       window.location.replace('Add_Document.html');
                   });
+                  $(document).on('click', '.edit_data', function(){ 
+
+                        var url_string = (window.location.href).toLowerCase();
+                        var url = new URL(url_string);
+                        var titel = url.searchParams.get("titel");
+                        var datestart = url.searchParams.get("datestart");//{name:"A",phone="123456"}
+                        var dateend = url.searchParams.get("dateend");
+                        var apply = url.searchParams.get("apply");
+                        var description =  url.searchParams.get("description");
+                           
+                        var table_custom = url.searchParams.get("json");
+                        table_custom=JSON.parse(table_custom);
+                        table_custom=JSON.stringify(table_custom);
+
+                        var data_job = url.searchParams.get("data_job");
+                        data_job=JSON.parse(data_job);
+                        data_job=JSON.stringify(data_job);
+                       
+                      window.location.replace('Add_Document.html?titel='+titel+'&description='+description+'&datestart='+datestart+'&dateend='+dateend+'&apply='+apply+'&custom='+table_custom+'&jobs='+data_job);
+                      });
             
 
 

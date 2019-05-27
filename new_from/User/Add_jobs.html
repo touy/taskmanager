@@ -230,10 +230,13 @@
             <div class="page-title">
               <div class="title_left">
                
+               
               </div>
+             
 
              
             </div>
+            
 
             <div class="clearfix"></div>
             <div align="right">
@@ -248,16 +251,20 @@
                   <div class="x_panel">
                     <div class="x_title">
                         <label ><font size="4">ແຜນວຽກ</font> </label>
+                        <ul class="nav navbar-right panel_toolbox">
+                          <li id="button_update"> 
+                          </li>
+                        </ul>
                       
                       <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
                       <br />
-                      <form class="form-horizontal form-label-left">
+                      <form class="form-horizontal form-label-left" autocomplete="off">
                           <div class="form-group row">
                               <label  class="col-sm-2 "><font size="3">ຫົວຂໍ້ວຽກ:</font></label>
                               <div class="col-sm-10">
-                                  <input type="text" class="form-control"  >
+                                  <input id="titel" type="text" class="form-control"  >
                                   
                               </div>
                               <!--<div class="col-sm-2">
@@ -282,7 +289,7 @@
                                      
                                       <div class="form-group">
                                           <div class='input-group date' id='DateStart'>
-                                              <input type='text' class="form-control" />
+                                              <input type='text' class="form-control" id='DateStartVal' />
                                               <span class="input-group-addon">
                                                  <span class="glyphicon glyphicon-calendar"></span>
                                               </span>
@@ -296,7 +303,7 @@
                                       
                                       <div class="form-group">
                                           <div class='input-group date' id='DateEnd'>
-                                              <input type='text' class="form-control" />
+                                              <input type='text' class="form-control" id="DateEndVal" />
                                               <span class="input-group-addon">
                                                  <span class="glyphicon glyphicon-calendar"></span>
                                               </span>
@@ -392,7 +399,8 @@
   
                         <div class="form-group">
                             <hr/>
-                            <button type="submit" class="btn btn-primary">ບັນທືກ</button>
+                            <button type="button" class="btn btn-primary save_jobs">ບັນທືກ</button>
+                            <a href="Paning_jobs.html" class="btn btn-primary">ຍົກເລີກ</a>
                             
                          
                         </div>
@@ -806,6 +814,27 @@
             
             
              $(document).ready(function () {
+
+                  try {
+                    var url_string = (window.location.href).toLowerCase();
+                    var url = new URL(url_string);
+                    var titel = url.searchParams.get("titel");
+                    var datestart = url.searchParams.get("datestart");
+                    var dateend = url.searchParams.get("dateend");
+                    var Update = url.searchParams.get("update");
+                    $('#titel').val(titel);
+                    $('#DateStartVal').val(datestart);
+                    $('#DateEndVal').val(dateend);
+                    if(Update){
+                      $('#button_update').append('<button type="hidden" class="btn btn-success Add" title="Update" name="add" id="Update" >ສຳເລັດ</button>');
+                      
+                    }
+                   
+                  } catch (err) {
+                   
+                  }
+                  
+
                   $('#DateStart').datetimepicker({
                       format: 'DD/MM/YYYY'
                   });
@@ -814,7 +843,7 @@
                   });
                   $('#table_date').DataTable();
                
-
+                  
                    $(document).on('click', '.Menber', function(){  
                      $('#add_data_Modal').modal('show');
                   });
@@ -830,6 +859,17 @@
                    $(document).on('click', '#addjobs_data', function(){  
                      $('#add_data_Modal_select_job').modal('show');
                   });
+
+                  $(document).on('click', '.save_jobs', function(){  
+                     
+                    
+                     var titel = $('#titel').val();
+                     var datestart = $('#DateStartVal').val();
+                     var dateend = $('#DateEndVal').val(); 
+                      
+                       window.location.replace('Paning_jobs.html?titel='+titel+'&datestart='+datestart+'&dateend='+dateend);
+                 
+                   });
                   
 
                   $(document).on('click', '#add_custom', function(){  
@@ -875,15 +915,15 @@
                     for(var i = 0; i < checkboxes.length; i++){
                             if(checkboxes[i].checked)
                                 {
-                                 
+                                  var id = i+1;
                                   html_code +="<tr class='ro'>";
-                                  html_code +='<td>'+checkboxes[i].values+'</td>';
+                                  html_code +='<td>000'+id+'</td>';
                                   html_code +="<td>"+ document.getElementById("data_job").rows[i+1].cells.item(1).innerHTML+"</td>";
                                   html_code +="<td>"+ document.getElementById("data_job").rows[i+1].cells.item(2).innerHTML+"</td>";
                                   html_code +="<td>"+ document.getElementById("data_job").rows[i+1].cells.item(3).innerHTML+"</td>";
                                   html_code +="<td></td>";
                                   html_code +='<td><a id="" class="btn btn-round btn-success  View_list" data-toggle="tooltip" title="View"><i class="fa fa-file"></i></a>';
-                                  html_code +='<a id="" class="btn btn-round btn-primary   add_sub_job" data-toggle="tooltip" title="View">ເພີ້ມວຽກ</a> ';
+                                  html_code +='<a href="Add_jobs.html?titel='+document.getElementById("data_job").rows[i+1].cells.item(1).innerHTML+'&datestart='+document.getElementById("data_job").rows[i+1].cells.item(2).innerHTML+'&dateend='+document.getElementById("data_job").rows[i+1].cells.item(3).innerHTML+'" class="btn btn-round btn-primary   add_sub_job" data-toggle="tooltip" title="View">ເພີ້ມວຽກ</a> ';
                                   html_code +="</td>";
                                   html_code +="</tr >";
                                   
@@ -899,6 +939,8 @@
                     
                     getClient();
                   });
+
+                  
             
 
             
