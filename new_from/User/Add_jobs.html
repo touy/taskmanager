@@ -274,7 +274,7 @@
                           <div class="form-group row">
                               <label  class="col-sm-2 "><font size="3"  >ລາຍລະອຽດ :</font></label>
                               <div class="col-sm-10">
-                                  <textarea id="textarea" required="required" name="textarea" class="form-control "></textarea>
+                                  <textarea id="description" required="required" name="textarea" class="form-control "></textarea>
                               </div>
                               
                                      
@@ -321,7 +321,7 @@
           
                                      
                                       <div class="table-responsive">
-                                              <table  class="table table-bordered" cellspacing="0" width="100%">
+                                              <table id="table_custom" class="table table-bordered" cellspacing="0" width="100%">
                                               
                                               <thead>
                                               <tr>
@@ -370,7 +370,7 @@
 
                                    
                                     <div class="table-responsive">
-                                            <table id="example2" class="table table-bordered" cellspacing="0" width="100%">
+                                            <table id="table_job" class="table table-bordered" cellspacing="0" width="100%">
                                             
                                             <thead>
                                             <tr>
@@ -619,7 +619,7 @@
                                                                   
                                                                 </a>
                                                           </td>
-                                                          <td><font size="3">ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ</font></td>
+                                                          <td>ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ</td>
                                                          
                                                          
                                                           
@@ -636,7 +636,7 @@
                                                                   
                                                                 </a>
                                                           </td>
-                                                          <td><font size="3">ທ້າວ ສອນໄຊ ເກດແກ້ວ</font></td>
+                                                          <td>ທ້າວ ສອນໄຊ ເກດແກ້ວ</td>
                                                           
                                                           
                                                          
@@ -653,7 +653,7 @@
                                                                   
                                                                 </a>
                                                           </td>
-                                                          <td><font size="3">ທ້າວ ໄຊນະພາ ພົມວິຫານ</font></td>
+                                                          <td>ທ້າວ ໄຊນະພາ ພົມວິຫານ</td>
                                                          
                                                           
                                                   </tr>
@@ -817,12 +817,68 @@
                     var url_string = (window.location.href).toLowerCase();
                     var url = new URL(url_string);
                     var titel = url.searchParams.get("titel");
+                    var description = url.searchParams.get("description");
                     var datestart = url.searchParams.get("datestart");
                     var dateend = url.searchParams.get("dateend");
                     var Update = url.searchParams.get("update");
+                    var table = url.searchParams.get("custom");
                     $('#titel').val(titel);
+                    $('#description').val(description);
                     $('#DateStartVal').val(datestart);
                     $('#DateEndVal').val(dateend);
+
+                    table=JSON.parse(table);
+                    
+
+                    var html_code = ' ';
+                   
+                    for ( i in table.menber) {
+                      
+                      html_code +="<tr class='rj'>";
+                                  html_code +='<td><a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">';
+                                  html_code +='<img src="images/img.jpg" alt="">';              
+                                  html_code +='</a></td>';
+                                  
+                                  html_code +="<td>"+ table.menber[i]["name"]+"</td>";
+                                  html_code +='<td><a id="" class="btn btn-round btn-success  View_list" data-toggle="tooltip" title="View"><i class="fa fa-file"></i></a></td>';
+                                  html_code +="<td>";
+                                  html_code +='<div class="form-check">';
+                                  html_code +='<input class="form-check-input" type="radio" name="exampleRadios"  value="option1" >';
+                                  html_code +='</div>';          
+                                  html_code +='</td>';
+                                  html_code +="</tr >";
+                     
+                    }
+                   
+                   
+                    $('#list_custom').append(html_code);
+
+                    var table_job = url.searchParams.get("jobs");                  
+                    table_job=JSON.parse(table_job);
+                   
+                    var html_job = ' '; 
+                    for ( i in table_job.job) {
+                      
+                      html_job +="<tr class='rjs'>";
+                      html_job +='<td>'+ table_job.job[i]["id"]+'</td>';
+                      html_job +='<td>'+ table_job.job[i]["name"]+'</td>';
+                      html_job +='<td>'+ table_job.job[i]["datesart"]+'</td>';
+                      html_job +='<td>'+ table_job.job[i]["dateend"]+'</td>';
+                      html_job +='<td></td>';
+                      html_job +='<td><a id="" class="btn btn-round btn-success  View_list" data-toggle="tooltip" title="View"><i class="fa fa-file"></i></a>';
+                      html_job +='<a href="Add_jobs.html?titel='+table_job.job[i]["name"]+'&datestart='+table_job.job[i]["datesart"]+'&dateend='+table_job.job[i]["dateend"]+'" class="btn btn-round btn-primary   add_sub_job" data-toggle="tooltip" title="View">ເພີ້ມວຽກ</a>  </td>';
+                      html_job +="</tr >";
+
+
+
+                      }
+                    $('#list_job').append(html_job); 
+
+
+
+
+
+
                     if(Update){
                       $('#button_update').append('<button type="hidden" class="btn btn-success Add" title="Update" name="add" id="Update" >ສຳເລັດ</button>');
                       
@@ -862,11 +918,71 @@
                      
                     
                      var titel = $('#titel').val();
+                     var description = $('#description').val();
                      var datestart = $('#DateStartVal').val();
                      var dateend = $('#DateEndVal').val(); 
+
+                     
+
+                     var table = document.getElementById("table_custom");
+                     var data_menber = '{"menber":[';
+                   
+                      for (var i = 0, row; row = table.rows[i]; i++) {
                       
-                       window.location.replace('Paning_jobs.html?titel='+titel+'&datestart='+datestart+'&dateend='+dateend);
-                 
+                        
+                          if(i == 1){
+                            
+                            data_menber+='{"Name":"'+document.getElementById("table_custom").rows[i].cells.item(1).innerHTML+'"}';
+                            
+                          
+                          }
+                          if(i > 1){
+                            data_menber+=',{"Name":"'+document.getElementById("table_custom").rows[i].cells.item(1).innerHTML+'"}';
+                          }
+                         
+                      
+                      }
+                    
+                   
+                    data_menber+=']}';
+                    data_menber=JSON.parse(data_menber);
+                    data_menber=JSON.stringify(data_menber);
+                    
+                    
+
+                    var table_job = document.getElementById("table_job");
+                     var data_job = '{"job":[';
+                      for (var i = 0, row; row = table_job.rows[i]; i++) {
+                      
+                        
+                          if(i == 1){
+                            
+                            data_job+='{"id":"'+document.getElementById("table_job").rows[i].cells.item(0).innerHTML+'"';
+                            data_job+=',"Name":"'+document.getElementById("table_job").rows[i].cells.item(1).innerHTML+'"';
+                            data_job+=',"datesart":"'+document.getElementById("table_job").rows[i].cells.item(2).innerHTML+'"';
+                            data_job+=',"dateend":"'+document.getElementById("table_job").rows[i].cells.item(3).innerHTML+'"}';
+                            
+                          
+                          }
+                          if(i > 1){
+                            data_job+=',{"id":"'+document.getElementById("table_job").rows[i].cells.item(0).innerHTML+'"';
+                            data_job+=',"Name":"'+document.getElementById("table_job").rows[i].cells.item(1).innerHTML+'"';
+                            data_job+=',"datesart":"'+document.getElementById("table_job").rows[i].cells.item(2).innerHTML+'"';
+                            data_job+=',"dateend":"'+document.getElementById("table_job").rows[i].cells.item(3).innerHTML+'"}';
+                          }
+                         
+                      
+                      }
+
+                      data_job+=']}';
+                   
+                      
+                     
+                      data_job=JSON.parse(data_job);
+                      data_job=JSON.stringify(data_job); 
+                      
+                       
+                       window.location.replace("Paning_jobs.html?titel="+titel+"&description="+description+"&datestart="+datestart+"&dateend="+dateend+"&json="+data_menber+"&data_job="+data_job);
                    });
                   
 
@@ -886,6 +1002,7 @@
                                   html_code +="<td>"+ document.getElementById("data_employee").rows[i+1].cells.item(2).innerHTML+"</td>";
                                   html_code +='<td><a id="" class="btn btn-round btn-success  View_list" data-toggle="tooltip" title="View"><i class="fa fa-file"></i></a></td>';
                                   html_code +="<td>";
+                                  
                                   html_code +='<div class="form-check">';
                                   html_code +='<input class="form-check-input" type="radio" name="exampleRadios"  value="option1" >';
                                   html_code +='</div>';          

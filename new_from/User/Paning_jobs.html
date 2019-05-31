@@ -261,7 +261,7 @@
                     </tr>
                     </thead>
                     <tbody id="date_list">
-                            <tr >
+                            <tr id="0001">
                                     <td>
                                       <font size="3">0001</font>
                                     </td>
@@ -272,8 +272,8 @@
                                     <td><span class="badge bg-green " ><font size="3"  >ສຳເລັດ</font></span></td>
                                     <td>
                                         <a id="1" class="btn btn-round btn-success  View_data" data-toggle="tooltip" title="View"><i class="fa fa-file"></i></a> 
-                                        <a  id="1" class="btn btn-round btn-primary edit_data" data-toggle="tooltip" title="Edit"><i class="fa fa-fw fa-edit"></i></a> 
-                                        <a  id="1" class="btn btn-round btn-danger  delete_data" data-toggle="tooltip" title="Delete"><i class="fa fa-fw fa-trash"></i></a>
+                                        <a  href='Add_jobs.html?titel=ໃບອອກວຽກນອກ&description=ໄປບໍ່ລິສັດຫົວກະທິ&datestart=01/05/2019&dateend=09/05/2019&custom={"menber":[{"name":"ທ້າວ%20ໂຊກໄຊ%20ແກ້ວພິລາວັນ"},{"name":"ທ້າວ%20ສອນໄຊ%20ເກດແກ້ວ"}]}&jobs={"job":[{"id":"0001","name":"ແປງຄອມ","datesart":"12/3/2019","dateend":"13/3/2019"},{"id":"0002","name":"ເຊັກ%20server","datesart":"12/3/2019","dateend":"13/3/2019"}]}' class="btn btn-round btn-primary " data-toggle="tooltip" title="Edit"><i class="fa fa-fw fa-edit"></i></a> 
+                                        <a  id="0001" class="btn btn-round btn-danger  delete_data" data-toggle="tooltip" title="Delete"><i class="fa fa-fw fa-trash"></i></a>
                                         
                                     </td>
                             </tr>
@@ -480,9 +480,9 @@
                           html_code += "<td >"+dateend+"</td>";
                           html_code += "<td ></td>";   
                           html_code +='<td>';
-                          html_code +='<a id="1" class="btn btn-round btn-success  View_data" data-toggle="tooltip" title="View"><i class="fa fa-file"></i></a>'; 
-                          html_code +='<a  id="1" class="btn btn-round btn-primary edit_data" data-toggle="tooltip" title="Edit"><i class="fa fa-fw fa-edit"></i></a>';
-                          html_code +='<a  id="1" class="btn btn-round btn-danger  delete_data" data-toggle="tooltip" title="Delete"><i class="fa fa-fw fa-trash"></i></a>';
+                          html_code +=' <a id="1" class="btn btn-round btn-success  View_data" data-toggle="tooltip" title="View"><i class="fa fa-file"></i></a>'; 
+                          html_code +=' <a  id="1" class="btn btn-round btn-primary edit_data" data-toggle="tooltip" title="Edit"><i class="fa fa-fw fa-edit"></i></a>';
+                          html_code +=' <a  id="1" class="btn btn-round btn-danger  delete_data" data-toggle="tooltip" title="Delete"><i class="fa fa-fw fa-trash"></i></a>';
                           html_code +='</td>';                      
 
                           html_code += "</tr>";  
@@ -521,10 +521,26 @@
                    
                       window.location.replace('Add_jobs.html');
                   });
-                  $('.edit_data').click(function () {
-                    var id = $(this).attr("id"); 
-                   window.location.replace('Add_jobs.html?titel=ແປງຄອມ&datestart=12/3/2019&dateend=13/3/2019');
-                  });
+                  $(document).on('click', '.edit_data', function(){ 
+
+                    var url_string = (window.location.href).toLowerCase();
+                    var url = new URL(url_string);
+                    var titel = url.searchParams.get("titel");
+                    var datestart = url.searchParams.get("datestart");//{name:"A",phone="123456"}
+                    var dateend = url.searchParams.get("dateend");
+                   
+                    var description =  url.searchParams.get("description");
+                      
+                    var table_custom = url.searchParams.get("json");
+                    table_custom=JSON.parse(table_custom);
+                    table_custom=JSON.stringify(table_custom);
+
+                    var data_job = url.searchParams.get("data_job");
+                    data_job=JSON.parse(data_job);
+                    data_job=JSON.stringify(data_job);
+
+                    window.location.replace('Add_jobs.html?titel='+titel+'&description='+description+'&datestart='+datestart+'&dateend='+dateend+'&custom='+table_custom+'&jobs='+data_job);
+                    });
 
                    $('.delete_data').click(function () {
                    
