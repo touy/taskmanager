@@ -124,7 +124,38 @@ export class OmySystem implements ImySystem { // no prefix  -- remote
 
 }
 
+export class Ogijuser implements Igijuser{
+    _id: string;    _rev: string;
+    username: string;
+    password: string;
+    confirmpassword: string;
+    phonenumber: string;
+    gui: string;
+    createddate: Date;
+    lastupdate: Date;
+    isactive: boolean;
+    parents: string[];
+    roles: Iroles[];
+    logintoken: string;
+    expirelogintoken: string;
+    description: string;
+    note: string;
+    system: ImySystem[];
+    gijvalue: number;
+    totalgij: number;
+    totalgijspent: number;
+    oldphone: string[];
+    userprofile: Iuserprofile;
+    userprefix: Iuserprefix;
+    permission: Ipermissions;
+    enryptionkeys: Ienryptionkeys;
+    constructor(username:string = ''){
+        this.username=username;
+        this._id=nano_time('nano');
+        this.gui=nano_time('nano');
+    }
 
+}
 
 export interface Igijuser { // no refix --- remote
     _id: string;

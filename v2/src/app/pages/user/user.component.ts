@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalComponent, Iuser, Ouser } from './modal/modal.component';
+import { ModalComponent } from './modal/modal.component';
 import { NbDialogService } from '@nebular/theme';
 import { Router } from '@angular/router';
 import pouchdb from 'pouchdb';
+import {Igijuser,Ogijuser} from '../../interface'
 import { async } from 'q';
 //import { } from './user-add/user-add.component';
 //import * as nodefetch from 'node-fetch';
@@ -14,10 +15,10 @@ import { async } from 'q';
 export class UserComponent implements OnInit {
   private db: PouchDB.Database<{}>;
   remoteCouch = 'http://admin:admin@localhost:5984/user-';
-  user: Iuser;
-  userList: Iuser[];
+  user: Igijuser;
+  userList: Igijuser[];
   TEST: string;
-  _selectedUser: Ouser;
+  _selectedUser: Ogijuser;
   // modelClose: () => {
   //   loadUserList();
   // };
@@ -41,8 +42,8 @@ export class UserComponent implements OnInit {
 
     //this.user = new Ouser();
     // LIST
-    this.userList = new Array<Ouser>();
-    this._selectedUser= new Ouser();
+    this.userList = new Array<Ogijuser>();
+    this._selectedUser= new Ogijuser();
     
     this.db = new pouchdb('user-');//dbname-prefix
     this.sync();
@@ -109,11 +110,11 @@ export class UserComponent implements OnInit {
     const offSet = 0;
     const parent = this;
     this.userList.length = 0;
-    this.userList = new Array<Iuser>();
+    this.userList = new Array<Igijuser>();
     this.db.allDocs({ limit: pageSize, skip: offSet, descending: true, include_docs: true }).then(res => {
       //console.log(res);
       for (let index = 0; index < res.rows.length; index++) {
-        parent.userList.push(<Iuser><unknown>res.rows[index].doc);
+        parent.userList.push(<Igijuser><unknown>res.rows[index].doc);
       }
     }).catch(err => {
       console.log(err);
