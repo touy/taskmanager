@@ -1,4 +1,4 @@
-const nano_time = (unit) => {
+export const nano_time = (unit) => {
 
     const hrTime = process.hrtime();
 

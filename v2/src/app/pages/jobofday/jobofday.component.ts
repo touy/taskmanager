@@ -23,7 +23,7 @@ export class JobofdayComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.loadUserList();
+    this.loadjobList();
   }
   sync() {
     //syncDom.setAttribute('data-sync-state', 'syncing');
@@ -34,22 +34,6 @@ export class JobofdayComponent implements OnInit {
     }).on('change', async (info) => {
       console.log('sync res');
       console.log(info);
-     // if(info.direction=="push"){
-        // if (info.change.docs.length) {
-        //   for (let index = 0; index < info.change.docs.length; index++) {
-        //     const e = info.change.docs[index] as Ouser;
-        //     //console.log(e);
-  
-        //     // for both direction : push or pull
-        //     for (let i = 0; i < parent.userList.length; i++) {
-        //       let element = parent.userList[i] as Ouser;
-        //       if (element._id === e._id) {
-        //         parent.userList[i] = e;
-        //       }
-        //     }
-        //   }
-        // }
-     // }
     }).on('paused', function (err) {
       // replication paused (e.g. replication up to date, user went offline)
       console.log('paused');
@@ -67,7 +51,7 @@ export class JobofdayComponent implements OnInit {
       console.log(err);
     });
   }
-  loadUserList() {
+  loadjobList() {
     const pageSize = 10;
     const offSet = 0;
     const parent = this;
@@ -82,7 +66,9 @@ export class JobofdayComponent implements OnInit {
       console.log(err);
     });
   }
-  user_add() {
+
+
+  job_add() {
    this.dialogService.open(ModalComponent, {
       context: {
         _id: '',
@@ -91,7 +77,9 @@ export class JobofdayComponent implements OnInit {
       }
     });
   }
-  user_edit(id: string, rev: string) {
+
+  
+  job_edit(id: string, rev: string) {
     let parent = this;
     let dlg=this.dialogService.open(ModalComponent, {
       context: {
@@ -101,12 +89,12 @@ export class JobofdayComponent implements OnInit {
       }
     });
     dlg.onClose.subscribe(result=>{
-      this.loadUserList();
+      this.loadjobList();
     });
 
   }
 
-  user_delete(id: string, rev: string) {
+  job_delete(id: string, rev: string) {
     let parent = this;
     let dlg=this.dialogService.open(ModalComponent, {
       context: {
@@ -117,7 +105,7 @@ export class JobofdayComponent implements OnInit {
       }
     });
     dlg.onClose.subscribe(result=>{
-      this.loadUserList();
+      this.loadjobList();
     });
 
 

@@ -40,15 +40,13 @@ export class ModalComponent  {
   ngOnInit() {
   
     if(this._id){
-      this.getuser(this._id);
+      this.getjob(this._id);
     }else{
       this._selectedUser=new Ouser();
     }
-    
-    
     }
 
-   
+  
   updateUser(){
     console.log(this._selectedUser);
     console.log(this._selectedUser._id);
@@ -58,7 +56,7 @@ export class ModalComponent  {
       
       if(this.isdelete){
         console.log('delete');
-        this.deleteUser();
+        this.deletejob();
       }else{
         console.log('update');
         this.db.put(this._selectedUser,{force:true}).then(res=>{
@@ -89,6 +87,7 @@ export class ModalComponent  {
     
   }
 
+
   insert(){
     this.db.put(this.user, { force: true }, (err, res) => {
       if (err) {
@@ -101,13 +100,16 @@ export class ModalComponent  {
       }
     });
   }
-  deleteUser(){
+
+
+  deletejob(){
     this.db.remove(this._selectedUser).then(res=>{
 
     }).catch(err=>{
       
     })
   }
+
 
   updateManyUsers(arr:[]){
     // for many at once
@@ -122,12 +124,12 @@ export class ModalComponent  {
       }
     });
   }
-  getuser(id:string) {
+  getjob(id:string) {
     this.db.get(id).then(res=>{
       console.log(res);
       this._selectedUser=res as Ouser;
     }).catch(err=>{
-      console.log('getuser error');
+      console.log('getjob error');
       //console.log('id: '+id);
       console.log(err);
       
