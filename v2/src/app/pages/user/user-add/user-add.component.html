@@ -1,3 +1,4 @@
+<!-- <form (submit)="adduser()" > -->
 <h2 class="grid-h">User Add</h2>
 <div class="row">
   <div class="col-md-12">
@@ -6,13 +7,13 @@
         <h3>User</h3>
       </nb-card-header>
       <nb-card-body>
-        
+       
           <div class="row ">
               <div class="col-sm-4 input-group">
-                <input type="text" nbInput fullWidth placeholder="Name">
+                <input required id="firstName"  type="text" nbInput fullWidth placeholder="firstname"  [value]="user.firstname" (input)="user.firstname = $event.target.value">
               </div>
               <div class="col-sm-4 input-group">
-                <input type="text" nbInput fullWidth placeholder="Name">
+                <input  required id="lastName"  type="text" nbInput fullWidth placeholder="lastName"    [ngModel]="user.lastname" (ngModelChange)="user.lastname = $event">
               </div>
               <div class="col-sm-4 input-group">
                   <input type="file" nbInput fullWidth placeholder="Name">
@@ -70,9 +71,10 @@
 
       </nb-card-body>
     <nb-card-footer>
-        <button  class="btn btn-success" (click)="adduser()">
+        <button type="submit"  class="btn btn-success" (click)="updateUser()">
             Save
         </button>
+    
         &nbsp;
         <button  class="btn btn-default" (click)="goblack()">
             close
@@ -84,5 +86,5 @@
   
   
 </div>
-
+<!-- </form> -->
 

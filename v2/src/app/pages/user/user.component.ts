@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalComponent } from './modal/modal.component';
+import { ModalComponent, Iuser, Ouser } from './modal/modal.component';
 import { NbDialogService } from '@nebular/theme';
 import { Router } from '@angular/router';
 import pouchdb from 'pouchdb';
+import { async } from 'q';
+//import { } from './user-add/user-add.component';
 //import * as nodefetch from 'node-fetch';
 @Component({
   selector: 'ngx-user',
@@ -12,6 +14,12 @@ import pouchdb from 'pouchdb';
 export class UserComponent implements OnInit {
   private db: PouchDB.Database<{}>;
   remoteCouch = 'http://admin:admin@localhost:5984/user';
+  user: Iuser;
+  userList: Iuser[];
+  TEST: string;
+  // modelClose: () => {
+  //   loadUserList();
+  // };
   constructor(private dialogService: NbDialogService, private router: Router) {
     // var MyMemPouch = pouchdb.defaults({
     //   adapter: 'memory'
@@ -30,86 +38,135 @@ export class UserComponent implements OnInit {
     // usertoken
     // cryto
 
+    this.user = new Ouser();
+    this.userList = new Array<Ouser>();
     this.db = new pouchdb('user');
     this.sync();
-    this.db.changes({
-      since: 'now',
-      live: true
-    }).on('change', (res)=>{
-      console.log('changed');
-      console.log(res);
-      
-      
-    });
-    
-  }
-   sync() {
-    //syncDom.setAttribute('data-sync-state', 'syncing');
-    var opts = {live: true};
-    this.db.replicate.to(this.remoteCouch, opts,(err,res)=>{
+    // this.db.changes({
+    //   since: 'now',
+    //   live: true
+    // }).on('change', (res)=>{
+    //   console.log('changed');
+    //   console.log(res);
 
-    });
-    this.db.replicate.from(this.remoteCouch, opts, (err,res)=>{
-      if(err){
-        console.log('sync err');
-        console.log(err);
-        
-      }else{
-        console.log('sync res');
-        console.log(res);
-        
-      }
+
+    // });
+
+  }
+
+  sync() {
+    //syncDom.setAttribute('data-sync-state', 'syncing');
+    let parent = this;
+    this.db.sync(this.remoteCouch, {
+      live: true,
+      //retry: true
+    }).on('change', async (info) => {
+      console.log('sync res');
+      console.log(info);
+     // if(info.direction=="push"){
+        // if (info.change.docs.length) {
+        //   for (let index = 0; index < info.change.docs.length; index++) {
+        //     const e = info.change.docs[index] as Ouser;
+        //     //console.log(e);
+  
+        //     // for both direction : push or pull
+        //     for (let i = 0; i < parent.userList.length; i++) {
+        //       let element = parent.userList[i] as Ouser;
+        //       if (element._id === e._id) {
+        //         parent.userList[i] = e;
+        //       }
+        //     }
+        //   }
+        // }
+     // }
+    }).on('paused', function (err) {
+      // replication paused (e.g. replication up to date, user went offline)
+      console.log('paused');
+
+    }).on('active', function () {
+      // replicate resumed (e.g. new changes replicating, user went back online)
+      console.log('active');
+    }).on('denied', function (err) {
+      // a document failed to replicate (e.g. due to permissions)
+      console.log('denied');
+    }).on('complete', function (info) {
+      // handle complete
+    }).on('error', function (err) {
+      console.log('sync err');
+      console.log(err);
     });
   }
   ngOnInit() {
-    console.log('print add');
-    let id=Math.random()*1000000;
-    console.log(id);
-    
-    this.db.put({ test: 'ok', _id: id+'' },{force:true}, (err, res) => {
-      if (err) {
-        console.log('err after put'
-        );
-        
-        console.log(err);
+    this.sync();
+    this.loadUserList();
+  }
+  loadUserList() {
+    const pageSize = 10;
+    const offSet = 0;
+    const parent = this;
+    this.userList.length = 0;
+    this.userList = new Array<Iuser>();
+    this.db.allDocs({ limit: pageSize, skip: offSet, descending: true, include_docs: true }).then(res => {
+      //console.log(res);
+      for (let index = 0; index < res.rows.length; index++) {
+        parent.userList.push(<Iuser><unknown>res.rows[index].doc);
+      }
+    }).catch(err => {
+      console.log(err);
+    });
+  }
 
-      } else {
-        console.log('after put');
-        
-        console.log(res);
-        
 
-        this.db.allDocs({ include_docs: true, descending: true }).then(res => {
-          console.log("show all docs");
-          
-          console.log(res);
 
-        }).catch(err => {
-          console.log("error show all docs");
-          console.log(err);
-
-        });
+  user_add() {
+   this.dialogService.open(ModalComponent, {
+      context: {
+        _id: '',
+        _rev: ''
+        //close:parent.modelClose
       }
     });
   }
-  user_add() {
-    this.router.navigate(['/pages/user_add'], {})
+
+  user_edit(id: string, rev: string) {
+    let parent = this;
+    let dlg=this.dialogService.open(ModalComponent, {
+      context: {
+        _id: id,
+        _rev: rev,
+        //close:parent.modelClose
+      }
+    });
+    dlg.onClose.subscribe(result=>{
+      this.loadUserList();
+    });
+
   }
 
-  user_edit() {
-    this.router.navigate(['/pages/user_edit'], { queryParams: { id: 1, save: true } })
+  user_delete(id: string, rev: string) {
+
+   
+    let parent = this;
+    let dlg=this.dialogService.open(ModalComponent, {
+      context: {
+        _id: id,
+        _rev: rev,
+        isdelete: true
+      
+      }
+    });
+    dlg.onClose.subscribe(result=>{
+      this.loadUserList();
+    });
+
+
+
+
   }
 
 
 
-  /*  open() {
-      this.dialogService.open(ModalComponent, {
-        context: {
-          title: 'This is a title passed to the dialog component',
-          detell: 'dasdasdasdasdsa',
-        },
-      });
-    } */
+
 
 
 }
