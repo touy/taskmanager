@@ -50,7 +50,7 @@ export class Oclient implements Iclient { // NO PREFIX -- local
     loginip: string;
     data: Idata;
     auth: Iauth;
-    created() {
+    constructor() {
         this.gui = nano_time('nano');
         this._id = nano_time('nano');
     }
@@ -66,8 +66,9 @@ export interface Iauth { // NO Prefix -- local
 export class Oauth implements Iauth { // NO PREFIX -- local
     _id: string; _rev: string;
     gui: string;
-    create(gui: string) {
+    constructor(gui: string) {
         this.gui = gui;
+        this._id=nano_time('nano');
     }
 
 }
@@ -100,8 +101,9 @@ export class Odata implements Idata {// no prefix -- local
     system: ImySystem;
     roleslist: Irolelist;
     permissionlist: Ipermissions;
-    create(username: string) {
+    constructor(username: string) {
         this.username = username;
+        this._id=nano_time('nano');        
     }
 
 }
@@ -117,9 +119,9 @@ export class OmySystem implements ImySystem { // no prefix  -- remote
     _id: string;
     _rev: string;
     systemname: string;
-    create(systemname: string = ''): ImySystem {
+    constructor(systemname: string = '') {
         this.systemname = systemname;
-        return this;
+        this._id=nano_time('nano');        
     }
 
 }
@@ -152,7 +154,7 @@ export class Ogijuser implements Igijuser{
     constructor(username:string = ''){
         this.username=username;
         this._id=nano_time('nano');
-        this.gui=nano_time('nano');
+        this.gui=nano_time('nano');        
     }
 
 }
@@ -194,9 +196,9 @@ export class Ouserprofile implements Iuserprofile { /// privage -- remote
     photo: Array<IObj>;
     description: string;
     remark: string;
-    create(owner: string = ''): Ouserprofile {
+    constructor(owner: string = '') {
         this.owner = owner;
-        return this;
+        this._id=nano_time('nano');
     }
 }
 
@@ -247,13 +249,13 @@ export class Ouserprefix implements Iuserprefix { // private -- remote
     starttime: string;
     endtime: string;
     renewlist: Array<Iuserprefix>;
-    create(prefixname: string = '', prefix: string = '', owner: string = '', assignedto: string = ''): Iuserprefix {
+    constructor(prefixname: string = '', prefix: string = '', owner: string = '', assignedto: string = '') {
         this.prefixname = prefixname;
         this.prefix = prefix;
         this.owner = owner;
         this.authorizedkeys = new Array<IauthrorizedKeys>();
         this.assignedto = assignedto;
-        return this;
+        this._id=nano_time('nano');        
     }
 
 }
@@ -301,19 +303,21 @@ export class OpermissionsAssigned implements IpermissionAssigned {
     title: string;
     admin: string;
     memberaccepted: Array<ImemberRequest>;
-    create(permissionid: string = '', assignedname: string = '', permissionlevel: string = '') {
+    constructor(permissionid: string = '', assignedname: string = '', permissionlevel: string = '') {
         this.permissionid = permissionid;
         this.assignedname = assignedname;
         this.permissionlevel = permissionlevel;
+        this._id=nano_time('nano');        
     }
 }
 export class Opermissions implements Ipermissions { // public -- remote
     _id: string; _rev: string;
     permissionname: string;
     permissionlevel: number;
-    create(permissionname: string = ''): Ipermissions {
+    constructor(permissionname: string = '') {
         this.permissionname = permissionname;
-        return this;
+        this._id=nano_time('nano');
+        
     }
 }
 export interface Ipermissions { // public -- remote
@@ -329,9 +333,10 @@ export class Oencryptionkeys implements Ienryptionkeys { // private -- remote
     isActive: string;
     startime: string;
     endtime: string;
-    create(owner: string = ''): Ienryptionkeys {
+    constructor(owner: string = '') {
         this.owner = owner;
-        return this;
+        this._id=nano_time('nano');
+        
     }
 
 }
@@ -364,9 +369,10 @@ export class Oroles implements Iroles { // public -- remote
     assignedtime: string;
     deassignedtime: string;
     groupname: string;
-    create(rolename: string = '', groupname: string = ''): Iroles {
+    constructor(rolename: string = '', groupname: string = '') {
         this.rolename = rolename;
-        return this;
+        this._id=nano_time('nano');
+        
     }
 
 }
@@ -381,10 +387,11 @@ export class Oapprovement implements Iapprovement {
     _rev: string;
     approvedby: string;
     approvedtime: string;
-    created(approvedby: string = '') {
+    constructor(approvedby: string = '') {
         this.approvedby = approvedby;
 
         this._id = nano_time('nano');
+        
 
     }
 }
@@ -408,9 +415,11 @@ export class Odocument implements Idocument { // public --- remote
     priority: string;
     attachedfile: Array<IObj>;
     scoreslist: Array<Iscores>;
-    create(docname: string = '', owner: string = '') {
+    constructor(docname: string = '', owner: string = '') {
+        this._id=nano_time('nano');
         this.docname = docname;
         this.owner = owner;
+        
     }
 }
 export interface Idocument { // public --- remote
@@ -455,9 +464,10 @@ export class Ojob implements Ijob {
     starttime: string;
     endtime: string;
     score: Iscores;
-    created(jobname: string = '') {
+    constructor(jobname: string = '') {
 
         this._id = nano_time('nano');
+        
     }
 }
 
@@ -469,10 +479,11 @@ export class Oscores implements Iscores {
     status: string;
     createdtime: string;
     isold: boolean;
-    created(score: number = 0) {
+    constructor(score: number = 0) {
         this.score = score;
 
         this._id = nano_time('nano');
+        
     }
 }
 export interface Iscores {
@@ -524,8 +535,9 @@ export class OphotoObj implements IObj { // public -- remote
     type: string;
     url: string;
     _id: string; _rev: string;
-    create(name: string) {
+    constructor(name: string) {
         this.name = name;
+        this._id=nano_time('nano');   
     }
 }
 
