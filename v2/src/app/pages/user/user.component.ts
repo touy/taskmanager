@@ -13,10 +13,11 @@ import { async } from 'q';
 })
 export class UserComponent implements OnInit {
   private db: PouchDB.Database<{}>;
-  remoteCouch = 'http://admin:admin@localhost:5984/user';
+  remoteCouch = 'http://admin:admin@localhost:5984/user-';
   user: Iuser;
   userList: Iuser[];
   TEST: string;
+  _selectedUser: Ouser;
   // modelClose: () => {
   //   loadUserList();
   // };
@@ -38,9 +39,12 @@ export class UserComponent implements OnInit {
     // usertoken
     // cryto
 
-    this.user = new Ouser();
+    //this.user = new Ouser();
+    // LIST
     this.userList = new Array<Ouser>();
-    this.db = new pouchdb('user');
+    this._selectedUser= new Ouser();
+    
+    this.db = new pouchdb('user-');//dbname-prefix
     this.sync();
     // this.db.changes({
     //   since: 'now',
@@ -54,6 +58,10 @@ export class UserComponent implements OnInit {
 
   }
 
+  
+  ngOnInit() {
+    this.loadUserList();
+  }
   sync() {
     //syncDom.setAttribute('data-sync-state', 'syncing');
     let parent = this;
@@ -96,10 +104,6 @@ export class UserComponent implements OnInit {
       console.log(err);
     });
   }
-  ngOnInit() {
-    this.sync();
-    this.loadUserList();
-  }
   loadUserList() {
     const pageSize = 10;
     const offSet = 0;
@@ -115,9 +119,6 @@ export class UserComponent implements OnInit {
       console.log(err);
     });
   }
-
-
-
   user_add() {
    this.dialogService.open(ModalComponent, {
       context: {
@@ -127,7 +128,6 @@ export class UserComponent implements OnInit {
       }
     });
   }
-
   user_edit(id: string, rev: string) {
     let parent = this;
     let dlg=this.dialogService.open(ModalComponent, {
@@ -144,8 +144,6 @@ export class UserComponent implements OnInit {
   }
 
   user_delete(id: string, rev: string) {
-
-   
     let parent = this;
     let dlg=this.dialogService.open(ModalComponent, {
       context: {
