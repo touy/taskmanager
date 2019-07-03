@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { NbDialogRef } from '@nebular/theme';
 import { Router } from '@angular/router';
 import {Location} from '@angular/common'
+import {Igijuser,Ogijuser,nano_time} from '../../../interface';
 import { UserComponent } from '../user.component';
 import pouchdb from 'pouchdb';
 
@@ -13,32 +14,26 @@ import pouchdb from 'pouchdb';
 export class ModalComponent  {
   
   private db: PouchDB.Database<{}>;
-  remoteCouch = 'http://admin:admin@localhost:5984/user';
+  dbname:string;
+  remoteCouch = 'http://admin:admin@localhost:5984/';
 
-  user: Iuser;
+  user: Igijuser;
   //usercom : UserComponent;
   @Input() _id: string;
   @Input() _rev: string;
   @Input() isdelete:boolean ;
-  _selectedUser: Iuser;
+  _selectedUser: Igijuser;
   constructor(protected ref: NbDialogRef<ModalComponent> ,public _Location:Location,public router:Router) {
 
-    this.user=new Ouser();
-    this.user.firstname = '';
-    this.user.lastname = '';
-    this.user.department = '';
-    this.user.permission = '';
-    this.user.username = '';
-    this.user.password = '';
-    this.user.parent = '';
+    this.user=new Ogijuser();
     this.user._rev = '';
-    this.user._id = '';
+    this.user._id = nano_time.now();
 
     
     
     
 
-    this.db = new pouchdb('user');
+    
     //this.sync();
     // this.db.changes({
     //   since: 'now',
@@ -80,11 +75,11 @@ export class ModalComponent  {
   // }
 
   ngOnInit() {
-  
+    this.db = new pouchdb('user');
     if(this._id){
       this.getuser(this._id);
     }else{
-      this._selectedUser=new Ouser();
+      this._selectedUser=new Ogijuser();
     }
     
     
@@ -167,7 +162,7 @@ export class ModalComponent  {
   getuser(id:string) {
     this.db.get(id).then(res=>{
       console.log(res);
-      this._selectedUser=res as Ouser;
+      this._selectedUser=res as Ogijuser;
     }).catch(err=>{
       console.log('getuser error');
       //console.log('id: '+id);
@@ -179,7 +174,7 @@ export class ModalComponent  {
 
 
   refresh(): void {
-    this.router.navigateByUrl('/user',{skipLocationChange:true}).then(()=>{
+    this.router.navigateByUrl('/user_',{skipLocationChange:true}).then(()=>{
         this.router.navigate([decodeURI(this._Location.path())]);
     });
   }

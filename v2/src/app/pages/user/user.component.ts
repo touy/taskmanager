@@ -4,7 +4,7 @@ import { NbDialogService } from '@nebular/theme';
 import { Router } from '@angular/router';
 import pouchdb from 'pouchdb';
 import {Igijuser,Ogijuser} from '../../interface'
-import { async } from 'q';
+//import { async } from 'q';
 //import { } from './user-add/user-add.component';
 //import * as nodefetch from 'node-fetch';
 @Component({
@@ -14,7 +14,7 @@ import { async } from 'q';
 })
 export class UserComponent implements OnInit {
   private db: PouchDB.Database<{}>;
-  remoteCouch = 'http://admin:admin@localhost:5984/user-';
+  remoteCouch = 'http://admin:admin@localhost:5984/user_';
   user: Igijuser;
   userList: Igijuser[];
   TEST: string;
@@ -45,7 +45,7 @@ export class UserComponent implements OnInit {
     this.userList = new Array<Ogijuser>();
     this._selectedUser= new Ogijuser();
     
-    this.db = new pouchdb('user-');//dbname-prefix
+    this.db = new pouchdb('user_');//dbname_prefix
     this.sync();
     // this.db.changes({
     //   since: 'now',
