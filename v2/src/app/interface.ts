@@ -24,7 +24,6 @@ export class MyDataBaseNames {
     static dbprofile: string = 'g-profile-';
 }
 /// dbname-prefix
-
 // prefix : 1. private ==> userprofile-12345 , user-12345
 // prefix : 2. group ==> user-g12345 , userprofile-g12345
 
