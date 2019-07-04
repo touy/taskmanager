@@ -253,6 +253,7 @@ export class Ouserprefix implements Iuserprefix { // private -- remote
     prefixname: string;
     prefix: string;
     owner: string;
+    serverurl:string;
     authorizedkeys: Array<IauthrorizedKeys>;
     assignedto: string;
     starttime: string;
@@ -273,6 +274,7 @@ export interface Iuserprefix { // private -- remote
     _rev: string;
     prefixname: string;
     prefix: string;
+    serverurl:string;
     owner: string;
     authorizedkeys: Array<IauthrorizedKeys>;
     assignedto: string;
@@ -524,8 +526,26 @@ export interface IReport {
 }
 
 
-
-
+export class Oconfig implements Iconfig{
+    _rev: string;    _id: string;
+    configname: string;
+    value: string;
+    key: string;
+    createdtime: string;
+    oldconfig: Iconfig[];
+    constructor(configname:string = ''){
+        this.configname=configname;
+    }
+}
+export interface Iconfig{
+    _rev:string;
+    _id:string;
+    configname:string;
+    value:string;
+    key:string;
+    createdtime:string;
+    oldconfig:Array<Iconfig>;
+}
 
 
 

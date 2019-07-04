@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { NbDialogRef } from '@nebular/theme';
 import { Router } from '@angular/router';
 import {Location} from '@angular/common'
-import {Igijuser,Ogijuser,nano_time} from '../../../interface';
+import {Igijuser,Ogijuser,nano_time, MyDataBaseNames} from '../../../interface';
 import { UserComponent } from '../user.component';
 import pouchdb from 'pouchdb';
 
@@ -75,7 +75,8 @@ export class ModalComponent  {
   // }
 
   ngOnInit() {
-    this.db = new pouchdb('user');
+    this.remoteCouch+=MyDataBaseNames.dbuser;
+    this.db = new pouchdb(MyDataBaseNames.dbuser);
     if(this._id){
       this.getuser(this._id);
     }else{

@@ -3,7 +3,7 @@ import { ModalComponent } from './modal/modal.component';
 import { NbDialogService } from '@nebular/theme';
 import { Router } from '@angular/router';
 import pouchdb from 'pouchdb';
-import {Igijuser,Ogijuser} from '../../interface'
+import {Igijuser,Ogijuser, MyDataBaseNames} from '../../interface'
 //import { async } from 'q';
 //import { } from './user-add/user-add.component';
 //import * as nodefetch from 'node-fetch';
@@ -14,7 +14,7 @@ import {Igijuser,Ogijuser} from '../../interface'
 })
 export class UserComponent implements OnInit {
   private db: PouchDB.Database<{}>;
-  remoteCouch = 'http://admin:admin@localhost:5984/user_';
+  remoteCouch = 'http://admin:admin@localhost:5984/';
   user: Igijuser;
   userList: Igijuser[];
   TEST: string;
@@ -45,8 +45,8 @@ export class UserComponent implements OnInit {
     this.userList = new Array<Ogijuser>();
     this._selectedUser= new Ogijuser();
     
-    this.db = new pouchdb('user_');//dbname_prefix
-    this.sync();
+    // this.db = new pouchdb('user_');//dbname_prefix
+    // this.sync();
     // this.db.changes({
     //   since: 'now',
     //   live: true
@@ -61,6 +61,9 @@ export class UserComponent implements OnInit {
 
   
   ngOnInit() {
+    this.remoteCouch+=MyDataBaseNames.dbuser; /// + prefix
+    this.db = new pouchdb(MyDataBaseNames.dbuser); // + prefix
+    this.sync();
     this.loadUserList();
   }
   sync() {
@@ -72,6 +75,7 @@ export class UserComponent implements OnInit {
     }).on('change', async (info) => {
       console.log('sync res');
       console.log(info);
+      this.loadUserList();
      // if(info.direction=="push"){
         // if (info.change.docs.length) {
         //   for (let index = 0; index < info.change.docs.length; index++) {
