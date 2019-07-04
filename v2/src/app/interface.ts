@@ -31,6 +31,11 @@ export class nano_time {
 export class MyDataBaseNames {
     static dbuser: string = 'g-users-';
     static dbprofile: string = 'g-profile-';
+    static dbjob: string = 'g-job-';
+    static dbdoc: string = 'g-doc-';
+    static dbmember: string = 'g-member-';
+    static dbpermission: string = 'g-permission-';
+    static dbrole: string = 'g-role-';
 }
 /// dbname-prefix
 // prefix : 1. private ==> userprofile-12345 , user-12345
