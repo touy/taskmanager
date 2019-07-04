@@ -3,7 +3,7 @@ import { ModalComponent } from './modal/modal.component';
 import { NbDialogService } from '@nebular/theme';
 import { Router } from '@angular/router';
 import pouchdb from 'pouchdb';
-import {Igijuser,Ogijuser, MyDataBaseNames} from '../../interface'
+import { Igijuser, Ogijuser, MyDataBaseNames } from '../../interface'
 //import { async } from 'q';
 //import { } from './user-add/user-add.component';
 //import * as nodefetch from 'node-fetch';
@@ -43,8 +43,8 @@ export class UserComponent implements OnInit {
     //this.user = new Ouser();
     // LIST
     this.userList = new Array<Ogijuser>();
-    this._selectedUser= new Ogijuser();
-    
+    this._selectedUser = new Ogijuser();
+
     // this.db = new pouchdb('user_');//dbname_prefix
     // this.sync();
     // this.db.changes({
@@ -59,9 +59,9 @@ export class UserComponent implements OnInit {
 
   }
 
-  
+
   ngOnInit() {
-    this.remoteCouch+=MyDataBaseNames.dbuser; /// + prefix
+    this.remoteCouch += MyDataBaseNames.dbuser; /// + prefix
     this.db = new pouchdb(MyDataBaseNames.dbuser); // + prefix
     this.sync();
     this.loadUserList();
@@ -75,23 +75,25 @@ export class UserComponent implements OnInit {
     }).on('change', async (info) => {
       console.log('sync res');
       console.log(info);
-      this.loadUserList();
-     // if(info.direction=="push"){
-        // if (info.change.docs.length) {
-        //   for (let index = 0; index < info.change.docs.length; index++) {
-        //     const e = info.change.docs[index] as Ouser;
-        //     //console.log(e);
-  
-        //     // for both direction : push or pull
-        //     for (let i = 0; i < parent.userList.length; i++) {
-        //       let element = parent.userList[i] as Ouser;
-        //       if (element._id === e._id) {
-        //         parent.userList[i] = e;
-        //       }
-        //     }
-        //   }
-        // }
-     // }
+      if (info.direction == "pull") {
+        this.loadUserList();
+      }
+      // if(info.direction=="push"){
+      // if (info.change.docs.length) {
+      //   for (let index = 0; index < info.change.docs.length; index++) {
+      //     const e = info.change.docs[index] as Ouser;
+      //     //console.log(e);
+
+      //     // for both direction : push or pull
+      //     for (let i = 0; i < parent.userList.length; i++) {
+      //       let element = parent.userList[i] as Ouser;
+      //       if (element._id === e._id) {
+      //         parent.userList[i] = e;
+      //       }
+      //     }
+      //   }
+      // }
+      // }
     }).on('paused', function (err) {
       // replication paused (e.g. replication up to date, user went offline)
       console.log('paused');
@@ -125,24 +127,28 @@ export class UserComponent implements OnInit {
     });
   }
   user_add() {
-   this.dialogService.open(ModalComponent, {
+    let dlg = this.dialogService.open(ModalComponent, {
       context: {
         _id: '',
         _rev: ''
         //close:parent.modelClose
       }
     });
+
+    dlg.onClose.subscribe(result => {
+      this.loadUserList();
+    });
   }
   user_edit(id: string, rev: string) {
     let parent = this;
-    let dlg=this.dialogService.open(ModalComponent, {
+    let dlg = this.dialogService.open(ModalComponent, {
       context: {
         _id: id,
         _rev: rev,
         //close:parent.modelClose
       }
     });
-    dlg.onClose.subscribe(result=>{
+    dlg.onClose.subscribe(result => {
       this.loadUserList();
     });
 
@@ -150,15 +156,15 @@ export class UserComponent implements OnInit {
 
   user_delete(id: string, rev: string) {
     let parent = this;
-    let dlg=this.dialogService.open(ModalComponent, {
+    let dlg = this.dialogService.open(ModalComponent, {
       context: {
         _id: id,
         _rev: rev,
         isdelete: true
-      
+
       }
     });
-    dlg.onClose.subscribe(result=>{
+    dlg.onClose.subscribe(result => {
       this.loadUserList();
     });
 

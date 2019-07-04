@@ -38,28 +38,28 @@ export class MyDataBaseNames {
 
 
 export interface Iclient { // NO PREFIX -- local
-    _id: string;
-    _rev: string;
-    gui: string; /// sfadsfsadfsadfsadfasdf
-    username: string;
-    logintoken: string;
-    logintime: string;
-    loginip: string;
+    _id: string | undefined;
+    _rev: string | undefined;
+    gui: string | undefined; /// sfadsfsadfsadfsadfasdf
+    username: string | undefined;
+    logintoken: string | undefined;
+    logintime: string | undefined;
+    loginip: string | undefined;
     data: Idata;
     auth: Iauth;
 }
 
 export class Oclient implements Iclient { // NO PREFIX -- local
-    _id: string;
-    _rev: string;
-    gui: string; /// sfadsfsadfsadfsadfasdf
-    username: string;
-    logintoken: string;
-    logintime: string;
-    loginip: string;
+    _id: string | undefined;
+    _rev: string | undefined;
+    gui: string | undefined; /// sfadsfsadfsadfsadfasdf
+    username: string | undefined;
+    logintoken: string | undefined;
+    logintime: string | undefined;
+    loginip: string | undefined;
     data: Idata;
     auth: Iauth;
-    constructor() {
+    public constructor() {
         this.gui = nano_time.now();
         this._id = nano_time.now();
     }
@@ -67,15 +67,15 @@ export class Oclient implements Iclient { // NO PREFIX -- local
 
 
 export interface Iauth { // NO Prefix -- local
-    _id: string;
-    _rev: string;
-    gui: string;
+    _id: string | undefined;
+    _rev: string | undefined;
+    gui: string | undefined;
 }
 
 export class Oauth implements Iauth { // NO PREFIX -- local
-    _id: string; _rev: string;
-    gui: string;
-    constructor(gui: string) {
+    _id: string | undefined; _rev: string | undefined;
+    gui: string | undefined;
+    public constructor(gui: string) {
         this.gui = gui;
         this._id=nano_time.now();
     }
@@ -84,12 +84,12 @@ export class Oauth implements Iauth { // NO PREFIX -- local
 
 
 export interface Idata { // no prefix -- local
-    _id: string;
-    _rev: string;
-    username: string;
+    _id: string | undefined;
+    _rev: string | undefined;
+    username: string | undefined;
     user: Igijuser;
-    message: string;
-    command: string;
+    message: string | undefined;
+    command: string | undefined;
     // login , logout , changepassword , getuserdetails, getprofile, adduser , addprefix, add authorizedkeys....
     userprofile: Iuserprofile;
     userprefix: Iuserprefix; /// *******************************************
@@ -99,18 +99,18 @@ export interface Idata { // no prefix -- local
     permissionlist: Ipermissions;
 }
 export class Odata implements Idata {// no prefix -- local
-    _id: string;
-    _rev: string;
-    username: string; user: Igijuser;
-    message: string;
-    command: string;
+    _id: string | undefined;
+    _rev: string | undefined;
+    username: string | undefined; user: Igijuser;
+    message: string | undefined;
+    command: string | undefined;
     userprofile: Iuserprofile;
     userprefix: Iuserprefix;
     encryption: Ienryptionkeys;
     system: ImySystem;
     roleslist: Irolelist;
     permissionlist: Ipermissions;
-    constructor(username: string) {
+    public constructor(username: string) {
         this.username = username;
         this._id=nano_time.now();        
     }
@@ -120,15 +120,15 @@ export class Odata implements Idata {// no prefix -- local
 
 
 export interface ImySystem { // no prefix -- remote
-    _id: string;
-    _rev: string;
-    systemname: string;
+    _id: string | undefined;
+    _rev: string | undefined;
+    systemname: string | undefined;
 }
 export class OmySystem implements ImySystem { // no prefix  -- remote
-    _id: string;
-    _rev: string;
-    systemname: string;
-    constructor(systemname: string = '') {
+    _id: string | undefined;
+    _rev: string | undefined;
+    systemname: string | undefined;
+    public constructor(systemname: string = '') {
         this.systemname = systemname;
         this._id=nano_time.now();        
     }
@@ -136,21 +136,21 @@ export class OmySystem implements ImySystem { // no prefix  -- remote
 }
 
 export class Ogijuser implements Igijuser{
-    _id: string;    _rev: string;
-    username: string;
-    password: string;
-    confirmpassword: string;
-    phonenumber: string;
-    gui: string;
+    _id: string | undefined;    _rev: string | undefined;
+    username: string | undefined;
+    password: string | undefined;
+    confirmpassword: string | undefined;
+    phonenumber: string | undefined;
+    gui: string | undefined;
     createddate: Date;
     lastupdate: Date;
     isactive: boolean;
     parents: string[];
     roles: Iroles[];
-    logintoken: string;
-    expirelogintoken: string;
-    description: string;
-    note: string;
+    logintoken: string | undefined;
+    expirelogintoken: string | undefined;
+    description: string | undefined;
+    note: string | undefined;
     system: ImySystem[];
     gijvalue: number;
     totalgij: number;
@@ -160,7 +160,7 @@ export class Ogijuser implements Igijuser{
     userprefix: Iuserprefix;
     permission: Ipermissions;
     enryptionkeys: Ienryptionkeys;
-    constructor(username:string = ''){
+    public constructor(username:string = ''){
         this.username=username;
         this._id=nano_time.now();
         this.gui=nano_time.now();        
@@ -169,22 +169,22 @@ export class Ogijuser implements Igijuser{
 }
 
 export interface Igijuser { // no refix --- remote
-    _id: string;
-    _rev: string;
-    username: string;
-    password: string;
-    confirmpassword: string;
-    phonenumber: string;
-    gui: string;
+    _id: string | undefined;
+    _rev: string | undefined;
+    username: string | undefined;
+    password: string | undefined;
+    confirmpassword: string | undefined;
+    phonenumber: string | undefined;
+    gui: string | undefined;
     createddate: Date;
     lastupdate: Date;
     isactive: boolean;
     parents: Array<string>;
     roles: Array<Iroles>;
-    logintoken: string;
-    expirelogintoken: string;
-    description: string;
-    note: string;
+    logintoken: string | undefined;
+    expirelogintoken: string | undefined;
+    description: string | undefined;
+    note: string | undefined;
     system: Array<ImySystem>; /// ice-maker, gij, stock-manager....
     gijvalue: number;
     totalgij: number;
@@ -197,69 +197,70 @@ export interface Igijuser { // no refix --- remote
 }
 
 export class Ouserprofile implements Iuserprofile { /// privage -- remote
-    _id: string; _rev: string;
-    owner: string;
-    firstname: string;
-    lastname: string;
-    address: string;
+    _id: string | undefined; _rev: string | undefined;
+    owner: string | undefined;
+    firstname: string | undefined;
+    lastname: string | undefined;
+    address: string | undefined;
     photo: Array<IObj>;
-    description: string;
-    remark: string;
-    constructor(owner: string = '') {
+    description: string | undefined;
+    remark: string | undefined;
+    public constructor(owner: string = '') {
         this.owner = owner;
         this._id=nano_time.now();
+        
     }
 }
 
 export interface Iuserprofile {// private -- remote
-    _id: string;
-    _rev: string;
-    owner: string;
-    firstname: string;
-    lastname: string;
-    address: string;
+    _id: string | undefined;
+    _rev: string | undefined;
+    owner: string | undefined;
+    firstname: string | undefined;
+    lastname: string | undefined;
+    address: string | undefined;
     photo: Array<IObj>;
-    description: string;
-    remark: string;
+    description: string | undefined;
+    remark: string | undefined;
 }
 export interface Irolelist { // public -- remote
-    _id: string;
-    _rev: string;
-    rolename: string;
+    _id: string | undefined;
+    _rev: string | undefined;
+    rolename: string | undefined;
 }
 export interface IauthrorizedKeys { // private -- remote
-    _rev: string;
-    _id: string;
-    description: string;
-    authkeys: string;
-    owner: string;
-    assignedto: string;
-    starttime: string;
-    endtime: string;
+    _rev: string | undefined;
+    _id: string | undefined;
+    description: string | undefined;
+    authkeys: string | undefined;
+    owner: string | undefined;
+    assignedto: string | undefined;
+    starttime: string | undefined;
+    endtime: string | undefined;
     encryption: Ienryptionkeys;
 }
 
 export interface Iuserprefixauthorizedkeys { // private -- remote
-    _id: string;
-    _rev: string;
-    userprefixid: string;
-    authkeysid: string;
-    authkeys: string;
-    owner: string;
-    assignedto: string;
+    _id: string | undefined;
+    _rev: string | undefined;
+    userprefixid: string | undefined;
+    authkeysid: string | undefined;
+    authkeys: string | undefined;
+    owner: string | undefined;
+    assignedto: string | undefined;
 }
 export class Ouserprefix implements Iuserprefix { // private -- remote
-    _id: string; _rev: string;
-    prefixname: string;
-    prefix: string;
-    owner: string;
+    _id: string | undefined; _rev: string | undefined;
+    prefixname: string | undefined;
+    prefix: string | undefined;
+    owner: string | undefined;
     serverurl:string;
     authorizedkeys: Array<IauthrorizedKeys>;
-    assignedto: string;
-    starttime: string;
-    endtime: string;
+    assignedto: string | undefined;
+    starttime: string | undefined;
+    endtime: string | undefined;
     renewlist: Array<Iuserprefix>;
-    constructor(prefixname: string = '', prefix: string = '', owner: string = '', assignedto: string = '') {
+    public constructor(prefixname: string = '', prefix: string = '', owner: string = '', assignedto: string = '') {
         this.prefixname = prefixname;
         this.prefix = prefix;
         this.owner = owner;
@@ -270,51 +271,51 @@ export class Ouserprefix implements Iuserprefix { // private -- remote
 
 }
 export interface Iuserprefix { // private -- remote
-    _id: string;
-    _rev: string;
-    prefixname: string;
-    prefix: string;
+    _id: string | undefined;
+    _rev: string | undefined;
+    prefixname: string | undefined;
+    prefix: string | undefined;
     serverurl:string;
-    owner: string;
+    owner: string | undefined;
     authorizedkeys: Array<IauthrorizedKeys>;
-    assignedto: string;
-    starttime: string;
-    endtime: string;
+    assignedto: string | undefined;
+    starttime: string | undefined;
+    endtime: string | undefined;
     renewlist: Array<Iuserprefix>;
 }
 export interface ImemberRequest {
-    _id: string;
-    _rev: string;
-    owner: string;
-    requestedtime: string;
-    touser: string;
-    acceptedtime: string;
-    denytime: string;
-    reason: string;
-    endtime: string;
+    _id: string | undefined;
+    _rev: string | undefined;
+    owner: string | undefined;
+    requestedtime: string | undefined;
+    touser: string | undefined;
+    acceptedtime: string | undefined;
+    denytime: string | undefined;
+    reason: string | undefined;
+    endtime: string | undefined;
 }
 export interface IpermissionAssigned {
-    _id: string; _rev: string;
-    permissionid: string;
-    permissionlevel: string;
-    assignedname: string;
-    title: string;
-    admin: string;
+    _id: string | undefined; _rev: string | undefined;
+    permissionid: string | undefined;
+    permissionlevel: string | undefined;
+    assignedname: string | undefined;
+    title: string | undefined;
+    admin: string | undefined;
     memberaccepted: Array<ImemberRequest>;
-    starttime: string;
-    endtime: string;
+    starttime: string | undefined;
+    endtime: string | undefined;
 }
 export class OpermissionsAssigned implements IpermissionAssigned {
-    _id: string; _rev: string;
-    permissionid: string;
-    permissionlevel: string;
-    assignedname: string;
-    starttime: string;
-    endtime: string;
-    title: string;
-    admin: string;
+    _id: string | undefined; _rev: string | undefined;
+    permissionid: string | undefined;
+    permissionlevel: string | undefined;
+    assignedname: string | undefined;
+    starttime: string | undefined;
+    endtime: string | undefined;
+    title: string | undefined;
+    admin: string | undefined;
     memberaccepted: Array<ImemberRequest>;
-    constructor(permissionid: string = '', assignedname: string = '', permissionlevel: string = '') {
+    public constructor(permissionid: string = '', assignedname: string = '', permissionlevel: string = '') {
         this.permissionid = permissionid;
         this.assignedname = assignedname;
         this.permissionlevel = permissionlevel;
@@ -322,29 +323,29 @@ export class OpermissionsAssigned implements IpermissionAssigned {
     }
 }
 export class Opermissions implements Ipermissions { // public -- remote
-    _id: string; _rev: string;
-    permissionname: string;
+    _id: string | undefined; _rev: string | undefined;
+    permissionname: string | undefined;
     permissionlevel: number;
-    constructor(permissionname: string = '') {
+    public constructor(permissionname: string = '') {
         this.permissionname = permissionname;
         this._id=nano_time.now();
         
     }
 }
 export interface Ipermissions { // public -- remote
-    _id: string;
-    _rev: string;
-    permissionname: string;
+    _id: string | undefined;
+    _rev: string | undefined;
+    permissionname: string | undefined;
     permissionlevel: number;
 }
 export class Oencryptionkeys implements Ienryptionkeys { // private -- remote
-    _id: string; _rev: string;
-    keys: string;
-    owner: string;
-    isActive: string;
-    startime: string;
-    endtime: string;
-    constructor(owner: string = '') {
+    _id: string | undefined; _rev: string | undefined;
+    keys: string | undefined;
+    owner: string | undefined;
+    isActive: string | undefined;
+    startime: string | undefined;
+    endtime: string | undefined;
+    public constructor(owner: string = '') {
         this.owner = owner;
         this._id=nano_time.now();
         
@@ -352,35 +353,39 @@ export class Oencryptionkeys implements Ienryptionkeys { // private -- remote
 
 }
 export interface Ienryptionkeys { // private -- remote
-    _id: string;
-    _rev: string;
-    keys: string;
-    owner: string;
-    isActive: string;
-    startime: string;
-    endtime: string;
+    _id: string | undefined;
+    _rev: string | undefined;
+    keys: string | undefined;
+    owner: string | undefined;
+    isActive: string | undefined;
+    startime: string | undefined;
+    endtime: string | undefined;
 }
 export interface Iroles { // public --- remote
-    _id: string;
-    _rev: string;
-    rolename: string;
-    groupname: string;
+    _id: string | undefined;
+    _rev: string | undefined;
+    rolename: string | undefined;
+    groupname: string | undefined;
     rolelevel: number;
+    parentroleid: string | undefined;
+    isdefault: boolean;
     permission: Array<Ipermissions>;
     oldroles: Array<Iroles>;
-    assignedtime: string;
-    deassignedtime: string;
+    assignedtime: string | undefined;
+    deassignedtime: string | undefined;
 }
 export class Oroles implements Iroles { // public -- remote
-    _id: string; _rev: string;
-    rolename: string;
+    _id: string | undefined; _rev: string | undefined;
+    rolename: string | undefined;
     rolelevel: number;
+    parentroleid: string | undefined;
+    isdefault: boolean;
     permission: Array<Ipermissions>;
     oldroles: Array<Iroles>;
-    assignedtime: string;
-    deassignedtime: string;
-    groupname: string;
-    constructor(rolename: string = '', groupname: string = '') {
+    assignedtime: string | undefined;
+    deassignedtime: string | undefined;
+    groupname: string | undefined;
+    public constructor(rolename: string = '', groupname: string = '') {
         this.rolename = rolename;
         this._id=nano_time.now();
         
@@ -388,17 +393,17 @@ export class Oroles implements Iroles { // public -- remote
 
 }
 export interface Iapprovement {
-    _id: string;
-    _rev: string;
-    approvedby: string;
-    approvedtime: string;
+    _id: string | undefined;
+    _rev: string | undefined;
+    approvedby: string | undefined;
+    approvedtime: string | undefined;
 }
 export class Oapprovement implements Iapprovement {
-    _id: string;
-    _rev: string;
-    approvedby: string;
-    approvedtime: string;
-    constructor(approvedby: string = '') {
+    _id: string | undefined;
+    _rev: string | undefined;
+    approvedby: string | undefined;
+    approvedtime: string | undefined;
+    public constructor(approvedby: string = '') {
         this.approvedby = approvedby;
 
         this._id = nano_time.now();
@@ -407,26 +412,26 @@ export class Oapprovement implements Iapprovement {
     }
 }
 export class Odocument implements Idocument { // public --- remote
-    _id: string;
-    _rev: string;
-    docname: string;
-    owner: string;
+    _id: string | undefined;
+    _rev: string | undefined;
+    docname: string | undefined;
+    owner: string | undefined;
     members: Array<IpermissionAssigned>;
     jobs: Array<Ijob>;
-    description: string;
-    createdtime: string;
-    starttime: string;
-    endtime: string;
+    description: string | undefined;
+    createdtime: string | undefined;
+    starttime: string | undefined;
+    endtime: string | undefined;
     totalscore: number;
     iscompleted: boolean;
-    endreason: string;
-    status: string;
+    endreason: string | undefined;
+    status: string | undefined;
     referees: Array<string>;
     approved: Iapprovement;
-    priority: string;
+    priority: string | undefined;
     attachedfile: Array<IObj>;
     scoreslist: Array<Iscores>;
-    constructor(docname: string = '', owner: string = '') {
+    public constructor(docname: string = '', owner: string = '') {
         this._id=nano_time.now();
         this.docname = docname;
         this.owner = owner;
@@ -434,48 +439,48 @@ export class Odocument implements Idocument { // public --- remote
     }
 }
 export interface Idocument { // public --- remote
-    _id: string;
-    _rev: string;
-    docname: string;
-    owner: string;
+    _id: string | undefined;
+    _rev: string | undefined;
+    docname: string | undefined;
+    owner: string | undefined;
     members: Array<IpermissionAssigned>;
     jobs: Array<Ijob>;
-    description: string;
-    createdtime: string;
-    starttime: string;
-    endtime: string;
+    description: string | undefined;
+    createdtime: string | undefined;
+    starttime: string | undefined;
+    endtime: string | undefined;
     totalscore: number;
     iscompleted: boolean;
-    endreason: string;
-    status: string;
+    endreason: string | undefined;
+    status: string | undefined;
     referees: Array<string>;
     approved: Iapprovement;
-    priority: string;
+    priority: string | undefined;
     attachedfile: Array<IObj>;
     scoreslist: Array<Iscores>;
 }
 export interface Ijob {
-    _id: string;
-    _rev: string;
-    jobname: string;
-    description: string;
+    _id: string | undefined;
+    _rev: string | undefined;
+    jobname: string | undefined;
+    description: string | undefined;
     members: Array<IpermissionAssigned>;
-    createdtime: string;
-    starttime: string;
-    endtime: string;
+    createdtime: string | undefined;
+    starttime: string | undefined;
+    endtime: string | undefined;
     score: Iscores;
 }
 export class Ojob implements Ijob {
-    _id: string;
-    _rev: string;
-    jobname: string;
-    description: string;
+    _id: string | undefined;
+    _rev: string | undefined;
+    jobname: string | undefined;
+    description: string | undefined;
     members: Array<IpermissionAssigned>;
-    createdtime: string;
-    starttime: string;
-    endtime: string;
+    createdtime: string | undefined;
+    starttime: string | undefined;
+    endtime: string | undefined;
     score: Iscores;
-    constructor(jobname: string = '') {
+    public constructor(jobname: string = '') {
 
         this._id = nano_time.now();
         
@@ -483,14 +488,14 @@ export class Ojob implements Ijob {
 }
 
 export class Oscores implements Iscores {
-    _id: string;
-    _rev: string;
+    _id: string | undefined;
+    _rev: string | undefined;
     score: number;
-    referee: string;
-    status: string;
-    createdtime: string;
+    referee: string | undefined;
+    status: string | undefined;
+    createdtime: string | undefined;
     isold: boolean;
-    constructor(score: number = 0) {
+    public constructor(score: number = 0) {
         this.score = score;
 
         this._id = nano_time.now();
@@ -498,42 +503,42 @@ export class Oscores implements Iscores {
     }
 }
 export interface Iscores {
-    _id: string;
-    _rev: string;
+    _id: string | undefined;
+    _rev: string | undefined;
     score: number;
-    referee: string;
-    status: string;
-    createdtime: string;
+    referee: string | undefined;
+    status: string | undefined;
+    createdtime: string | undefined;
     isold: boolean;
 }
 export class OReport implements IReport {
-    _id: string;
-    _rev: string;
-    createdtime: string;
-    reportname: string;
-    reportcont: string;
-    createdby: string;
+    _id: string | undefined;
+    _rev: string | undefined;
+    createdtime: string | undefined;
+    reportname: string | undefined;
+    reportcont: string | undefined;
+    createdby: string | undefined;
 }
 
 
 export interface IReport {
-    _id: string;
-    _rev: string;
-    createdtime: string;
-    reportname: string;
-    reportcont: string;
-    createdby: string;
+    _id: string | undefined;
+    _rev: string | undefined;
+    createdtime: string | undefined;
+    reportname: string | undefined;
+    reportcont: string | undefined;
+    createdby: string | undefined;
 }
 
 
 export class Oconfig implements Iconfig{
-    _rev: string;    _id: string;
-    configname: string;
-    value: string;
-    key: string;
-    createdtime: string;
+    _rev: string | undefined;    _id: string | undefined;
+    configname: string | undefined;
+    value: string | undefined;
+    key: string | undefined;
+    createdtime: string | undefined;
     oldconfig: Iconfig[];
-    constructor(configname:string = ''){
+    public constructor(configname:string = ''){
         this.configname=configname;
     }
 }
@@ -559,24 +564,24 @@ export interface Iconfig{
 
 
 export class OphotoObj implements IObj { // public -- remote
-    name: string;
+    name: string | undefined;
     arraybuffer: Blob;
-    type: string;
-    url: string;
-    _id: string; _rev: string;
-    constructor(name: string) {
+    type: string | undefined;
+    url: string | undefined;
+    _id: string | undefined; _rev: string | undefined;
+    public constructor(name: string) {
         this.name = name;
         this._id=nano_time.now();   
     }
 }
 
 interface IObj { // public -- remote
-    _id: string;
-    _rev: string;
-    name: string;
+    _id: string | undefined;
+    _rev: string | undefined;
+    name: string | undefined;
     arraybuffer: Blob;
-    type: string;
-    url: string;
+    type: string | undefined;
+    url: string | undefined;
 }
 
 
@@ -613,10 +618,10 @@ interface IObj { // public -- remote
 
 
 export interface IphoneObj {
-    _id: string;
-    _rev: string;
-    command: string;
-    secret: string;
+    _id: string | undefined;
+    _rev: string | undefined;
+    command: string | undefined;
+    secret: string | undefined;
 }
 
 
@@ -633,37 +638,37 @@ export interface IphoneObj {
 
 
 export interface IloginObj {
-    _id: string;
-    _rev: string;
-    command: string;
+    _id: string | undefined;
+    _rev: string | undefined;
+    command: string | undefined;
     client: any;
 }
 export interface IguiObj {
-    _id: string;
-    _rev: string;
-    command: string;
-    gui: string;
+    _id: string | undefined;
+    _rev: string | undefined;
+    command: string | undefined;
+    gui: string | undefined;
 }
 export interface IonlineObj {
-    _id: string;
-    _rev: string;
-    command: string;
+    _id: string | undefined;
+    _rev: string | undefined;
+    command: string | undefined;
     client: {
-        username: string;
+        username: string | undefined;
         onlinetime: Date;
-        system: string;
+        system: string | undefined;
         login: Array<any>;
     };
 }
 
 export interface ItargetObj {
     '_deleted': boolean;
-    '_id': string;
-    '_rev': string;
-    'gui': string;
-    'targetid': string;
-    'usergui': string;
-    'username': string;
+    '_id': string | undefined;
+    '_rev': string | undefined;
+    'gui': string | undefined;
+    'targetid': string | undefined;
+    'usergui': string | undefined;
+    'username': string | undefined;
     'memberusername': Array<string>;
     'membergui': Array<string>;
     'exmember': Array<string>;
@@ -676,24 +681,24 @@ export interface ItargetObj {
     'msg': Array<ImsgObj>;
 }
 export interface IreceivedObj {
-    _id: string;
-    _rev: string;
-    username: string;
+    _id: string | undefined;
+    _rev: string | undefined;
+    username: string | undefined;
     received: Date;
 }
 export interface IreadObj {
-    _id: string;
-    _rev: string;
-    username: string;
+    _id: string | undefined;
+    _rev: string | undefined;
+    username: string | undefined;
     read: Date;
 }
 export interface ImsgObj {
-    _id: string;
-    _rev: string;
-    gui: string;
-    sender: string;
-    content: string;
-    msgtype: string;
+    _id: string | undefined;
+    _rev: string | undefined;
+    gui: string | undefined;
+    sender: string | undefined;
+    content: string | undefined;
+    msgtype: string | undefined;
     attached: Array<any>;
     sent: Date;
     received: Array<IreceivedObj>;

@@ -174,13 +174,6 @@ export class ModalComponent  {
   }
 
 
-  refresh(): void {
-    this.router.navigateByUrl('/user_',{skipLocationChange:true}).then(()=>{
-        this.router.navigate([decodeURI(this._Location.path())]);
-    });
-  }
-
-
   close() {
     this.ref.close({ref:'OK'});
     //this.usercom.loadUserList();
