@@ -3,7 +3,7 @@ import { ModalUserComponent } from './modal-user/modal-user.component';
 import { NbDialogService } from '@nebular/theme';
 import { Router } from '@angular/router';
 import pouchdb from 'pouchdb';
-import { Igijuser, Ogijuser, MyDataBaseNames } from '../../interface'
+import { Igijuser, Ogijuser, MyDataBaseNames, OmySystem } from '../../interface'
 //import { async } from 'q';
 //import { } from './user-add/user-add.component';
 //import * as nodefetch from 'node-fetch';
@@ -23,6 +23,18 @@ export class UserComponent implements OnInit {
   //   loadUserList();
   // };
   constructor(private dialogService: NbDialogService, private router: Router) {
+    this.user._id;
+    this.user.username;
+    this.user.password;
+    this.user.confirmpassword;
+    this.user.email;
+    this.user.phonenumber;
+    let system=new OmySystem('task-manager');
+
+    this.user.system=new Array(system);
+    this.user.parents=new Array ('task-manager-admin');
+    
+    // task-manager-admin
     // var MyMemPouch = pouchdb.defaults({
     //   adapter: 'memory'
     // });
@@ -44,6 +56,7 @@ export class UserComponent implements OnInit {
     // LIST
     this.userList = new Array<Ogijuser>();
     this._selectedUser = new Ogijuser();
+
 
     // this.db = new pouchdb('user_');//dbname_prefix
     // this.sync();
