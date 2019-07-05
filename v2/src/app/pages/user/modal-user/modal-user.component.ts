@@ -3,15 +3,15 @@ import { NbDialogRef } from '@nebular/theme';
 import { Router } from '@angular/router';
 import {Location} from '@angular/common'
 import {Igijuser,Ogijuser,nano_time, MyDataBaseNames} from '../../../interface';
-import { UserComponent } from '../user.component';
+//import { UserComponent } from '../user.component';
 import pouchdb from 'pouchdb';
 
 @Component({
   selector: 'ngx-modal',
-  templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.scss']
+  templateUrl: './modal-user.component.html',
+  styleUrls: ['./modal-user.component.scss']
 })
-export class ModalComponent  {
+export class ModalUserComponent  {
   
   private db: PouchDB.Database<{}>;
   dbname:string;
@@ -23,7 +23,7 @@ export class ModalComponent  {
   @Input() _rev: string;
   @Input() isdelete:boolean ;
   _selectedUser: Igijuser;
-  constructor(protected ref: NbDialogRef<ModalComponent> ,public _Location:Location,public router:Router) {
+  constructor(protected ref: NbDialogRef<ModalUserComponent> ,public _Location:Location,public router:Router) {
 
     this.user=new Ogijuser();
     this.user._rev = '';

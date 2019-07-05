@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalComponent, Iuser, Ouser } from './modal/modal.component';
+import { ModalJobComponent } from './modal-job/modal-job.component';
 import { NbDialogService } from '@nebular/theme';
 import { Router } from '@angular/router';
+import {Ijob,Ojob, MyDataBaseNames} from '../../interface'
 import pouchdb from 'pouchdb';
 @Component({
   selector: 'ngx-jobofday',
@@ -12,10 +13,11 @@ export class JobofdayComponent implements OnInit {
   jobList: Ijob[];
   selectedJob: Ijob;
   private db: PouchDB.Database<{}>;
+  
   remoteCouch = 'http://admin:admin@localhost:5984/job-';
   constructor(private dialogService: NbDialogService, private router: Router) {
-    this.jobList = new Array<Ouser>();
-    this.selectedJob= new Ouser();
+    this.jobList = new Array<Ojob>();
+    this.selectedJob= new Ojob();
     
     this.db = new pouchdb('job-');//dbname-prefix
     this.sync();
@@ -23,6 +25,9 @@ export class JobofdayComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.remoteCouch += MyDataBaseNames.dbjob; /// + prefix
+    this.db = new pouchdb(MyDataBaseNames.dbjob); // + prefix
+    this.sync();
     this.loadjobList();
   }
   sync() {
@@ -56,11 +61,11 @@ export class JobofdayComponent implements OnInit {
     const offSet = 0;
     const parent = this;
     this.jobList.length = 0;
-    this.jobList = new Array<Iuser>();
+    this.jobList = new Array<Ijob>();
     this.db.allDocs({ limit: pageSize, skip: offSet, descending: true, include_docs: true }).then(res => {
       //console.log(res);
       for (let index = 0; index < res.rows.length; index++) {
-        parent.jobList.push(<Iuser><unknown>res.rows[index].doc);
+        parent.jobList.push(<Ijob><unknown>res.rows[index].doc);
       }
     }).catch(err => {
       console.log(err);
@@ -69,19 +74,21 @@ export class JobofdayComponent implements OnInit {
 
 
   job_add() {
-   this.dialogService.open(ModalComponent, {
+   this.dialogService.open(ModalJobComponent, {
       context: {
         _id: '',
-        _rev: ''
+        _rev: '',
+        isdelete:false
         //close:parent.modelClose
       }
     });
   }
 
-  
+
+
   job_edit(id: string, rev: string) {
     let parent = this;
-    let dlg=this.dialogService.open(ModalComponent, {
+    let dlg=this.dialogService.open(ModalJobComponent, {
       context: {
         _id: id,
         _rev: rev,
@@ -96,7 +103,7 @@ export class JobofdayComponent implements OnInit {
 
   job_delete(id: string, rev: string) {
     let parent = this;
-    let dlg=this.dialogService.open(ModalComponent, {
+    let dlg=this.dialogService.open(ModalJobComponent, {
       context: {
         _id: id,
         _rev: rev,
@@ -113,7 +120,4 @@ export class JobofdayComponent implements OnInit {
 
   }
   
-}
-interface Ijob{
-    
 }

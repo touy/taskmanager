@@ -9,20 +9,12 @@ import { DocumentComponent } from './document/document.component';
 import { ThemDaskbordComponent } from './them-daskbord/them-daskbord.component';
 
 import { UserComponent } from './user/user.component';
-import { UserAddComponent } from './user/user-add/user-add.component';
-import { UserEditComponent } from './user/user-edit/user-edit.component';
 
 import { JobofdayComponent } from './jobofday/jobofday.component';
-import { JobofdayAddComponent } from './jobofday/jobofday-add/jobofday-add.component';
-import { JobofdayEditComponent } from './jobofday/jobofday-edit/jobofday-edit.component';
 
 import { JobPlanComponent } from './job-plan/job-plan.component';
-import { AddPlanJobComponent } from './job-plan/add-plan-job/add-plan-job.component';
-import { EditPlanJobComponent } from './job-plan/edit-plan-job/edit-plan-job.component';
 
 import { PlanDocumentComponent } from './plan-document/plan-document.component';
-import { AddDocumetComponent } from './plan-document/add-documet/add-documet.component';
-import { EitDocumetComponent } from './plan-document/eit-documet/eit-documet.component';
 
 import { ApplyComponent } from './manage/apply/apply.component';
 import { ConfirmComponent } from './manage/apply/confirm/confirm.component';
@@ -44,20 +36,8 @@ const routes: Routes = [{
     path: 'user',
     component: UserComponent,
   }, {
-    path: 'user_add',
-    component: UserAddComponent,
-  }, {
-    path: 'user_edit',
-    component: UserEditComponent,
-  }, {
     path: 'jobs_of_day',
     component: JobofdayComponent,
-  }, {
-    path: 'jobs_of_day_add',
-    component: JobofdayAddComponent,
-  }, {
-    path: 'jobs_of_day_edit',
-    component: JobofdayEditComponent,
   }, {
     path: 'Apply',
     component: ApplyComponent,
@@ -73,26 +53,14 @@ const routes: Routes = [{
   }, {
     path: 'Plan-jobs',
     component: JobPlanComponent,
-  },{
-    path: 'Add-Plan-jobs',
-    component: AddPlanJobComponent,
-  },{
-    path: 'Edit-Plan-jobs',
-    component: EditPlanJobComponent,
-  },{
+  }, {
     path: 'Plan-document-my',
     component: PlanDocumentComponent,
-  },{
-    path: 'Plan-document-Add',
-    component: AddDocumetComponent,
-  },{
-    path: 'Plan-document-Edit',
-    component: EitDocumetComponent,
-  },{
+  }, {
     path: 'Seting',
     component: SettingComponent,
   },
-   {
+  {
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',

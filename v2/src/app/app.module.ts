@@ -16,13 +16,15 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ThemeModule } from './@theme/theme.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ModalComponent } from './pages/user/modal/modal.component';
+import { ModalUserComponent } from './pages/user/modal-user/modal-user.component';
 import { LoginComponent } from './login/login.component';
 import { SendPwComponent } from './send-pw/send-pw.component';
+import{ModalJobComponent} from './pages/jobofday/modal-job/modal-job.component';
+import{ModalJobPlanComponent} from './pages/job-plan/modal-jobplan/modal-jobplan.component';
 
 
 @NgModule({
-  declarations: [AppComponent,ModalComponent, LoginComponent, SendPwComponent,],
+  declarations: [AppComponent,ModalJobPlanComponent,ModalJobComponent,ModalUserComponent, LoginComponent, SendPwComponent,],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -35,7 +37,9 @@ import { SendPwComponent } from './send-pw/send-pw.component';
     CoreModule.forRoot(),
   ],
   entryComponents: [
-    ModalComponent,
+    ModalJobComponent,
+    ModalUserComponent,
+    ModalJobPlanComponent,
   ],
   bootstrap: [AppComponent],
   providers: [

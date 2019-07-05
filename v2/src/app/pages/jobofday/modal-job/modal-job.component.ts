@@ -1,39 +1,32 @@
 import { Component, Input } from '@angular/core';
 import { NbDialogRef } from '@nebular/theme';
 import { Router } from '@angular/router';
-import {Location} from '@angular/common'
-//import { UserComponent } from '../user.component';
+import {Location} from '@angular/common';
 import pouchdb from 'pouchdb';
+import { Ojob,Ijob, MyDataBaseNames } from '../../../interface';
 
 @Component({
   selector: 'ngx-modal',
-  templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.scss']
+  templateUrl: './modal-job.component.html',
+  styleUrls: ['./modal-job.component.scss']
 })
-export class ModalComponent  {
+export class ModalJobComponent  {
   
   private db: PouchDB.Database<{}>;
   remoteCouch = 'http://admin:admin@localhost:5984/job-';
 
-  user: Iuser;
+  job: Ijob;
   //usercom : UserComponent;
   @Input() _id: string;
   @Input() _rev: string;
   @Input() isdelete:boolean ;
-  _selectedUser: Iuser;
-  constructor(protected ref: NbDialogRef<ModalComponent> ,public _Location:Location,public router:Router) {
+  _selectedJob: Ijob;
+  constructor(protected ref: NbDialogRef<ModalJobComponent> ,public _Location:Location,public router:Router) {
 
-    this.user=new Ouser();
-    this.user.firstname = '';
-    this.user.lastname = '';
-    this.user.department = '';
-    this.user.permission = '';
-    this.user.username = '';
-    this.user.password = '';
-    this.user.parent = '';
-    this.user._rev = '';
-    this.user._id = '';
-    this.db = new pouchdb('user');
+    this.job=new Ojob();
+    this.job._rev = '';
+    this.job._id = '';
+    this.db = new pouchdb(MyDataBaseNames.dbjob);
 
   }
 
@@ -42,15 +35,15 @@ export class ModalComponent  {
     if(this._id){
       this.getjob(this._id);
     }else{
-      this._selectedUser=new Ouser();
+      this._selectedJob=new Ojob();
     }
     }
 
   
-  updateUser(){
-    console.log(this._selectedUser);
-    console.log(this._selectedUser._id);
-    console.log(this._selectedUser._rev);
+  updatejob(){
+    console.log(this._selectedJob);
+    console.log(this._selectedJob._id);
+    console.log(this._selectedJob._rev);
 
     if(this._rev){
       
@@ -59,7 +52,7 @@ export class ModalComponent  {
         this.deletejob();
       }else{
         console.log('update');
-        this.db.put(this._selectedUser,{force:true}).then(res=>{
+        this.db.put(this._selectedJob,{force:true}).then(res=>{
           console.log(res);
           
         }).catch(err=>{
@@ -71,7 +64,7 @@ export class ModalComponent  {
     }else{
       try{
 
-        this.user._id=(Math.random() * 1000000)+'';
+        this.job._id=(Math.random() * 1000000)+'';
         console.log('add new');
         this.insert();
        
@@ -89,7 +82,7 @@ export class ModalComponent  {
 
 
   insert(){
-    this.db.put(this.user, { force: true }, (err, res) => {
+    this.db.put(this.job, { force: true }, (err, res) => {
       if (err) {
         console.log('err after put'
         );
@@ -103,7 +96,7 @@ export class ModalComponent  {
 
 
   deletejob(){
-    this.db.remove(this._selectedUser).then(res=>{
+    this.db.remove(this._selectedJob).then(res=>{
 
     }).catch(err=>{
       
@@ -111,7 +104,7 @@ export class ModalComponent  {
   }
 
 
-  updateManyUsers(arr:[]){
+  updateManyjob(arr:[]){
     // for many at once
     this.db.bulkDocs(arr,{new_edits:true,},(err,res)=>{
       if(err){
@@ -127,7 +120,7 @@ export class ModalComponent  {
   getjob(id:string) {
     this.db.get(id).then(res=>{
       console.log(res);
-      this._selectedUser=res as Ouser;
+      this._selectedJob=res as Ojob;
     }).catch(err=>{
       console.log('getjob error');
       //console.log('id: '+id);
@@ -155,7 +148,7 @@ export class ModalComponent  {
 }
 
 
-export interface Iuser {
+/*export interface Iuser {
   firstname: string,
   lastname: string,
   department: string,
@@ -170,5 +163,6 @@ export class Ouser implements Iuser{
   firstname: string;  lastname: string;  department: string; permission: string; username: string; password: string; parent: string;
   _rev: string;
   _id: string;
-}
+} 
+*/
 

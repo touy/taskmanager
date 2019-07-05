@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalComponent } from './modal/modal.component';
+import { ModalUserComponent } from './modal-user/modal-user.component';
 import { NbDialogService } from '@nebular/theme';
 import { Router } from '@angular/router';
 import pouchdb from 'pouchdb';
@@ -127,7 +127,7 @@ export class UserComponent implements OnInit {
     });
   }
   user_add() {
-    let dlg = this.dialogService.open(ModalComponent, {
+    let dlg = this.dialogService.open(ModalUserComponent, {
       context: {
         _id: '',
         _rev: ''
@@ -141,7 +141,7 @@ export class UserComponent implements OnInit {
   }
   user_edit(id: string, rev: string) {
     let parent = this;
-    let dlg = this.dialogService.open(ModalComponent, {
+    let dlg = this.dialogService.open(ModalUserComponent, {
       context: {
         _id: id,
         _rev: rev,
@@ -156,7 +156,7 @@ export class UserComponent implements OnInit {
 
   user_delete(id: string, rev: string) {
     let parent = this;
-    let dlg = this.dialogService.open(ModalComponent, {
+    let dlg = this.dialogService.open(ModalUserComponent, {
       context: {
         _id: id,
         _rev: rev,
@@ -172,10 +172,4 @@ export class UserComponent implements OnInit {
 
 
   }
-
-
-
-
-
-
 }
