@@ -23,6 +23,7 @@ import{ModalJobComponent} from './pages/jobofday/modal-job/modal-job.component';
 import{ModalJobPlanComponent} from './pages/job-plan/modal-jobplan/modal-jobplan.component';
 
 
+
 @NgModule({
   declarations: [AppComponent,ModalJobPlanComponent,ModalJobComponent,ModalUserComponent, LoginComponent, SendPwComponent,],
   imports: [

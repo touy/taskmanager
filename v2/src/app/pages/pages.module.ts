@@ -16,6 +16,7 @@ import { JobPlanModule } from './job-plan/job-plan.module';
 import { PlanDocumentModule } from './plan-document/plan-document.module';
 import { ThemDaskbordModule } from './them-daskbord/them-daskbord.module';
 import { SettingComponent } from './setting/setting.component';
+import { RegularJobComponent } from './regular-job/regular-job.component';
 
 
 
@@ -44,6 +45,7 @@ const PAGES_COMPONENTS = [
   declarations: [
     ...PAGES_COMPONENTS,
     SettingComponent,
+    RegularJobComponent,
     
    
    

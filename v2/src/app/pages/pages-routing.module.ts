@@ -1,5 +1,5 @@
 import { RouterModule, Routes } from '@angular/router';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 
 import { PagesComponent } from './pages.component';
 
@@ -24,6 +24,8 @@ import { ScoreComponent } from './manage/score/score.component';
 import { AddScoreComponent } from './manage/score/add-score/add-score.component';
 import { SettingComponent } from './setting/setting.component';
 
+import{RegularJobComponent} from'./regular-job/regular-job.component';
+
 const routes: Routes = [{
   path: '',
   component: PagesComponent,
@@ -31,6 +33,9 @@ const routes: Routes = [{
     path: 'dashboard',
     component: DocumentComponent,
   }, {
+    path: 'regularjob',
+    component: RegularJobComponent,
+},{
     path: 'dashboard-them',
     component: ThemDaskbordComponent,
   }, {
