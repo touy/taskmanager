@@ -27,6 +27,10 @@ export class nano_time {
 //     }
 
 // };
+// prefixname-databasename-prefix
+// POS-user-sabai
+// POS-user-somchay
+// POS-user-somchay2
 /// Database name
 export class MyDataBaseNames {
     static dbuser: string = 'g-users-';
@@ -163,7 +167,7 @@ export class Ogijuser implements Igijuser{
     totalgijspent: number;
     oldphone: string[];
     userprofile: Iuserprofile;
-    userprefix: Iuserprefix;
+    userprefix:  Array<Iuserprefix>;
     permission: Ipermissions;
     enryptionkeys: Ienryptionkeys;
     public constructor(username:string = ''){
@@ -192,13 +196,13 @@ export interface Igijuser { // no refix --- remote
     expirelogintoken: string | undefined;
     description: string | undefined;
     note: string | undefined;
-    system: Array<ImySystem>; /// ice-maker, gij, stock-manager....
+    system: Array<ImySystem>; /// task-manager....
     gijvalue: number;
     totalgij: number;
     totalgijspent: number;
     oldphone: Array<string> | undefined;
     userprofile: Iuserprofile;
-    userprefix: Iuserprefix;
+    userprefix: Array<Iuserprefix>;
     permission: Ipermissions;
     enryptionkeys: Ienryptionkeys;
 }
@@ -277,12 +281,18 @@ export class Ouserprefix implements Iuserprefix { // private -- remote
     }
 
 }
+export interface Iprefixlinks{ // no prefix -- remote
+    _id: string | undefined;
+    _rev: string | undefined;
+    prefixname: string | undefined; /// task-manager
+    serverurl:string | undefined;
+}
 export interface Iuserprefix { // private -- remote
     _id: string | undefined;
     _rev: string | undefined;
     prefixname: string | undefined;
-    prefix: string | undefined;
-    serverurl:string;
+    prefix: string | undefined; // random private string
+    serverurl:string | undefined;
     owner: string | undefined;
     authorizedkeys: Array<IauthrorizedKeys>;
     assignedto: string | undefined;
@@ -374,17 +384,22 @@ export interface Iroles { // public --- remote
     rolename: string | undefined;
     groupname: string | undefined;
     rolelevel: number;
+    memberof: string | undefined;
+    members:Array<string>;
     parentroleid: string | undefined;
     isdefault: boolean;
     permission: Array<Ipermissions>;
     oldroles: Array<Iroles>;
     assignedtime: string | undefined;
     deassignedtime: string | undefined;
+    isactive:boolean;
 }
 export class Oroles implements Iroles { // public -- remote
     _id: string | undefined; _rev: string | undefined;
     rolename: string | undefined;
     rolelevel: number;
+    memberof: string | undefined;
+    members:Array<string>;
     parentroleid: string | undefined;
     isdefault: boolean;
     permission: Array<Ipermissions>;
@@ -392,6 +407,7 @@ export class Oroles implements Iroles { // public -- remote
     assignedtime: string | undefined;
     deassignedtime: string | undefined;
     groupname: string | undefined;
+    isactive:boolean;
     public constructor(rolename: string = '', groupname: string = '') {
         this.rolename = rolename;
         this._id=nano_time.now();
