@@ -3,10 +3,8 @@ import { ModalUserComponent } from './modal-user/modal-user.component';
 import { NbDialogService } from '@nebular/theme';
 import { Router } from '@angular/router';
 import pouchdb from 'pouchdb';
-import { Igijuser, Ogijuser, MyDataBaseNames, OmySystem } from '../../interface'
-//import { async } from 'q';
-//import { } from './user-add/user-add.component';
-//import * as nodefetch from 'node-fetch';
+import { Igijuser, Ogijuser, MyDataBaseNames, OmySystem } from '../../interface';
+
 @Component({
   selector: 'ngx-user',
   templateUrl: './user.component.html',

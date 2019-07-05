@@ -16,6 +16,7 @@ import { JobPlanComponent } from './job-plan/job-plan.component';
 import {AddPlanJobComponent } from './job-plan/add-plan-job/add-plan-job.component';
 
 import { PlanDocumentComponent } from './plan-document/plan-document.component';
+import { AddDocumetComponent } from './plan-document/add-documet/add-documet.component';
 
 import { ApplyComponent } from './manage/apply/apply.component';
 import { ConfirmComponent } from './manage/apply/confirm/confirm.component';
@@ -23,6 +24,8 @@ import { ConfirmComponent } from './manage/apply/confirm/confirm.component';
 import { ScoreComponent } from './manage/score/score.component';
 import { AddScoreComponent } from './manage/score/add-score/add-score.component';
 import { SettingComponent } from './setting/setting.component';
+import { ProjectJobsComponent } from './project-jobs/project-jobs.component';
+
 
 const routes: Routes = [{
   path: '',
@@ -53,7 +56,7 @@ const routes: Routes = [{
     component: AddScoreComponent,
   }, {
     path: 'Plan-jobs',
-    component: JobPlanComponent,
+    component: ProjectJobsComponent,
   },{
     path: 'Add-Plan-jobs',
     component: AddPlanJobComponent,
@@ -61,7 +64,11 @@ const routes: Routes = [{
    {
     path: 'Plan-document-my',
     component: PlanDocumentComponent,
-  }, {
+  },{
+    path: 'Plan-document-Add',
+    component: AddDocumetComponent,
+  },
+   {
     path: 'Seting',
     component: SettingComponent,
   },
