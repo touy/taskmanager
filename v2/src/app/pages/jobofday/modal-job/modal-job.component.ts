@@ -142,8 +142,6 @@ export class ModalJobComponent  {
   close() {
     this.ref.close({command:'cancel'});
     //this.usercom.loadUserList();
-    
-
   }
 
 }
