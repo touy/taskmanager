@@ -13,6 +13,7 @@ import { UserComponent } from './user/user.component';
 import { JobofdayComponent } from './jobofday/jobofday.component';
 
 import { JobPlanComponent } from './job-plan/job-plan.component';
+import {AddPlanJobComponent } from './job-plan/add-plan-job/add-plan-job.component';
 
 import { PlanDocumentComponent } from './plan-document/plan-document.component';
 
@@ -55,7 +56,7 @@ const routes: Routes = [{
     component: JobPlanComponent,
   },{
     path: 'Add-Plan-jobs',
-    component: JobPlanComponent,
+    component: AddPlanJobComponent,
   },
    {
     path: 'Plan-document-my',

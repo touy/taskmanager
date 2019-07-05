@@ -41,7 +41,7 @@ export class MyDataBaseNames {
     static dbpermission: string = 'g-permission-';
     static dbrole: string = 'g-role-';
 }
-/// dbname-prefix
+/// prefixname-dbname-prefix
 // prefix : 1. private ==> userprofile-12345 , user-12345
 // prefix : 2. group ==> user-g12345 , userprofile-g12345
 
@@ -108,7 +108,13 @@ export class Odata implements Idata {// no prefix -- local
     }
 
 }
-
+/// ADMIN
+export interface Irolelist { // no prefix -- remote
+    _id: string | undefined;
+    _rev: string | undefined;
+    rolename: string | undefined;
+}
+///
 // SERVER
 export interface Iauth { // NO Prefix -- local
     _id: string | undefined;
@@ -141,10 +147,75 @@ export class OmySystem implements ImySystem { // no prefix  -- remote
 
 }
 
+// ADMIN 
+export interface Iprefixlinks{ // no prefix -- remote
+    _id: string | undefined;
+    _rev: string | undefined;
+    prefixname: string | undefined; /// company name , app name
+    prefix: string | undefined; /// task-manager
+    serverurl:string | undefined;
+}
+export class Oprefixlinks implements Iprefixlinks{ // no prefix -- remote
+    _id: string | undefined;
+    _rev: string | undefined;
+    prefixname: string | undefined; /// company name , app name
+    prefix: string | undefined; /// task-manager, ice-maker
+    serverurl:string | undefined;
+    constructor(prefixname:string ='', serverurl:string =''){
+        this.prefixname=prefixname;
+        this.serverurl=serverurl;
+    }
+}
+
+// FOR SYSTEM ADMIN ONLY
+export class Oconfig implements Iconfig{
+    _rev: string | undefined;    _id: string | undefined;
+    configname: string | undefined;
+    value: string | undefined;
+    key: string | undefined;
+    createdtime: string | undefined;
+    oldconfig: Iconfig[];
+    public constructor(configname:string = ''){
+        this.configname=configname;
+    }
+}
+export interface Iconfig{
+    _rev:string;
+    _id:string;
+    configname:string;
+    value:string;
+    key:string;
+    createdtime:string;
+    oldconfig:Array<Iconfig>;
+}
+
+// END ADMIN 
+// prefixed owner
+export interface Iprefixowner{// NO PREFIX PUBLIC REMOTE
+    _id: string | undefined;
+    _rev: string | undefined;
+    owner: string | undefined;
+    prefixlinks:Iprefixlinks;
+    prefix:string | undefined;
+}
+export class Oprefixowner implements Iprefixowner{ // NO PREFIX PUBLIC REMOTE
+    _id: string | undefined;
+    _rev: string | undefined;
+    owner: string | undefined;
+    prefixlinks:Iprefixlinks;
+    prefix:string | undefined;
+    constructor(owner:string ='',prefixlink:Iprefixlinks=new Oprefixlinks(),prefix:string=''){
+        this.owner=owner;
+        this.prefixlinks=prefixlink;
+        this.prefix=prefix;
+    }
+}
+// end prefix owner
 
 // // ADMIN Register , login , logout , add user by admin, change password by admin
 // USER, edit USER INFO, change password by 
 // POUCHDB
+/// prefixname-dbname-prefix
 export class Ogijuser implements Igijuser{
     _id: string | undefined;    _rev: string | undefined;
     username: string | undefined;
@@ -233,90 +304,21 @@ export interface Iuserprofile {// private -- remote
     remark: string | undefined;
 }
 
-// ADMIN 
-export interface Iprefixlinks{ // no prefix -- remote
-    _id: string | undefined;
-    _rev: string | undefined;
-    prefixname: string | undefined; /// company name , app name
-    prefix: string | undefined; /// task-manager
-    serverurl:string | undefined;
-}
-export class Oprefixlinks implements Iprefixlinks{ // no prefix -- remote
-    _id: string | undefined;
-    _rev: string | undefined;
-    prefixname: string | undefined; /// company name , app name
-    prefix: string | undefined; /// task-manager, ice-maker
-    serverurl:string | undefined;
-    constructor(prefixname:string ='', serverurl:string =''){
-        this.prefixname=prefixname;
-        this.serverurl=serverurl;
-    }
-}
 
-// FOR SYSTEM ADMIN ONLY
-export class Oconfig implements Iconfig{
-    _rev: string | undefined;    _id: string | undefined;
-    configname: string | undefined;
-    value: string | undefined;
-    key: string | undefined;
-    createdtime: string | undefined;
-    oldconfig: Iconfig[];
-    public constructor(configname:string = ''){
-        this.configname=configname;
-    }
-}
-export interface Iconfig{
-    _rev:string;
-    _id:string;
-    configname:string;
-    value:string;
-    key:string;
-    createdtime:string;
-    oldconfig:Array<Iconfig>;
-}
 
-// END ADMIN 
 
-// prefixed owner
-export interface Iprefixowner{// NO PREFIX PUBLIC REMOTE
-    _id: string | undefined;
-    _rev: string | undefined;
-    owner: string | undefined;
-    prefixlinks:Iprefixlinks;
-    prefix:string | undefined;
-}
-export class Oprefixowner implements Iprefixowner{ // NO PREFIX PUBLIC REMOTE
-    _id: string | undefined;
-    _rev: string | undefined;
-    owner: string | undefined;
-    prefixlinks:Iprefixlinks;
-    prefix:string | undefined;
-    constructor(owner:string ='',prefixlink:Iprefixlinks=new Oprefixlinks(),prefix:string=''){
-        this.owner=owner;
-        this.prefixlinks=prefixlink;
-        this.prefix=prefix;
-    }
-}
-
-// end prefix owner
 
 /// CLIENT - SERVER  FOR owner of the application
 // POUCHDB
 // owner
-export interface Irolelist { // public -- remote
-    _id: string | undefined;
-    _rev: string | undefined;
-    rolename: string | undefined;
-}
 export interface Iroles { // public --- remote
     _id: string | undefined;
     _rev: string | undefined;
     rolename: string | undefined;
     groupname: string | undefined;
     rolelevel: number;
-    memberof: string | undefined;
     members:Array<string>;
-    parentroleid: string | undefined;
+    parentroleid: string | undefined;//default
     isdefault: boolean;
     permission: Array<Ipermissions>;
     oldroles: Array<Iroles>;
@@ -328,7 +330,6 @@ export class Oroles implements Iroles { // public -- remote
     _id: string | undefined; _rev: string | undefined;
     rolename: string | undefined;
     rolelevel: number;
-    memberof: string | undefined;
     members:Array<string>;
     parentroleid: string | undefined;
     isdefault: boolean;
@@ -345,140 +346,9 @@ export class Oroles implements Iroles { // public -- remote
     }
 
 }
-export interface IauthrorizedKeys { // private -- remote
-    _rev: string | undefined;
-    _id: string | undefined;
-    description: string | undefined;
-    authkeys: string | undefined;
-    owner: string | undefined;
-    assignedto: string | undefined;
-    starttime: string | undefined;
-    endtime: string | undefined;
-    encryption: Ienryptionkeys;
-}
-export interface Iuserprefixauthorizedkeys { // private -- remote
-    _id: string | undefined;
-    _rev: string | undefined;
-    userprefixid: string | undefined;
-    authkeysid: string | undefined;
-    authkeys: string | undefined;
-    owner: string | undefined;
-    assignedto: string | undefined;
-}
-export class Ouserprefix implements Iuserprefix { // private -- remote
-    _id: string | undefined; _rev: string | undefined;
-    prefixname: string | undefined;
-    prefix: string | undefined;
-    owner: string | undefined;
-    serverurl:string;
-    authorizedkeys: Array<IauthrorizedKeys>;
-    assignedto: string | undefined;
-    starttime: string | undefined;
-    endtime: string | undefined;
-    renewlist: Array<Iuserprefix>;
-    public constructor(prefixname: string = '', prefix: string = '', owner: string = '', assignedto: string = '') {
-        this.prefixname = prefixname;
-        this.prefix = prefix;
-        this.owner = owner;
-        this.authorizedkeys = new Array<IauthrorizedKeys>();
-        this.assignedto = assignedto;
-        this._id=nano_time.now();        
-    }
 
-}
-export interface Iuserprefix { // private -- remote
-    _id: string | undefined;
-    _rev: string | undefined;
-    prefixname: string | undefined;
-    prefix: string | undefined; // random private string
-    serverurl:string | undefined;
-    owner: string | undefined;
-    authorizedkeys: Array<IauthrorizedKeys>;
-    assignedto: string | undefined;
-    starttime: string | undefined;
-    endtime: string | undefined;
-    renewlist: Array<Iuserprefix>;
-}
-export interface ImemberRequest { // public remote
-    _id: string | undefined;
-    _rev: string | undefined;
-    owner: string | undefined;
-    requestedtime: string | undefined;
-    touser: string | undefined;
-    acceptedtime: string | undefined;
-    denytime: string | undefined;
-    reason: string | undefined;
-    endtime: string | undefined;
-}
-export interface IpermissionAssigned { // public remote
-    _id: string | undefined; _rev: string | undefined;
-    permissionid: string | undefined;
-    permissionlevel: string | undefined;
-    assignedname: string | undefined;
-    title: string | undefined;
-    admin: string | undefined;
-    memberaccepted: Array<ImemberRequest>;
-    starttime: string | undefined;
-    endtime: string | undefined;
-}
-export class OpermissionsAssigned implements IpermissionAssigned {j // public  remote
-    _id: string | undefined; _rev: string | undefined;
-    permissionid: string | undefined;
-    permissionlevel: string | undefined;
-    assignedname: string | undefined;
-    starttime: string | undefined;
-    endtime: string | undefined;
-    title: string | undefined;
-    admin: string | undefined;
-    memberaccepted: Array<ImemberRequest>;
-    public constructor(permissionid: string = '', assignedname: string = '', permissionlevel: string = '') {
-        this.permissionid = permissionid;
-        this.assignedname = assignedname;
-        this.permissionlevel = permissionlevel;
-        this._id=nano_time.now();        
-    }
-}
-export class Opermissions implements Ipermissions { // public -- remote
-    _id: string | undefined; _rev: string | undefined;
-    permissionname: string | undefined;
-    permissionlevel: number;
-    status: string | undefined; 
-    public constructor(permissionname: string = '') {
-        this.permissionname = permissionname;
-        this._id=nano_time.now();
-        
-    }
-}
-export interface Ipermissions { // public -- remote
-    _id: string | undefined;
-    _rev: string | undefined;
-    permissionname: string | undefined;
-    permissionlevel: number;
-    status: string | undefined; // read or write
-}
-export class Oencryptionkeys implements Ienryptionkeys { // private -- remote
-    _id: string | undefined; _rev: string | undefined;
-    keys: string | undefined;
-    owner: string | undefined;
-    isActive: string | undefined;
-    startime: string | undefined;
-    endtime: string | undefined;
-    public constructor(owner: string = '') {
-        this.owner = owner;
-        this._id=nano_time.now();
-        
-    }
 
-}
-export interface Ienryptionkeys { // private -- remote
-    _id: string | undefined;
-    _rev: string | undefined;
-    keys: string | undefined;
-    owner: string | undefined;
-    isActive: string | undefined;
-    startime: string | undefined;
-    endtime: string | undefined;
-}
+
 export interface Iapprovement { // public  remote
     _id: string | undefined;
     _rev: string | undefined;
@@ -573,7 +443,6 @@ export class Ojob implements Ijob { // public  remote
         
     }
 }
-
 export class Oscores implements Iscores { // public  remote
     _id: string | undefined;
     _rev: string | undefined;
@@ -614,9 +483,118 @@ export interface IReport { // public  remote
     reportcont: string | undefined;
     createdby: string | undefined;
 }
+export interface ImemberRequest { // public remote
+    _id: string | undefined;
+    _rev: string | undefined;
+    owner: string | undefined;
+    requestedtime: string | undefined;
+    touser: string | undefined;
+    acceptedtime: string | undefined;
+    denytime: string | undefined;
+    reason: string | undefined;
+    endtime: string | undefined;
+}
+export interface IpermissionAssigned { // public remote
+    _id: string | undefined; _rev: string | undefined;
+    permissionid: string | undefined;
+    permissionlevel: string | undefined;
+    assignedname: string | undefined;
+    title: string | undefined;
+    admin: string | undefined;
+    memberaccepted: Array<ImemberRequest>;
+    starttime: string | undefined;
+    endtime: string | undefined;
+}
+export class OpermissionsAssigned implements IpermissionAssigned {j // public  remote
+    _id: string | undefined; _rev: string | undefined;
+    permissionid: string | undefined;
+    permissionlevel: string | undefined;
+    assignedname: string | undefined;
+    starttime: string | undefined;
+    endtime: string | undefined;
+    title: string | undefined;
+    admin: string | undefined;
+    memberaccepted: Array<ImemberRequest>;
+    public constructor(permissionid: string = '', assignedname: string = '', permissionlevel: string = '') {
+        this.permissionid = permissionid;
+        this.assignedname = assignedname;
+        this.permissionlevel = permissionlevel;
+        this._id=nano_time.now();        
+    }
+}
+export class Opermissions implements Ipermissions { // public -- remote
+    _id: string | undefined; _rev: string | undefined;
+    permissionname: string | undefined;
+    permissionlevel: number;
+    status: string | undefined; 
+    public constructor(permissionname: string = '') {
+        this.permissionname = permissionname;
+        this._id=nano_time.now();
+        
+    }
+}export interface IauthrorizedKeys { // private -- remote
+    _rev: string | undefined;
+    _id: string | undefined;
+    description: string | undefined;
+    authkeys: string | undefined;
+    owner: string | undefined;
+    assignedto: string | undefined;
+    starttime: string | undefined;
+    endtime: string | undefined;
+    encryption: Ienryptionkeys;
+}
+export interface Iuserprefixauthorizedkeys { // private -- remote
+    _id: string | undefined;
+    _rev: string | undefined;
+    userprefixid: string | undefined;
+    authkeysid: string | undefined;
+    authkeys: string | undefined;
+    owner: string | undefined;
+    assignedto: string | undefined;
+}
+export class Ouserprefix implements Iuserprefix { // private -- remote
+    _id: string | undefined; _rev: string | undefined;
+    prefixname: string | undefined;
+    prefix: string | undefined;
+    owner: string | undefined;
+    serverurl:string;
+    authorizedkeys: Array<IauthrorizedKeys>;
+    assignedto: string | undefined;
+    starttime: string | undefined;
+    endtime: string | undefined;
+    renewlist: Array<Iuserprefix>;
+    public constructor(prefixname: string = '', prefix: string = '', owner: string = '', assignedto: string = '') {
+        this.prefixname = prefixname;
+        this.prefix = prefix;
+        this.owner = owner;
+        this.authorizedkeys = new Array<IauthrorizedKeys>();
+        this.assignedto = assignedto;
+        this._id=nano_time.now();        
+    }
 
+}
+export interface Iuserprefix { // private -- remote
+    _id: string | undefined;
+    _rev: string | undefined;
+    prefixname: string | undefined;
+    prefix: string | undefined; // random private string
+    serverurl:string | undefined;
+    owner: string | undefined;
+    authorizedkeys: Array<IauthrorizedKeys>;
+    assignedto: string | undefined;
+    starttime: string | undefined;
+    endtime: string | undefined;
+    renewlist: Array<Iuserprefix>;
+}
+export interface Ipermissions { // public -- remote
+    _id: string | undefined;
+    _rev: string | undefined;
+    permissionname: string | undefined;
+    permissionlevel: number;
+    status: string | undefined; // read or write
+}
 
-export interface Itemplate{
+export interface Itemplate{ // public  remote
     _id: string | undefined; 
     _rev: string | undefined;
     createdtime: string | undefined;
@@ -626,7 +604,7 @@ export interface Itemplate{
     createforuser: string | undefined;
     generatetime:string | undefined
 }
-export class Otemplate implements Itemplate{
+export class Otemplate implements Itemplate{ // public  remote
     _id: string | undefined; 
     _rev: string | undefined;
     createdtime: string | undefined;
@@ -636,12 +614,33 @@ export class Otemplate implements Itemplate{
     createforuser: string | undefined;
     generatetime:string | undefined;
     constructor(){
-        
+
     }
 }
 
+export class Oencryptionkeys implements Ienryptionkeys { // private -- remote
+    _id: string | undefined; _rev: string | undefined;
+    keys: string | undefined;
+    owner: string | undefined;
+    isActive: string | undefined;
+    startime: string | undefined;
+    endtime: string | undefined;
+    public constructor(owner: string = '') {
+        this.owner = owner;
+        this._id=nano_time.now();
+        
+    }
 
-
+}
+export interface Ienryptionkeys { // private -- remote
+    _id: string | undefined;
+    _rev: string | undefined;
+    keys: string | undefined;
+    owner: string | undefined;
+    isActive: string | undefined;
+    startime: string | undefined;
+    endtime: string | undefined;
+}
 
 
 
