@@ -142,8 +142,9 @@ export class OmySystem implements ImySystem { // no prefix  -- remote
 }
 
 
-// //  Register , login , logout , add user by admin, change password by admin
-// EDIT USER INFO, change password by user
+// // ADMIN Register , login , logout , add user by admin, change password by admin
+// USER, edit USER INFO, change password by 
+// POUCHDB
 export class Ogijuser implements Igijuser{
     _id: string | undefined;    _rev: string | undefined;
     username: string | undefined;
@@ -232,7 +233,76 @@ export interface Iuserprofile {// private -- remote
     remark: string | undefined;
 }
 
+// ADMIN 
+export interface Iprefixlinks{ // no prefix -- remote
+    _id: string | undefined;
+    _rev: string | undefined;
+    prefixname: string | undefined; /// company name , app name
+    prefix: string | undefined; /// task-manager
+    serverurl:string | undefined;
+}
+export class Oprefixlinks implements Iprefixlinks{ // no prefix -- remote
+    _id: string | undefined;
+    _rev: string | undefined;
+    prefixname: string | undefined; /// company name , app name
+    prefix: string | undefined; /// task-manager, ice-maker
+    serverurl:string | undefined;
+    constructor(prefixname:string ='', serverurl:string =''){
+        this.prefixname=prefixname;
+        this.serverurl=serverurl;
+    }
+}
+
+// FOR SYSTEM ADMIN ONLY
+export class Oconfig implements Iconfig{
+    _rev: string | undefined;    _id: string | undefined;
+    configname: string | undefined;
+    value: string | undefined;
+    key: string | undefined;
+    createdtime: string | undefined;
+    oldconfig: Iconfig[];
+    public constructor(configname:string = ''){
+        this.configname=configname;
+    }
+}
+export interface Iconfig{
+    _rev:string;
+    _id:string;
+    configname:string;
+    value:string;
+    key:string;
+    createdtime:string;
+    oldconfig:Array<Iconfig>;
+}
+
+// END ADMIN 
+
+// prefixed owner
+export interface Iprefixowner{// NO PREFIX PUBLIC REMOTE
+    _id: string | undefined;
+    _rev: string | undefined;
+    owner: string | undefined;
+    prefixlinks:Iprefixlinks;
+    prefix:string | undefined;
+}
+export class Oprefixowner implements Iprefixowner{ // NO PREFIX PUBLIC REMOTE
+    _id: string | undefined;
+    _rev: string | undefined;
+    owner: string | undefined;
+    prefixlinks:Iprefixlinks;
+    prefix:string | undefined;
+    constructor(owner:string ='',prefixlink:Iprefixlinks=new Oprefixlinks(),prefix:string=''){
+        this.owner=owner;
+        this.prefixlinks=prefixlink;
+        this.prefix=prefix;
+    }
+}
+
+// end prefix owner
+
 /// CLIENT - SERVER  FOR owner of the application
+// POUCHDB
+// owner
 export interface Irolelist { // public -- remote
     _id: string | undefined;
     _rev: string | undefined;
@@ -316,22 +386,6 @@ export class Ouserprefix implements Iuserprefix { // private -- remote
     }
 
 }
-export interface Iprefixlinks{ // no prefix -- remote
-    _id: string | undefined;
-    _rev: string | undefined;
-    prefixname: string | undefined; /// task-manager
-    serverurl:string | undefined;
-}
-export class Oprefixlinks implements Iprefixlinks{ // no prefix -- remote
-    _id: string | undefined;
-    _rev: string | undefined;
-    prefixname: string | undefined; /// task-manager
-    serverurl:string | undefined;
-    constructor(prefixname:string ='', serverurl:string =''){
-        this.prefixname=prefixname;
-        this.serverurl=serverurl;
-    }
-}
 export interface Iuserprefix { // private -- remote
     _id: string | undefined;
     _rev: string | undefined;
@@ -345,7 +399,7 @@ export interface Iuserprefix { // private -- remote
     endtime: string | undefined;
     renewlist: Array<Iuserprefix>;
 }
-export interface ImemberRequest {
+export interface ImemberRequest { // public remote
     _id: string | undefined;
     _rev: string | undefined;
     owner: string | undefined;
@@ -356,7 +410,7 @@ export interface ImemberRequest {
     reason: string | undefined;
     endtime: string | undefined;
 }
-export interface IpermissionAssigned {
+export interface IpermissionAssigned { // public remote
     _id: string | undefined; _rev: string | undefined;
     permissionid: string | undefined;
     permissionlevel: string | undefined;
@@ -367,7 +421,7 @@ export interface IpermissionAssigned {
     starttime: string | undefined;
     endtime: string | undefined;
 }
-export class OpermissionsAssigned implements IpermissionAssigned {
+export class OpermissionsAssigned implements IpermissionAssigned {j // public  remote
     _id: string | undefined; _rev: string | undefined;
     permissionid: string | undefined;
     permissionlevel: string | undefined;
@@ -388,6 +442,7 @@ export class Opermissions implements Ipermissions { // public -- remote
     _id: string | undefined; _rev: string | undefined;
     permissionname: string | undefined;
     permissionlevel: number;
+    status: string | undefined; 
     public constructor(permissionname: string = '') {
         this.permissionname = permissionname;
         this._id=nano_time.now();
@@ -399,6 +454,7 @@ export interface Ipermissions { // public -- remote
     _rev: string | undefined;
     permissionname: string | undefined;
     permissionlevel: number;
+    status: string | undefined; // read or write
 }
 export class Oencryptionkeys implements Ienryptionkeys { // private -- remote
     _id: string | undefined; _rev: string | undefined;
@@ -423,13 +479,13 @@ export interface Ienryptionkeys { // private -- remote
     startime: string | undefined;
     endtime: string | undefined;
 }
-export interface Iapprovement {
+export interface Iapprovement { // public  remote
     _id: string | undefined;
     _rev: string | undefined;
     approvedby: string | undefined;
     approvedtime: string | undefined;
 }
-export class Oapprovement implements Iapprovement {
+export class Oapprovement implements Iapprovement { // public  remote
     _id: string | undefined;
     _rev: string | undefined;
     approvedby: string | undefined;
@@ -490,7 +546,7 @@ export interface Idocument { // public --- remote
     attachedfile: Array<IObj>;
     scoreslist: Array<Iscores>;
 }
-export interface Ijob {
+export interface Ijob { // public  remote
     _id: string | undefined;
     _rev: string | undefined;
     jobname: string | undefined;
@@ -501,7 +557,7 @@ export interface Ijob {
     endtime: string | undefined;
     score: Iscores;
 }
-export class Ojob implements Ijob {
+export class Ojob implements Ijob { // public  remote
     _id: string | undefined;
     _rev: string | undefined;
     jobname: string | undefined;
@@ -518,7 +574,7 @@ export class Ojob implements Ijob {
     }
 }
 
-export class Oscores implements Iscores {
+export class Oscores implements Iscores { // public  remote
     _id: string | undefined;
     _rev: string | undefined;
     score: number;
@@ -533,7 +589,7 @@ export class Oscores implements Iscores {
         
     }
 }
-export interface Iscores {
+export interface Iscores { // public  remote
     _id: string | undefined;
     _rev: string | undefined;
     score: number;
@@ -542,7 +598,7 @@ export interface Iscores {
     createdtime: string | undefined;
     isold: boolean;
 }
-export class OReport implements IReport {
+export class OReport implements IReport { // public  remote
     _id: string | undefined;
     _rev: string | undefined;
     createdtime: string | undefined;
@@ -550,8 +606,8 @@ export class OReport implements IReport {
     reportcont: string | undefined;
     createdby: string | undefined;
 }
-export interface IReport {
-    _id: string | undefined;
+export interface IReport { // public  remote
+    _id: string | undefined; 
     _rev: string | undefined;
     createdtime: string | undefined;
     reportname: string | undefined;
@@ -559,31 +615,30 @@ export interface IReport {
     createdby: string | undefined;
 }
 
-// FOR SYSTEM ADMIN ONLY
-export class Oconfig implements Iconfig{
-    _rev: string | undefined;    _id: string | undefined;
-    configname: string | undefined;
-    value: string | undefined;
-    key: string | undefined;
+
+export interface Itemplate{
+    _id: string | undefined; 
+    _rev: string | undefined;
     createdtime: string | undefined;
-    oldconfig: Iconfig[];
-    public constructor(configname:string = ''){
-        this.configname=configname;
+    templatename: string | undefined;
+    content: string | undefined;
+    createdby: string | undefined;
+    createforuser: string | undefined;
+    generatetime:string | undefined
+}
+export class Otemplate implements Itemplate{
+    _id: string | undefined; 
+    _rev: string | undefined;
+    createdtime: string | undefined;
+    templatename: string | undefined;
+    content: string | undefined;
+    createdby: string | undefined;
+    createforuser: string | undefined;
+    generatetime:string | undefined;
+    constructor(){
+        
     }
 }
-export interface Iconfig{
-    _rev:string;
-    _id:string;
-    configname:string;
-    value:string;
-    key:string;
-    createdtime:string;
-    oldconfig:Array<Iconfig>;
-}
-
-
-
-
 
 
 
