@@ -46,6 +46,8 @@ export class MyDataBaseNames {
 // prefix : 2. group ==> user-g12345 , userprofile-g12345
 
 
+// CLIENT - SERVER
+// Register , login , logout , add user by admin, change password by admin................
 export interface Iclient { // NO PREFIX -- local
     _id: string | undefined;
     _rev: string | undefined;
@@ -57,7 +59,6 @@ export interface Iclient { // NO PREFIX -- local
     data: Idata;
     auth: Iauth;
 }
-
 export class Oclient implements Iclient { // NO PREFIX -- local
     _id: string | undefined;
     _rev: string | undefined;
@@ -73,25 +74,7 @@ export class Oclient implements Iclient { // NO PREFIX -- local
         this._id = nano_time.now();
     }
 }
-
-
-export interface Iauth { // NO Prefix -- local
-    _id: string | undefined;
-    _rev: string | undefined;
-    gui: string | undefined;
-}
-
-export class Oauth implements Iauth { // NO PREFIX -- local
-    _id: string | undefined; _rev: string | undefined;
-    gui: string | undefined;
-    public constructor(gui: string) {
-        this.gui = gui;
-        this._id=nano_time.now();
-    }
-
-}
-
-
+//CLIENT -SERVER
 export interface Idata { // no prefix -- local
     _id: string | undefined;
     _rev: string | undefined;
@@ -126,7 +109,21 @@ export class Odata implements Idata {// no prefix -- local
 
 }
 
+// SERVER
+export interface Iauth { // NO Prefix -- local
+    _id: string | undefined;
+    _rev: string | undefined;
+    gui: string | undefined;
+}
+export class Oauth implements Iauth { // NO PREFIX -- local
+    _id: string | undefined; _rev: string | undefined;
+    gui: string | undefined;
+    public constructor(gui: string) {
+        this.gui = gui;
+        this._id=nano_time.now();
+    }
 
+}
 
 export interface ImySystem { // no prefix -- remote
     _id: string | undefined;
@@ -144,6 +141,9 @@ export class OmySystem implements ImySystem { // no prefix  -- remote
 
 }
 
+
+// //  Register , login , logout , add user by admin, change password by admin
+// EDIT USER INFO, change password by user
 export class Ogijuser implements Igijuser{
     _id: string | undefined;    _rev: string | undefined;
     username: string | undefined;
@@ -177,7 +177,6 @@ export class Ogijuser implements Igijuser{
     }
 
 }
-
 export interface Igijuser { // no refix --- remote
     _id: string | undefined;
     _rev: string | undefined;
@@ -206,14 +205,13 @@ export interface Igijuser { // no refix --- remote
     permission: Ipermissions;
     enryptionkeys: Ienryptionkeys;
 }
-
 export class Ouserprofile implements Iuserprofile { /// privage -- remote
     _id: string | undefined; _rev: string | undefined;
     owner: string | undefined;
     firstname: string | undefined;
     lastname: string | undefined;
     address: string | undefined;
-    photo: Array<IObj>;
+    photo: Array<OphotoObj>;
     description: string | undefined;
     remark: string | undefined;
     public constructor(owner: string = '') {
@@ -222,7 +220,6 @@ export class Ouserprofile implements Iuserprofile { /// privage -- remote
         
     }
 }
-
 export interface Iuserprofile {// private -- remote
     _id: string | undefined;
     _rev: string | undefined;
@@ -230,14 +227,53 @@ export interface Iuserprofile {// private -- remote
     firstname: string | undefined;
     lastname: string | undefined;
     address: string | undefined;
-    photo: Array<IObj>;
+    photo: Array<OphotoObj>;
     description: string | undefined;
     remark: string | undefined;
 }
+
+/// CLIENT - SERVER  FOR owner of the application
 export interface Irolelist { // public -- remote
     _id: string | undefined;
     _rev: string | undefined;
     rolename: string | undefined;
+}
+export interface Iroles { // public --- remote
+    _id: string | undefined;
+    _rev: string | undefined;
+    rolename: string | undefined;
+    groupname: string | undefined;
+    rolelevel: number;
+    memberof: string | undefined;
+    members:Array<string>;
+    parentroleid: string | undefined;
+    isdefault: boolean;
+    permission: Array<Ipermissions>;
+    oldroles: Array<Iroles>;
+    assignedtime: string | undefined;
+    deassignedtime: string | undefined;
+    isactive:boolean;
+}
+export class Oroles implements Iroles { // public -- remote
+    _id: string | undefined; _rev: string | undefined;
+    rolename: string | undefined;
+    rolelevel: number;
+    memberof: string | undefined;
+    members:Array<string>;
+    parentroleid: string | undefined;
+    isdefault: boolean;
+    permission: Array<Ipermissions>;
+    oldroles: Array<Iroles>;
+    assignedtime: string | undefined;
+    deassignedtime: string | undefined;
+    groupname: string | undefined;
+    isactive:boolean;
+    public constructor(rolename: string = '', groupname: string = '') {
+        this.rolename = rolename;
+        this._id=nano_time.now();
+        
+    }
+
 }
 export interface IauthrorizedKeys { // private -- remote
     _rev: string | undefined;
@@ -250,7 +286,6 @@ export interface IauthrorizedKeys { // private -- remote
     endtime: string | undefined;
     encryption: Ienryptionkeys;
 }
-
 export interface Iuserprefixauthorizedkeys { // private -- remote
     _id: string | undefined;
     _rev: string | undefined;
@@ -286,6 +321,16 @@ export interface Iprefixlinks{ // no prefix -- remote
     _rev: string | undefined;
     prefixname: string | undefined; /// task-manager
     serverurl:string | undefined;
+}
+export class Oprefixlinks implements Iprefixlinks{ // no prefix -- remote
+    _id: string | undefined;
+    _rev: string | undefined;
+    prefixname: string | undefined; /// task-manager
+    serverurl:string | undefined;
+    constructor(prefixname:string ='', serverurl:string =''){
+        this.prefixname=prefixname;
+        this.serverurl=serverurl;
+    }
 }
 export interface Iuserprefix { // private -- remote
     _id: string | undefined;
@@ -377,43 +422,6 @@ export interface Ienryptionkeys { // private -- remote
     isActive: string | undefined;
     startime: string | undefined;
     endtime: string | undefined;
-}
-export interface Iroles { // public --- remote
-    _id: string | undefined;
-    _rev: string | undefined;
-    rolename: string | undefined;
-    groupname: string | undefined;
-    rolelevel: number;
-    memberof: string | undefined;
-    members:Array<string>;
-    parentroleid: string | undefined;
-    isdefault: boolean;
-    permission: Array<Ipermissions>;
-    oldroles: Array<Iroles>;
-    assignedtime: string | undefined;
-    deassignedtime: string | undefined;
-    isactive:boolean;
-}
-export class Oroles implements Iroles { // public -- remote
-    _id: string | undefined; _rev: string | undefined;
-    rolename: string | undefined;
-    rolelevel: number;
-    memberof: string | undefined;
-    members:Array<string>;
-    parentroleid: string | undefined;
-    isdefault: boolean;
-    permission: Array<Ipermissions>;
-    oldroles: Array<Iroles>;
-    assignedtime: string | undefined;
-    deassignedtime: string | undefined;
-    groupname: string | undefined;
-    isactive:boolean;
-    public constructor(rolename: string = '', groupname: string = '') {
-        this.rolename = rolename;
-        this._id=nano_time.now();
-        
-    }
-
 }
 export interface Iapprovement {
     _id: string | undefined;
@@ -542,8 +550,6 @@ export class OReport implements IReport {
     reportcont: string | undefined;
     createdby: string | undefined;
 }
-
-
 export interface IReport {
     _id: string | undefined;
     _rev: string | undefined;
@@ -553,7 +559,7 @@ export interface IReport {
     createdby: string | undefined;
 }
 
-
+// FOR SYSTEM ADMIN ONLY
 export class Oconfig implements Iconfig{
     _rev: string | undefined;    _id: string | undefined;
     configname: string | undefined;
@@ -584,8 +590,7 @@ export interface Iconfig{
 
 
 
-
-
+// for attached file
 export class OphotoObj implements IObj { // public -- remote
     name: string | undefined;
     arraybuffer: Blob;
@@ -597,8 +602,15 @@ export class OphotoObj implements IObj { // public -- remote
         this._id=nano_time.now();   
     }
 }
-
-interface IObj { // public -- remote
+export class  Oobj implements IObj { // public -- remote
+    _id: string | undefined;
+    _rev: string | undefined;
+    name: string | undefined;
+    arraybuffer: Blob;
+    type: string | undefined;
+    url: string | undefined;
+}
+export interface IObj { // public -- remote
     _id: string | undefined;
     _rev: string | undefined;
     name: string | undefined;
@@ -639,7 +651,7 @@ interface IObj { // public -- remote
 
 
 
-
+// activate via SMS
 export interface IphoneObj {
     _id: string | undefined;
     _rev: string | undefined;

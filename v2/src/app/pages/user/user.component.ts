@@ -14,6 +14,15 @@ import { Igijuser, Ogijuser, MyDataBaseNames, OmySystem } from '../../interface'
 })
 export class UserComponent implements OnInit {
   private db: PouchDB.Database<{}>;
+  
+  
+// prefixname-databasename-prefix
+// POS-user-sabai
+// POS-user-somchay
+// POS-user-somchay2
+/// Database name
+
+// link Iprefixlinks
   remoteCouch = 'http://admin:admin@localhost:5984/';
   user: Igijuser;
   userList: Igijuser[];
@@ -74,6 +83,7 @@ export class UserComponent implements OnInit {
 
 
   ngOnInit() {
+    let dbname ='prefixname-'+MyDataBaseNames.dbuser+'prefix';
     this.remoteCouch += MyDataBaseNames.dbuser; /// + prefix
     this.db = new pouchdb(MyDataBaseNames.dbuser); // + prefix
     this.sync();
