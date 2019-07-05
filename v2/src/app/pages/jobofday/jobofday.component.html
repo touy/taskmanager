@@ -27,14 +27,16 @@
                 </thead>
                 <tbody>
                  
-                  <tr *ngFor="let u of userList; index as i">
-                    <td>{{u.firstname}}</td>
-                    <td>{{u.lastname}}</td>
-                    <td>{{u.department}}</td>
-                    <td>{{u._id}}</td>
+                  <tr *ngFor="let j of jobList; index as i" >
+                    <td>{{j.jobname}}</td>
+                    <td>{{j.department}}</td>
+                    <td>{{j.createdtime}}</td>
+                    <td>{{j._id}}</td>
+                    <td></td>
                     <td>
-                      <a nbButton shape="round" status="info" (click)="job_edit(u._id,u._rev)"><i class="fas fa-edit"></i></a>&nbsp;   
-                      <a nbButton shape="round" status="danger" (click)="job_delete(u._id,u._rev)"><i class="fas fa-trash-alt"></i></a>
+                      <a nbButton shape="round" status="info" (click)="job_edit(j._id,j._rev)"><i class="fas fa-edit"></i></a>&nbsp;   
+                     <a nbButton shape="round" status="danger" (click)="job_edit(j._id,j._rev,true)"><i class="fas fa-trash-alt"></i></a> 
+                     
                     </td>
                     
                   </tr>

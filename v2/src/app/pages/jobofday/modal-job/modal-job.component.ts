@@ -28,10 +28,11 @@ export class ModalJobComponent  {
     this.job._id = '';
     this.db = new pouchdb(MyDataBaseNames.dbjob);
 
+    
   }
 
   ngOnInit() {
-  
+
     if(this._id){
       this.getjob(this._id);
     }else{
@@ -76,7 +77,7 @@ export class ModalJobComponent  {
 
     }
     //this.reface();
-    this.close();
+    this.ref.close({command:'update'});
     
   }
 
@@ -139,7 +140,7 @@ export class ModalJobComponent  {
 
 
   close() {
-    this.ref.close({ref:'OK'});
+    this.ref.close({command:'cancel'});
     //this.usercom.loadUserList();
     
 

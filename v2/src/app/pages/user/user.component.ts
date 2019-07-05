@@ -78,22 +78,7 @@ export class UserComponent implements OnInit {
       if (info.direction == "pull") {
         this.loadUserList();
       }
-      // if(info.direction=="push"){
-      // if (info.change.docs.length) {
-      //   for (let index = 0; index < info.change.docs.length; index++) {
-      //     const e = info.change.docs[index] as Ouser;
-      //     //console.log(e);
 
-      //     // for both direction : push or pull
-      //     for (let i = 0; i < parent.userList.length; i++) {
-      //       let element = parent.userList[i] as Ouser;
-      //       if (element._id === e._id) {
-      //         parent.userList[i] = e;
-      //       }
-      //     }
-      //   }
-      // }
-      // }
     }).on('paused', function (err) {
       // replication paused (e.g. replication up to date, user went offline)
       console.log('paused');

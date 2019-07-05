@@ -1,5 +1,5 @@
-<h2 class="grid-h">Jobs of day Add</h2>
-<div class="row">
+<h2 class="grid-h">Jobs of day Add </h2>
+<div class="row" *ngIf="!isdelete">
   <div class="col-md-12">
     <nb-card class="col-md-12">
       <nb-card-header>
@@ -60,3 +60,25 @@
     </nb-card>
   </div>
 </div>
+<div class="row" *ngIf="isdelete">
+    <div class="col-md-12">
+      <nb-card class="col-md-12">
+        <nb-card-header>
+          <h3>Delete Job</h3>
+        </nb-card-header>
+        <nb-card-body>
+          Are you sure to delete this item ?
+        </nb-card-body>
+      <nb-card-footer>
+          <button  class="btn btn-success" (click)="updatejob()" >
+              Confrim
+          </button>
+          &nbsp;
+          <button  class="btn btn-default" (click)="close()">
+              Cancel
+          </button>
+  
+      </nb-card-footer>
+      </nb-card>
+    </div>
+  </div>

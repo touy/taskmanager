@@ -86,17 +86,23 @@ export class JobofdayComponent implements OnInit {
 
 
 
-  job_edit(id: string, rev: string) {
+  job_edit(id: string, rev: string,isdelete:boolean=false) {
     let parent = this;
+
     let dlg=this.dialogService.open(ModalJobComponent, {
       context: {
         _id: id,
         _rev: rev,
+        isdelete:isdelete
         //close:parent.modelClose
       }
     });
     dlg.onClose.subscribe(result=>{
-      this.loadjobList();
+      
+      if(result.command!='cancel'){
+        this.loadjobList();
+      }
+      
     });
 
   }
@@ -119,5 +125,6 @@ export class JobofdayComponent implements OnInit {
 
 
   }
+  
   
 }
