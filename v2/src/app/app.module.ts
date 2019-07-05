@@ -35,6 +35,7 @@ import{ModalJobPlanComponent} from './pages/job-plan/modal-jobplan/modal-jobplan
     NgbModule.forRoot(),
     ThemeModule.forRoot(),
     CoreModule.forRoot(),
+   
   ],
   entryComponents: [
     ModalJobComponent,

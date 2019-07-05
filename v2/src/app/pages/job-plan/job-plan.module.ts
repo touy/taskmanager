@@ -12,7 +12,7 @@ import {AddPlanJobComponent } from './add-plan-job/add-plan-job.component';
   imports: [
     CommonModule,
     ThemeModule,
-
+    
   ]
 })
 export class JobPlanModule { }

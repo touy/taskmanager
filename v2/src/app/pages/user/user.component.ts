@@ -24,7 +24,7 @@ export class UserComponent implements OnInit {
 
 // link Iprefixlinks
   remoteCouch = 'http://admin:admin@localhost:5984/';
-  user: Igijuser;
+  //user: Igijuser;
   userList: Igijuser[];
   TEST: string;
   _selectedUser: Ogijuser;
@@ -32,16 +32,17 @@ export class UserComponent implements OnInit {
   //   loadUserList();
   // };
   constructor(private dialogService: NbDialogService, private router: Router) {
-    this.user._id;
-    this.user.username;
-    this.user.password;
-    this.user.confirmpassword;
-    this.user.email;
-    this.user.phonenumber;
-    let system=new OmySystem('task-manager');
+    
+    //  this.user._id;
+    //  this.user.username;
+    //  this.user.password;
+    //  this.user.confirmpassword;
+    //  this.user.email;
+    //  this.user.phonenumber;
+    //  let system=new OmySystem('task-manager');
 
-    this.user.system=new Array(system);
-    this.user.parents=new Array ('task-manager-admin');
+    //  this.user.system=new Array(system);
+    // this.user.parents=new Array ('task-manager-admin');
     
     // task-manager-admin
     // var MyMemPouch = pouchdb.defaults({
@@ -83,7 +84,7 @@ export class UserComponent implements OnInit {
 
 
   ngOnInit() {
-    let dbname ='prefixname-'+MyDataBaseNames.dbuser+'prefix';
+   // let dbname ='prefixname-'+MyDataBaseNames.dbuser+'prefix';
     this.remoteCouch += MyDataBaseNames.dbuser; /// + prefix
     this.db = new pouchdb(MyDataBaseNames.dbuser); // + prefix
     this.sync();
