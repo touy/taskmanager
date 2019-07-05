@@ -388,6 +388,7 @@ export class Odocument implements Idocument { // public --- remote
     priority: string | undefined;
     attachedfile: Array<IObj>;
     scoreslist: Array<Iscores>;
+    attachefile:IObj;
     public constructor(docname: string = '', owner: string = '') {
         this._id=nano_time.now();
         this.docname = docname;
@@ -415,28 +416,35 @@ export interface Idocument { // public --- remote
     priority: string | undefined;
     attachedfile: Array<IObj>;
     scoreslist: Array<Iscores>;
+    attachefile:IObj;
 }
 export interface Ijob { // public  remote
     _id: string | undefined;
     _rev: string | undefined;
+    docid: string | undefined;
     jobname: string | undefined;
+    subdoc: Array<Idocument>;
     description: string | undefined;
     members: Array<IpermissionAssigned>;
     createdtime: string | undefined;
     starttime: string | undefined;
     endtime: string | undefined;
     score: Iscores;
+    attachefile:IObj;
 }
 export class Ojob implements Ijob { // public  remote
     _id: string | undefined;
     _rev: string | undefined;
     jobname: string | undefined;
+    docid: string | undefined;
+    subdoc: Array<Idocument>;
     description: string | undefined;
     members: Array<IpermissionAssigned>;
     createdtime: string | undefined;
     starttime: string | undefined;
     endtime: string | undefined;
     score: Iscores;
+    attachefile:IObj;
     public constructor(jobname: string = '') {
 
         this._id = nano_time.now();
