@@ -146,6 +146,7 @@ export class Ogijuser implements Igijuser{
     password: string | undefined;
     confirmpassword: string | undefined;
     phonenumber: string | undefined;
+    email: string | undefined;
     gui: string | undefined;
     createddate: Date;
     lastupdate: Date;
@@ -180,6 +181,7 @@ export interface Igijuser { // no refix --- remote
     password: string | undefined;
     confirmpassword: string | undefined;
     phonenumber: string | undefined;
+    email: string | undefined;
     gui: string | undefined;
     createddate: Date;
     lastupdate: Date;

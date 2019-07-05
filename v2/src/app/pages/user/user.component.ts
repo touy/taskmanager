@@ -126,6 +126,7 @@ export class UserComponent implements OnInit {
       console.log(err);
     });
   }
+  
   user_add() {
     let dlg = this.dialogService.open(ModalUserComponent, {
       context: {

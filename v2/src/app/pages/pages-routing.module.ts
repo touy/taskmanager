@@ -53,7 +53,11 @@ const routes: Routes = [{
   }, {
     path: 'Plan-jobs',
     component: JobPlanComponent,
-  }, {
+  },{
+    path: 'Add-Plan-jobs',
+    component: JobPlanComponent,
+  },
+   {
     path: 'Plan-document-my',
     component: PlanDocumentComponent,
   }, {

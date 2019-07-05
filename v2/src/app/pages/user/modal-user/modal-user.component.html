@@ -4,12 +4,12 @@
     <div class="col-md-12">
       <nb-card class="col-md-12">
         <nb-card-header>
-          {{user._id}}
+          <H4>ຂໍ້ມູນຜູ້ໃຊ້</H4>
         </nb-card-header>
         <nb-card-body>
           <div class="row ">
             <div class="col-sm-6 input-group">
-              <h4>ຊື່ຜູ້ໃໃຊ້</h4>
+              <h4>ຊື່ຜູ້ໃຊ້</h4>
               <input required id="firstName" type="text" nbInput fullWidth placeholder="firstname" autocomplete="off"
                 [value]="user.firstname" (input)="user.firstname = $event.target.value">
             </div>
