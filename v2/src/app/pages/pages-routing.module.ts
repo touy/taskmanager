@@ -37,7 +37,6 @@ const routes: Routes = [{
   children: [{
     path: 'dashboard',
     component: DocumentComponent,
-<<<<<<< HEAD
   },
   {
     path: 'role-list',
@@ -48,12 +47,10 @@ const routes: Routes = [{
     component: UserRolesComponent,
   },
   {
-=======
   }, {
     path: 'regularjob',
     component: RegularJobComponent,
 },{
->>>>>>> 4de048de5b747f840fe056bfefaf62fdb9ca6235
     path: 'dashboard-them',
     component: ThemDaskbordComponent,
   }, {
@@ -76,13 +73,10 @@ const routes: Routes = [{
     component: AddScoreComponent,
   }, {
     path: 'Plan-jobs',
-<<<<<<< HEAD
     component: JobPlanComponent,
   }, {
-=======
     component: ProjectJobsComponent,
   },{
->>>>>>> 4de048de5b747f840fe056bfefaf62fdb9ca6235
     path: 'Add-Plan-jobs',
     component: AddPlanJobComponent,
   },

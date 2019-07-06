@@ -28,11 +28,7 @@ import { ModleMenberComponent } from './pages/project-jobs/modle-menber/modle-me
 
 
 @NgModule({
-<<<<<<< HEAD
-  declarations: [AppComponent,ModalRoleListComponent,ModalUserRoleComponent,ModalJobPlanComponent,ModalJobComponent,ModalUserComponent, LoginComponent, SendPwComponent,],
-=======
-  declarations: [AppComponent,ModalJobPlanComponent,ModalJobComponent,ModalUserComponent,ModleMenberComponent, LoginComponent, SendPwComponent,],
->>>>>>> 4de048de5b747f840fe056bfefaf62fdb9ca6235
+  declarations: [AppComponent,ModalJobPlanComponent,ModalJobComponent,ModalRoleListComponent,ModalUserRoleComponent,ModalJobPlanComponent,ModalJobComponent,ModalUserComponent,ModleMenberComponent, LoginComponent, SendPwComponent,],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -49,12 +45,9 @@ import { ModleMenberComponent } from './pages/project-jobs/modle-menber/modle-me
     ModalJobComponent,
     ModalUserComponent,
     ModalJobPlanComponent,
-<<<<<<< HEAD
     ModalUserRoleComponent,
     ModalRoleListComponent,
-=======
     ModleMenberComponent,
->>>>>>> 4de048de5b747f840fe056bfefaf62fdb9ca6235
   ],
   bootstrap: [AppComponent],
   providers: [
