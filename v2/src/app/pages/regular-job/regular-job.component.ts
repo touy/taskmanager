@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalJobComponent } from './modal-job/modal-job.component';
 import { NbDialogService } from '@nebular/theme';
 import { Router } from '@angular/router';
-import {Ijob,Ojob, MyDataBaseNames} from '../../interface'
+import {Ijob,Ojob, MyDataBaseNames} from '../../interface';
+import{ModalRegularJobComponent} from'./modal-regularjob/modal-regularjob.component';
 import pouchdb from 'pouchdb';
 @Component({
-  selector: 'ngx-jobofday',
-  templateUrl: './jobofday.component.html',
-  styleUrls: ['./jobofday.component.scss']
+  selector: 'ngx-regular-job',
+  templateUrl: './regular-job.component.html',
+  styleUrls: ['./regular-job.component.scss']
 })
-export class JobofdayComponent implements OnInit {
+export class RegularJobComponent implements OnInit {
+
   jobList: Ijob[];
   selectedJob: Ijob;
   private dbjob: PouchDB.Database<{}>; // job db
@@ -27,7 +28,7 @@ export class JobofdayComponent implements OnInit {
 
    }
 
-  ngOnInit() {
+   ngOnInit() {
     this.remoteCouch += MyDataBaseNames.dbjob; /// + prefix
     this.dbjob = new pouchdb(MyDataBaseNames.dbjob); // + prefix
     this.sync();
@@ -107,7 +108,8 @@ export class JobofdayComponent implements OnInit {
 
 
   job_add() {
-   this.dialogService.open(ModalJobComponent, {
+    
+   this.dialogService.open(ModalRegularJobComponent, {
       context: {
         _id: '',
         _rev: '',
@@ -122,7 +124,7 @@ export class JobofdayComponent implements OnInit {
   job_edit(id: string, rev: string,isdelete:boolean=false) {
     let parent = this;
 
-    let dlg=this.dialogService.open(ModalJobComponent, {
+    let dlg=this.dialogService.open(ModalRegularJobComponent, {
       context: {
         _id: id,
         _rev: rev,
@@ -142,7 +144,7 @@ export class JobofdayComponent implements OnInit {
 
   job_delete(id: string, rev: string) {
     let parent = this;
-    let dlg=this.dialogService.open(ModalJobComponent, {
+    let dlg=this.dialogService.open(ModalRegularJobComponent, {
       context: {
         _id: id,
         _rev: rev,
@@ -158,6 +160,4 @@ export class JobofdayComponent implements OnInit {
 
 
   }
-  
-  
 }

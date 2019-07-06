@@ -13,12 +13,16 @@ import { LoginComponent } from './login/login.component';
 import { SendPwComponent } from './send-pw/send-pw.component';
 
 
+
+
 const routes: Routes = [
   { path: 'pages', loadChildren: 'app/pages/pages.module#PagesModule' },
   {
     path: 'auth',
     
     children: [
+
+  
       {
         path: '',
         component: LoginComponent,
@@ -31,6 +35,8 @@ const routes: Routes = [
         path: 'forget-paasword',
         component: SendPwComponent,
       },
+
+   
       
     
      

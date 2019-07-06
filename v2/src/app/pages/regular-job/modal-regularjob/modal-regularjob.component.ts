@@ -7,10 +7,10 @@ import { Ojob,Ijob, MyDataBaseNames } from '../../../interface';
 
 @Component({
   selector: 'ngx-modal',
-  templateUrl: './modal-job.component.html',
-  styleUrls: ['./modal-job.component.scss']
+  templateUrl: './modal-regularjob.component.html',
+  styleUrls: ['./modal-regularjob.component.scss']
 })
-export class ModalJobComponent  {
+export class ModalRegularJobComponent  {
   
   private db: PouchDB.Database<{}>;
   remoteCouch = 'http://admin:admin@localhost:5984/job-';
@@ -21,7 +21,7 @@ export class ModalJobComponent  {
   @Input() _rev: string;
   @Input() isdelete:boolean ;
   _selectedJob: Ijob;
-  constructor(protected ref: NbDialogRef<ModalJobComponent> ,public _Location:Location,public router:Router) {
+  constructor(protected ref: NbDialogRef<ModalRegularJobComponent> ,public _Location:Location,public router:Router) {
 
     this.job=new Ojob();
     this.job._rev = '';
@@ -142,26 +142,11 @@ export class ModalJobComponent  {
   close() {
     this.ref.close({command:'cancel'});
     //this.usercom.loadUserList();
+    
+
   }
 
 }
 
 
-/*export interface Iuser {
-  firstname: string,
-  lastname: string,
-  department: string,
-  permission: string,
-  username: string,
-  password: string,
-  parent: string,
-  _rev: string,
-  _id: string
-}
-export class Ouser implements Iuser{
-  firstname: string;  lastname: string;  department: string; permission: string; username: string; password: string; parent: string;
-  _rev: string;
-  _id: string;
-} 
-*/
 

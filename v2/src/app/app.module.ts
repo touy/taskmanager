@@ -23,10 +23,16 @@ import { LoginComponent } from './login/login.component';
 import { SendPwComponent } from './send-pw/send-pw.component';
 import{ModalJobComponent} from './pages/jobofday/modal-job/modal-job.component';
 import{ModalJobPlanComponent} from './pages/job-plan/modal-jobplan/modal-jobplan.component';
+import { ModleMenberComponent } from './pages/project-jobs/modle-menber/modle-menber.component';
+
 
 
 @NgModule({
+<<<<<<< HEAD
   declarations: [AppComponent,ModalRoleListComponent,ModalUserRoleComponent,ModalJobPlanComponent,ModalJobComponent,ModalUserComponent, LoginComponent, SendPwComponent,],
+=======
+  declarations: [AppComponent,ModalJobPlanComponent,ModalJobComponent,ModalUserComponent,ModleMenberComponent, LoginComponent, SendPwComponent,],
+>>>>>>> 4de048de5b747f840fe056bfefaf62fdb9ca6235
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -37,13 +43,18 @@ import{ModalJobPlanComponent} from './pages/job-plan/modal-jobplan/modal-jobplan
     NgbModule.forRoot(),
     ThemeModule.forRoot(),
     CoreModule.forRoot(),
+   
   ],
   entryComponents: [
     ModalJobComponent,
     ModalUserComponent,
     ModalJobPlanComponent,
+<<<<<<< HEAD
     ModalUserRoleComponent,
     ModalRoleListComponent,
+=======
+    ModleMenberComponent,
+>>>>>>> 4de048de5b747f840fe056bfefaf62fdb9ca6235
   ],
   bootstrap: [AppComponent],
   providers: [
