@@ -29,7 +29,7 @@ import { SettingComponent } from './setting/setting.component';
 import { ProjectJobsComponent } from './project-jobs/project-jobs.component';
 
 
-import{RegularJobComponent} from'./regular-job/regular-job.component';
+import { RegularJobComponent } from './regular-job/regular-job.component';
 
 const routes: Routes = [{
   path: '',
@@ -45,12 +45,12 @@ const routes: Routes = [{
   {
     path: 'user-roles',
     component: UserRolesComponent,
-  },
+  }, 
   {
-  }, {
     path: 'regularjob',
     component: RegularJobComponent,
-},{
+  },
+  {
     path: 'dashboard-them',
     component: ThemDaskbordComponent,
   }, {
@@ -74,20 +74,23 @@ const routes: Routes = [{
   }, {
     path: 'Plan-jobs',
     component: JobPlanComponent,
-  }, {
+  }, 
+  {
+    path: 'project-jobs',
     component: ProjectJobsComponent,
-  },{
+  },
+   {
     path: 'Add-Plan-jobs',
     component: AddPlanJobComponent,
   },
   {
     path: 'Plan-document-my',
     component: PlanDocumentComponent,
-  },{
+  }, {
     path: 'Plan-document-Add',
     component: AddDocumetComponent,
   },
-   {
+  {
     path: 'Seting',
     component: SettingComponent,
   },

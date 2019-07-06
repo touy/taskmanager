@@ -1,5 +1,3 @@
-
-
 export class nano_time {
     static now(){
        // const nano_time = require('nano-time');
@@ -24,6 +22,7 @@ export class MyDataBaseNames {
     static dbuserrole: string = 'g-user-role-';
     static dbuserpermission: string = 'g-user-permision-';
     static dbuserpermissionassigned: string = 'g-user-permission-assigned-';
+    static remoteCouch: string ='http://admin:admin@localhost:5984/';
 }
 /// prefixname-dbname-prefix
 // prefix : 1. private ==> userprofile-12345 , user-12345

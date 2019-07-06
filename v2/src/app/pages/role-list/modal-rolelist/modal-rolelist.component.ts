@@ -3,7 +3,7 @@ import { NbDialogRef, NbDialogService } from '@nebular/theme';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { nano_time, MyDataBaseNames, Orolelist, Irolelist } from '../../../interface';
-import pouchdb from 'pouchdb';
+import pouchdb, { emit } from 'pouchdb';
 
 
 @Component({
@@ -19,7 +19,7 @@ export class ModalRoleListComponent  implements OnInit, OnDestroy {
   }
 
   private db: PouchDB.Database<{}>;
-  remoteCouch = 'http://admin:admin@localhost:5984/';
+  remoteCouch = MyDataBaseNames.remoteCouch;
 
   _selectedObj: Irolelist;
   fulldbname: string;
@@ -39,7 +39,7 @@ export class ModalRoleListComponent  implements OnInit, OnDestroy {
     this.fulldbname = 'prefixname' + MyDataBaseNames.dbrolelist + 'prefix';
     console.log('dbname',this.fulldbname);
     
-    this.db = new pouchdb(this.fulldbname);
+    this.db = new pouchdb(this.fulldbname,{adapter: 'websql'});
   }
   ngOnInit() {
     this.get();
@@ -91,6 +91,32 @@ export class ModalRoleListComponent  implements OnInit, OnDestroy {
   cancel() {
     this.ref.close({ command: 'cancel' });
   }
+  searchrolename(searchkey) {
+    //return this.db.query('by_timestamp', {endkey: when, descending: true});
+    let pagesize=5;
+    let offset=0;
+    return this.db.query(this.searchrolenameFunc, {
+      startkey: searchkey,endkey:searchkey+'\uffff', descending: true,include_docs:true,
+      limit:pagesize,skip:offset
+    });
+  }
+  searchrolenameFunc(doc:Irolelist) {
+    if (doc.rolename) {
+      emit(doc.rolename);
+    }
+  }
+
+  // may not use this
+  createDesignDoc(name, mapFunction) {
+    var ddoc = {
+      _id: '_design/' + name,
+      views: {
+      }
+    };
+    ddoc.views[name] = { map: mapFunction.toString() };
+    return ddoc;
+  }
+
 
 }
 
