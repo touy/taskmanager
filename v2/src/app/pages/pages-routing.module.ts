@@ -9,11 +9,13 @@ import { DocumentComponent } from './document/document.component';
 import { ThemDaskbordComponent } from './them-daskbord/them-daskbord.component';
 
 import { UserComponent } from './user/user.component';
+import { UserRolesComponent } from './user-roles/user-roles.component';
+import { RoleListComponent } from './role-list/role-list.component';
 
 import { JobofdayComponent } from './jobofday/jobofday.component';
 
 import { JobPlanComponent } from './job-plan/job-plan.component';
-import {AddPlanJobComponent } from './job-plan/add-plan-job/add-plan-job.component';
+import { AddPlanJobComponent } from './job-plan/add-plan-job/add-plan-job.component';
 
 import { PlanDocumentComponent } from './plan-document/plan-document.component';
 
@@ -30,7 +32,16 @@ const routes: Routes = [{
   children: [{
     path: 'dashboard',
     component: DocumentComponent,
-  }, {
+  },
+  {
+    path: 'role-list',
+    component: RoleListComponent,
+  },
+  {
+    path: 'user-roles',
+    component: UserRolesComponent,
+  },
+  {
     path: 'dashboard-them',
     component: ThemDaskbordComponent,
   }, {
@@ -54,11 +65,11 @@ const routes: Routes = [{
   }, {
     path: 'Plan-jobs',
     component: JobPlanComponent,
-  },{
+  }, {
     path: 'Add-Plan-jobs',
     component: AddPlanJobComponent,
   },
-   {
+  {
     path: 'Plan-document-my',
     component: PlanDocumentComponent,
   }, {

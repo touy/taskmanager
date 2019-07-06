@@ -16,6 +16,8 @@ import { JobPlanModule } from './job-plan/job-plan.module';
 import { PlanDocumentModule } from './plan-document/plan-document.module';
 import { ThemDaskbordModule } from './them-daskbord/them-daskbord.module';
 import { SettingComponent } from './setting/setting.component';
+import { UserRolesComponent } from './user-roles/user-roles.component';
+import { RoleListComponent } from './role-list/role-list.component';
 
 
 
@@ -30,7 +32,7 @@ const PAGES_COMPONENTS = [
   imports: [
     PagesRoutingModule,
     ThemeModule,
-   
+    
   
     MiscellaneousModule,
     DocumentModule,
@@ -40,10 +42,13 @@ const PAGES_COMPONENTS = [
     JobPlanModule,
     PlanDocumentModule,
     ThemDaskbordModule,
+    
   ],
   declarations: [
     ...PAGES_COMPONENTS,
     SettingComponent,
+    UserRolesComponent,
+    RoleListComponent,
     
    
    
