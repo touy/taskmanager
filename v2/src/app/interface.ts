@@ -22,7 +22,28 @@ export class MyDataBaseNames {
     static dbuserrole: string = 'g-user-role-';
     static dbuserpermission: string = 'g-user-permision-';
     static dbuserpermissionassigned: string = 'g-user-permission-assigned-';
+    static dbclient:string = 'g-system-client';
+    static dbsystemuser = '_users';
     static remoteCouch: string ='http://admin:admin@localhost:5984/';
+}
+export enum globalcommands{
+    login = 'login',
+    logout = 'logout',
+    changepassword = 'changepassword',
+    register = 'register',
+    addnewuser = 'addnewuser',
+    updateuserprofile = 'updateuserprofile',
+    updateuser = 'updateuser',
+    getuserlist = 'getuserlist',
+    getuserdetails = 'getuserdetails',
+    getuserprofile = 'getuserprofile',
+    updatejob = 'updatejob',
+    updatejobpermission = 'updatejobpermission',
+    updatedoc = 'updatedoc',
+    showdoclist = 'showdoclist',
+    showdocdetails ='showdocdetails',
+    showjoblist = 'showjoblist',
+    showjobdetails = 'showjobdetails',
 }
 /// prefixname-dbname-prefix
 // prefix : 1. private ==> userprofile-12345 , user-12345
@@ -506,7 +527,7 @@ export interface IpermissionAssigned { // public remote
     starttime: string | undefined;
     endtime: string | undefined;
 }
-export class OpermissionsAssigned implements IpermissionAssigned {j // public  remote
+export class OpermissionsAssigned implements IpermissionAssigned {// public  remote
     _id: string | undefined; _rev: string | undefined;
     permissionid: string | undefined;
     permissionlevel: string | undefined;
