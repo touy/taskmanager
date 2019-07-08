@@ -33,46 +33,10 @@ export class ModalUserComponent  {
     
     
 
-    
-    //this.sync();
-    // this.db.changes({
-    //   since: 'now',
-    //   live: true
-    // }).on('change', (res) => {
-    //   console.log('changed');
-    //   console.log(res);
-    // });
-    // this.db.setMaxListeners(20);
-
-    
-   
-     
-
    
 
 
   }
-
-
-
-  // sync() {
-  //   //syncDom.setAttribute('data-sync-state', 'syncing');
-  //   var opts = { live: true };
-  //   this.db.replicate.to(this.remoteCouch, opts, (err, res) => {
-
-  //   });
-  //   this.db.replicate.from(this.remoteCouch, opts, (err, res) => {
-  //     if (err) {
-  //       console.log('sync err');
-  //       console.log(err);
-
-  //     } else {
-  //       console.log('sync res');
-  //       console.log(res);
-
-  //     }
-  //   });
-  // }
 
   ngOnInit() {
     this.remoteCouch+=MyDataBaseNames.dbuser;
@@ -121,8 +85,7 @@ export class ModalUserComponent  {
       catch(e){
       }
 
-    }
-    //this.reface();
+    }    
     this.close();
     
   }
@@ -149,7 +112,7 @@ export class ModalUserComponent  {
 
   updateManyUsers(arr:[]){
     // for many at once
-    this.db.bulkDocs(arr,{new_edits:true,},(err,res)=>{
+    this.db.bulkDocs(arr,{new_edits:false},(err,res)=>{
       if(err){
         console.log(err);
         
@@ -175,29 +138,8 @@ export class ModalUserComponent  {
 
 
   close() {
-    this.ref.close({ref:'OK'});
-    //this.usercom.loadUserList();
-    
-
+    this.ref.close({command:'update'});
   }
 
-}
-
-
-export interface Iuser {
-  firstname: string,
-  lastname: string,
-  department: string,
-  permission: string,
-  username: string,
-  password: string,
-  parent: string,
-  _rev: string,
-  _id: string
-}
-export class Ouser implements Iuser{
-  firstname: string;  lastname: string;  department: string; permission: string; username: string; password: string; parent: string;
-  _rev: string;
-  _id: string;
 }
 

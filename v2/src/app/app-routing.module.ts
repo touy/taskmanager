@@ -19,10 +19,7 @@ const routes: Routes = [
   { path: 'pages', loadChildren: 'app/pages/pages.module#PagesModule' },
   {
     path: 'auth',
-    
     children: [
-
-  
       {
         path: '',
         component: LoginComponent,
@@ -34,12 +31,7 @@ const routes: Routes = [
       {
         path: 'forget-paasword',
         component: SendPwComponent,
-      },
-
-   
-      
-    
-     
+      }
     ],
   },
   { path: '', redirectTo: 'auth', pathMatch: 'full' },

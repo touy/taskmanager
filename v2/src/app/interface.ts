@@ -1,32 +1,10 @@
-
-
 export class nano_time {
     static now(){
        // const nano_time = require('nano-time');
         // return nano_time.now();
-        return (Date.now()*1000000)+"";
+        return (Date.now()*999999.99)+"";
     }
 }
-// export const nano_time = (unit) => {
-
-//     const hrTime = process.hrtime();
-
-//     switch (unit) {
-
-//         case 'milli':
-//             return hrTime[0] * 1000 + hrTime[1] / 1000000;
-
-//         case 'micro':
-//             return hrTime[0] * 1000000 + hrTime[1] / 1000;
-
-//         case 'nano':
-//             return hrTime[0] * 1000000000 + hrTime[1];
-
-//         default:
-//             return nano_time.now();
-//     }
-
-// };
 // prefixname-databasename-prefix
 // POS-user-sabai
 // POS-user-somchay
@@ -40,6 +18,32 @@ export class MyDataBaseNames {
     static dbmember: string = 'g-member-';
     static dbpermission: string = 'g-permission-';
     static dbrole: string = 'g-role-';
+    static dbrolelist: string = 'g-role-list-';
+    static dbuserrole: string = 'g-user-role-';
+    static dbuserpermission: string = 'g-user-permision-';
+    static dbuserpermissionassigned: string = 'g-user-permission-assigned-';
+    static dbclient:string = 'g-system-client';
+    static dbsystemuser = '_users';
+    static remoteCouch: string ='http://admin:admin@localhost:5984/';
+}
+export enum globalcommands{
+    login = 'login',
+    logout = 'logout',
+    changepassword = 'changepassword',
+    register = 'register',
+    addnewuser = 'addnewuser',
+    updateuserprofile = 'updateuserprofile',
+    updateuser = 'updateuser',
+    getuserlist = 'getuserlist',
+    getuserdetails = 'getuserdetails',
+    getuserprofile = 'getuserprofile',
+    updatejob = 'updatejob',
+    updatejobpermission = 'updatejobpermission',
+    updatedoc = 'updatedoc',
+    showdoclist = 'showdoclist',
+    showdocdetails ='showdocdetails',
+    showjoblist = 'showjoblist',
+    showjobdetails = 'showjobdetails',
 }
 /// prefixname-dbname-prefix
 // prefix : 1. private ==> userprofile-12345 , user-12345
@@ -114,6 +118,14 @@ export interface Irolelist { // no prefix -- remote
     _rev: string | undefined;
     rolename: string | undefined;
 }
+export class Orolelist implements Irolelist { // no prefix -- remote
+    _id: string | undefined;
+    _rev: string | undefined;
+    rolename: string | undefined;
+    constructor(rolename:string =''){
+        this.rolename=rolename;
+    }
+}
 ///
 // SERVER
 export interface Iauth { // NO Prefix -- local
@@ -174,7 +186,7 @@ export class Oconfig implements Iconfig{
     value: string | undefined;
     key: string | undefined;
     createdtime: string | undefined;
-    oldconfig: Iconfig[];
+    oldconfig: Array<Iconfig>;
     public constructor(configname:string = ''){
         this.configname=configname;
     }
@@ -227,17 +239,17 @@ export class Ogijuser implements Igijuser{
     createddate: Date;
     lastupdate: Date;
     isactive: boolean;
-    parents: string[];
-    roles: Iroles[];
+    parents: Array<string>;
+    roles: Array<Iroles>;
     logintoken: string | undefined;
     expirelogintoken: string | undefined;
     description: string | undefined;
     note: string | undefined;
-    system: ImySystem[];
+    system: Array<ImySystem>;
     gijvalue: number;
     totalgij: number;
     totalgijspent: number;
-    oldphone: string[];
+    oldphone: Array<string>;
     userprofile: Iuserprofile;
     userprefix:  Array<Iuserprefix>;
     permission: Ipermissions;
@@ -316,12 +328,13 @@ export interface Iroles { // public --- remote
     _rev: string | undefined;
     rolename: string | undefined;
     groupname: string | undefined;
+    owner: string | undefined; // pre-defined
     rolelevel: number;
-    members:Array<string>;
+    members:Array<string>; // 
     parentroleid: string | undefined;//default
     isdefault: boolean;
-    permission: Array<Ipermissions>;
-    oldroles: Array<Iroles>;
+    permission: Array<Ipermissions>; // Ipermission  Ipermissionassigned Ipermissionrequest
+    oldroles: Array<Iroles>; 
     assignedtime: string | undefined;
     deassignedtime: string | undefined;
     isactive:boolean;
@@ -338,6 +351,7 @@ export class Oroles implements Iroles { // public -- remote
     assignedtime: string | undefined;
     deassignedtime: string | undefined;
     groupname: string | undefined;
+    owner: string | undefined;
     isactive:boolean;
     public constructor(rolename: string = '', groupname: string = '') {
         this.rolename = rolename;
@@ -513,7 +527,7 @@ export interface IpermissionAssigned { // public remote
     starttime: string | undefined;
     endtime: string | undefined;
 }
-export class OpermissionsAssigned implements IpermissionAssigned {j // public  remote
+export class OpermissionsAssigned implements IpermissionAssigned {// public  remote
     _id: string | undefined; _rev: string | undefined;
     permissionid: string | undefined;
     permissionlevel: string | undefined;
@@ -601,7 +615,13 @@ export interface Ipermissions { // public -- remote
     permissionlevel: number;
     status: string | undefined; // read or write
 }
-
+export class Ouserpermissions implements Ipermissions { // no prefix -- remote
+    _id: string | undefined;
+    _rev: string | undefined;
+    permissionname: string | undefined;
+    permissionlevel: number;
+    status: string | undefined; // read or write
+}
 export interface Itemplate{ // public  remote
     _id: string | undefined; 
     _rev: string | undefined;

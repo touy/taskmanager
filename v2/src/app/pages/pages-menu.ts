@@ -105,5 +105,14 @@ export const MENU_ITEMS: NbMenuItem[] = [
      
     ],
   },
-  
+  {
+    title: 'role list',
+    icon: 'nb-bar-chart',
+    link: '/pages/role-list',
+  },
+  {
+    title: 'user role',
+    icon: 'nb-bar-chart',
+    link: '/pages/user-roles',
+  },
 ];

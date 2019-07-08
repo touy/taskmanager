@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { UserRolesComponent } from './user-roles.component';
 import { ThemeModule } from '../../@theme/theme.module';
-import { RegularJobComponent } from './regular-job.component';
+
 
 @NgModule({
-  declarations: [ RegularJobComponent  ],
+  declarations: [UserRolesComponent],
   imports: [
     CommonModule,
-    ThemeModule,
-  ]
+    ThemeModule
+  ],
 })
-export class RegularJobModule { }
+export class UserRolesModule { }
