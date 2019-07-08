@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import pouchdb, { emit } from 'pouchdb';
-import socketpouch from 'socket-pouch/client';
+
 import pouchdbwebsql from 'pouchdb-adapter-websql';
 import PouchAuth from 'pouchdb-authentication';
 import pouchSecurity from 'pouchdb-security-helper';

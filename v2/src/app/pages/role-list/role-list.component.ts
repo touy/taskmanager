@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { Igijuser, Ogijuser, nano_time, MyDataBaseNames, Irolelist, Orolelist, OmySystem } from '../../interface';
 import pouchdb, { emit } from 'pouchdb';
-import socketpouch from 'socket-pouch/client';
+//import socketpouch from 'socket-pouch/client';
 import pouchdbwebsql from 'pouchdb-adapter-websql';
 import PouchSync from 'pouch-websocket-sync';
 import websocket from 'websocket-stream';
