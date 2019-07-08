@@ -14,4 +14,4 @@ import { ThemeModule } from '../../@theme/theme.module';
     ThemeModule
   ],
 })
-export class UserModule { }
+export class RoleListModule { }
