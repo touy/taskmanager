@@ -16,7 +16,6 @@ import { JobPlanModule } from './job-plan/job-plan.module';
 import { PlanDocumentModule } from './plan-document/plan-document.module';
 import { ThemDaskbordModule } from './them-daskbord/them-daskbord.module';
 import { SettingComponent } from './setting/setting.component';
-import {RegularJobModule} from './regular-job/regular-job.module';
 import { UserRolesComponent } from './user-roles/user-roles.component';
 import { RoleListComponent } from './role-list/role-list.component';
 import { RegularJobComponent } from './regular-job/regular-job.component';
@@ -42,7 +41,7 @@ const PAGES_COMPONENTS = [
     JobPlanModule,
     PlanDocumentModule,
     ThemDaskbordModule,
-    RegularJobModule,
+
   ],
   declarations: [
     ...PAGES_COMPONENTS,

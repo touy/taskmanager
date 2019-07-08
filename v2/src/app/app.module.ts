@@ -16,6 +16,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ThemeModule } from './@theme/theme.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ModalUserRoleComponent } from './pages/user-roles/modal-user-roles/modal-user-roles.component';
+import { ModalRoleListComponent } from './pages/role-list/modal-rolelist/modal-rolelist.component';
 import { ModalUserComponent } from './pages/user/modal-user/modal-user.component';
 import { LoginComponent } from './login/login.component';
 import { SendPwComponent } from './send-pw/send-pw.component';
@@ -28,7 +30,18 @@ import { ModalRegularJobComponent } from './pages/regular-job/modal-regularjob/m
 
 
 @NgModule({
-  declarations: [AppComponent,ModalJobPlanComponent,ModalJobComponent,ModalUserComponent,ModleMenberComponent, LoginComponent, SendPwComponent, ModalRegularJobComponent],
+  declarations: [
+    AppComponent
+    ,ModalJobPlanComponent,
+    ModalJobComponent,
+    ModalUserComponent,
+    ModleMenberComponent, 
+    LoginComponent, 
+    SendPwComponent, 
+    ModalRegularJobComponent,
+    ModalUserRoleComponent,
+    ModalRoleListComponent,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -47,6 +60,8 @@ import { ModalRegularJobComponent } from './pages/regular-job/modal-regularjob/m
     ModalJobPlanComponent,
     ModleMenberComponent,
     ModalRegularJobComponent,
+    ModalUserRoleComponent,
+    ModalRoleListComponent,
   ],
   bootstrap: [AppComponent],
   providers: [
