@@ -88,7 +88,6 @@
     "normalize.css": "6.0.0",
     "pace-js": "1.0.2",
     "pouch-remote-stream": "^0.3.0",
-    "pouch-websocket-sync": "https://github.com/touy/pouch-websocket-sync/tarball/patch-1",
     "pouchdb": "^7.1.1",
     "pouchdb-adapter-websql": "^7.0.0",
     "pouchdb-auth": "^4.1.0",
@@ -101,7 +100,6 @@
     "rxjs": "^6.4.0",
     "rxjs-compat": "6.3.0",
     "socicon": "3.0.5",
-    "socket-pouch": "^2.0.0",
     "stream": "0.0.2",
     "timers": "^0.1.1",
     "tinymce": "4.5.7",
@@ -112,7 +110,6 @@
     "url": "^0.11.0",
     "utf-8-validate": "^5.0.2",
     "web-animations-js": "2.2.5",
-    "websocket-stream": "https://github.com/touy/websocket-stream/tarball/patch-1",
     "ws": "^7.0.1",
     "zone.js": "^0.8.29"
   },
