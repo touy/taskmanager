@@ -22,12 +22,6 @@ import { RegularJobComponent } from './regular-job/regular-job.component';
 import { ProjectJobsComponent } from './project-jobs/project-jobs.component';
 
 
-
-
-
-
-
-
 const PAGES_COMPONENTS = [
   PagesComponent,
 ];
@@ -36,8 +30,9 @@ const PAGES_COMPONENTS = [
   imports: [
     PagesRoutingModule,
     ThemeModule,
-    
+   
   
+    ThemeModule,  
     MiscellaneousModule,
     DocumentModule,
     UserModule,
@@ -46,12 +41,15 @@ const PAGES_COMPONENTS = [
     JobPlanModule,
     PlanDocumentModule,
     ThemDaskbordModule,
-    
+
   ],
   declarations: [
     ...PAGES_COMPONENTS,
     SettingComponent,
-
+  
+    
+   
+   
     UserRolesComponent,
     RoleListComponent,
     RegularJobComponent,

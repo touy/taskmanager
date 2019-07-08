@@ -24,11 +24,24 @@ import { SendPwComponent } from './send-pw/send-pw.component';
 import{ModalJobComponent} from './pages/jobofday/modal-job/modal-job.component';
 import{ModalJobPlanComponent} from './pages/job-plan/modal-jobplan/modal-jobplan.component';
 import { ModleMenberComponent } from './pages/project-jobs/modle-menber/modle-menber.component';
+import { ModalRegularJobComponent } from './pages/regular-job/modal-regularjob/modal-regularjob.component';
+
 
 
 
 @NgModule({
-  declarations: [AppComponent,ModalJobPlanComponent,ModalJobComponent,ModalRoleListComponent,ModalUserRoleComponent,ModalJobPlanComponent,ModalJobComponent,ModalUserComponent,ModleMenberComponent, LoginComponent, SendPwComponent,],
+  declarations: [
+    AppComponent
+    ,ModalJobPlanComponent,
+    ModalJobComponent,
+    ModalUserComponent,
+    ModleMenberComponent, 
+    LoginComponent, 
+    SendPwComponent, 
+    ModalRegularJobComponent,
+    ModalUserRoleComponent,
+    ModalRoleListComponent,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -45,9 +58,10 @@ import { ModleMenberComponent } from './pages/project-jobs/modle-menber/modle-me
     ModalJobComponent,
     ModalUserComponent,
     ModalJobPlanComponent,
+    ModleMenberComponent,
+    ModalRegularJobComponent,
     ModalUserRoleComponent,
     ModalRoleListComponent,
-    ModleMenberComponent,
   ],
   bootstrap: [AppComponent],
   providers: [
