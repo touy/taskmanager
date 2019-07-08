@@ -5,7 +5,7 @@ import { ThemeModule } from '../../@theme/theme.module';
 import { RegularJobComponent } from './regular-job.component';
 
 @NgModule({
-  declarations: [RegularJobComponent ],
+  declarations: [RegularJobComponent  ],
   imports: [
     CommonModule,
     ThemeModule,

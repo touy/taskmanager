@@ -16,15 +16,7 @@ import { JobPlanModule } from './job-plan/job-plan.module';
 import { PlanDocumentModule } from './plan-document/plan-document.module';
 import { ThemDaskbordModule } from './them-daskbord/them-daskbord.module';
 import { SettingComponent } from './setting/setting.component';
-<<<<<<< HEAD
-import { RegularJobComponent } from './regular-job/regular-job.component';
-=======
-import { ProjectJobsComponent } from './project-jobs/project-jobs.component';
-
->>>>>>> b4b3bc6fdfd115ee50f380f1bde6f08f12750508
-
-
-
+import {RegularJobModule} from './regular-job/regular-job.module';
 
 
 
@@ -46,18 +38,15 @@ const PAGES_COMPONENTS = [
     JobPlanModule,
     PlanDocumentModule,
     ThemDaskbordModule,
+    RegularJobModule,
   ],
   declarations: [
     ...PAGES_COMPONENTS,
     SettingComponent,
-<<<<<<< HEAD
-    RegularJobComponent,
+  
     
    
    
-=======
-    ProjectJobsComponent,
->>>>>>> b4b3bc6fdfd115ee50f380f1bde6f08f12750508
 
   ],
 })
