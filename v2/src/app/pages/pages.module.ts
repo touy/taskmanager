@@ -35,9 +35,7 @@ const PAGES_COMPONENTS = [
 @NgModule({
   imports: [
     PagesRoutingModule,
-    ThemeModule,
-    
-  
+    ThemeModule,  
     MiscellaneousModule,
     DocumentModule,
     UserModule,
@@ -51,7 +49,6 @@ const PAGES_COMPONENTS = [
   declarations: [
     ...PAGES_COMPONENTS,
     SettingComponent,
-
     UserRolesComponent,
     RoleListComponent,
     RegularJobComponent,
