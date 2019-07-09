@@ -17,7 +17,7 @@
           <div class="row ">
               <div class="col-sm-12">
                 <h3>ຊື່</h3>             
-                <input type="text" nbInput fullWidth placeholder="ຊື່ວຽກ" [value]="job.jobname" (input)="job.jobname = $event.target.value">
+                <input type="text" nbInput fullWidth  placeholder="ຊື່ວຽກ" (input)="job.jobname = $event.target.value">
               </div> 
           </div> 
           <br/>
@@ -26,7 +26,9 @@
           <div class="row ">
               <div class="col-sm-4 input-group">
                 <h4>ເວລາສ້າງເອກະສານ</h4>             
-                <input type="date" nbInput fullWidth placeholder="" [value]="job.createdtime" (input)="job.createdtime= $event.target.value">
+               <input type="date"  nbInput fullWidth 
+                 [value]="job.createdtime" (input)="job.createdtime= $event.target.value">
+               
               </div> 
         
               <div class="col-sm-4 input-group">

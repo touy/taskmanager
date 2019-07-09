@@ -79,7 +79,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
      
       {
-        title: 'ວຽກທີສໍາເລັດ',
+        title: 'regular-job-comple',
         link: '/pages/regularjobComple',
       },
      

@@ -108,19 +108,6 @@ export class RegularJobComponent implements OnInit {
     });
   }
 
-
-  //job_add() {
-    
-  // this.dialogService.open(ModalRegularJobComponent, {
-   //   context: {
-    //    _id: '',
-      //  _rev: '',
-      //  isdelete:false
-        //close:parent.modelClose
-     // }
-   // });
-  //}
-
   job_add() {
     let dlg = this.dialogService.open(ModalRegularJobComponent, {
       context: {

@@ -21,22 +21,21 @@ export class ModalRegularJobComponent  {
   @Input() _rev: string;
   @Input() isdelete:boolean ;
   _selectedJob: Ijob;
+  
   constructor(protected ref: NbDialogRef<ModalRegularJobComponent> ,public _Location:Location,public router:Router) {
 
     this.job=new Ojob();
     this.job._rev = '';
     this.job._id = '';
-    this.job.jobname ='';
-    this.job.createdtime='';
-    this.job.starttime='';
-    this.job.endtime='';
+   
     this.db = new pouchdb(MyDataBaseNames.dbjob);
 
     
   }
 
   ngOnInit() {
-
+    
+    
     if(this._id){
       this.getjob(this._id);
     }else{
@@ -87,6 +86,8 @@ export class ModalRegularJobComponent  {
 
 
   insert(){
+
+  
     this.db.put(this.job, { force: true }, (err, res) => {
       if (err) {
         console.log('err after put'
@@ -147,6 +148,11 @@ export class ModalRegularJobComponent  {
     this.ref.close({command:'cancel'});
     //this.usercom.loadUserList();
     
+
+  }
+  time(){
+    let date: Date = new Date();
+console.log("Date = " + date);
 
   }
 
