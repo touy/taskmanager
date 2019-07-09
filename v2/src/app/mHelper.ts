@@ -34,8 +34,8 @@ export class mHelper {
     zone: NgZone;
     _selectedObj: any;
     _arrayObj: Array<any>;
-    currentsync: PouchDB.Replication.Sync<unknown>;
-    clientsync: PouchDB.Replication.Sync<unknown>;
+    currentsync: PouchDB.Replication.Sync<any>;
+    clientsync: PouchDB.Replication.Sync<any>;
     db_client: PouchDB.Database<{}>;
     constructor(zone: NgZone) {
         this.zone = zone; // if not need to update from parent 
