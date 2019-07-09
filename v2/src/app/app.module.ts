@@ -25,6 +25,7 @@ import{ModalJobComponent} from './pages/jobofday/modal-job/modal-job.component';
 import{ModalJobPlanComponent} from './pages/job-plan/modal-jobplan/modal-jobplan.component';
 import { ModleMenberComponent } from './pages/project-jobs/modle-menber/modle-menber.component';
 import { ModalRegularJobComponent } from './pages/regular-job/modal-regularjob/modal-regularjob.component';
+import { ModleJobsComponent } from './pages/project-jobs/modle-jobs/modle-jobs.component';
 
 
 
@@ -41,6 +42,7 @@ import { ModalRegularJobComponent } from './pages/regular-job/modal-regularjob/m
     ModalRegularJobComponent,
     ModalUserRoleComponent,
     ModalRoleListComponent,
+    ModleJobsComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,6 +64,7 @@ import { ModalRegularJobComponent } from './pages/regular-job/modal-regularjob/m
     ModalRegularJobComponent,
     ModalUserRoleComponent,
     ModalRoleListComponent,
+    ModleJobsComponent,
   ],
   bootstrap: [AppComponent],
   providers: [

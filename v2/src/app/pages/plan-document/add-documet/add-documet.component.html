@@ -57,7 +57,7 @@
                  <input nbInput fullWidth
                  placeholder="ວັນທີເລີ້ມຕົ້ນ"
                  [nbDatepicker]="datestart" />
-                 <nb-datepicker #datestart  format="dd-MM-yyyy"></nb-datepicker>
+                 <nb-datepicker #datestart  ></nb-datepicker>
               </div>
               <div class="col-sm-1 input-group">
                   <h3>ຫາວັນທີ</h3>             
@@ -71,7 +71,7 @@
                   placeholder="ວັນທີກຳນົດ"
                   [nbDatepicker]="dateend" />
 
-                  <nb-datepicker #dateend format="dd-MM-yyyy"></nb-datepicker>
+                  <nb-datepicker #dateend ></nb-datepicker>
                
                </div>
               
@@ -233,7 +233,7 @@
             </table>
         </div>
 
-                                    <button type="button" class="btn btn-success addjobs_data" title="Add Jobs" name="add" id="addjobs_data" >ເລືອກວຽກ</button>
+                                    <button type="button" class="btn btn-success addjobs_data" title="Add Jobs" name="add" id="addjobs_data" (click)="addjobs()" >ເລືອກວຽກ</button>
                                     &nbsp;
                                     <button type="button" class="btn btn-success" title="Crate Jobs" name="add" id="add" >ສ້າງວຽກ</button>
                     
@@ -250,7 +250,7 @@
 
       </nb-card-body>
     <nb-card-footer>
-        <button  class="btn btn-success" >
+        <button  class="btn btn-success"  >
             Save
         </button>
         &nbsp;

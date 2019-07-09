@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NbDialogService } from '@nebular/theme';
 import { ModleMenberComponent } from '../../project-jobs/modle-menber/modle-menber.component';
+import { ModleJobsComponent } from '../../project-jobs/modle-jobs/modle-jobs.component';
 
 @Component({
   selector: 'ngx-add-documet',
@@ -21,6 +22,17 @@ export class AddDocumetComponent implements OnInit {
 
   addmember(){
     let dlg = this.dialogService.open(ModleMenberComponent, {
+     
+    });
+
+    dlg.onClose.subscribe(result => {
+      //this.loadUserList();
+    });
+  }
+
+  
+  addjobs(){
+    let dlg = this.dialogService.open(ModleJobsComponent, {
      
     });
 
