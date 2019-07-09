@@ -26,7 +26,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
         children: [
           {
             title: 'My ',
-            link: '/pages/Plan-document-my',
+            link: '/pages/project-jobs',
     
           },
           {
