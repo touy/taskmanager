@@ -2,21 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { NbDialogService } from '@nebular/theme';
 import { Router } from '@angular/router';
 import {Ijob,Ojob, MyDataBaseNames} from '../../interface';
-import{ModalRegularJobComponent} from'./modal-regularjob/modal-regularjob.component';
+import{ModalRegularJobComponent} from'./../regular-job/modal-regularjob/modal-regularjob.component';
 import pouchdb from 'pouchdb';
 @Component({
-  selector: 'ngx-regular-job',
-  templateUrl: './regular-job.component.html',
-  styleUrls: ['./regular-job.component.scss']
+  selector: 'ngx-regular-job-comple',
+  templateUrl: './regular-job-comple.component.html',
+  styleUrls: ['./regular-job-comple.component.scss']
 })
-export class RegularJobComponent implements OnInit {
-
+export class RegularJobCompleComponent implements OnInit {
   jobList: Ijob[];
   selectedJob: Ijob;
   private dbjob: PouchDB.Database<{}>; // job db
   private dbdoc: PouchDB.Database<{}>;
   remoteCouch = 'http://admin:admin@localhost:5984/job-';
-  constructor(private dialogService: NbDialogService, private router: Router) {
+  constructor(private dialogService: NbDialogService, private router: Router) { 
     this.jobList = new Array<Ojob>();
     this.selectedJob= new Ojob();
     // dbfullname=prefixname+dbname+prefix
@@ -25,10 +24,9 @@ export class RegularJobComponent implements OnInit {
     dbfullname=''+MyDataBaseNames.dbjob+'';
     this.dbjob = new pouchdb(dbfullname);//dbname-prefix
     this.sync();
+  }
 
-   }
-
-   ngOnInit() {
+  ngOnInit() {
     this.remoteCouch += MyDataBaseNames.dbjob; /// + prefix
     this.dbjob = new pouchdb(MyDataBaseNames.dbjob); // + prefix
     this.sync();
@@ -163,4 +161,5 @@ export class RegularJobComponent implements OnInit {
 
 
   }
+
 }

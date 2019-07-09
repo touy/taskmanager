@@ -1,0 +1,63 @@
+
+<div class="row">
+    <div class="col-md-12">
+      <nb-card>
+        <nb-card-header>
+            <div class="row">
+              <h3 class="col-md-11" >regularJob Comple</h3>
+             
+                 
+            </div>
+          
+        </nb-card-header>
+        <nb-card-body>
+          
+            <div class="table-responsive">
+                <table class="table table-bordered ">
+                  <thead>
+                    <tr>
+                      <th>ລະຫັດ</th>
+                      <th> ຊື່ວຽກ</th>
+                      <th> ເວລາສ້າງເອກະສານ </th>
+                      <th> ເວລາເລີ້ມເຮັດເອກະສານ </th>
+                      <th> ເວລາເຮັດເອກະສານແລ້ວ </th>
+                      
+  
+                    </tr>
+                  </thead>
+                  <tbody>
+                   
+  
+                      <tr *ngFor="let j of jobList; index as i" >
+                          <td>{{j._id}}</td>
+                          <td>{{j.jobname}}</td>
+                          <td>{{j.createdtime}}</td>
+                          <td>{{j.starttime}}</td>
+                          <td>{{j.endtime}}</td>
+                          
+                      </tr>
+                        
+  
+                   <!-- <tr>
+                      <td>k</td>
+                      <td>1</td>
+                      <td>10:00 AM</td>
+                      <td>11:00 AM</td>
+                      <td>12:00 PM</td>
+                      <td><input type="checkbox" name="vehicle" value="Bike"> </td>
+                    </tr>
+                    -->
+  
+                  </tbody>
+                </table>
+              </div>
+  
+  
+        </nb-card-body>
+      </nb-card>
+    </div>
+    
+    
+  </div>
+  
+  
