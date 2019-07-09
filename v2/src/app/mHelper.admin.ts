@@ -34,8 +34,8 @@ export class mHelper {
     zone: NgZone;
     _selectedObj: any;
     _arrayObj: Array<any>;
-    currentsync: PouchDB.Replication.Sync<unknown>;
-    clientsync: PouchDB.Replication.Sync<unknown>;
+    currentsync: PouchDB.Replication.Sync<any>;
+    clientsync: PouchDB.Replication.Sync<any>;
     db_client: PouchDB.Database<{}>;
     constructor(zone: NgZone) {
         this.zone = zone; // if not need to update from parent 
@@ -379,15 +379,18 @@ export class mHelper {
           });
     }
     // ADMIN ONLY
-    getUserList(cb){
-
+    getUserList(ps:number,os:number,cb){
+        let pagesize=ps|0;
+        let offset = os| 0;
+        this.db_user.allDocs({descending:true,include_docs:true,limit:pagesize,skip:offset}).then(res=>{
+            cb(res.rows);
+        });
     }
     changepasswordUser(username:string ,newpassword: string) {
         let parent = this;
         this.db_user.changePassword(username, newpassword, function (err, response) {
             if (err) {
                 throw new Error(err.message);
-
             } else {
                 console.log('Change password succeeded');
                 parent.logging(parent.myuser.name, parent.currentsystem, parent._client, logTypes.success, 'change password', 'change password 339')
