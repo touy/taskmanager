@@ -100,6 +100,8 @@ export class RegularJobComponent implements OnInit {
       //console.log(res);
       for (let index = 0; index < res.rows.length; index++) {
         parent.jobList.push(<Ijob><unknown>res.rows[index].doc);
+        console.log(res.rows[index].doc);
+        
       }
     }).catch(err => {
       console.log(err);
@@ -107,15 +109,29 @@ export class RegularJobComponent implements OnInit {
   }
 
 
-  job_add() {
+  //job_add() {
     
-   this.dialogService.open(ModalRegularJobComponent, {
+  // this.dialogService.open(ModalRegularJobComponent, {
+   //   context: {
+    //    _id: '',
+      //  _rev: '',
+      //  isdelete:false
+        //close:parent.modelClose
+     // }
+   // });
+  //}
+
+  job_add() {
+    let dlg = this.dialogService.open(ModalRegularJobComponent, {
       context: {
         _id: '',
-        _rev: '',
-        isdelete:false
+        _rev: ''
         //close:parent.modelClose
       }
+    });
+
+    dlg.onClose.subscribe(result => {
+      this.loadjobList();
     });
   }
 

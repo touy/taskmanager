@@ -30,6 +30,7 @@ import { ProjectJobsComponent } from './project-jobs/project-jobs.component';
 
 
 import { RegularJobComponent } from './regular-job/regular-job.component';
+import{RegularJobCompleComponent} from './regular-job-comple/regular-job-comple.component';
 
 const routes: Routes = [{
   path: '',
@@ -50,6 +51,10 @@ const routes: Routes = [{
     path: 'regularjob',
     component: RegularJobComponent,
   },
+{
+  path: 'regularjobComple',
+  component: RegularJobCompleComponent,
+},
   {
     path: 'dashboard-them',
     component: ThemDaskbordComponent,

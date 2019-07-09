@@ -26,6 +26,10 @@ export class ModalRegularJobComponent  {
     this.job=new Ojob();
     this.job._rev = '';
     this.job._id = '';
+    this.job.jobname ='';
+    this.job.createdtime='';
+    this.job.starttime='';
+    this.job.endtime='';
     this.db = new pouchdb(MyDataBaseNames.dbjob);
 
     

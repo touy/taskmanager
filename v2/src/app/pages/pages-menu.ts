@@ -74,10 +74,14 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'ion-clipboard',
     children: [
       {
-        title: 'Jobs of day',
-        link: '/pages/jobs_of_day',
+        title: 'Regular-job',
+        link: '/pages/regularjob',
       },
      
+      {
+        title: 'ວຽກທີສໍາເລັດ',
+        link: '/pages/regularjobComple',
+      },
      
     ],
   },
