@@ -12,7 +12,7 @@
                 <h3>ຫົວຂໍ້ວຽກ</h3>             
               </div>
               <div class="col-sm-10 input-group">
-                <input type="text" nbInput fullWidth placeholder="ຫົວຂໍ້ວຽກ">
+                <input type="text" nbInput fullWidth placeholder="ຫົວຂໍ້ວຽກ"  [value]="Doc.docname" (input)="Doc.docname = $event.target.value">
               </div>
               
           </div> 
@@ -41,7 +41,7 @@
               <div class="col-sm-10 input-group">
                
                  
-                  <textarea rows="5" placeholder="ລາຍລະອຽດ" class="form-control"></textarea>
+                  <textarea rows="5" placeholder="ລາຍລະອຽດ" class="form-control" [value]="Doc.description" (input)="Doc.description = $event.target.value"></textarea>
               </div>
              
               
@@ -54,10 +54,8 @@
                 </div>
               <div class="col-sm-3 ">
                
-                 <input nbInput fullWidth
-                 placeholder="ວັນທີເລີ້ມຕົ້ນ"
-                 [nbDatepicker]="datestart" />
-                 <nb-datepicker #datestart  ></nb-datepicker>
+                 <input type="date" nbInput fullWidth placeholder="ວັນທີເລີ້ມຕົ້ນ"  [value]="Doc.starttime" (input)="Doc.starttime = $event.target.value"/>
+                
               </div>
               <div class="col-sm-1 input-group">
                   <h3>ຫາວັນທີ</h3>             
@@ -67,11 +65,9 @@
                
               
                
-                  <input nbInput fullWidth
-                  placeholder="ວັນທີກຳນົດ"
-                  [nbDatepicker]="dateend" />
+                  <input type="date"  nbInput fullWidth placeholder="ວັນທີກຳນົດ" [value]="Doc.endtime" (input)="Doc.endtime = $event.target.value"/>
 
-                  <nb-datepicker #dateend ></nb-datepicker>
+                  
                
                </div>
               
@@ -250,7 +246,7 @@
 
       </nb-card-body>
     <nb-card-footer>
-        <button  class="btn btn-success"  >
+        <button  class="btn btn-success" (click)="save()" >
             Save
         </button>
         &nbsp;

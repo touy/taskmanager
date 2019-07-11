@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
+import {Location} from '@angular/common';
+import pouchdb from 'pouchdb';
 import { NbDialogService } from '@nebular/theme';
 import { ModleMenberComponent } from '../../project-jobs/modle-menber/modle-menber.component';
 import { ModleJobsComponent } from '../../project-jobs/modle-jobs/modle-jobs.component';
+import { Idocument,Odocument,Igijuser, MyDataBaseNames } from '../../../interface';
 
 @Component({
   selector: 'ngx-add-documet',
@@ -11,9 +14,89 @@ import { ModleJobsComponent } from '../../project-jobs/modle-jobs/modle-jobs.com
 })
 export class AddDocumetComponent implements OnInit {
 
-  constructor(private dialogService: NbDialogService,private router: Router) { }
+  private db: PouchDB.Database<{}>;
+  private Usertable: PouchDB.Database<{}>;
+  remoteCouch = 'http://admin:admin@localhost:5984/job-';
+
+
+  public strFrom ="";
+  public params={};
+  public js:any;
+  Doc: Idocument;
+  _selectedDoc: Idocument;
+
+ 
+  constructor(private dialogService: NbDialogService,private router: Router,public _Location:Location,private route: ActivatedRoute) {
+    this.Doc=new Odocument();
+ 
+    this.db = new pouchdb(MyDataBaseNames.dbdoc);
+  
+   }
 
   ngOnInit() {
+  }
+
+  getData(){
+    this.js = JSON.parse(localStorage.getItem('js'));
+    this.strFrom=this.js.from;
+  }
+  getParams()
+  {
+    this.route.queryParams
+      .subscribe(params => {
+        console.log(params); // {order: "popular"}
+        this.params=params;
+      });
+  }
+
+ 
+  
+
+  save(){
+      console.log(this.Doc);
+
+  
+      try{
+
+        this.Doc._id=(Math.random() * 1000000)+'';
+        console.log('add new');
+       
+        this.insert();
+       
+       
+        
+      }
+      catch(e){
+
+      }
+
+   
+    
+  }
+
+
+  insert(){
+
+  
+    this.db.put(this.Doc, { force: true }, (err, res) => {
+      if (err) {
+        console.log('err after put'
+        );
+        console.log(err);
+      } else {
+        console.log('after put');
+        console.log(res);
+      }
+    });
+  }
+
+
+  deletejob(){
+    this.db.remove(this._selectedDoc).then(res=>{
+
+    }).catch(err=>{
+      
+    })
   }
 
   goblack(){
