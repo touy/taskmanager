@@ -30,10 +30,12 @@ export class AddDocumetComponent implements OnInit {
     this.Doc=new Odocument();
  
     this.db = new pouchdb(MyDataBaseNames.dbdoc);
+   
   
    }
 
   ngOnInit() {
+    
   }
 
   getData(){
@@ -77,7 +79,7 @@ export class AddDocumetComponent implements OnInit {
 
   insert(){
 
-  
+    this.Doc.members 
     this.db.put(this.Doc, { force: true }, (err, res) => {
       if (err) {
         console.log('err after put'
@@ -101,6 +103,10 @@ export class AddDocumetComponent implements OnInit {
 
   goblack(){
     this.router.navigate(['/pages/Plan-document-my'],{})
+  }
+
+  cratejob(){
+    this.router.navigate(['/pages/Add-Plan-jobs'],{})
   }
 
   addmember(){
