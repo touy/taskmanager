@@ -30,6 +30,7 @@ import { ModleJobsComponent } from './pages/project-jobs/modle-jobs/modle-jobs.c
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -43,6 +44,7 @@ import { ModleJobsComponent } from './pages/project-jobs/modle-jobs/modle-jobs.c
     ModalUserRoleComponent,
     ModalRoleListComponent,
     ModleJobsComponent,
+    
   ],
   imports: [
     BrowserModule,

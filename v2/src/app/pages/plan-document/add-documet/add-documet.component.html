@@ -186,70 +186,41 @@
                     
                 </tr>
                 </thead>
-                <tbody>
-                        
-                        <tr>
-                                <td>0001</td>
-                                <td>ແປງຄອມ</td>
-                                <td>12/3/2019</td>
-                                <td>13/3/2019</td>
-                                <td></td>
-                                <td><button  id="" class="btn btn-round btn-success  View_list" data-toggle="tooltip" title="View"><i class="fa fa-file"></i></button>
-                                  <button  id="" class="btn btn-round btn-info     add_sub_job" data-toggle="tooltip" title="Add Sub jobs"><i class="fas fa-plus-square"></i></button>
-                                </td>
-                               
-                              
-                                
-                        </tr>
-                        <tr>
-                                <td>0002</td>
-                                <td>ເຊັກ Server</td>
-                                <td>12/3/2019</td>
-                                <td>13/3/201</td>
-                                <td></td>
-                                <td><button  id="" class="btn btn-round btn-success  View_list" data-toggle="tooltip" title="View"><i class="fa fa-file"></i></button>
-                                  <button  id="" class="btn btn-round btn-info     add_sub_job" data-toggle="tooltip" title="Add Sub jobs"><i class="fas fa-plus-square"></i></button>
-                                </td>
-                               
-                               
-                        </tr>
-                        <tr>
-                                <td>0003</td>
-                                <td>ອອກແບບເວັບໄຊ</td>
-                                <td>19/3/2019</td>
-                                <td>22/3/2019</td>
-                                <td></td>
-                                <td><button  id="" class="btn btn-round btn-success  View_list" data-toggle="tooltip" title="View"><i class="fa fa-file"></i></button>
-                                  <button  id="" class="btn btn-round btn-info     add_sub_job" data-toggle="tooltip" title="Add Sub jobs"><i class="fas fa-plus-square"></i></button>
-                                </td>
-                                
-                                
-                        </tr> 
-                </tbody>
-            </table>
-        </div>
 
+
+              <!--ແຖວຈອບ-->  
+                <tbody> 
+                 <tr *ngFor="let j of jobList; index as i" >
+                     
+                    <td>{{j.jobname}}</td>
+                    <td>{{j.description}}</td>
+                    <td>{{j.createdtime | date:'short' }}</td>
+                    <td>{{j.starttime | date:'short' }}</td>
+                    <td></td>
+                    <td><button  id="" class="btn btn-round btn-success  View_list" data-toggle="tooltip" title="View"><i class="fa fa-file"></i></button>
+                        <button  id="" class="btn btn-round btn-info     add_sub_job" data-toggle="tooltip" title="Add Sub jobs"><i class="fas fa-plus-square"></i></button>
+                   </td>       
+                 </tr>
+
+                </tbody>
+              </table>
+            </div>
                                     <button type="button" class="btn btn-success addjobs_data" title="Add Jobs" name="add" id="addjobs_data" (click)="addjobs()" >ເລືອກວຽກ</button>
                                     &nbsp;
                                     <button type="button" class="btn btn-success" title="Crate Jobs" name="add" id="add" (click)="cratejob()" >ສ້າງວຽກ</button>
-                    
-  
             </div>
             
           </div>
          
-              
-        
-        
-         
-
-
+        <!--ແຖວຈອບ-->         
       </nb-card-body>
     <nb-card-footer>
         <button  class="btn btn-success" (click)="save()" >
             Save
         </button>
+
         &nbsp;
+
         <button  class="btn btn-default" (click)="goblack()">
             close
         </button>
@@ -257,10 +228,6 @@
     </nb-card-footer>
     </nb-card>
   </div>
-
-  
-  
-  
 </div>
 
 

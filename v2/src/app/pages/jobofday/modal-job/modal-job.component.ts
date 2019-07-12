@@ -21,6 +21,7 @@ export class ModalJobComponent  {
   @Input() _rev: string;
   @Input() isdelete:boolean ;
   _selectedJob: Ijob;
+  timenow:Date=new Date();
   now: string;
   constructor(protected ref: NbDialogRef<ModalJobComponent> ,public _Location:Location,public router:Router) {
 
