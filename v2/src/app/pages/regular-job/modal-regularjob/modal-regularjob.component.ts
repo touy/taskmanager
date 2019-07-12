@@ -11,10 +11,10 @@ import { Ojob,Ijob, MyDataBaseNames } from '../../../interface';
   styleUrls: ['./modal-regularjob.component.scss']
 })
 export class ModalRegularJobComponent  {
-  
+  myDate = Date.now(); //ປະກາດຟັງຊັນເອີນໃຊ້ຢູ່ insert ເວລາປະຈຸບັນ
   private db: PouchDB.Database<{}>;
   remoteCouch = 'http://admin:admin@localhost:5984/job-';
-
+  now:Date=new Date();
   job: Ijob;
   //usercom : UserComponent;
   @Input() _id: string;
@@ -23,7 +23,9 @@ export class ModalRegularJobComponent  {
   _selectedJob: Ijob;
   
   constructor(protected ref: NbDialogRef<ModalRegularJobComponent> ,public _Location:Location,public router:Router) {
-
+    setInterval(() => {
+      this.now = new Date();
+    }, 1000);
     this.job=new Ojob();
     this.job._rev = '';
     this.job._id = '';
@@ -35,19 +37,19 @@ export class ModalRegularJobComponent  {
 
   ngOnInit() {
     
-    
+   
     if(this._id){
       this.getjob(this._id);
     }else{
-      this._selectedJob=new Ojob();
+      
     }
     }
 
   
   updatejob(){
     console.log(this._selectedJob);
-    console.log(this._selectedJob._id);
-    console.log(this._selectedJob._rev);
+    // console.log(this._selectedJob._id);
+    // console.log(this._selectedJob._rev);
 
     if(this._rev){
       
@@ -87,7 +89,8 @@ export class ModalRegularJobComponent  {
 
   insert(){
 
-  
+    this.job.createdtime=this.now+''; //ບັນທືກເວລາປະຈຸບັນເຂົ້ນເຂົ້າຖານຂໍ້ມູນ
+    this.job.starttime=new Date().toISOString()+''; //ບັນທືກເວລາປະຈຸບັນເຂົ້ນເຂົ້າຖານຂໍ້ມູນ
     this.db.put(this.job, { force: true }, (err, res) => {
       if (err) {
         console.log('err after put'
@@ -108,7 +111,7 @@ export class ModalRegularJobComponent  {
       
     })
   }
-
+ 
 
   updateManyjob(arr:[]){
     // for many at once
@@ -150,11 +153,13 @@ export class ModalRegularJobComponent  {
     
 
   }
-  time(){
-    let date: Date = new Date();
-console.log("Date = " + date);
 
-  }
+  
+ // time(){
+ //   let date: Date = new Date("");
+//  console.log("Date = " + date);
+    
+  //}
 
 }
 

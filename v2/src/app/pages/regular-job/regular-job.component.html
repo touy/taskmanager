@@ -19,6 +19,7 @@
                   <tr>
                     <th>ລະຫັດ</th>
                     <th> ຊື່ວຽກ</th>
+                    <th>ລາຍລະອຽດວຽກ</th>
                     <th> ເວລາສ້າງເອກະສານ </th>
                     <th> ເວລາເລີ້ມເຮັດເອກະສານ </th>
                     <th> ເວລາເຮັດເອກະສານແລ້ວ </th>
@@ -27,15 +28,20 @@
                   </tr>
                 </thead>
                 <tbody>
-                 
 
                     <tr *ngFor="let j of jobList; index as i" >
                         <td>{{j._id}}</td>
                         <td>{{j.jobname}}</td>
-                        <td>{{j.createdtime}}</td>
-                        <td>{{j.starttime}}</td>
-                        <td>{{j.endtime}}</td>
-                        <td><input type="checkbox" ></td>
+                        <td>{{j.description}}</td>
+                        <td>{{j.createdtime | date:'short' }}</td>
+                        <td>{{j.starttime | date:'short' }}</td>
+                        <td>{{j.endtime | date:'short' }}</td>
+                        <td><input type="checkbox" [disabled]="j.endtime"[checked]="j.endtime" (input)="endJob(j)"></td>
+                        <!--ເຮັດແຊັກບອກໃຫ້ບັນທືກລົງຖານຂໍ້ມູນ
+                        disabled:ກັນບໍ່ໃຫ້ປົດແຊັກບອກກັບsຖ້າມີຂໍ້ມູນຢູ່ j.endtime
+                        checcke:ຖ້າມີຂໍ້ມູນຢູ່ j.endtime ແລ້ວໃຫ້ແຊກບອກແຮັດວຽກ
+                        input:ເຮົາຕ້ອງການບັນທືກໃນຄໍລໍລໍໃດ
+                        -->
                     </tr>
                       
 
@@ -57,7 +63,4 @@
       </nb-card-body>
     </nb-card>
   </div>
-  
-  
 </div>
-

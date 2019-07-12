@@ -153,11 +153,19 @@ export class JobofdayComponent implements OnInit {
     dlg.onClose.subscribe(result=>{
       this.loadjobList();
     });
-
-
-
-
   }
-  
-  
+  endJob(j:Ijob){   //ສ້າງຟັງຊັນໃຫ້ກັບແຊກບອກໃນ(HTML)
+    j.endtime?j.endtime='':j.endtime=new Date().toISOString(); 
+    this.updatejob(j);  
+    //  ຖ້າວ່າ ?j.endtime   ໃຫ້ເທົ່າກັບເປົ່ບເປົ່າວ່າງ ບໍ່ມີຄ່າແມ່ນແຊັກບອກບໍ່ເຮັດວຽກ  
+    //ຫຼືວ່າ :j.endtime=new Date().toISOString();ເປົ່າວ່າງແລວແອດເວລາປະຈຸບັນໃສ
+  }
+  updatejob(j:Ijob){  //ບັນທືກແຊັກບອກລົງຖານຂໍ້ມູນ
+    this.dbjob.put(j).then(res=>{
+      console.log(res);
+      
+    }).catch(err=>{
+      console.log((err));
+    });
+  }
 }

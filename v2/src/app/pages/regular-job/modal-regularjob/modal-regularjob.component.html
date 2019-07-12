@@ -13,38 +13,34 @@
                 <input type="text" nbInput fullWidth placeholder="ລະຫັຫັດ">
               </div> 
           </div> -->
-          
+             
           <div class="row ">
               <div class="col-sm-12">
-                <h3>ຊື່</h3>             
+                <h3>ຊື່</h3>       
+                  
                 <input type="text" nbInput fullWidth  placeholder="ຊື່ວຽກ" (input)="job.jobname = $event.target.value">
               </div> 
           </div> 
           <br/>
-      
 
+          <div class="row">
+            <div class="col-sm-12" >
+              <h3>ລາຍລະອຽດວຽກ</h3>          
+                    <textarea  rows="6" nbInput fullWidth placeholder="ລາຍລະອຽດວຽກ" (change)="job.description = $event.target.value" >{{job.description}}</textarea> 
+                    <!-- <input type="text" nbInput fullWidth  placeholder="ລາຍລະອຽດວຽກ" [value]="job.description" (input)="job.description = $event.target.value">--> 
+                      
+                  </div> 
+              </div> 
+          
           <div class="row ">
-              <div class="col-sm-4 input-group">
-                <h4>ເວລາສ້າງເອກະສານ</h4>             
-               <input type="date"  nbInput fullWidth 
-                 [value]="job.createdtime" (input)="job.createdtime= $event.target.value">
-               
-              </div> 
-        
-              <div class="col-sm-4 input-group">
+              <div class="col-sm-6 input-group">
                 <h4>ເວລາເຮັດເອກະສານ</h4>             
-                <input type="date" nbInput fullWidth placeholder="" [value]="job.starttime" (input)="job.starttime = $event.target.value">
+              {{now}}  
               </div> 
-              
-              <div class="col-sm-4 input-group">
-                  <h4>ເວລາສີນສຸດ</h4>             
-                  <input type="date" nbInput fullWidth placeholder="" [value]="job.endtime" (input)="job.endtime = $event.target.value">
-              </div> 
+            
           </div> 
           <br>
-
-
-        
+          
       </nb-card-body>
     <nb-card-footer>
         <button  class="btn btn-success" (click)="updatejob()" >

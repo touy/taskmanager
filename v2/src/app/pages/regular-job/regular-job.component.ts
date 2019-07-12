@@ -10,13 +10,14 @@ import pouchdb from 'pouchdb';
   styleUrls: ['./regular-job.component.scss']
 })
 export class RegularJobComponent implements OnInit {
-
+  
   jobList: Ijob[];
   selectedJob: Ijob;
   private dbjob: PouchDB.Database<{}>; // job db
   private dbdoc: PouchDB.Database<{}>;
   remoteCouch = 'http://admin:admin@localhost:5984/job-';
   constructor(private dialogService: NbDialogService, private router: Router) {
+    
     this.jobList = new Array<Ojob>();
     this.selectedJob= new Ojob();
     // dbfullname=prefixname+dbname+prefix
@@ -163,4 +164,19 @@ export class RegularJobComponent implements OnInit {
 
 
   }
+  endJob(j:Ijob){   //ສ້າງຟັງຊັນໃຫ້ກັບແຊກບອກໃນ(HTML)
+    j.endtime?j.endtime='':j.endtime=new Date().toISOString(); 
+    this.updatejob(j);
+    //  ຖ້າວ່າ ?j.endtime   ໃຫ້ເທົ່າກັບເປົ່ບເປົ່າວ່າງ ບໍ່ມີຄ່າແມ່ນແຊັກບອກບໍ່ເຮັດວຽກ  
+    //ຫຼືວ່າ :j.endtime=new Date().toISOString();ເປົ່າວ່າງແລວແອດເວລາປະຈຸບັນໃສ
+  }
+  updatejob(j:Ijob){ //ບັນທືກແຊັກບອກລົງຖານຂໍ້ມູນ
+    this.dbjob.put(j,{force:true}).then(res=>{
+      console.log(res);
+      
+    }).catch(err=>{
+      console.log((err));
+    });
+  }
+
 }

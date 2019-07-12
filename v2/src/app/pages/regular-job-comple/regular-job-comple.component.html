@@ -18,6 +18,7 @@
                     <tr>
                       <th>ລະຫັດ</th>
                       <th> ຊື່ວຽກ</th>
+                      <th>ລາຍລະອຽດວຽກ</th>
                       <th> ເວລາສ້າງເອກະສານ </th>
                       <th> ເວລາເລີ້ມເຮັດເອກະສານ </th>
                       <th> ເວລາເຮັດເອກະສານແລ້ວ </th>
@@ -26,28 +27,33 @@
                     </tr>
                   </thead>
                   <tbody>
-                   
-  
-                      <tr *ngFor="let j of jobList; index as i" >
-                          <td>{{j._id}}</td>
+                   <!-- {{setNow()}} ການທົດລອງການນວງເວລາ-->
+                    <ng-container *ngFor="let j of jobList index as i" > <!--ແປງຊື່ຕົວປຽນໃຫ້ສັນລົງ-->
+                      <tr *ngIf="j.endtime"><!--ເອີນສະເພາະເພາະຂໍ້ມູນທີວ-->
+                          <td>{{j._id}}<!-- ---- {{showTimeDiff()}} --></td>
                           <td>{{j.jobname}}</td>
-                          <td>{{j.createdtime}}</td>
-                          <td>{{j.starttime}}</td>
-                          <td>{{j.endtime}}</td>
+                          <td>{{j.description}}</td>
+                          <td>{{j.createdtime | date:'short'}}</td>
+                          <td>{{j.starttime | date:'short'}}</td>
+                          <td>{{j.endtime | date:'short'}}</td>
                           
                       </tr>
-                        
-  
-                   <!-- <tr>
-                      <td>k</td>
-                      <td>1</td>
-                      <td>10:00 AM</td>
-                      <td>11:00 AM</td>
-                      <td>12:00 PM</td>
-                      <td><input type="checkbox" name="vehicle" value="Bike"> </td>
-                    </tr>
-                    -->
-  
+                    </ng-container>
+
+                    <!-- <ng-container *ngFor="let j of showCompleted(); index as i" > 
+                      <tr >
+                          <td>{{j._id}}</td>
+                          <td>{{j.jobname}}</td>
+                          <td>{{j.description}}</td>
+                          <td>{{j.createdtime | date:'short'}}</td>
+                          <td>{{j.starttime | date:'short'}}</td>
+                          <td>{{j.endtime | date:'short'}}</td>
+                          
+                      </tr>
+                    </ng-container> ແບບເອີນໃຊ້ຟັງຊັນ -->
+                    
+                      
+
                   </tbody>
                 </table>
               </div>

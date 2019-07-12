@@ -157,9 +157,22 @@ export class RegularJobCompleComponent implements OnInit {
       this.loadjobList();
     });
 
+    
 
 
-
+  }
+  showCompleted(){  //ຟັງຊັນເອີນສະເພາະຂໍ້ມູນທີມີ j.endtime 
+    return this.jobList.filter(j=>{
+      return j.endtime;
+    });
+  }
+  now:number= Date.now(); //ຟັງຊັນທົດລອງນວງເວລາ
+  setNow(){
+    return this.now=Date.now();
+  }
+  showTimeDiff(){    //ຟັງຊັນທົດລອງນວງເວລາ
+    let m=Date.now();
+    return (m-this.now)+'/'+m;
   }
 
 }
