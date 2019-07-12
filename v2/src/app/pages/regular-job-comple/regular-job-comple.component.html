@@ -16,7 +16,7 @@
                 <table class="table table-bordered ">
                   <thead>
                     <tr>
-                      <th>ລະຫັດ</th>
+                    <!--<th>ລະຫັດ</th>-->  
                       <th> ຊື່ວຽກ</th>
                       <th>ລາຍລະອຽດວຽກ</th>
                       <th> ເວລາສ້າງເອກະສານ </th>
@@ -30,7 +30,7 @@
                    <!-- {{setNow()}} ການທົດລອງການນວງເວລາ-->
                     <ng-container *ngFor="let j of jobList index as i" > <!--ແປງຊື່ຕົວປຽນໃຫ້ສັນລົງ-->
                       <tr *ngIf="j.endtime"><!--ເອີນສະເພາະເພາະຂໍ້ມູນທີວ-->
-                          <td>{{j._id}}<!-- ---- {{showTimeDiff()}} --></td>
+                         <!-- <td>{{j._id}} -- {{showTimeDiff()}} </td> -->
                           <td>{{j.jobname}}</td>
                           <td>{{j.description}}</td>
                           <td>{{j.createdtime | date:'short'}}</td>
