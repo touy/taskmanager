@@ -1,7 +1,7 @@
 <div class="col-md-12">
   <nb-card class="col-md-12">
     <nb-card-header>
-      <H4>ເລືອກສະມາຊີກ</H4>
+      <H4>ເລືອກໜ້າວຽກ</H4>
     </nb-card-header>
     <nb-card-body>
 
@@ -11,8 +11,8 @@
             <thead>
             <tr>
                 <th width="100px">ລະຫັດ</th>
-                <th width="350px">ຊື່ສະມາຊິກ</th>
-                <th width="10%">ແກ້ໄຂ</th>
+                <th width="350px">ຫົວຂໍ້ວຽກ</th>
+                
                 <th width="10%">ເລືອກ</th>
                 
                
@@ -20,32 +20,13 @@
             </tr>
             </thead>
             <tbody>
-                    <tr>
-                            <td>0001</td>
+                    <tr  *ngFor="let u of jobsList; index as i" >
+                            <td>{{u._id}} </td>
                             <td>ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ</td>
-                            <td align="center"><input type="checkbox" value=""></td>
-                            <td align="center"><input type="checkbox" value=""></td>
-                          
-                           
+                            <td align="center"><input type="checkbox" [checked]="getSeleteObj(u)" (input)='seleteObj(u)'></td>
                             
                     </tr>
-                    <tr>
-                            <td>0002</td>
-                            <td>ທ້າວ ສອນໄຊ ເກດແກ້ວ</td>
-                            <td align="center"><input type="checkbox" value=""></td>
-                            <td align="center"><input type="checkbox" value=""></td>
-                           
-                            
-                           
-                    </tr>
-                    <tr>
-                            <td>0003</td>
-                            <td>ທ້າວ ໄຊນະພາ ພົມວິຫານ</td>
-                            <td align="center"><input type="checkbox" value=""></td>
-                            <td align="center"><input type="checkbox" value=""></td>
-                           
-                            
-                    </tr>
+                  
             </tbody>
         </table>
        
