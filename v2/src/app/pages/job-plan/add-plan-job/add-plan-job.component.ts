@@ -74,7 +74,7 @@ export class AddPlanJobComponent implements OnInit {
     });
   }
   updatejob(){
-     console.log(this._selectedJob);
+     //console.log(this._selectedJob);
      console.log(this.job);
    // console.log(this._selectedJob._id);
     //console.log(this._selectedJob._rev);

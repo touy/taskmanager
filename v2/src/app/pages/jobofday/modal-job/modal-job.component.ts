@@ -86,7 +86,7 @@ export class ModalJobComponent  {
 
 
   insert(){
-    this.job.createdtime=this.now+''; //ບັນທືກເວລາປະຈຸບັນເຂົ້ນເຂົ້າຖານຂໍ້ມູນ
+    this.job.createdtime=this.timenow+''; //ບັນທືກເວລາປະຈຸບັນເຂົ້ນເຂົ້າຖານຂໍ້ມູນ
     this.job.starttime=new Date().toISOString()+''; //ບັນທືກເວລາປະຈຸບັນເຂົ້ນເຂົ້າຖານຂໍ້ມູນ
     this.db.put(this.job, { force: true }, (err, res) => {
       if (err) {
