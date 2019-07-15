@@ -11,7 +11,7 @@
                 <h3>ຫົວຂໍ້ວຽກ</h3>             
               </div>
               <div class="col-sm-10 input-group">
-                  <input type="text" nbInput fullWidth  placeholder="ຫົວຂໍ້ວຽກ"  (input)="job.jobname = $event.target.value">
+                  <input type="text" nbInput fullWidth  placeholder="ຫົວຂໍ້ວຽກ" (input)="job.jobname = $event.target.value">
               </div>
               
           </div> 
@@ -83,41 +83,25 @@
                                 <th>ລະຫັດ</th>
                                 <th>ຊື່ສະມາຊິກ</th>
                                 <th>ຄວາມສາມາດ</th>
+                             
                                
                                 
                             </tr>
                             </thead>
                             <tbody>
-                                    <tr>
-                                            <td>0001</td>
-                                            <td>ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ</td>
-                                            <td><span class="badge badge-pill badge-success">ຫົວຫນ້າທີມ</span></td>
-                                          
-                                           
-                                            
-                                    </tr>
-                                    <tr>
-                                            <td>0002</td>
-                                            <td>ທ້າວ ສອນໄຊ ເກດແກ້ວ</td>
-                                            <td></td>
-                                           
-                                            
-                                           
-                                    </tr>
-                                    <tr>
-                                            <td>0003</td>
-                                            <td>ທ້າວ ໄຊນະພາ ພົມວິຫານ</td>
-                                            <td></td>
-                                           
-                                            
-                                    </tr>
+                              <tr *ngFor="let u of userList index as i">
+                                <td>{{u._id}}</td>
+                                <td>{{u.username}}</td>
+                                <td>{{u.permission}}</td>
+                             
+                              </tr>
                             </tbody>
                         </table>
                        
                     </div>
                     <button type="button" class="btn btn-success" title="Add Menber"  data-toggle="modal" data-target="#add_data_Modal">ເພີ້ມສະມາຊິກ</button>
                     <br/>
-                    
+                    <!--ສ່ວນສະມາຊິກ-->
   
             </div>
             
@@ -158,15 +142,12 @@
                     <th>ວັນທີກຳນົດ</th>
                     <th>ສະຖານະພາບ</th>
                     <th>Action</th>
-                   
-                   
-                    
                 </tr>
                 </thead>
                 <tbody>
                         
                     <ng-container *ngFor="let j of jobList index as i" > <!--ແປງຊື່ຕົວປຽນໃຫ້ສັນລົງ-->
-                      <tr *ngIf="j.endtime"><!--ເອີນສະເພາະເພາະຂໍ້ມູນທີວ-->
+                      <tr>
                          <!-- <td>{{j._id}} -- {{showTimeDiff()}} </td> -->
                    
                           <td>{{j.jobname}}</td>
@@ -183,14 +164,9 @@
                                     <button type="button" class="btn btn-success addjobs_data" title="Add Jobs" name="add" id="addjobs_data" >ເລືອກວຽກ</button>
                                     &nbsp;
                                     <button type="button" class="btn btn-success" title="Crate Jobs" name="add" id="add" >ສ້າງວຽກ</button>
-                    
-  
             </div>
             
           </div>
-         
-              
-        
           <button  class="btn btn-success" (click)="updatejob()" >
               save
           </button>
@@ -198,109 +174,9 @@
           <button  class="btn btn-default" (click)="close()">
               Cancel
           </button>
-         
-            
-
       </nb-card-body>
 
     </nb-card>
   </div>
-
-  <div id="add_data_Modal" class="modal fade">
-      <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-      <div class="modal-header">
-        <div class="row">
-          <div class="col-sm-11">
-           <h3 >ເລືອກພະນັກງານ</h3> 
-            
-          </div>
-          <div class="col-sm-1">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-      </div>
-      </div>
-      <div class="modal-body">
-      <form method="post" id="insert_form" autocomplete="off">
-          
-          
-        
-          <div class="form-group row">
-              
-              <div class="col-sm-12">
-
-
-                     
-                      <div class="table-responsive">
-                              <table id="data_employee" class="table table-bordered" >
-                              
-                              <thead>
-                              <tr>
-                                  <th  width="10%">ເລືອກ</th>
-                                  <th  width="10%">ຮູບພາບ</th>
-                                  <th>ຊື່ສະມາຊິກ</th>
-                                  
-                                 
-                                  
-                              </tr>
-                              </thead>
-                              <tbody>
-                                      <tr>
-                                              <td>
-                                                  <div class="form-group form-check mb-0">
-                                                      <input type="checkbox" class="form-check-input" name="exampleCheck1">
-                                                      
-                                                  </div>
-                                              </td>
-                                              <td>
-                                                  
-                                              </td>
-                                              <td>ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ</td>
-                                             
-                                             
-                                              
-                                      </tr>
-                                      <tr>
-                                              <td>
-                                                  <div class="form-group form-check mb-0">
-                                                      <input type="checkbox" class="form-check-input" name="exampleCheck1">
-                                                  </div>  
-                                              </td>
-                                              <td>
-                                                
-                                              </td>
-                                              <td>ທ້າວ ສອນໄຊ ເກດແກ້ວ</td>
-                                              
-                                              
-                                             
-                                      </tr>
-                                      <tr>
-                                              <td>
-                                                  <div class="form-group form-check mb-0">
-                                                      <input type="checkbox" class="form-check-input" name="exampleCheck1">
-                                                  </div> 
-                                              </td>
-                                              <td>
-                                                  
-                                              </td>
-                                              <td>ທ້າວ ໄຊນະພາ ພົມວິຫານ</td>
-                                             
-                                              
-                                      </tr>
-                              </tbody>
-                          </table>
-                      </div>
-                
-              </div>
-              
-          </div>
-         
-      </form>
-      </div>
-    
-      </div>
-      </div>
-      </div>
-</div>
 
 

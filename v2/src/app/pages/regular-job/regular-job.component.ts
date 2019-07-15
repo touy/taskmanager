@@ -164,13 +164,19 @@ export class RegularJobComponent implements OnInit {
 
 
   }
-  endJob(j:Ijob){   //ສ້າງຟັງຊັນໃຫ້ກັບແຊກບອກໃນ(HTML)
+  endJob(j:Ijob){   //ສ້າງຟັງຊັນໃຫ້ກັບເຊັກບອກໃນ(HTML)
     j.endtime?j.endtime='':j.endtime=new Date().toISOString(); 
-    this.updatejob(j);
-    //  ຖ້າວ່າ ?j.endtime   ໃຫ້ເທົ່າກັບເປົ່ບເປົ່າວ່າງ ບໍ່ມີຄ່າແມ່ນແຊັກບອກບໍ່ເຮັດວຽກ  
+    this.updatejob(j); //ອັບເດລົງຖານຂໍ້ມູນ
+    //  ຖ້າວ່າ j.endtime?j.endtime=''   ໃຫ້ເທົ່າກັບເປົ່ບເປົ່າວ່າງ ບໍ່ມີຄ່າແມ່ນເຊັກບອກບໍ່ເຮັດວຽກ  
     //ຫຼືວ່າ :j.endtime=new Date().toISOString();ເປົ່າວ່າງແລວແອດເວລາປະຈຸບັນໃສ
   }
-  updatejob(j:Ijob){ //ບັນທືກແຊັກບອກລົງຖານຂໍ້ມູນ
+
+          //  canceljob(c:Ijob){
+          //  c.cancel?c.cancel='':'cancel';
+          //  this.updatejob(j);
+          // }
+
+  updatejob(j:Ijob){ //ບັນທືກເຊັກບອກລົງຖານຂໍ້ມູນ
     this.dbjob.put(j,{force:true}).then(res=>{
       console.log(res);
       

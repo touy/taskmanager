@@ -5,7 +5,8 @@ import { from } from 'rxjs';
 import { NbDialogRef } from '@nebular/theme';
 import {Location} from '@angular/common';
 import { NbDialogService } from '@nebular/theme';
-import {Ijob,Ojob, MyDataBaseNames} from '../../../interface';
+import {Ijob,Ojob, MyDataBaseNames,Igijuser, Ogijuser,  OmySystem} from '../../../interface';
+
 import pouchdb from 'pouchdb';
 
 @Component({
@@ -15,6 +16,7 @@ import pouchdb from 'pouchdb';
 })
 export class AddPlanJobComponent implements OnInit {
   jobList: Ijob[];
+  userList: Igijuser[];
   myDate = Date.now();
   private db: PouchDB.Database<{}>;
   remoteCouch = 'http://admin:admin@localhost:5984/job-';
@@ -24,6 +26,7 @@ export class AddPlanJobComponent implements OnInit {
   @Input() _rev: string;
   @Input() isdelete:boolean ;
   _selectedJob: Ijob;
+  _selectedUser: Ogijuser;
   timenow:Date=new Date();
   now: string;
   constructor(private _Location:Location, private router: Router) {
@@ -32,21 +35,25 @@ export class AddPlanJobComponent implements OnInit {
     this.job._rev = '';
     this.job._id = '';
     this.db = new pouchdb(MyDataBaseNames.dbjob);
-    
 
+
+    this.userList = new Array<Ogijuser>();
+    this._selectedUser = new Ogijuser();
    }
 
    ngOnInit() {
     this.remoteCouch += MyDataBaseNames.dbjob; /// + prefix
     this.db = new pouchdb(MyDataBaseNames.dbjob); // + prefix
     this.loadjobList();
+
+    this.remoteCouch += MyDataBaseNames.dbuser; /// + prefix
+    this.db = new pouchdb(MyDataBaseNames.dbuser); // + prefix
+    this.loadUserList();
    
     if(this._id){
       this.getjob(this._id);
-    }else{
-      
+    }else{  
     }
- 
     }
 
   loadjobList() {
@@ -68,8 +75,9 @@ export class AddPlanJobComponent implements OnInit {
   }
   updatejob(){
      console.log(this._selectedJob);
-    //console.log(this._selectedJob._id);
-   // console.log(this._selectedJob._rev);
+     console.log(this.job);
+   // console.log(this._selectedJob._id);
+    //console.log(this._selectedJob._rev);
     if(this._rev){
       if(this.isdelete){
         console.log('delete');
@@ -90,18 +98,18 @@ export class AddPlanJobComponent implements OnInit {
       }
       catch(e){
       }
+    
     }
   }
-
 
   insert(){
 
    // this.job.createdtime=this.now+''; //ບັນທືກເວລາປະຈຸບັນເຂົ້ນເຂົ້າຖານຂໍ້ມູນ
   //  this.job.starttime=new Date().toISOString()+''; //ບັນທືກເວລາປະຈຸບັນເຂົ້ນເຂົ້າຖານຂໍ້ມູນ
+    
     this.db.put(this.job, { force: true }, (err, res) => {
       if (err) {
-        console.log('err after put'
-        );
+        console.log('err after put');
         console.log(err);
       } else {
         console.log('after put');
@@ -109,7 +117,6 @@ export class AddPlanJobComponent implements OnInit {
       }
     });
   }
-
 
   deletejob(){
     this.db.remove(this._selectedJob).then(res=>{
@@ -119,7 +126,6 @@ export class AddPlanJobComponent implements OnInit {
     })
   }
  
-
   updateManyjob(arr:[]){
     // for many at once
     this.db.bulkDocs(arr,{new_edits:true,},(err,res)=>{
@@ -150,6 +156,22 @@ export class AddPlanJobComponent implements OnInit {
   refresh(): void {
     this.router.navigateByUrl('/user',{skipLocationChange:true}).then(()=>{
         this.router.navigate([decodeURI(this._Location.path())]);
+    });
+  }
+
+  loadUserList() {
+    const pageSize = 10;
+    const offSet = 0;
+    const parent = this;
+    this.userList.length = 0;
+    this.userList = new Array<Igijuser>();
+    this.db.allDocs({ limit: pageSize, skip: offSet, descending: true, include_docs: true }).then(res => {
+      //console.log(res);
+      for (let index = 0; index < res.rows.length; index++) {
+        parent.userList.push(<Igijuser><unknown>res.rows[index].doc);
+      }
+    }).catch(err => {
+      console.log(err);
     });
   }
 

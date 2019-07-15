@@ -73,9 +73,6 @@ export class ModalRegularJobComponent  {
         this.job._id=(Math.random() * 1000000)+'';
         console.log('add new');
         this.insert();
-       
-       
-        
       }
       catch(e){
       }
