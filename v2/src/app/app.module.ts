@@ -27,8 +27,8 @@ import { ModleMenberComponent } from './pages/project-jobs/modle-menber/modle-me
 import { ModalRegularJobComponent } from './pages/regular-job/modal-regularjob/modal-regularjob.component';
 import { ModleJobsComponent } from './pages/project-jobs/modle-jobs/modle-jobs.component';
 
-
-
+import{ModalAddJobComponent} from './pages/job-plan/add-plan-job/modal-add-job/modal-add-job.component';
+import{ModalAddMemberComponent} from './pages/job-plan/add-plan-job/modal-add-member/modal-add-member.component';
 
 
 @NgModule({
@@ -44,6 +44,8 @@ import { ModleJobsComponent } from './pages/project-jobs/modle-jobs/modle-jobs.c
     ModalUserRoleComponent,
     ModalRoleListComponent,
     ModleJobsComponent,
+    ModalAddJobComponent,
+    ModalAddMemberComponent,
     
   ],
   imports: [
@@ -67,6 +69,9 @@ import { ModleJobsComponent } from './pages/project-jobs/modle-jobs/modle-jobs.c
     ModalUserRoleComponent,
     ModalRoleListComponent,
     ModleJobsComponent,
+    ModalAddJobComponent,
+    ModalAddMemberComponent,
+    
   ],
   bootstrap: [AppComponent],
   providers: [

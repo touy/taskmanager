@@ -6,11 +6,12 @@ import { NbDialogRef } from '@nebular/theme';
 import { Location } from '@angular/common';
 
 import { NbDialogService } from '@nebular/theme';
-import { Ijob, Ojob, MyDataBaseNames, Igijuser, Ogijuser, OmySystem } from '../../../interface';
+import { Ijob, Ojob, MyDataBaseNames, Igijuser, Ogijuser, OmySystem, IpermissionAssigned, OpermissionsAssigned } from '../../../interface';
 import pouchdb from 'pouchdb';
 
 import {ModalAddJobComponent} from './modal-add-job/modal-add-job.component';
 import {ModalAddMemberComponent} from './modal-add-member/modal-add-member.component'
+import { Iuser } from '../../user-roles/modal-user-roles/modal-user-roles.component';
 
 @Component({
   selector: 'ngx-add-plan-job',
@@ -75,6 +76,24 @@ export class AddPlanJobComponent implements OnInit {
   }
   updatejob() {
     console.log(this._selectedJob);
+
+ //   let selectedUsers:Array<Iuser>=new Array<Iuser>();
+  //  selectedUsers.push();
+  //  selectedUsers= selectedUsers.filter(x=>{x._id!==u._id});
+
+  //  let members:Array<IpermissionAssigned>=new Array<OpermissionsAssigned>();
+
+   // selectedUsers.forEach((v,i,a)=>{
+   //   let m=new OpermissionsAssigned();
+    //  m.admin;
+    //  m.assignedname=v.username;
+    //  m.endtime;
+     // m.memberaccepted;
+    //  m.title="leader";
+     // members.push(m);
+   // });
+    
+  //  this._selectedJob.members=members;
     //console.log(this.job);
     // console.log(this._selectedJob._id);
     //console.log(this._selectedJob._rev);
@@ -174,8 +193,8 @@ export class AddPlanJobComponent implements OnInit {
   job_add() {
     let dlg = this.dialogService.open(ModalAddJobComponent, {
       context: {
-        _id: '',
-        _rev: ''
+      //  _id: '',
+      //  _rev: ''
         //close:parent.modelClose
       }
     });
@@ -188,8 +207,8 @@ export class AddPlanJobComponent implements OnInit {
   member_add(){
     let dlg = this.dialogService.open(ModalAddMemberComponent, {
       context: {
-        _id: '',
-        _rev: ''
+     //   _id: '',
+      //  _rev: ''
         //close:parent.modelClose
       }
     });

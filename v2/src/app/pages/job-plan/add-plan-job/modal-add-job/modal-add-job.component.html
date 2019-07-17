@@ -4,7 +4,7 @@
       <nb-card>
         <nb-card-header>
             <div class="row">
-              <h3 class="col-md-11" >regularjob of day</h3>
+              <h3 class="col-md-11" >job</h3>
               
             </div>
           
@@ -26,10 +26,10 @@
                   </thead>
                   <tbody>
   
-           <tr>
+           <tr *ngFor="let j of jobList; index as i">
 
-            <td>work</td>
-            <td>slkdllfl</td>
+            <td>{{j.jobname}}</td>
+            <td>{{j.description}}</td>
             <td><input type="checkbox"></td>
            </tr>
                         

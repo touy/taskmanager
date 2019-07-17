@@ -172,7 +172,7 @@ export class RegularJobComponent implements OnInit {
   }
 
           //  canceljob(c:Ijob){
-          //  c.cancel?c.cancel='':'cancel';
+          //  c.cancel?c.cancel='':'';
           //  this.updatejob(j);
           // }
 

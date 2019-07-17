@@ -120,8 +120,6 @@ export class RegularJobCompleComponent implements OnInit {
     });
   }
 
-
-
   job_edit(id: string, rev: string,isdelete:boolean=false) {
     let parent = this;
 

@@ -90,8 +90,7 @@ export class ModalRegularJobComponent  {
     this.job.starttime=new Date().toISOString()+''; //ບັນທືກເວລາປະຈຸບັນເຂົ້ນເຂົ້າຖານຂໍ້ມູນ
     this.db.put(this.job, { force: true }, (err, res) => {
       if (err) {
-        console.log('err after put'
-        );
+        console.log('err after put');
         console.log(err);
       } else {
         console.log('after put');

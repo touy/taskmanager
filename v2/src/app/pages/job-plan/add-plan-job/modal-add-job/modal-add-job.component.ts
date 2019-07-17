@@ -11,151 +11,106 @@ import { Ojob,Ijob, MyDataBaseNames } from '../../../../interface';
   styleUrls: ['./modal-add-job.component.scss']
 })
 export class ModalAddJobComponent  {
-  myDate = Date.now(); //ປະກາດຟັງຊັນເອີນໃຊ້ຢູ່ insert ເວລາປະຈຸບັນ
-  private db: PouchDB.Database<{}>;
+  jobList: Ijob[];
+  selectedJob: Ijob;
+  private dbjob: PouchDB.Database<{}>; // job db
+  private dbdoc: PouchDB.Database<{}>;
   remoteCouch = 'http://admin:admin@localhost:5984/job-';
-  now:Date=new Date();
-  job: Ijob;
-  //usercom : UserComponent;
-  @Input() _id: string;
-  @Input() _rev: string;
-  @Input() isdelete:boolean ;
-  _selectedJob: Ijob;
   
   constructor(protected ref: NbDialogRef<ModalAddJobComponent> ,public _Location:Location,public router:Router) {
-    setInterval(() => {
-      this.now = new Date();
-    }, 1000);
-    this.job=new Ojob();
-    this.job._rev = '';
-    this.job._id = '';
-   
-    this.db = new pouchdb(MyDataBaseNames.dbjob);
-
-    
-  }
-
-  ngOnInit() {
-    
-   
-    if(this._id){
-      this.getjob(this._id);
-    }else{
-      
-    }
-    }
-
-  
-  updatejob(){
-    console.log(this._selectedJob);
-    // console.log(this._selectedJob._id);
-    // console.log(this._selectedJob._rev);
-
-    if(this._rev){
-      
-      if(this.isdelete){
-        console.log('delete');
-        this.deletejob();
-      }else{
-        console.log('update');
-        this.db.put(this._selectedJob,{force:true}).then(res=>{
-          console.log(res);
-          
-        }).catch(err=>{
-          console.log((err));
-          
-        });
-      }
-      
-    }else{
-      try{
-
-        this.job._id=(Math.random() * 1000000)+'';
-        console.log('add new');
-        this.insert();
-      }
-      catch(e){
-      }
-
-    }
-    //this.reface();
-    this.ref.close({command:'update'});
-    
+    this.jobList = new Array<Ojob>();
+    this.selectedJob= new Ojob();
+    // dbfullname=prefixname+dbname+prefix
+    let dbfullname=''+MyDataBaseNames.dbdoc+'';
+    this.dbdoc= new pouchdb(dbfullname);
+    dbfullname=''+MyDataBaseNames.dbjob+'';
+    this.dbjob = new pouchdb(dbfullname);//dbname-prefix
+    this.sync();
   }
 
 
-  insert(){
+  sync() {
+    //syncDom.setAttribute('data-sync-state', 'syncing');
+    let parent = this;
+     // dbfullname=prefixname+dbname+prefix
+     let dbfullname=''+MyDataBaseNames.dbdoc+'';
+     // urlname = serverurl+
+     let urlname=this.remoteCouch+dbfullname;
+    this.dbdoc.sync(urlname, {
+      live: true,
+      //retry: true
+    }).on('change', async (info) => {
+      console.log('sync res');
+      console.log(info);
+    }).on('paused', function (err) {
+      // replication paused (e.g. replication up to date, user went offline)
+      console.log('paused');
 
-    this.job.createdtime=this.now+''; //ບັນທືກເວລາປະຈຸບັນເຂົ້ນເຂົ້າຖານຂໍ້ມູນ
-    this.job.starttime=new Date().toISOString()+''; //ບັນທືກເວລາປະຈຸບັນເຂົ້ນເຂົ້າຖານຂໍ້ມູນ
-    this.db.put(this.job, { force: true }, (err, res) => {
-      if (err) {
-        console.log('err after put');
-        console.log(err);
-      } else {
-        console.log('after put');
-        console.log(res);
-      }
-    });
-  }
-
-
-  deletejob(){
-    this.db.remove(this._selectedJob).then(res=>{
-
-    }).catch(err=>{
-      
-    })
-  }
- 
-
-  updateManyjob(arr:[]){
-    // for many at once
-    this.db.bulkDocs(arr,{new_edits:true,},(err,res)=>{
-      if(err){
-        console.log(err);
-        
-      } 
-      else{
-        console.log(res);
-        
-      }
-    });
-  }
-  getjob(id:string) {
-    this.db.get(id).then(res=>{
-      console.log(res);
-      this._selectedJob=res as Ojob;
-    }).catch(err=>{
-      console.log('getjob error');
-      //console.log('id: '+id);
+    }).on('active', function () {
+      // replicate resumed (e.g. new changes replicating, user went back online)
+      console.log('active');
+    }).on('denied', function (err) {
+      // a document failed to replicate (e.g. due to permissions)
+      console.log('denied');
+    }).on('complete', function (info) {
+      // handle complete
+    }).on('error', function (err) {
+      console.log('sync err');
       console.log(err);
-      
     });
-    
-  }
+    // dbfullname=prefixname+dbname+prefix
+    dbfullname=''+MyDataBaseNames.dbjob+'';
+    // urlname = serverurl+
+    urlname=this.remoteCouch+dbfullname;
+    this.dbjob.sync(urlname, {
+      live: true,
+      //retry: true
+    }).on('change', async (info) => {
+      console.log('sync res');
+      console.log(info);
+    }).on('paused', function (err) {
+      // replication paused (e.g. replication up to date, user went offline)
+      console.log('paused');
 
-
-  refresh(): void {
-    this.router.navigateByUrl('/user',{skipLocationChange:true}).then(()=>{
-        this.router.navigate([decodeURI(this._Location.path())]);
+    }).on('active', function () {
+      // replicate resumed (e.g. new changes replicating, user went back online)
+      console.log('active');
+    }).on('denied', function (err) {
+      // a document failed to replicate (e.g. due to permissions)
+      console.log('denied');
+    }).on('complete', function (info) {
+      // handle complete
+    }).on('error', function (err) {
+      console.log('sync err');
+      console.log(err);
     });
   }
-
-
-  close() {
-    this.ref.close({command:'cancel'});
-    //this.usercom.loadUserList();
-    
-
-  }
-
+  ngOnInit() {
+    this.remoteCouch += MyDataBaseNames.dbjob; /// + prefix
+    this.dbjob = new pouchdb(MyDataBaseNames.dbjob); // + prefix
+    this.sync();
+    this.loadjobList();
+    }
   
- // time(){
- //   let date: Date = new Date("");
-//  console.log("Date = " + date);
-    
-  //}
+  loadjobList() {
+    const pageSize = 10;
+    const offSet = 0;
+    const parent = this;
+    this.jobList.length = 0;
+    this.jobList = new Array<Ijob>();
+    this.dbjob.allDocs({ limit: pageSize, skip: offSet, descending: true, include_docs: true }).then(res => {
+      //console.log(res);
+      for (let index = 0; index < res.rows.length; index++) {
+        parent.jobList.push(<Ijob><unknown>res.rows[index].doc);
+        console.log(res.rows[index].doc);
+        
+      }
+    }).catch(err => {
+      console.log(err);
+    });
+  }
+
+
 
 }
 
