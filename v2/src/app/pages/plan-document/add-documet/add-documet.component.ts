@@ -13,7 +13,7 @@ import { Idocument,Odocument,Igijuser, MyDataBaseNames } from '../../../interfac
   styleUrls: ['./add-documet.component.scss']
 })
 export class AddDocumetComponent implements OnInit {
-
+  myDate = Date.now();
   private db: PouchDB.Database<{}>;
   private Usertable: PouchDB.Database<{}>;
   remoteCouch = 'http://admin:admin@localhost:5984/job-';
@@ -24,7 +24,7 @@ export class AddDocumetComponent implements OnInit {
   public js:any;
   Doc: Idocument;
   _selectedDoc: Idocument;
-
+  timenow: Date = new Date();
  
   constructor(private dialogService: NbDialogService,private router: Router,public _Location:Location,private route: ActivatedRoute) {
     this.Doc=new Odocument();
@@ -78,7 +78,7 @@ export class AddDocumetComponent implements OnInit {
 
 
   insert(){
-
+    this._selectedDoc.createdtime=this.timenow+'';
     this.Doc.members 
     this.db.put(this.Doc, { force: true }, (err, res) => {
       if (err) {

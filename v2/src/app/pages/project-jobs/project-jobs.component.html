@@ -1,147 +1,83 @@
-
 <h2 class="grid-h ">Document List</h2>
-<button  class="btn btn-success" (click)="add()">
-  <i class="fas fa-plus-square"></i>
+<button class="btn btn-success" (click)="add()">
+    <i class="fas fa-plus-square"></i>
 </button>
-<br/>
-<br/>
+<br />
+<br />
 <div class="infinite-cards row">
-  <div class="col-md-12 col-lg-4 col-xxxl-4">
-    <nb-card class="own-scroll">
-      <nb-card-header>ຍັງບໍ່ອະນຸມັດ</nb-card-header>
-      <nb-list>
-        <nb-list-item>
-          <div class="row">
-              <div class="col-md-12">
-                  <h5>ຊື່ໂຄງການ : ອອກແບບເວີບໃຊ້</h5><br/>
-                  <p>ວັນທີ : 20/06/2019</p>
-              </div>
-              <div class="col-md-12">
-                  <a nbButton shape="round" status="info" ><i class="fas fa-edit"></i></a>
-                  <a nbButton shape="round" status="danger" ><i class="fas fa-trash-alt"></i></a>
-              </div>
-                
-          </div>
-        </nb-list-item>
-        <nb-list-item>
-            <div class="row">
-                <div class="col-md-12">
-                    <h5>ຊື່ໂຄງການ : ອອກແບບເວີບໃຊ້</h5><br/>
-                    <p>ວັນທີ : 20/06/2019</p>
-                </div>
-                <div class="col-md-12">
-                    <a nbButton shape="round" status="info" ><i class="fas fa-edit"></i></a>
-                    <a nbButton shape="round" status="danger" ><i class="fas fa-trash-alt"></i></a>
-                </div>
-                  
-            </div>
-        </nb-list-item>
-        <nb-list-item>
-            <div class="row">
-                <div class="col-md-12">
-                    <h5>ຊື່ໂຄງການ : ອອກແບບເວີບໃຊ້</h5><br/>
-                    <p>ວັນທີ : 20/06/2019</p>
-                </div>
-                <div class="col-md-12">
-                    <a nbButton shape="round" status="info" ><i class="fas fa-edit"></i></a>
-                    <a nbButton shape="round" status="danger" ><i class="fas fa-trash-alt"></i></a>
-                </div>
-                  
-            </div>
-        </nb-list-item>
-       
-      </nb-list>
-    </nb-card>
-  </div>
+    <div class="col-md-12 col-lg-4 col-xxxl-4">
+        <nb-card class="own-scroll">
+            <nb-card-header>ຍັງບໍ່ອະນຸມັດ</nb-card-header>
+            <nb-list>
+                <nb-list-item>
+                    <div class="row">
+                        <div class="col-md-12" *ngFor="let d of docList index as i">
+                            <h5>ລະຫັດ : {{d._id}}</h5><br />
+                            <h5>ຊື່ໂຄງການ : {{d.docname}}</h5><br />
+                            <p>ວັນທີເລີ່ມ : {{d.starttime}}</p>
+                            <p>ວັນທີສີນສຸດ : {{d.endtime}}</p>
+                            <div class="col-md-12">
+                                <a nbButton shape="round" status="info"><i class="fas fa-edit"></i></a>
+                                <a nbButton shape="round" status="danger"><i class="fas fa-trash-alt"></i></a>
+                            </div>
+                            <hr>
+                            <br>
+                        </div>
 
-  <div class="col-md-12 col-lg-4 col-xxxl-4">
-    <nb-card class="own-scroll">
-      <nb-card-header>ກຳລັງດຳເນີນການ</nb-card-header>
-      <nb-list>
-        <nb-list-item>
-            <div class="row">
-                <div class="col-md-12">
-                    <h5>ຊື່ໂຄງການ : ອອກແບບເວີບໃຊ້</h5><br/>
-                    <p>ວັນທີ : 20/06/2019</p>
-                </div>
-                <div class="col-md-12">
-                    <a nbButton shape="round" status="info" ><i class="fas fa-edit"></i></a>
-                    
-                </div>
-                  
-            </div>
-        </nb-list-item>
-        <nb-list-item>
-            <div class="row">
-                <div class="col-md-12">
-                    <h5>ຊື່ໂຄງການ : ອອກແບບເວີບໃຊ້</h5><br/>
-                    <p>ວັນທີ : 20/06/2019</p>
-                </div>
-                <div class="col-md-12">
-                    <a nbButton shape="round" status="info" ><i class="fas fa-edit"></i></a>
-                   
-                </div>
-                  
-            </div>
-        </nb-list-item>
-        <nb-list-item>
-            <div class="row">
-                <div class="col-md-12">
-                    <h5>ຊື່ໂຄງການ : ອອກແບບເວີບໃຊ້</h5><br/>
-                    <p>ວັນທີ : 20/06/2019</p>
-                </div>
-                <div class="col-md-12">
-                    <a nbButton shape="round" status="info" ><i class="fas fa-edit"></i></a>
-                   
-                </div>
-                  
-            </div>
-        </nb-list-item>
-       
-      </nb-list>
-    </nb-card>
-  </div>
+                    </div>
+                </nb-list-item>
 
-  <div class="col-md-12 col-lg-4 col-xxxl-4">
-    <nb-card class="own-scroll">
-      <nb-card-header>ສຳເລັດແລ້ວ</nb-card-header>
-      <nb-list>
-        <nb-list-item>
-            <div class="row">
-                <div class="col-md-12">
-                    <h5>ຊື່ໂຄງການ : ອອກແບບເວີບໃຊ້</h5><br/>
-                    <p>ວັນທີ : 20/06/2019</p>
-                </div>
-               
-                  
-            </div>
-        </nb-list-item>
-        <nb-list-item>
-            <div class="row">
-                <div class="col-md-12">
-                    <h5>ຊື່ໂຄງການ : ອອກແບບເວີບໃຊ້</h5><br/>
-                    <p>ວັນທີ : 20/06/2019</p>
-                </div>
-               
-                  
-            </div>
-        </nb-list-item>
-        <nb-list-item>
-            <div class="row">
-                <div class="col-md-12">
-                    <h5>ຊື່ໂຄງການ : ອອກແບບເວີບໃຊ້</h5><br/>
-                    <p>ວັນທີ : 20/06/2019</p>
-                </div>
-               
-                  
-            </div>
-        </nb-list-item>
-       
-      </nb-list>
-    </nb-card>
-  </div>
+            </nb-list>
+        </nb-card>
+    </div>
 
- 
+    <div class="col-md-12 col-lg-4 col-xxxl-4">
+        <nb-card class="own-scroll">
+            <nb-card-header>ກຳລັງດຳເນີນການ</nb-card-header>
+            <nb-list>
+                <nb-list-item>
+                    <div class="row">
+                        <div class="col-md-12" *ngFor="let d of docList index as i">
+                            <div *ngIf="d.status">
+                                <h5>ລະຫັດ : {{d._id}}</h5><br />
+                                <h5>ຊື່ໂຄງການ : {{d.docname}}</h5><br />
+                                <p>ວັນທີເລີ່ມ : {{d.starttime}}</p>
+                                <p>ສະຖານະ : {{d.status}}</p>
+                                <div class="col-md-12">
+                                    <a nbButton shape="round" status="info"><i class="fas fa-edit"></i></a>
+                                </div>
+                                <hr>
+                            </div>
+                        </div>
+
+                    </div>
+                </nb-list-item>
+            </nb-list>
+        </nb-card>
+    </div>
+
+    <div class="col-md-12 col-lg-4 col-xxxl-4">
+        <nb-card class="own-scroll">
+            <nb-card-header>ສຳເລັດແລ້ວ</nb-card-header>
+            <nb-list>
+                <nb-list-item>
+                    <div class="row">
+                        <div class="col-md-12" *ngFor="let d of docList index as i">
+                            <div *ngIf="d.endtime">
+                                <h5>ລະຫັດ : {{d._id}}</h5><br />
+                                <h5>ຊື່ໂຄງການ : {{d.docname}}</h5><br />
+                                <p>ວັນທີເລີ່ມ : {{d.starttime}}</p>
+                                <p>ວັນທີສີນສຸດ : {{d.endtime}}</p>
+                                <br>
+                                <hr>
+                            </div>
+
+                        </div>
+                    </div>
+                </nb-list-item>
+            </nb-list>
+        </nb-card>
+    </div>
+
+
 </div>
-
-

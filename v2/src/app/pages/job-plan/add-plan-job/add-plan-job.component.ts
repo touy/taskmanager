@@ -128,9 +128,8 @@ export class AddPlanJobComponent implements OnInit {
 
   insert() {
 
-    // this.job.createdtime=this.now+''; //ບັນທືກເວລາປະຈຸບັນເຂົ້ນເຂົ້າຖານຂໍ້ມູນ
+    this._selectedJob.createdtime=this.timenow+''; //ບັນທືກເວລາປະຈຸບັນເຂົ້ນເຂົ້າຖານຂໍ້ມູນ
     //  this.job.starttime=new Date().toISOString()+''; //ບັນທືກເວລາປະຈຸບັນເຂົ້ນເຂົ້າຖານຂໍ້ມູນ
-
     this.dbjob.put(this._selectedJob, { force: true }, (err, res) => {
       if (err) {
         console.log('err after put');

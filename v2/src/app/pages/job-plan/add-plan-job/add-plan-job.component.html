@@ -12,8 +12,7 @@
             <h3>ຫົວຂໍ້ວຽກ</h3>
           </div>
           <div class="col-sm-10 input-group">
-            <input type="text" nbInput fullWidth placeholder="ຫົວຂໍ້ວຽກ"
-              (input)="_selectedJob.jobname = $event.target.value">
+            <input type="text" nbInput fullWidth placeholder="ຫົວຂໍ້ວຽກ" (input)="_selectedJob.jobname = $event.target.value">
           </div>
 
         </div>
@@ -40,21 +39,15 @@
           </div>
           <div class="col-sm-3 ">
 
-            <input nbInput fullWidth placeholder="ວັນທີເລີ້ມຕົ້ນ" [nbDatepicker]="datestart" />
-            <nb-datepicker #datestart format="dd-MM-yyyy"></nb-datepicker>
+            <input type="date" nbInput fullWidth placeholder="ວັນທີເລີ້ມຕົ້ນ" [nbDatepicker]="datestart"  (input)="_selectedJob.starttime = $event.target.value" />
+            <!--<nb-datepicker #datestart format="dd-MM-yyyy"></nb-datepicker>-->
           </div>
           <div class="col-sm-2 input-group">
             <h4>ຫາວັນທີ :</h4>
           </div>
 
           <div class="col-sm-3 ">
-
-
-
-            <input nbInput fullWidth placeholder="ວັນທີກຳນົດ" [nbDatepicker]="dateend" />
-
-            <nb-datepicker #dateend format="dd-MM-yyyy"></nb-datepicker>
-
+            <input type="date" nbInput fullWidth placeholder="ວັນທີກຳນົດ" [nbDatepicker]="dateend" (input)="_selectedJob.endtime = $event.target.value" />
           </div>
 
 
