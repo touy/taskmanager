@@ -3,14 +3,14 @@ import { NbDialogRef } from '@nebular/theme';
 import { Router } from '@angular/router';
 import {Location} from '@angular/common';
 import pouchdb from 'pouchdb';
-import { Ojob,Ijob, MyDataBaseNames } from '../../../interface';
+import { Ojob,Ijob, MyDataBaseNames } from '../../../../interface';
 
 @Component({
   selector: 'ngx-modal',
-  templateUrl: './modal-regularjob.component.html',
-  styleUrls: ['./modal-regularjob.component.scss']
+  templateUrl: './modal-user.component.html',
+  styleUrls: ['./modal-user.component.scss']
 })
-export class ModalRegularJobComponent  {
+export class ModalUserComponent  {
   myDate = Date.now(); //ປະກາດຟັງຊັນເອີນໃຊ້ຢູ່ insert ເວລາປະຈຸບັນ
   private db: PouchDB.Database<{}>;
   remoteCouch = 'http://admin:admin@localhost:5984/job-';
@@ -22,7 +22,7 @@ export class ModalRegularJobComponent  {
   @Input() isdelete:boolean ;
   _selectedJob: Ijob;
   
-  constructor(protected ref: NbDialogRef<ModalRegularJobComponent> ,public _Location:Location,public router:Router) {
+  constructor(protected ref: NbDialogRef<ModalUserComponent> ,public _Location:Location,public router:Router) {
     setInterval(() => {
       this.now = new Date();
     }, 1000);

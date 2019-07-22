@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Router,ActivatedRoute } from '@angular/router';
-import {Location} from '@angular/common';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 import pouchdb from 'pouchdb';
 import { NbDialogService } from '@nebular/theme';
 import { ModleMenberComponent } from '../../project-jobs/modle-menber/modle-menber.component';
 import { ModleJobsComponent } from '../../project-jobs/modle-jobs/modle-jobs.component';
-import { Idocument,Odocument,Igijuser, MyDataBaseNames } from '../../../interface';
+import { Idocument, Odocument, Igijuser, MyDataBaseNames } from '../../../interface';
 
 @Component({
   selector: 'ngx-add-documet',
@@ -19,67 +19,62 @@ export class AddDocumetComponent implements OnInit {
   remoteCouch = 'http://admin:admin@localhost:5984/job-';
 
 
-  public strFrom ="";
-  public params={};
-  public js:any;
+  public strFrom = "";
+  public params = {};
+  public js: any;
   Doc: Idocument;
   _selectedDoc: Idocument;
   timenow: Date = new Date();
- 
-  constructor(private dialogService: NbDialogService,private router: Router,public _Location:Location,private route: ActivatedRoute) {
-    this.Doc=new Odocument();
- 
+
+  constructor(private dialogService: NbDialogService, private router: Router, public _Location: Location, private route: ActivatedRoute) {
+    this.Doc = new Odocument();
     this.db = new pouchdb(MyDataBaseNames.dbdoc);
-   
-  
-   }
+
+
+  }
 
   ngOnInit() {
-    
+
   }
 
-  getData(){
+  getData() {
     this.js = JSON.parse(localStorage.getItem('js'));
-    this.strFrom=this.js.from;
+    this.strFrom = this.js.from;
   }
-  getParams()
-  {
+  getParams() {
     this.route.queryParams
       .subscribe(params => {
         console.log(params); // {order: "popular"}
-        this.params=params;
+        this.params = params;
       });
   }
 
- 
-  
 
-  save(){
-      console.log(this.Doc);
 
-  
-      try{
 
-        this.Doc._id=(Math.random() * 1000000)+'';
-        console.log('add new');
-       
-        this.insert();
-       
-       
-        
-      }
-      catch(e){
+  save() {
+    console.log(this.Doc);
+    try {
 
-      }
+      this.Doc._id = (Math.random() * 1000000) + '';
+      console.log('add new');
 
-   
-    
+      this.insert();
+
+
+    }
+    catch (e) {
+
+    }
+
+
+
   }
 
 
-  insert(){
-    this._selectedDoc.createdtime=this.timenow+'';
-    this.Doc.members 
+  insert() {
+    this._selectedDoc.createdtime = this.timenow + '';
+    this.Doc.members
     this.db.put(this.Doc, { force: true }, (err, res) => {
       if (err) {
         console.log('err after put'
@@ -93,25 +88,25 @@ export class AddDocumetComponent implements OnInit {
   }
 
 
-  deletejob(){
-    this.db.remove(this._selectedDoc).then(res=>{
+  deletejob() {
+    this.db.remove(this._selectedDoc).then(res => {
 
-    }).catch(err=>{
-      
+    }).catch(err => {
+
     })
   }
 
-  goblack(){
-    this.router.navigate(['/pages/Plan-document-my'],{})
+  goblack() {
+    this.router.navigate(['/pages/Plan-document-my'], {})
   }
 
-  cratejob(){
-    this.router.navigate(['/pages/Add-Plan-jobs'],{})
+  cratejob() {
+    this.router.navigate(['/pages/Add-Plan-jobs'], {})
   }
 
-  addmember(){
+  addmember() {
     let dlg = this.dialogService.open(ModleMenberComponent, {
-     
+
     });
 
     dlg.onClose.subscribe(result => {
@@ -119,10 +114,10 @@ export class AddDocumetComponent implements OnInit {
     });
   }
 
-  
-  addjobs(){
+
+  addjobs() {
     let dlg = this.dialogService.open(ModleJobsComponent, {
-     
+
     });
 
     dlg.onClose.subscribe(result => {

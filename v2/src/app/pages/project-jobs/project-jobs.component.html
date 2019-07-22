@@ -1,4 +1,5 @@
 <h2 class="grid-h ">Document List</h2>
+
 <button class="btn btn-success" (click)="add()">
     <i class="fas fa-plus-square"></i>
 </button>
@@ -16,10 +17,11 @@
                             <h5>ຊື່ໂຄງການ : {{d.docname}}</h5><br />
                             <p>ວັນທີເລີ່ມ : {{d.starttime}}</p>
                             <p>ວັນທີສີນສຸດ : {{d.endtime}}</p>
-                            <div class="col-md-12">
-                                <a nbButton shape="round" status="info"><i class="fas fa-edit"></i></a>
-                                <a nbButton shape="round" status="danger"><i class="fas fa-trash-alt"></i></a>
-                            </div>
+                            <p>ສະຖານະ : {{d.status}}</p>
+                            <input type="checkbox" [checked]="d.status" (input)="Approved(d)">ອານຸມັດ 
+                            <input type="checkbox" [checked]="d.starttime" (input)="startDoc(d)" >ເລີມວຽກ
+                            <input type="checkbox" [checked]="d.endtime" (input)="endDoc(d)">ສໍາເລັດ
+            
                             <hr>
                             <br>
                         </div>
@@ -38,14 +40,14 @@
                 <nb-list-item>
                     <div class="row">
                         <div class="col-md-12" *ngFor="let d of docList index as i">
-                            <div *ngIf="d.status">
+                            <div *ngIf="d.starttime">
                                 <h5>ລະຫັດ : {{d._id}}</h5><br />
                                 <h5>ຊື່ໂຄງການ : {{d.docname}}</h5><br />
                                 <p>ວັນທີເລີ່ມ : {{d.starttime}}</p>
                                 <p>ສະຖານະ : {{d.status}}</p>
-                                <div class="col-md-12">
+                              <!--<div class="col-md-12">
                                     <a nbButton shape="round" status="info"><i class="fas fa-edit"></i></a>
-                                </div>
+                                </div>-->  
                                 <hr>
                             </div>
                         </div>
@@ -68,6 +70,7 @@
                                 <h5>ຊື່ໂຄງການ : {{d.docname}}</h5><br />
                                 <p>ວັນທີເລີ່ມ : {{d.starttime}}</p>
                                 <p>ວັນທີສີນສຸດ : {{d.endtime}}</p>
+                                <p>ສະຖານະ : {{d.status}}</p>
                                 <br>
                                 <hr>
                             </div>

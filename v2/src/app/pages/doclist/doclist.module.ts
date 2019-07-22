@@ -2,15 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ThemeModule } from '../../@theme/theme.module';
-import { RegularJobComponent } from './regular-job.component';
-
+import {DoclistComponent} from './doclist.component';
 @NgModule({
-  declarations: [ RegularJobComponent  ],
+  declarations: [ DoclistComponent  ],
   imports: [
     CommonModule,
     ThemeModule,
   ]
-
 })
-export class RegularJobModule { }
-
+export class DoclistModule { }

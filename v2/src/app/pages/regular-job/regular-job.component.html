@@ -20,12 +20,12 @@
  
                     <th> ຊື່ວຽກ</th>
                     <th>ລາຍລະອຽດວຽກ</th>
-                    <th> ເວລາສ້າງເອກະສານ </th>
+                    <th> ແຜນສໍາເລັກເອກະສານ </th>
                     <th> ເວລາເລີ້ມເຮັດເອກະສານ </th>
+                    <th>ເລີມວຽກ</th>
                     <th> ເວລາເຮັດເອກະສານແລ້ວ </th>
-                    <th>Note</th>
                     <th>ສໍາເລັດ</th>
-                    <th>ພັກເອກະສານ</th>
+
                     
 
                   </tr>
@@ -38,10 +38,11 @@
                         <td>{{j.description}}</td>
                         <td>{{j.createdtime | date:'short' }}</td>
                         <td>{{j.starttime | date:'short' }}</td>
+                        <td><input type="checkbox" [checked]="j.starttime" (input)="startJob(j)"></td>
                         <td>{{j.endtime | date:'short' }}</td>
-                        <td><textarea></textarea></td>
-                        <td><input type="checkbox" [disabled]="j.endtime"[checked]="j.endtime" (input)="endJob(j)"></td>
-                        <td><input type="checkbox"></td>
+ 
+                        <td><input type="checkbox" [checked]="j.endtime" (input)="endJob(j)"></td>
+                        
                         <!--ເຮັດແຊັກບອກໃຫ້ບັນທືກລົງຖານຂໍ້ມູນ
                         disabled:ກັນບໍ່ໃຫ້ປົດແຊັກບອກກັບsຖ້າມີຂໍ້ມູນຢູ່ j.endtime
                         checcke:ຖ້າມີຂໍ້ມູນຢູ່ j.endtime ແລ້ວໃຫ້ແຊກບອກແຮັດວຽກ
