@@ -10,7 +10,6 @@ import { RegularJobComponent } from './regular-job.component';
     CommonModule,
     ThemeModule,
   ]
-
 })
 export class RegularJobModule { }
 

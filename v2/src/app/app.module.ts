@@ -31,6 +31,11 @@ import{ModalAddJobComponent} from './pages/job-plan/add-plan-job/modal-add-job/m
 import{ModalAddMemberComponent} from './pages/job-plan/add-plan-job/modal-add-member/modal-add-member.component';
 
 
+import {ModaljobComponent} from './pages/doclist/docadd/modal-job/modal-job.Component';
+import {ModalUserDocComponent} from './pages/doclist/docadd/modal-user-doc/modal-user-doc.component';
+import {ModalMComponent} from './pages/doclist/docadd/modal-m-doc/modal-m-doc.component';
+
+
 @NgModule({
   declarations: [
     AppComponent
@@ -46,6 +51,9 @@ import{ModalAddMemberComponent} from './pages/job-plan/add-plan-job/modal-add-me
     ModleJobsComponent,
     ModalAddJobComponent,
     ModalAddMemberComponent,
+    ModalUserDocComponent,
+    ModaljobComponent,
+   ModalMComponent,
     
   ],
   imports: [
@@ -71,6 +79,9 @@ import{ModalAddMemberComponent} from './pages/job-plan/add-plan-job/modal-add-me
     ModleJobsComponent,
     ModalAddJobComponent,
     ModalAddMemberComponent,
+    ModalUserDocComponent,
+    ModaljobComponent,
+    ModalMComponent,
     
   ],
   bootstrap: [AppComponent],
