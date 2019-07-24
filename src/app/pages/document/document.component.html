@@ -1,0 +1,107 @@
+<!-- <h2 class="grid-h">ກໍາລັງເຮັດ</h2>
+
+<div class="infinite-cards row">
+  <div class="col-md-12 col-lg-4 col-xxxl-4" *ngFor="let j of jobList index as i">
+    <nb-card class="own-scroll" *ngIf="j.starttime">
+      <nb-card-header>ລາຍການ</nb-card-header>
+      <nb-list>
+        <nb-list-item>
+            ຊື່ວຽກ :{{j.jobname}}
+        </nb-list-item>
+        <nb-list-item>
+            ແຜນສໍາເລັດວຽກ :{{j.createdtime | date:'short'}}  
+        </nb-list-item>
+        <nb-list-item>
+            ເວລາເລີມ :{{j.starttime | date:'short'}}  
+        </nb-list-item>
+       
+      </nb-list>
+    </nb-card>
+  </div>
+
+
+ 
+</div>
+
+
+
+<h2 class="grid-h">ສໍາເລັດແລ້ວ</h2>
+
+<div class="infinite-cards row">
+  <div class="col-md-12 col-lg-4 col-xxxl-4" *ngFor="let j of jobList index as i">
+    <nb-card class="own-scroll" *ngIf="j.endtime">
+      <nb-card-header>ລາຍການ</nb-card-header>
+      <nb-list>
+        <nb-list-item>
+          ຊື່ວຽກ :{{j.jobname}}
+        </nb-list-item>
+        <nb-list-item>
+          ແຜນສໍາເລັດວຽກ :{{j.createdtime | date:'short'}}  
+        </nb-list-item>
+        <nb-list-item>
+            ເວລາເລີມ :{{j.starttime | date:'short'}}  
+        </nb-list-item>
+        <nb-list-item>
+            ເວລາສໍາເລັດ :{{j.endtime | date:'short'}}  
+        </nb-list-item>
+       
+      </nb-list>
+    </nb-card>
+  </div>
+</div> -->
+
+<h2 class="grid-h ">dashboard</h2>
+<div class="col-md-1" ><button  class="btn btn-success" (click)="gotoregularjob()">ໄປໜ້າວຽກ</button>
+</div>
+<br />
+<br />
+<div class="infinite-cards row">
+    <div class="col-md-12 col-lg-6 col-xxxl-6">
+        <nb-card class="own-scroll">
+            <nb-card-header>ກໍາລັງດໍາເນີນການ</nb-card-header>
+            <nb-list>
+                <nb-list-item>
+                    <div class="row">
+                        <div class="col-md-12" *ngFor="let j of jobList index as i">
+                            <div *ngIf="j.starttime">
+                            <h5>ຊື່ໂຄງການ : {{j.jobname}}</h5><br />
+                            <p> ແຜນສໍາເລັດວຽກ : {{j.createdtime | date:'short'}}</p>
+                            <p>ວັນທີເລີມ : {{j.starttime | date:'short'}}</p>
+                            <hr>
+                            <br>
+                            </div>
+                        </div>
+                    </div>
+                </nb-list-item>
+
+            </nb-list>
+        </nb-card>
+    </div>
+
+
+    <div class="col-md-12 col-lg-6 col-xxxl-6">
+        <nb-card class="own-scroll">
+            <nb-card-header>ສຳເລັດແລ້ວ</nb-card-header>
+            <nb-list>
+                <nb-list-item>
+                    <div class="row">
+                        <div class="col-md-12" *ngFor="let j of jobList index as i">
+                            <div *ngIf="j.endtime">
+                       
+                                <h5>ຊື່ໂຄງການ : {{j.jobname}}</h5><br />
+                                <p> ແຜນສໍາເລັດວຽກ : {{j.createdtime | date:'short'}}</p>
+                                <p>ວັນທີເລີ່ມ : {{j.starttime | date:'short'}}</p>
+                                <p>ວັນທີສີນສຸດ : {{j.endtime | date:'short'}}</p>
+                                <br>
+                                <hr>
+                            </div>
+
+                        </div>
+                    </div>
+                </nb-list-item>
+            </nb-list>
+        </nb-card>
+    </div>
+
+
+</div>

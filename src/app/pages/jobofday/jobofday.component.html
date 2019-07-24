@@ -1,0 +1,62 @@
+<h2 class="grid-h">Jobs of day list</h2>
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>
+          <div class="row">
+            <h3 class="col-md-11" >Jobs of day</h3>
+            <div class="col-md-1" ><button  class="btn btn-success" (click)="job_add()">
+                <i class="fas fa-plus-square"></i>
+              </button></div>
+          </div>
+        
+      </nb-card-header>
+      <nb-card-body>
+        
+          <div class="table-responsive">
+              <table class="table table-bordered ">
+                <thead>
+                  <tr>
+                   
+                
+                    <th> ຊື່ວຽກ</th>
+                    <th>ລາຍລະອຽດວຽກ</th>
+                    <th> ເວລາສ້າງເອກະສານ </th>
+                    <th> ເວລາເລີ້ມເຮັດເອກະສານ </th>
+                    <th> ເວລາເຮັດເອກະສານແລ້ວ </th>
+                    <th> </th>
+                    <th>ຈັດການ</th>
+                  </tr>
+                </thead>
+                <tbody>
+                 
+                  <tr *ngFor="let j of jobList; index as i" >
+                       
+                    
+                        <td>{{j.jobname}}</td>
+                        <td>{{j.description}}</td>
+                        <td>{{j.createdtime | date:'short' }}</td>
+                        <td>{{j.starttime | date:'short' }}</td>
+                        <td>{{j.endtime | date:'short' }}</td>
+                        <td><input type="checkbox" [checked]="j.endtime" (input)="endJob(j)"></td>
+                    
+                    <td>
+                      <a nbButton shape="round" status="info" (click)="job_edit(j._id,j._rev)"><i class="fas fa-edit"></i></a>&nbsp;   
+                     <a nbButton shape="round" status="danger" (click)="job_edit(j._id,j._rev,true)"><i class="fas fa-trash-alt"></i></a> 
+                     
+                    </td>
+                    
+                  </tr>
+                 
+                </tbody>
+              </table>
+            </div>
+
+
+      </nb-card-body>
+    </nb-card>
+  </div>
+  
+  
+</div>
+

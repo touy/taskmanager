@@ -1,0 +1,106 @@
+<div class="col-md-12">
+  <div class="row" *ngIf="_selectedUser as user else NO">
+
+    <div class="col-md-12">
+      <nb-card class="col-md-12">
+        <nb-card-header>
+          <H4>ຂໍ້ມູນຜູ້ໃຊ້</H4>
+        </nb-card-header>
+        <nb-card-body>
+          <div class="row ">
+            <div class="col-sm-6 input-group">
+              <h4>ຊື່ຜູ້ໃຊ້</h4>
+              <input required id="firstName" type="text" nbInput fullWidth placeholder="firstname" autocomplete="off"
+                [value]="user.firstname" (input)="user.firstname = $event.target.value">
+            </div>
+            <div class="col-sm-6 input-group">
+              <h4>ນາກສະກຸນ</h4>
+              <input required id="lastName" type="text" nbInput fullWidth placeholder="lastName" autocomplete="off"
+                [value]="user.lastname" (input)="user.lastname = $event.target.value">
+            </div>
+
+          </div>
+          <br />
+          <div class="row ">
+
+
+            <div class="col-sm-6 ">
+
+              <h4>ພະແນກ</h4>
+
+              <select class="form-control" fullWidth [value]="user.department"
+                (input)="user.department = $event.target.value">
+
+                <option value="Font end">Font end</option>
+                <option value="Black end">Black end</option>
+
+              </select>
+            </div>
+            <div class="col-sm-6 ">
+              <h4>ສິດຜູ້ໃຊ້</h4>
+              <select class="form-control" fullWidth [value]="user.permission"
+                (input)="user.permission = $event.target.value">
+
+                <option value="User">User</option>
+                <option value="Admin">Admin</option>
+                <option value="Apply">Apply</option>
+
+              </select>
+            </div>
+
+          </div>
+          <br />
+          <div class="row ">
+            <div class="col-sm-6 input-group">
+              <h4>User</h4>
+              <input type="text" nbInput fullWidth placeholder="Name" autocomplete="off" [value]="user.username"
+                (input)="user.username = $event.target.value">
+            </div>
+            <div class="col-sm-6   input-group">
+              <h4>Password</h4>
+              <input type="text" nbInput fullWidth placeholder="Name" autocomplete="off" [value]="user.password"
+                (input)="user.password = $event.target.value">
+            </div>
+
+
+          </div>
+
+          <br />
+          <div class="row ">
+
+
+
+            <div class="col-sm-6 ">
+
+              <h4>ຫົວໜ້າ</h4>
+              <select class="form-control" [value]="user.parent" (input)="user.parent = $event.target.value">
+
+
+                <option value="ທ້າວ ກ">ທ້າວ ກ</option>
+                <option value="ທ້າວ ຂ">ທ້າວ ຂ</option>
+                <option value="ນາງ ງ">ນາງ ງ</option>
+                <option value="ທ້າວ ຈ">ທ້າວ ຈ</option>
+              </select>
+            </div>
+
+          </div>
+        </nb-card-body>
+        <nb-card-footer>
+          <button type="submit" class="btn btn-success" (click)="updateUser()">
+            Save
+          </button>
+
+          &nbsp;
+          <button class="btn btn-default" (click)="close()">
+            close
+          </button>
+
+        </nb-card-footer>
+      </nb-card>
+    </div>
+
+  </div>
+  <ng-template #NO>
+    NO DATA FOUND
+  </ng-template>
+</div>

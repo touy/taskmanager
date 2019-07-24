@@ -1,0 +1,72 @@
+<h2 class="grid-h">ເພີມສະມາຊິກ</h2>
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+
+      <nb-card-body>
+        <div class="row">ສະມາຊີກ :
+          <div *ngFor="let u of _selectedUsers">
+            <b>{{u._id}};</b>
+          </div>
+        </div>
+        <div class=" row">
+          <label class="col-sm-2 "></label>
+          <div class="col-sm-10">
+            <br />
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" value=""> ສາມາດເພີ້ມວຽກໄດ້
+              </label>
+              &nbsp;
+              <label>
+                <input type="checkbox" value=""> ສາມາດແກ້ໄຂວຽກ
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table table-bordered ">
+            <thead>
+              <tr>
+                <th>ລະຫັດ</th>
+                <th> ຊື່ຜູ້ໃຊ້</th>
+                <th> ນາມສະກຸນ </th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let u of userList; index as i">
+
+               <td> <input type="checkbox" data-md-icheck (change)="selectUser(u,$event)" />
+                  <span *ngIf="marked">{{u._id}}</span>
+                  <span *ngIf="!marked">{{u._id}}</span>
+              </td>
+
+          
+                <td>{{u.username}}</td>
+                <td>{{u.lastname}}</td>
+               <!--<td><input type="checkbox"  [checked]="u.note" (input)="mselect(u)"></td>--> 
+
+
+
+
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+      </nb-card-body>
+      <nb-card-footer>
+        <button class="btn btn-success">
+          Savehhh
+        </button>
+        &nbsp;
+        <button class="btn btn-default" (click)="close()">
+          close
+        </button>
+      </nb-card-footer>
+    </nb-card>
+  </div>
+</div>

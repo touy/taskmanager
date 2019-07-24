@@ -1,0 +1,17 @@
+@import '../../../../@theme/styles/themes';
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/breakpoints';
+
+.star {
+    font-size: 1.5rem;
+    color: nb-theme(color-fg);
+  }
+
+  .current-rate {
+    font-size: 1.5rem;
+    @include nb-ltr(padding-left, 1rem);
+    @include nb-rtl(padding-right, 1rem);
+    color: nb-theme(color-fg-heading);
+  }
+
+  table,th,tr,td { font-size: 20px; }

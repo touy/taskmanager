@@ -1,0 +1,51 @@
+<h2 class="grid-h">User list</h2>
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>
+          <div class="row">
+            <h3 class="col-md-11" >User</h3>
+            <div class="col-md-1" ><button  class="btn btn-success" (click)="user_add()">
+                <i class="fas fa-plus-square"></i>
+              </button></div>
+          </div>
+        
+      </nb-card-header>
+      <nb-card-body>
+        
+          <div class="table-responsive">
+              <table class="table table-bordered ">
+                <thead>
+                  <tr>
+                    <th> ຊື່ຜູ້ໃຊ້</th>
+                    <th> ນາມສະກຸນ </th>
+                    <th> ພະແນກ </th>
+                    <th> ສິດຜູ້ໃຊ້ </th>
+                    <th> Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let u of userList; index as i">
+                    <td>{{u.firstname}}</td>
+                    <td>{{u.lastname}}</td>
+                    <td>{{u.department}}</td>
+                    <td>{{u._id}}</td>
+                    <td>
+                      <a nbButton shape="round" status="info" (click)="user_edit(u._id,u._rev)"><i class="fas fa-edit"></i></a>&nbsp;   
+                      <a nbButton shape="round" status="danger" (click)="user_delete(u._id,u._rev)"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                    
+                  </tr>
+                 
+                </tbody>
+              </table>
+            </div>
+
+
+      </nb-card-body>
+    </nb-card>
+  </div>
+  
+  
+</div>
+

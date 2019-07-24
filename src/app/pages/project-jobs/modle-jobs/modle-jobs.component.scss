@@ -1,0 +1,17 @@
+@import '../../../@theme/styles/themes';
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/breakpoints';
+
+table,th,tr,td { font-size: 20px; }
+
+@include nb-install-component() {
+    .infinite-cards {
+      nb-card {
+        &.own-scroll {
+          height: 70vh;
+        }
+      }
+    }
+   
+  }
+  

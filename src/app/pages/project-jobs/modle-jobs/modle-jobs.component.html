@@ -1,0 +1,48 @@
+<div class="col-md-12">
+  <nb-card class="col-md-12">
+    <nb-card-header>
+      <H4>ເລືອກໜ້າວຽກ</H4>
+    </nb-card-header>
+    <nb-card-body>
+
+        <div class="table-responsive">
+            <table id="example" class="table table-bordered" >
+            
+            <thead>
+            <tr>
+                <th width="100px">ລະຫັດ</th>
+                <th width="350px">ຫົວຂໍ້ວຽກ</th>
+                
+                <th width="10%">ເລືອກ</th>
+                
+               
+                
+            </tr>
+            </thead>
+            <tbody>
+                    <tr  *ngFor="let u of jobsList; index as i" >
+                            <td>{{u._id}} </td>
+                            <td>ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ</td>
+                            <td align="center"><input type="checkbox" [checked]="getSeleteObj(u)" (input)='seleteObj(u)'></td>
+                            
+                    </tr>
+                  
+            </tbody>
+        </table>
+       
+    </div>
+    
+    </nb-card-body>
+    <nb-card-footer>
+      <button type="submit" class="btn btn-success" (click)="updateUser()">
+        Save
+      </button>
+
+      &nbsp;
+      <button class="btn btn-default" (click)="close()">
+        close
+      </button>
+
+    </nb-card-footer>
+  </nb-card>
+</div>
