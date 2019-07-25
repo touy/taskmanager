@@ -1178,7 +1178,6 @@ export interface Ijob { // public  remote
     creator: string | undefined; // not empty
     status: Mworkstatus; /// allow owner to change
     note: string | undefined; /// allow owner to change
-
 }
 export class Ojob implements Ijob { // public  remote
     _id: string | undefined;
