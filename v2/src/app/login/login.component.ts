@@ -5,8 +5,9 @@ import pouchdb, { emit } from 'pouchdb';
 import pouchdbwebsql from 'pouchdb-adapter-websql';
 import PouchAuth from 'pouchdb-authentication';
 import pouchSecurity from 'pouchdb-security-helper';
-import { MyDataBaseNames } from '../interface';
 import Auth from 'pouchdb-auth';
+import { MyDataBaseNames } from '../interface';
+
 @Component({
   selector: 'ngx-login',
   templateUrl: './login.component.html',

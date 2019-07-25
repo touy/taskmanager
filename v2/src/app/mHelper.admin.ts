@@ -8,7 +8,6 @@ import Auth from 'pouchdb-auth';
 import pouchSecurity from 'pouchdb-security-helper';
 import pouchdb from 'pouchdb';
 import { NgZone } from '@angular/core';
-
 import { mFuncs } from './searchFunctions';
 
 export class mHelper {

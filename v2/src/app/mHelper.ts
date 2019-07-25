@@ -1,4 +1,7 @@
-import { Igijuser, MyDataBaseNames, Irolelist, Orolelist, nano_time, systemlist, Iclient, logTypes, loginfo, Idbconfig, Xdbconfig, I_user, globalcommands } from './interface';
+import { Injectable } from '@angular/core';
+import axios from 'axios'
+import { HttpClient } from '@angular/common/http';
+import { Igijuser, MyDataBaseNames, Irolelist, Orolelist, Utils, systemlist, Iclient, logTypes, loginfo, Idbconfig, Xdbconfig, I_user, globalcommands, Oclient } from './interface';
 import pouchdbwebsql from 'pouchdb-adapter-websql';
 import 'rxjs/add/observable/of'
 import 'rxjs/add/operator/map';
@@ -26,7 +29,7 @@ export class mHelper {
     myuser: I_user;
     mydbconfig: Idbconfig;
     dbconfig: Idbconfig;
-    remoteCouch: string = MyDataBaseNames.remoteCouch; // DEVELOPING ENV ONLY
+    //remoteCouch: string = MyDataBaseNames.remoteCouch; // DEVELOPING ENV ONLY
     fulldbname: string;
     dbname: string;
     serverurl: string;
@@ -50,13 +53,21 @@ export class mHelper {
         this.initconnection();
 
     }
+    gettemprefix(){
+        this._client=new Oclient();
+        let url = `${MyDataBaseNames.taskmanagerserver}${MyDataBaseNames.tempprefix}`;
+        axios.post(url,this._client).then(res=>{
+            this._client=JSON.parse(res.data) as Iclient;
+        }).catch(err=>{
+            console.log(err);
+        });
+    }
     initconnection() {
         // need to get remote couch secretly
         // TODO: 1
-        this.serverurl = this.remoteCouch// use default remoteCouch server
-        let url = this.remoteCouch + MyDataBaseNames.dbsystemuser;
+        this.serverurl = MyDataBaseNames.remoteCouch// use default remoteCouch server
+        let url = MyDataBaseNames.remoteCouch + MyDataBaseNames.dbsystemuser;
         this.db_user = new pouchdb(url, { skip_setup: true });
-
     }
     initNotificationServices() {
 
@@ -67,7 +78,7 @@ export class mHelper {
         let smsnodbname = `${MyDataBaseNames.dbsmsno}${this.mydbconfig.prefix}`;
         let emailnodbname = `${MyDataBaseNames.dbemailno}${this.mydbconfig.prefix}`;
         let msgnodbname = `${MyDataBaseNames.dbmsg}${this.mydbconfig.prefix}`;
-        let clientdbname = `${this.mydbconfig.prefixname}${MyDataBaseNames.dbclient}${this.mydbconfig.prefix}`;
+        let clientdbname = `${MyDataBaseNames.dbclient}${this.mydbconfig.prefix}`;
         try {
             this.db_p_logging = new pouchdb(personloggingdbname, { adapter: 'websql' });
             this.db_g_logging = new pouchdb(globalloggingdbname, { adapter: 'websql' });
@@ -105,6 +116,7 @@ export class mHelper {
         if (!this.dbconfig) { alert('NO CONFIG'); throw new Error('NO CONFIG'); }
         this.fulldbname = `${this.dbconfig.prefixname}${dbname}${this.dbconfig.prefix}`;
         this.serverurl = this.dbconfig.serverurl;
+        this.fullurl = `${this.dbconfig.serverurl}${this.fulldbname}`;
         try {
             this.db = new pouchdb(this.fulldbname, { adapter: 'websql' });
         } catch (error) {
@@ -165,7 +177,7 @@ export class mHelper {
     sync_client(changecb?: Function, pausdedcb?: Function, activecb?: Function, deniedcb?: Function, completecb?: Function, errcb?: Function) {
         if (this.db_client) {
             let parent = this;
-            let clienturl = `${this.mydbconfig.prefixname}${MyDataBaseNames.dbclient}${this.mydbconfig.prefix}`
+            let clienturl = `${MyDataBaseNames.dbclient}${this.mydbconfig.prefix}`;
             parent.clientsync ? parent.clientsync.cancel() : this.clientsync;
             parent.clientsync = parent.db_client.sync(clienturl, {
                 live: true,
@@ -256,9 +268,9 @@ export class mHelper {
         }
 
     }
-    async loadList(pz: number = 0, index: number = 0) {
-        let maxpage = pz | 10;
-        let offset = index | 0;
+    async loadList(pz: number = 10, index: number = 0) {
+        let maxpage = pz;
+        let offset = index;
         let parent = this;
         let arr = new Array<typeof parent.db>();
 
@@ -345,30 +357,45 @@ export class mHelper {
             }
         })
     }
-    register(client: Iclient) {
+    
+    register(user:Igijuser) {
         let parent = this;
-
         // validat phone , .......
-        this.db_user.signUp(client.data.user.username, client.data.user.password, function (err, response) {
-            if (err) {
-                if (err.name === 'conflict') {
-                    // "batman" already exists, choose another username
-                } else if (err.name === 'forbidden') {
-                    // invalid username
-                } else {
-                    // HTTP error, cosmic rays, etc.
-                }
-                throw new Error(err.message);
-            } else {
-                parent.login(client.data.user.username,client.data.user.password);
-            }
+        if(!this._client.gui){
+            this.gettemprefix();
+        }
+        this._client.data.user=user;
+        this._client.data.command=globalcommands.register;
+        let db = new pouchdb(`${MyDataBaseNames.dbclient}-${this._client.gui}`);// temporary prefix
+        db.put(this._client).then(res=>{
+            console.log(res);// client has been created and need to activate the key for registration.
+            // redirect to activate keys on user's GUI
+        }).catch(err=>{
+            console.log(err);
         });
     }
+    //put link with /activate/newuser/email/keys
+    async activatekeys(keys:string){
+        
+        let url=`${MyDataBaseNames.taskmanagerserver}activatekeys/${keys}`;
+        let r =await axios.get(url);// after get need to go to reset password page
+        // at first reset password, auto login first then reset password.
+        // after that go to the profile page or go to dash board of the system that you user login
+        console.log(r);
+        return r;
+        
+    }
+    
+    
+
     stopallservices() {
         this.currentsync.cancel();
         this.clientsync.cancel();
         ///......................
     }
+    /// from accepted user , sending given keys to the system to assign the permission to each prefix tables 
+    // gijuser + private prefix 
+
     assigntpermissiondb(params: { dbname: string, username: string, role: string, isadmin: boolean },
         dbconfig: {}) {
         let { dbname, username, role, isadmin } = params;
@@ -423,10 +450,10 @@ export class mHelper {
 
 
 
-    async searchstartendkey(searchkey: string, func: string, dbname: string, ps: number = 0, index: number = 0) {
+    async searchstartendkey(searchkey: string, func: string, dbname: string, ps: number = 5, index: number = 0) {
         //return this.db.query('by_timestamp', {endkey: when, descending: true});
-        let pagesize: number = ps | 5;
-        let offset = index | 0;
+        let pagesize: number = ps;
+        let offset = index;
 
         return await this.db.query(this.searchfunction(dbname, func), {
             startkey: searchkey, endkey: searchkey + '\uffff', descending: true, include_docs: true,
