@@ -1,4 +1,4 @@
-import { Igijuser, MyDataBaseNames, Irolelist, Orolelist, nano_time, systemlist, Iclient, logTypes, loginfo, Idbconfig, Xdbconfig, I_user, globalcommands } from './interface';
+import { Igijuser, MyDataBaseNames, Irolelist, Orolelist, Systemlist, Iclient, LogTypes, Loginfo, Idbconfig, Xdbconfig, Iuser, Globalcommands } from './interface';
 import pouchdbwebsql from 'pouchdb-adapter-websql';
 import 'rxjs/add/observable/of'
 import 'rxjs/add/operator/map';
@@ -22,7 +22,7 @@ export class mHelper {
     db_global_no: PouchDB.Database<any>;
     db_user: PouchDB.Database<any>;
     _client: Iclient;
-    myuser: I_user;
+    myuser: Iuser;
     mydbconfig: Idbconfig;
     dbconfig: Idbconfig;
     remoteCouch: string = MyDataBaseNames.remoteCouch; // DEVELOPING ENV ONLY
@@ -310,12 +310,12 @@ export class mHelper {
                     return x.isprivate
                 })
             }).catch(err => {
-                this.logging(username, systemlist.taskmanagerweb, this._client, logTypes.error, err.message, 'LOGIN')
+                this.logging(username, Systemlist.taskmanagerweb, this._client, LogTypes.error, err.message, 'LOGIN')
                 console.log((err));
                 // sync client here
             });
         }).catch(err => {
-            this.logging(username, systemlist.taskmanagerweb, this._client, logTypes.error, err.message, 'LOGIN')
+            this.logging(username, Systemlist.taskmanagerweb, this._client, LogTypes.error, err.message, 'LOGIN')
             console.log((err));
 
         });
@@ -323,7 +323,7 @@ export class mHelper {
     logout() {
         this.db_user.logOut().then(res => {
             console.log('OK LOGGED OUT');
-            this.logging(this.myuser.name, systemlist.taskmanagerweb, this._client, logTypes.failed, 'log out failed', 'LOGOUT');
+            this.logging(this.myuser.name, Systemlist.taskmanagerweb, this._client, LogTypes.failed, 'log out failed', 'LOGOUT');
         }
         ).catch(err => {
             console.log(err);
@@ -340,7 +340,7 @@ export class mHelper {
 
             } else {
                 console.log('Change password succeeded');
-                parent.logging(parent.myuser.name, parent.currentsystem, parent._client, logTypes.success, 'change password', 'change password 339')
+                parent.logging(parent.myuser.name, parent.currentsystem, parent._client, LogTypes.success, 'change password', 'change password 339')
             }
         })
     }
@@ -392,7 +392,7 @@ export class mHelper {
                 throw new Error(err.message);
             } else {
                 console.log('Change password succeeded');
-                parent.logging(parent.myuser.name, parent.currentsystem, parent._client, logTypes.success, 'change password', 'change password 339')
+                parent.logging(parent.myuser.name, parent.currentsystem, parent._client, LogTypes.success, 'change password', 'change password 339')
             }
         })
     }
@@ -490,10 +490,10 @@ export class mHelper {
     logging(user: string | undefined,
         system: string | undefined,
         client: Iclient | undefined,
-        type: logTypes | undefined,
+        type: LogTypes | undefined,
         message: string | undefined,
         src: string | undefined) {
-        let l = new loginfo();
+        let l = new Loginfo();
         l.logtime/// need to set to +7 tz
         l.user = user;
         l.system = system;
