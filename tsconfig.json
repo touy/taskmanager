@@ -1,0 +1,26 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "importHelpers": true,
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "types":["node"],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "baseUrl": "types",
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "plugins": [
+      { "name": "tslint-language-service"}
+    ]
+  }
+}

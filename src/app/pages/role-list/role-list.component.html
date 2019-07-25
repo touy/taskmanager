@@ -1,0 +1,62 @@
+<h2 class="grid-h">Role list --- By Admin</h2>
+<div class="row">
+    <!-- <div class="row" *ngIf="_arrayObj?.length;else loading"> -->
+  <!-- <div class="col-md-12" [@listAnimation]="(_arrayObj$ | async)?.length"> -->
+  <div class="col-md-12" >
+    <nb-card>
+      <nb-card-header>
+        <div class="row">
+          <h3 class="col-md-11">role name</h3>
+          <div class="col-md-1"><button class="btn btn-success" (click)="edit()">
+              <i class="fas fa-plus-square"></i>
+            </button></div>
+        </div>
+
+      </nb-card-header>
+      <nb-card-body>
+
+        <div class="table-responsive">
+          <table class="table table-bordered ">
+            <thead>
+              <tr>
+                <th> role name</th>
+                <th> Actions</th>
+              </tr>
+            </thead>
+            <tbody *ngIf="_arrayObj?.length;else loading">              
+                  <tr *ngFor="let r of _arrayObj; index as i" >
+                <td>{{r.rolename}}</td>
+                <td>
+                  <a nbButton shape="round" status="info" (click)="edit(r._id,r._rev)"><i
+                      class="fas fa-edit"></i></a>&nbsp;
+                  <a nbButton shape="round" status="danger" (click)="edit(r._id,r._rev,true)"><i
+                      class="fas fa-trash-alt"></i></a>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+
+      </nb-card-body>
+    </nb-card>
+  </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<ng-template #loading>
+  <div class="row">
+    <div class="col-md-12">
+      <h3>NO DATA</h3>
+    </div>
+  </div>
+</ng-template>

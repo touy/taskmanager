@@ -1,0 +1,55 @@
+<h2 class="grid-h"> </h2>
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>
+          <div class="row">
+            <h3 class="col-md-11" >ເລືອກສະມາຊິກ</h3>
+          
+          </div>
+        
+      </nb-card-header>
+      <nb-card-body>
+        
+          <div class="table-responsive">
+              <a nbButton shape="round" status="info" (click)="addm()"><i class="fas fa-edit"></i></a>  
+              &nbsp;
+              <button type="button" class="btn btn-success addjobs_data" title="Add Jobs" name="add" id="addjobs_data"
+              (click)=" close()">ບັນທືກ</button>
+             <br>
+             <br>
+              <table class="table table-bordered ">
+                <thead>
+                  <tr>
+                    <th> ຊື່ຜູ້ໃຊ້</th>
+                    <th> ລະຫັດ </th>
+                  
+                  
+                  </tr>
+                </thead>
+                <tbody>
+              
+
+            <tr *ngFor="let u of _selectedUsers; index as i">
+                    <div>
+                         <td>{{u._id}}</td>
+                         <td>{{u.firstname}}</td>
+                
+                   <!--<td> 
+                        <input type="checkbox" >
+                    </td>--> 
+                     </div>
+             </tr> 
+              
+                </tbody>
+              </table>
+            </div>
+
+
+      </nb-card-body>
+    </nb-card>
+  </div>
+  
+  
+</div>
+

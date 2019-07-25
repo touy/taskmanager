@@ -1,0 +1,70 @@
+
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>
+          <div class="row">
+            <h3 class="col-md-11" >ເລືອກວຽກ</h3>  
+          </div>
+          <br>
+          <br>
+        <div class="row">
+            <button type="button" class="btn btn-success" title="Crate Jobs" name="add" id="add" (click)="gojob()">ສ້າງວຽກ</button>
+            &nbsp;
+            <button type="button" class="btn btn-success addjobs_data" title="Add Jobs" name="add" id="addjobs_data"
+            (click)=" close()">ບັນທືກ</button>
+         
+
+        </div>
+      </nb-card-header>
+      <nb-card-body>
+        
+
+          <div class="row">ສະມາຊີກ :
+              <div *ngFor="let u of _selectedJobs">
+                <b>{{u._id}};</b>
+              </div>
+            </div>
+          <div class="table-responsive">
+              <table class="table table-bordered ">
+                <thead>
+                  <tr>
+                  <!--<th>ລະຫັດ</th>-->  
+                    <th> ຊື່ວຽກ</th>
+                    <th>ລາຍລະອຽດວຽກ</th>
+                    <th> ເລືອກ </th>
+               
+                    
+
+                  </tr>
+                </thead>
+                <tbody>
+          
+                  <ng-container *ngFor="let j of jobList index as i" > 
+                    <tr >
+                        <td> <input type="checkbox" data-md-icheck (change)="selectJob(j,$event)" />
+                          <span *ngIf="marked">{{j._id}}</span>
+                          <span *ngIf="!marked">{{j._id}}</span>
+                      </td>
+                    
+                        <td>{{j.jobname}}</td>
+                        <td>{{j.description}}</td>
+                       
+                  
+                   
+                        
+                    </tr>
+                  </ng-container>
+
+                </tbody>
+              </table>
+            </div>
+
+
+      </nb-card-body>
+    </nb-card>
+  </div>
+  
+  
+</div>
+
