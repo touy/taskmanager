@@ -1,20 +1,20 @@
 
-import * as Nano from "nano";
+import * as Nano from 'nano';
 export class Utils {
     static now() {
         // const nano_time = require('nano-time');
         // return nano_time.now();
-        return (Date.now() * 999999.99) + "";
+        return (Date.now() * 999999.99) + '';
     }
     static toDay() {
 
     }
     static createUrl(prefixname: string, dbname: string, prefix: string) {
-        return `${prefixname}-${dbname}-${prefix}`
+        return `${prefixname}-${dbname}-${prefix}`;
     }
     static readonly timefromat: string = 'YYYY-MM-dd HH:mm:ss';
 }
-export interface Iinvitation { // user list could be shown on that prefix, if there is 
+export interface Iinvitation { // user list could be shown on that prefix, if there is
     // no invitation accepted then sender or other user in prefix could not see that username on the list
     // 1. invitation would be within prefix when reciever accept ,
     // 2. public invitaion request from admin only
@@ -33,7 +33,7 @@ export interface Iinvitation { // user list could be shown on that prefix, if th
     lastupdate: string;
     creator: string;
 }
-export class Oinvitation implements Iinvitation { // user list could be shown on that prefix, if there is 
+export class Oinvitation implements Iinvitation { // user list could be shown on that prefix, if there is
     // no invitation accepted then sender or other user in prefix could not see that username on the list
     // 1. invitation would be within prefix when reciever accept ,
     // 2. public invitaion request from admin only
@@ -56,37 +56,37 @@ export class Oinvitation implements Iinvitation { // user list could be shown on
     }
 }
 
-export class mworkstatus {
+export class Mworkstatus {
     static readonly pending: 'pending';
     static readonly processing: 'processing';
     static readonly succeeded: 'succeeded';
-    static readonly canceled: "canceled";
+    static readonly canceled: 'canceled';
 }
-export class commonenames {
+export class Commonenames {
     static readonly admin: 'admin';
     static readonly user: 'user';
-    static readonly owner: "owner";
-    static readonly anyone: "anyone";
-    static readonly guest: "guest";
-    static readonly anonymous: "anonymous";
-    static readonly member: "member";
-    static readonly root: "root";
-    static readonly default: "default";
+    static readonly owner: 'owner';
+    static readonly anyone: 'anyone';
+    static readonly guest: 'guest';
+    static readonly anonymous: 'anonymous';
+    static readonly member: 'member';
+    static readonly root: 'root';
+    static readonly default: 'default';
 }
-export class permissionstaus {
+export class Permissionstaus {
     static readonly read: 'read';
     static readonly none: 'none';
-    static readonly readwrite: "readwrite";
+    static readonly readwrite: 'readwrite';
 }
-export class systemlist {
+export class Systemlist {
     static readonly icemaker: 'icemaker';
     static readonly taskmanager: 'taskmanager';
     static readonly taskmanagerweb: 'taskmanagerweb';
-    static readonly usermanager: "usermanager";
-    static readonly system: "system";
-    static readonly admin: "admin";
+    static readonly usermanager: 'usermanager';
+    static readonly system: 'system';
+    static readonly admin: 'admin';
 }
-export class logTypes {
+export class LogTypes {
     static readonly info = 'info';
     static readonly warning = 'warning';
     static readonly error = 'error';
@@ -95,15 +95,15 @@ export class logTypes {
     static readonly success = 'success';
     static readonly ok = 'ok';
 }
-export class loginfo {
+export class Loginfo {
     _id: string | undefined;
     _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
 
     logtime: string | undefined;
     user: string | undefined;
-    system: systemlist | undefined;
+    system: Systemlist | undefined;
     client: Iclient | undefined;
-    type: logTypes | undefined;
+    type: LogTypes | undefined;
     message: string | undefined;
     src: string | undefined;
     constructor() {
@@ -111,8 +111,8 @@ export class loginfo {
     }
     processAPIResponse(response: Nano.DocumentInsertResponse) {
         if (response.ok === true) {
-            this._id = response.id
-            this._rev = response.rev
+            this._id = response.id;
+            this._rev = response.rev;
         }
     }
 }
@@ -130,9 +130,9 @@ export class loginfo {
 ///////////////////////////////
 ////////////////////////
 ///////////
-//VOTE PROJECT
+// VOTE PROJECT
 
-export interface Iinvoice { // private for user 
+export interface Iinvoice { // private for user
     _id: string | undefined;
     _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
     owners: Array<string>;
@@ -176,7 +176,7 @@ export interface Imediacontent { // r member , w/r owner
     mediakeys: string | undefined;
     awardid: string | undefined;
 }
-export interface Imedialike { // r create by admin 
+export interface Imedialike { // r create by admin
     _id: string | undefined;
     _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
     owners: Array<string>;
@@ -184,7 +184,7 @@ export interface Imedialike { // r create by admin
     createdtime: string | undefined;
     islike: boolean;
 }
-export interface Imediacomment { // r create by admin 
+export interface Imediacomment { // r create by admin
     _id: string | undefined;
     _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
     owners: Array<string>;
@@ -194,7 +194,7 @@ export interface Imediacomment { // r create by admin
     comment: string | undefined;
     usercomment: string | undefined;
 }
-export interface Imediaclick { // r create by admin 
+export interface Imediaclick { // r create by admin
     _id: string | undefined;
     _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
     owners: Array<string>;
@@ -202,7 +202,7 @@ export interface Imediaclick { // r create by admin
     createdtime: string | undefined;
     userclick: string | undefined;
 }
-export interface Iaward { // r create by admin 
+export interface Iaward { // r create by admin
     _id: string | undefined;
     _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
     owners: Array<string>;
@@ -215,7 +215,7 @@ export interface Iaward { // r create by admin
 
     awardkeys: Array<Iawardkeys>;
 }
-export interface Iawardkeys { // r create by admin 
+export interface Iawardkeys { // r create by admin
     _id: string | undefined;
     _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
     owners: Array<string>;
@@ -223,7 +223,7 @@ export interface Iawardkeys { // r create by admin
     touser: string | undefined;
     keys: string | undefined;
 }
-export interface Iticket { // public and private but r only create by admin 
+export interface Iticket { // public and private but r only create by admin
     _id: string | undefined;
     _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
     owners: Array<string>;
@@ -234,7 +234,7 @@ export interface Iticket { // public and private but r only create by admin
     award: string | undefined;
     mediacontent: string | undefined;
 }
-export interface Ivotereport { // public r only create by admin 
+export interface Ivotereport { // public r only create by admin
     _id: string | undefined;
     _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
     owners: Array<string>;
@@ -245,7 +245,7 @@ export interface Ivotereport { // public r only create by admin
 ///////////////////////////////
 ////////////////////////
 ///////////
-//VOTE PROJECT
+// VOTE PROJECT
 
 
 
@@ -312,9 +312,9 @@ export interface Idbconfig {
 export class Odbconfig implements Idbconfig {
     _id: string | undefined;
     _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
-    prefixname: string | undefined;;
-    dbname: string | undefined;;
-    prefix: string | undefined;;
+    prefixname: string | undefined;
+    dbname: string | undefined;
+    prefix: string | undefined;
     fulldbname: string | undefined;
     username: string | undefined;
     serverurl: string | undefined;
@@ -326,7 +326,9 @@ export class Odbconfig implements Idbconfig {
     creator: string | undefined;
 }
 export class Xdbconfig extends Odbconfig {
-    constructor(configname: string, prefixname?: string, dbname?: string, prefix?: string, username?: string, serverurl?: string) {
+    constructor(configname: string,
+        prefixname?: string, dbname?: string,
+        prefix?: string, username?: string, serverurl?: string) {
         super();
         this.prefixname = prefixname;
         this.dbname = dbname;
@@ -337,8 +339,8 @@ export class Xdbconfig extends Odbconfig {
     }
     processAPIResponse(response: Nano.DocumentInsertResponse) {
         if (response.ok === true) {
-            this._id = response.id
-            this._rev = response.rev
+            this._id = response.id;
+            this._rev = response.rev;
         }
     }
     setAutorizedKeys(key: string) {
@@ -359,15 +361,15 @@ export class Xdbconfig extends Odbconfig {
     }
 }
 // OBJECT FRO DATA TRANSMISSION ONLY
-export interface I_security_user {
+export interface Isecurityuser {
     names: Array<string>;
     roles: Array<string>;
 }
-export class O_security_user implements I_security_user {
+export class Osecurityuser implements Isecurityuser {
     names: Array<string>;
     roles: Array<string>;
 }
-export class X_security_user extends O_security_user {
+export class Xsecurityuser extends Osecurityuser {
     constructor(names: string | Array<string>, roles: string | Array<string>) {
         super();
         this.addName(names);
@@ -386,10 +388,10 @@ export class X_security_user extends O_security_user {
         return x ? Array.isArray(x) ? x.map(y => this.roles.push(y)) : this.roles.push(x) : this.roles;
     }
     removeName(x: string) {
-        return this.names = this.names.filter(n => n != x);
+        return this.names = this.names.filter(n => n !== x);
     }
     removeRole(x: string) {
-        return this.roles = this.roles.filter(n => n != x);
+        return this.roles = this.roles.filter(n => n !== x);
     }
     clearNames() {
         return this.names.length = 0;
@@ -402,21 +404,21 @@ export class X_security_user extends O_security_user {
         this.names.length = 0;
     }
 }
-export interface I_security {
-    admins: Array<I_security_user>;
-    members: Array<I_security_user>;
+export interface Isecurity {
+    admins: Array<Isecurityuser>;
+    members: Array<Isecurityuser>;
 }
-export class O_security implements I_security {
-    admins: Array<I_security_user>;
-    members: Array<I_security_user>;
+export class Osecurity implements Isecurity {
+    admins: Array<Isecurityuser>;
+    members: Array<Isecurityuser>;
 }
-export class X_security extends O_security {
+export class Xsecurity extends Osecurity {
     constructor() {
         super();
     }
     /// TEST ONLY THEN REMOVE THIS BELOW LATER
     getJson() {
-        return this as I_security;
+        return this as Isecurity;
     }
 
 
@@ -424,10 +426,10 @@ export class X_security extends O_security {
 
 
 
-/// FOR SYSTEM USERS which only system admin can work 
+/// FOR SYSTEM USERS which only system admin can work
 // normal user can pull its data only
 // NO PREFIX
-export class I_user {
+export class Iuser {
     _id: string | undefined;
     metadata: {
         dbconfig: Array<Idbconfig> | undefined,
@@ -440,7 +442,7 @@ export class I_user {
     type: string | undefined;
 }
 
-export class O_user implements I_user {
+export class Ouser implements Iuser {
     _id: string | undefined;
     _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
     metadata: {
@@ -454,31 +456,34 @@ export class O_user implements I_user {
     roles: Array<string>;
     type: string;
 }
-new O_user().roles.filter(x => new Array().includes(x));
-export class X_user extends O_user {
+// new Ouser().roles.filter(x => new Array().includes(x));
+export class Xuser extends Ouser {
     _id: string | undefined;
     _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
     name: string;
     password: string;
     roles: Array<string>;
     type: string;
-    constructor(name: string, password?: string, roles?: Array<string> | string, dbconfig?: Array<Idbconfig> | Idbconfig) {
+    constructor(name: string, password?: string,
+        roles?: Array<string> | string, dbconfig?: Array<Idbconfig> | Idbconfig) {
         super();
-        this.type = commonenames.user;
+        this.type = Commonenames.user;
         this.name = name;
         this.password = password;
         this._id = `org.couchdb.user:${name}`;
         roles ? Array.isArray(roles) ? roles.map(x => this.roles.push(x)) : this.roles.push(roles) : this.roles;
-        this.metadata ? Array.isArray(dbconfig) ? dbconfig.map(x => this.metadata.dbconfig.push(x)) : this.metadata.dbconfig.push(dbconfig) : this.metadata;
+        this.metadata ? Array.isArray(dbconfig) ?
+        dbconfig.map(x => this.metadata.dbconfig.push(x)) :
+        this.metadata.dbconfig.push(dbconfig) : this.metadata;
     }
     processAPIResponse(response: Nano.DocumentInsertResponse) {
         if (response.ok === true) {
-            this._id = response.id
-            this._rev = response.rev
+            this._id = response.id;
+            this._rev = response.rev;
         }
     }
     setAdmin() {
-        this.type = commonenames.admin;/// FOR SYSTEM ADMIN ONLY
+        this.type = Commonenames.admin; /// FOR SYSTEM ADMIN ONLY
     }
 }
 
@@ -506,26 +511,26 @@ export class Osetting {
     dblink: string | undefined;
     settings: Array<Osettingobj>;
 }
-export class personalsetting extends Osetting {
+export class Personalsetting extends Osetting {
     dblink: string | undefined;
     constructor() {
         super();
     }
     processAPIResponse(response: Nano.DocumentInsertResponse) {
         if (response.ok === true) {
-            this._id = response.id
-            this._rev = response.rev
+            this._id = response.id;
+            this._rev = response.rev;
         }
     }
 }
 export interface Imsggroup {
     _id: string | undefined;
     _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
-    members: Array<I_user>;
-    admin: Array<I_user>;
-    oldadmin: Array<I_user>;
-    deletedmember: Array<I_user>;
-    banmembers: Array<I_user>;
+    members: Array<Iuser>;
+    admin: Array<Iuser>;
+    oldadmin: Array<Iuser>;
+    deletedmember: Array<Iuser>;
+    banmembers: Array<Iuser>;
     msgcomlink: string | undefined;
     msggroupname: string | undefined;
 }
@@ -534,13 +539,13 @@ export class Omsggroup implements Imsggroup {
     isdefault: string | undefined;
     lastupdate: string | undefined;
 
-    members: Array<I_user>;
-    admin: Array<I_user>;
-    oldadmin: Array<I_user>;
-    deletedmember: Array<I_user>;
-    banmembers: Array<I_user>;
-    creator: I_user;
-    defaultadmin: Array<I_user>;
+    members: Array<Iuser>;
+    admin: Array<Iuser>;
+    oldadmin: Array<Iuser>;
+    deletedmember: Array<Iuser>;
+    banmembers: Array<Iuser>;
+    creator: Iuser;
+    defaultadmin: Array<Iuser>;
     msgcomlink: string;
     msggroupname: string;
 }
@@ -549,7 +554,7 @@ export class Imsgactioname {
     audio: 'audio';
     vdo: 'vdo';
 }
-export class msgaction {
+export class Msgaction {
     username: string | undefined;
     action: Imsgactioname;
 }
@@ -564,10 +569,10 @@ export interface Imsgcom {
     attachedfile: Array<IObj> | undefined;
     attachedfilesize: string | undefined;
     attachedfilename: string | undefined;
-    action: Array<msgaction> | undefined;
+    action: Array<Msgaction> | undefined;
 }
 export class MyDataBaseNames {
-    //static readonly dbuser: string = 'g-users-';
+    // static readonly dbuser: string = 'g-users-';
     static readonly dbprofile: string = 'g-profile-';
     static readonly dbuserprefix: string = 'g-userprefix-';
     static readonly dbjob: string = 'g-job-';
@@ -579,9 +584,9 @@ export class MyDataBaseNames {
     static readonly dbrolelist: string = 'g-role-list-';
     static readonly dbuserrole: string = 'g-user-role-';
     // static readonly dbuserpermission: string = 'g-user-permision-';
-    //static readonly dbuserpermissionassigned: string = 'g-user-permission-assigned-';
+    // static readonly dbuserpermissionassigned: string = 'g-user-permission-assigned-';
     static readonly dbpermissionassigned: string = 'g-user-permission-assigned-';
-    //static readonly dbpermissionrequest: string = 'g-user-permission-request-';
+    // static readonly dbpermissionrequest: string = 'g-user-permission-request-';
 
     static readonly dbencryptionkeys: string = 'g-user-encryption-keys-';
     static readonly dbauthorizedkeys: string = 'g-authorized-keys-';
@@ -606,13 +611,13 @@ export class MyDataBaseNames {
     static readonly remoteCouch: string = 'http://admin:admin@localhost:5984/';
     static readonly taskmanagerserver: string = 'http://localhost:1314/';
 }
-export class systemdefaultadmin {
+export class Systemdefaultadmin {
     static readonly icemaker_admin: string = 'icemaker-admin';
     static readonly taskmanager_admin: string = 'taskmanager-admin';
     static readonly usermanager_admin: string = 'taskmanager-admin';
 }
 
-export class globalcommands {
+export class Globalcommands {
     static readonly login = 'login';
     static readonly logout = 'logout';
     static readonly changepassword = 'changepassword';
@@ -642,7 +647,7 @@ export class globalcommands {
 // Register , login , logout , add user by admin, change password by admin................
 // dbname-prefix , firstly work with temporary prefix
 
-export interface Iclient { // 
+export interface Iclient { //
     _id: string | undefined;
     _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
     gui: string | undefined; /// sfadsfsadfsadfsadfasdf
@@ -676,8 +681,8 @@ export class Oclient implements Iclient { // NO PREFIX -- local
     }
     processAPIResponse(response: Nano.DocumentInsertResponse) {
         if (response.ok === true) {
-            this._id = response.id
-            this._rev = response.rev
+            this._id = response.id;
+            this._rev = response.rev;
         }
     }
 }
@@ -715,8 +720,8 @@ export class Odata implements Idata {// no prefix -- local
     }
     processAPIResponse(response: Nano.DocumentInsertResponse) {
         if (response.ok === true) {
-            this._id = response.id
-            this._rev = response.rev
+            this._id = response.id;
+            this._rev = response.rev;
         }
     }
 
@@ -736,8 +741,8 @@ export class Orolelist implements Irolelist { // no prefix -- remote
     }
     processAPIResponse(response: Nano.DocumentInsertResponse) {
         if (response.ok === true) {
-            this._id = response.id
-            this._rev = response.rev
+            this._id = response.id;
+            this._rev = response.rev;
         }
     }
 }
@@ -757,8 +762,8 @@ export class Oauth implements Iauth { // NO PREFIX -- local
     }
     processAPIResponse(response: Nano.DocumentInsertResponse) {
         if (response.ok === true) {
-            this._id = response.id
-            this._rev = response.rev
+            this._id = response.id;
+            this._rev = response.rev;
         }
     }
 
@@ -779,17 +784,17 @@ export class OmySystem implements ImySystem { // no prefix  -- remote
     }
     processAPIResponse(response: Nano.DocumentInsertResponse) {
         if (response.ok === true) {
-            this._id = response.id
-            this._rev = response.rev
+            this._id = response.id;
+            this._rev = response.rev;
         }
     }
 
 }
 
-// ADMIN 
+// ADMIN
 
 
-// END ADMIN 
+// END ADMIN
 
 
 
@@ -853,15 +858,16 @@ export class Ouserprefix implements Iuserprefix { // private -- remote
     constructor(prefixname: string = '', prefix: string = '', owners: string | Array<string> = '') {
         this.prefixname = prefixname;
         this.prefix = prefix;
-        this.owners = owners ? Array.isArray(owners) ? this.owners.concat(owners) : this.owners.concat([owners]) : this.owners;
+        this.owners = owners ? Array.isArray(owners) ?
+        this.owners.concat(owners) : this.owners.concat([owners]) : this.owners;
         this.authorizedkeys = new Array<IauthorizedKeys>();
 
     }
 
     processAPIResponse(response: Nano.DocumentInsertResponse) {
         if (response.ok === true) {
-            this._id = response.id
-            this._rev = response.rev
+            this._id = response.id;
+            this._rev = response.rev;
         }
     }
 
@@ -899,9 +905,38 @@ export class Otempprefix implements Itempprefix { // private -- remote
 
 
 
-
+export interface Igijuser { // no refix --- remote
+    _id: string | undefined;
+    _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
+    username: string | undefined;
+    password: string | undefined;
+    confirmpassword: string | undefined;
+    phonenumber: string | undefined;
+    email: string | undefined;
+    gui: string | undefined;
+    createddate: string;
+    isactive: boolean;
+    parents: Array<string>;
+    roles: Array<Iroles>;
+    logintoken: string | undefined;
+    expirelogintoken: string | undefined;
+    description: string | undefined;
+    note: string | undefined;
+    system: Array<ImySystem>; /// task-manager....
+    gijvalue: number;
+    totalgij: number;
+    totalgijspent: number;
+    oldphone: Array<string> | undefined;
+    userprofile: Iuserprofile;
+    userprefix: Array<Iuserprefix>;
+    permission: Ipermissions;
+    enryptionkeys: Ienryptionkeys;
+    activatechoice: string | undefined;
+    owners: Array<string>;
+    creator: string | undefined;
+}
 // // ADMIN Register , login , logout , add user by admin, change password by admin
-// USER, edit USER INFO, change password by 
+// USER, edit USER INFO, change password by
 // POUCHDB
 /// prefixname-dbname-prefix
 export class Ogijuser implements Igijuser {
@@ -939,43 +974,26 @@ export class Ogijuser implements Igijuser {
     }
     processAPIResponse(response: Nano.DocumentInsertResponse) {
         if (response.ok === true) {
-            this._id = response.id
-            this._rev = response.rev
+            this._id = response.id;
+            this._rev = response.rev;
         }
     }
 
 }
-export interface Igijuser { // no refix --- remote
+
+export interface Iuserprofile {// private -- remote
     _id: string | undefined;
     _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
-    username: string | undefined;
-    password: string | undefined;
-    confirmpassword: string | undefined;
-    phonenumber: string | undefined;
-    email: string | undefined;
-    gui: string | undefined;
-    createddate: string;
-    isactive: boolean;
-    parents: Array<string>;
-    roles: Array<Iroles>;
-    logintoken: string | undefined;
-    expirelogintoken: string | undefined;
-    description: string | undefined;
-    note: string | undefined;
-    system: Array<ImySystem>; /// task-manager....
-    gijvalue: number;
-    totalgij: number;
-    totalgijspent: number;
-    oldphone: Array<string> | undefined;
-    userprofile: Iuserprofile;
-    userprefix: Array<Iuserprefix>;
-    permission: Ipermissions;
-    enryptionkeys: Ienryptionkeys;
-    activatechoice: string | undefined;
     owners: Array<string>;
-    creator: string | undefined;
+    firstname: string | undefined;
+    lastname: string | undefined;
+    address: string | undefined;
+    photo: Array<OphotoObj>;
+    description: string | undefined;
+    remark: string | undefined;
 }
-//dbname-prefix
+
+// dbname-prefix
 export class Ouserprofile implements Iuserprofile { /// privage -- remote
     _id: string | undefined; _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
     owners: Array<string>;
@@ -992,22 +1010,12 @@ export class Ouserprofile implements Iuserprofile { /// privage -- remote
     }
     processAPIResponse(response: Nano.DocumentInsertResponse) {
         if (response.ok === true) {
-            this._id = response.id
-            this._rev = response.rev
+            this._id = response.id;
+            this._rev = response.rev;
         }
     }
 }
-export interface Iuserprofile {// private -- remote
-    _id: string | undefined;
-    _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
-    owners: Array<string>;
-    firstname: string | undefined;
-    lastname: string | undefined;
-    address: string | undefined;
-    photo: Array<OphotoObj>;
-    description: string | undefined;
-    remark: string | undefined;
-}
+
 
 
 
@@ -1023,10 +1031,10 @@ export interface Iroles { // public --- remote
     groupname: string | undefined;
     owners: Array<string>; // pre-defined
     rolelevel: number;
-    members: Array<string>; // 
-    parentroleid: string | undefined;//default
+    members: Array<string>; //
+    parentroleid: string | undefined; // default
 
-    permission: Array<Ipermissions>; // Ipermission   
+    permission: Array<Ipermissions>; // Ipermission
     oldroles: Array<Iroles>;
     assignedtime: string | undefined;
     deassignedtime: string | undefined;
@@ -1051,8 +1059,8 @@ export class Oroles implements Iroles { // public -- remote
     }
     processAPIResponse(response: Nano.DocumentInsertResponse) {
         if (response.ok === true) {
-            this._id = response.id
-            this._rev = response.rev
+            this._id = response.id;
+            this._rev = response.rev;
         }
     }
 
@@ -1068,7 +1076,7 @@ export interface Iapprovement { // public  remote
     note: string | undefined;
     isapproved: boolean | undefined;
     isdenied: boolean | undefined;
-    creator: string | undefined;// docid
+    creator: string | undefined; // docid
     owners: Array<string>;
 }
 export class Oapprovement implements Iapprovement { // public  remote
@@ -1088,44 +1096,12 @@ export class Oapprovement implements Iapprovement { // public  remote
     }
     processAPIResponse(response: Nano.DocumentInsertResponse) {
         if (response.ok === true) {
-            this._id = response.id
-            this._rev = response.rev
+            this._id = response.id;
+            this._rev = response.rev;
         }
     }
 }
-export class Odocument implements Idocument { // public --- remote
-    _id: string | undefined;
-    _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
-    docname: string | undefined;
-    owners: Array<string>;
-    members: Array<IpermissionAssigned>;
-    status: mworkstatus;
-    jobs: Array<Ijob>;
-    // olddoc: Array<Idocument>;
-    description: string | undefined;
-    createdtime: string | undefined;
-    starttime: string | undefined;
-    endtime: string | undefined;
-    totalscore: number; // allow by approval only
-    iscompleted: boolean;
-    endreason: string | undefined;
-    //approvedby:Array<string>;
-    approvement: Array<Iapprovement>;
-    priority: string | undefined;
-    attachedfile: Array<IObj>;
-    scoreslist: Array<Iscores>; // allow by approval only    
-    constructor(docname: string = '', owners: string | Array<string>) {
-        this.docname = docname;
-        this.owners = owners ? Array.isArray(owners) ? this.owners.concat(owners) : this.owners.concat([owners]) : this.owners;
 
-    }
-    processAPIResponse(response: Nano.DocumentInsertResponse) {
-        if (response.ok === true) {
-            this._id = response.id
-            this._rev = response.rev
-        }
-    }
-}
 export interface Idocument { // public --- remote
     _id: string | undefined;
     _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
@@ -1137,16 +1113,53 @@ export interface Idocument { // public --- remote
     createdtime: string | undefined;
     starttime: string | undefined;
     endtime: string | undefined;
-    totalscore: number;// allow by approval only
+    totalscore: number; // allow by approval only
     iscompleted: boolean;
     endreason: string | undefined;
-    status: mworkstatus;
+    status: Mworkstatus;
     approvement: Array<Iapprovement>;
-    //approvedby:Array<string>;
+    // approvedby:Array<string>;
     priority: string | undefined;
     attachedfile: Array<IObj>;
     scoreslist: Array<Iscores>; // by approve only
 }
+
+
+export class Odocument implements Idocument { // public --- remote
+    _id: string | undefined;
+    _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
+    docname: string | undefined;
+    owners: Array<string>;
+    members: Array<IpermissionAssigned>;
+    status: Mworkstatus;
+    jobs: Array<Ijob>;
+    // olddoc: Array<Idocument>;
+    description: string | undefined;
+    createdtime: string | undefined;
+    starttime: string | undefined;
+    endtime: string | undefined;
+    totalscore: number; // allow by approval only
+    iscompleted: boolean;
+    endreason: string | undefined;
+    // approvedby:Array<string>;
+    approvement: Array<Iapprovement>;
+    priority: string | undefined;
+    attachedfile: Array<IObj>;
+    scoreslist: Array<Iscores>; // allow by approval only
+    constructor(docname: string = '', owners: string | Array<string>) {
+        this.docname = docname;
+        this.owners = owners ? Array.isArray(owners) ?
+        this.owners.concat(owners) : this.owners.concat([owners]) : this.owners;
+
+    }
+    processAPIResponse(response: Nano.DocumentInsertResponse) {
+        if (response.ok === true) {
+            this._id = response.id;
+            this._rev = response.rev;
+        }
+    }
+}
+
 export interface Ijob { // public  remote
     _id: string | undefined;
     _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
@@ -1163,8 +1176,8 @@ export interface Ijob { // public  remote
     attachedfile: Array<IObj>; /// allow owner to change
     owners: Array<string>; /// allow owner to change
     creator: string | undefined; // not empty
-    status: mworkstatus; /// allow owner to change
-    note: string | undefined;/// allow owner to change
+    status: Mworkstatus; /// allow owner to change
+    note: string | undefined; /// allow owner to change
 
 }
 export class Ojob implements Ijob { // public  remote
@@ -1177,24 +1190,36 @@ export class Ojob implements Ijob { // public  remote
     createdtime: string | undefined;
     starttime: string | undefined;
     endtime: string | undefined;
-    completedtime: string | undefined;// /// allow owner to change
+    completedtime: string | undefined; // /// allow owner to change
     approveby: Array<string>;
     score: Iscores; // allow approval users to change
     attachedfile: Array<IObj>; /// allow owner to change
     owners: Array<string>; /// allow owner to change
     creator: string | undefined; // is not allow to be empty
-    status: mworkstatus; /// allow owner to change
-    note: string | undefined;/// allow owner to change    
+    status: Mworkstatus; /// allow owner to change
+    note: string | undefined; /// allow owner to change
     constructor(jobname: string = '') {
         this.jobname = jobname;
     }
     processAPIResponse(response: Nano.DocumentInsertResponse) {
         if (response.ok === true) {
-            this._id = response.id
-            this._rev = response.rev
+            this._id = response.id;
+            this._rev = response.rev;
         }
     }
 }
+
+export interface Iscores { // public  remote
+    _id: string | undefined;
+    _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
+    score: number;
+    status: string | undefined;
+    createdtime: string | undefined;
+    isold: boolean;
+    owners: Array<string>;
+    creator: string | undefined;
+}
+
 export class Oscores implements Iscores { // public  remote
     _id: string | undefined;
     _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
@@ -1209,28 +1234,10 @@ export class Oscores implements Iscores { // public  remote
     }
     processAPIResponse(response: Nano.DocumentInsertResponse) {
         if (response.ok === true) {
-            this._id = response.id
-            this._rev = response.rev
+            this._id = response.id;
+            this._rev = response.rev;
         }
     }
-}
-export interface Iscores { // public  remote
-    _id: string | undefined;
-    _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
-    score: number;
-    status: string | undefined;
-    createdtime: string | undefined;
-    isold: boolean;
-    owners: Array<string>;
-    creator: string | undefined;
-}
-export class OReport implements IReport { // public  remote
-    _id: string | undefined;
-    _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
-    createdtime: string | undefined;
-    reportname: string | undefined;
-    reportcont: string | undefined;
-    createdby: string | undefined;
 }
 export interface IReport { // public  remote
     _id: string | undefined;
@@ -1240,6 +1247,15 @@ export interface IReport { // public  remote
     reportcont: string | undefined;
     createdby: string | undefined;
 }
+export class OReport implements IReport { // public  remote
+    _id: string | undefined;
+    _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
+    createdtime: string | undefined;
+    reportname: string | undefined;
+    reportcont: string | undefined;
+    createdby: string | undefined;
+}
+
 // export interface ImemberRequest { // public remote
 //     _id: string | undefined;
 //     _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
@@ -1277,7 +1293,7 @@ export interface IReport { // public  remote
 // }
 export interface IpermissionAssigned { // public remote
     _id: string | undefined; _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
-    //permissionid: string | undefined;
+    // permissionid: string | undefined;
     permissionlevel: string | undefined;
     assignedname: string | undefined;
     permission: Ipermissions;
@@ -1291,7 +1307,7 @@ export interface IpermissionAssigned { // public remote
 }
 export class OpermissionAssigned implements IpermissionAssigned {// public  remote
     _id: string | undefined; _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
-    //permissionid: string | undefined;
+    // permissionid: string | undefined;
     permissionlevel: string | undefined;
     assignedname: string | undefined;
     permission: Ipermissions; // dont need because we have permission id
@@ -1301,18 +1317,25 @@ export class OpermissionAssigned implements IpermissionAssigned {// public  remo
     admin: string | undefined;
     owners: Array<string>;
     creator: string | undefined;
-    //memberaccepted: Array<ImemberRequest>;
+    // memberaccepted: Array<ImemberRequest>;
     constructor(permissionid: string = '', assignedname: string = '', permissionlevel: string = '') {
-        //this.permissionid = permissionid;
+        // this.permissionid = permissionid;
         this.assignedname = assignedname;
         this.permissionlevel = permissionlevel;
     }
     processAPIResponse(response: Nano.DocumentInsertResponse) {
         if (response.ok === true) {
-            this._id = response.id
-            this._rev = response.rev
+            this._id = response.id;
+            this._rev = response.rev;
         }
     }
+}
+export interface Ipermissions { // public -- remote
+    _id: string | undefined;
+    _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
+    permissionname: string | undefined;
+    permissionlevel: number;
+    status: string | undefined; // read or write or none
 }
 export class Opermissions implements Ipermissions { // public -- remote
     _id: string | undefined; _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
@@ -1326,19 +1349,13 @@ export class Opermissions implements Ipermissions { // public -- remote
     }
     processAPIResponse(response: Nano.DocumentInsertResponse) {
         if (response.ok === true) {
-            this._id = response.id
-            this._rev = response.rev
+            this._id = response.id;
+            this._rev = response.rev;
         }
     }
 }
 
-export interface Ipermissions { // public -- remote
-    _id: string | undefined;
-    _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
-    permissionname: string | undefined;
-    permissionlevel: number;
-    status: string | undefined; // read or write or none
-}
+
 
 export interface Itemplate { // public  remote
     _id: string | undefined;
@@ -1348,7 +1365,7 @@ export interface Itemplate { // public  remote
     content: string | undefined;
     createdby: string | undefined;
     createforuser: string | undefined;
-    generatetime: string | undefined
+    generatetime: string | undefined;
 }
 export class Otemplate implements Itemplate { // public  remote
     _id: string | undefined;
@@ -1364,12 +1381,21 @@ export class Otemplate implements Itemplate { // public  remote
     }
     processAPIResponse(response: Nano.DocumentInsertResponse) {
         if (response.ok === true) {
-            this._id = response.id
-            this._rev = response.rev
+            this._id = response.id;
+            this._rev = response.rev;
         }
     }
 }
-
+export interface Ienryptionkeys { // private -- remote
+    _id: string | undefined;
+    _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
+    keys: string | undefined;
+    isActive: boolean | undefined;
+    startime: string | undefined;
+    endtime: string | undefined;
+    owners: Array<string>;
+    creator: string | undefined;
+}
 export class Oencryptionkeys implements Ienryptionkeys { // private -- remote
     _id: string | undefined; _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
     keys: string | undefined;
@@ -1386,25 +1412,23 @@ export class Oencryptionkeys implements Ienryptionkeys { // private -- remote
     }
     processAPIResponse(response: Nano.DocumentInsertResponse) {
         if (response.ok === true) {
-            this._id = response.id
-            this._rev = response.rev
+            this._id = response.id;
+            this._rev = response.rev;
         }
     }
 
 }
-export interface Ienryptionkeys { // private -- remote
+
+
+
+export interface IObj { // public -- remote
     _id: string | undefined;
     _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
-    keys: string | undefined;
-    isActive: boolean | undefined;
-    startime: string | undefined;
-    endtime: string | undefined;
-    owners: Array<string>;
-    creator: string | undefined;
+    name: string | undefined;
+    arraybuffer: Blob;
+    type: string | undefined;
+    url: string | undefined;
 }
-
-
-
 // for attached file
 export class OphotoObj implements IObj { // public -- remote
     _id: string | undefined;
@@ -1419,11 +1443,12 @@ export class OphotoObj implements IObj { // public -- remote
     }
     processAPIResponse(response: Nano.DocumentInsertResponse) {
         if (response.ok === true) {
-            this._id = response.id
-            this._rev = response.rev
+            this._id = response.id;
+            this._rev = response.rev;
         }
     }
 }
+
 export class Oobj implements IObj { // public -- remote
     _id: string | undefined;
     _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
@@ -1432,14 +1457,7 @@ export class Oobj implements IObj { // public -- remote
     type: string | undefined;
     url: string | undefined;
 }
-export interface IObj { // public -- remote
-    _id: string | undefined;
-    _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
-    name: string | undefined;
-    arraybuffer: Blob;
-    type: string | undefined;
-    url: string | undefined;
-}
+
 
 
 
