@@ -132,8 +132,9 @@ export class ModaljobComponent {
   }
 
   close() {
-    this.ref.close({ command: 'update' ,j:this._selectedJobs});
-    console.log()
+    this.ref.close({ command: 'update' , j:this._selectedJobs});
+    console.log();
+
   }
 
   selectJob(u:Ijob,e){

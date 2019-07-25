@@ -3,7 +3,7 @@ import { NbDialogService } from '@nebular/theme';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import pouchdb from 'pouchdb';
-import { Idocument, Odocument,  MyDataBaseNames, Opermissions, OpermissionsAssigned } from '../../../interface';
+import { Idocument, Odocument,  MyDataBaseNames, Opermissions, OpermissionsAssigned,Ijob,Ojob } from '../../../interface';
 import {ModalUserDocComponent} from './modal-user-doc/modal-user-doc.component';
 import {ModaljobComponent} from './modal-job/modal-job.Component';
 // import {ModalMComponent} from './modal-m-doc/modal-m-doc.component';
@@ -23,6 +23,7 @@ export class DocaddComponent implements OnInit {
   @Input() _rev: string;
   @Input() isdelete:boolean ;
   _selecteddoc: Idocument;
+  _selectedJobs: Ijob[];
 
   constructor(private dialogService: NbDialogService, private router: Router, public _Location: Location, private route: ActivatedRoute) {
     setInterval(() => {
@@ -170,7 +171,10 @@ export class DocaddComponent implements OnInit {
     });
 
     dlg.onClose.subscribe(result => {
-      //this.loadUserList();
+      console.log(result);
+      if(result.command==='update'){
+        this._selectedJobs = result.j;
+      }
     });
   }
 
