@@ -1,0 +1,637 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../../css/bootadmin.min.css">
+    <link rel="stylesheet" href="../../css/datatables.min.css">
+    <link rel="stylesheet" href="../../jq/jquery.datetimepicker.min.css"> 
+<!--    <link rel="stylesheet" href="../../css/fullcalendar.min.css"> -->
+
+
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/bootadmin.min.js"></script>
+    <script src="../../js/datatables.min.js"></script>
+    <script src="../../js/moment.min.js"></script>
+    <script src="../../jq/jquery.datetimepicker.full.js"></script>
+ <!--    <script src="../../js/fullcalendar.min.js"></script> -->
+   
+
+ 
+    
+    
+
+    <title>System Name</title>
+    
+</head>
+<body class="bg-light" style="font-family: 'Phetsarath OT'">
+<nav class="navbar navbar-expand navbar-dark bg-dark shadow">
+    <a class="sidebar-toggle mr-3" href="#"><i class="fa fa-bars"></i></a>
+    <a class="navbar-brand" href="#">System Name</a>
+
+    <div class="navbar-collapse collapse">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a href="#" class="nav-link back"><i class="material-icons"></i><font size="4"> ກັບຄືນ</font></a></li>
+            
+        </ul>
+    </div>
+</nav>
+
+<div class="d-flex">
+
+    
+<div class="content p-4">
+
+    
+        <div class="card mb-4">
+                <div class="card-header bg-white font-weight-bold">
+                        <h2>ຟອມ    ສ້າງເອກະສານ</h2>
+                        <span class="badge  badge-primary float-center " ><font size="3"  >ກຳລັງດຳເນີນງານ</font></span>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group row">
+                                    <label for="inputEmail3" class="col-sm-2 col-form-label">ຫົວຂໍ້ເອກະສານ</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control"  >
+                                    </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-2 col-form-label">ສົງຫາຜູ້ອານຸມັດ</label>
+                            <div class="col-sm-4">
+                                    <select class="form-control" id="exampleFormControlSelect1">
+                                            <option>ເລືອກ</option>
+                                            <option>ຫນ້າພະແນກ</option>
+                                            <option>ອຳນວຍການ</option>
+                                           
+                                        </select>
+                    
+                            </div>
+                        </div>
+                       
+                        <div class="form-group row">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">ລາຍລະອຽດ</label>
+                            <div class="col-sm-10">
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                                <label for="inputPassword3" class="col-sm-2 col-form-label">ວັນທີເລີມ</label>
+                                <div class="col-sm-3">
+                                        <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                                </div>
+                                                <input id="DateStart"  type="text" class="form-control"  autocomplete="off">
+                                            </div>
+                                       
+    
+                                </div>
+                                <label for="inputPassword3" class="col-sm-1 col-form-label">ຫາວັນທີ</label>
+                                <div class="col-sm-3">
+                                        <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                                </div>
+                                                <input id="DateEnd"  type="text" class="form-control"  autocomplete="off">
+                                            </div>
+                                        
+    
+                                </div>
+                        </div>
+
+                        <div class="form-group row">
+                                        <label for="inputPassword3" class="col-sm-2 col-form-label">ເອກະສານຕິດຄັດ</label>
+                                        <div class="col-sm-3">
+                                               
+                                                <input id="file"  type="file" class="form-control" multiple>
+            
+                                        </div>
+                                       
+                                        
+                                </div>
+
+                        <div class="form-group row">
+                                <label for="inputPassword3" class="col-sm-2 col-form-label">ສະມາຊີກ</label>
+                                <div class="col-sm-10">
+
+
+                                       
+                                        <div class="table-responsive">
+                                                <table id="example" class="table table-hover  " cellspacing="0" width="100%">
+                                                
+                                                <thead>
+                                                <tr>
+                                                    <th>ລະຫັດ</th>
+                                                    <th>ຊື່ສະມາຊິກ</th>
+                                                    <th>ຄວາມສາມາດ</th>
+                                                    
+                                                    
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                        <tr>
+                                                                <td>0001</td>
+                                                                <td>ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ</td>
+                                                                <td><span class="badge  badge-success float-center " ><font size="3"  >ຫົວຫນ້າທີມ</font></span></td>
+                                                                
+                                                                
+                                                        </tr>
+                                                        <tr>
+                                                                <td>0002</td>
+                                                                <td>ທ້າວ ສອນໄຊ ເກດແກ້ວ</td>
+                                                                <td><span class="badge  badge-info float-center " ><font size="3"  >ຮ້ອງຫົວຫນ້າທີມ</font></span></td>
+                                                                
+                                                               
+                                                        </tr>
+                                                        <tr>
+                                                                <td>0003</td>
+                                                                <td>ທ້າວ ໄຊນະພາ ພົມວິຫານ</td>
+                                                                <td><span class="badge  badge-primary float-center " ><font size="3"  >ວິຊາການ</font></span></td>
+                                                               
+                                                        </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <button type="button" class="btn btn-success Addmember" title="Add Menber" name="add" id="add" >ເພີ້ມສະມາຊິກ</button>
+    
+                                </div>
+                                
+                            </div>
+
+                            <div class="form-group row">
+                                    <label for="inputPassword3" class="col-sm-2 col-form-label">ຫນ້າວຽກທີປະຕິບັນ</label>
+                                    <div class="col-sm-10">
+    
+    
+                                           
+                                            <div class="table-responsive">
+                                                    <table id="example2" class="table table-hover  " cellspacing="0" width="100%">
+                                                    
+                                                    <thead>
+                                                    <tr>
+                                                        <th>ລະຫັດ</th>
+                                                        <th>ຫົວຂໍ້ວຽກ</th>
+                                                        <th>ວັນທີເລີມ</th>
+                                                        <th>ວັນທີກຳນົດ</th>
+                                                        <th>ສະຖານະ</th>
+                                                        <th>Action</th>
+                                                        
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                            <tr>
+                                                                    <td>0001</td>
+                                                                    <td>ແປງຄອມ</td>
+                                                                    <td>12/3/2019</td>
+                                                                    <td>13/3/2019</td>
+                                                                    <td><span class="badge  badge-success float-center " ><font size="3"  >ສຳເລັດ</font></span></td>
+                                                                    <td>
+                                                                            <a href="#" id="" class="btn btn-pill btn-success View_data" data-toggle="tooltip" title="View"><i class="fas fa-file "></i></a> 
+                                                                            
+                                                                    </td>
+                                                                    
+                                                            </tr>
+                                                            <tr>
+                                                                    <td>0002</td>
+                                                                    <td>ເຊັກ Server</td>
+                                                                    <td>12/3/2019</td>
+                                                                    <td>13/3/2019</td>
+                                                                    <td><span class="badge  badge-danger float-center " ><font size="3"  >ໂຈການເຮັດວຽກ</font></span></td>
+                                                                    <td>
+                                                                            <a href="#" id="" class="btn btn-pill btn-success View_data" data-toggle="tooltip" title="View"><i class="fas fa-file "></i></a> 
+                                                                           
+                                                                    </td>
+                                                                   
+                                                            </tr>
+                                                            <tr>
+                                                                    <td>0003</td>
+                                                                    <td>ອອກແບບເວັບໄຊ</td>
+                                                                    <td>19/3/2019</td>
+                                                                    <td>22/3/2019</td>
+                                                                    <td><span class="badge  badge-primary float-center " ><font size="3"  >ກຳລັງດຳເນີນງານ</font></span></td>
+                                                                    <td>
+                                                                            <a href="#" id="" class="btn btn-pill btn-success View_data" data-toggle="tooltip" title="View"><i class="fas fa-file "></i></a> 
+                                                                           
+                                                                    </td>
+                                                            </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <button type="button" class="btn btn-success addjobs_data" title="Add Jobs" name="add" id="addjobs_data" >ເລືອກວຽກ</button>
+                                            <button type="button" class="btn btn-success" title="Crate Jobs" name="add" id="add" >ສ້າງວຽກ</button>
+                                    </div>
+                                    
+                                </div>
+
+                        
+                        
+                    </form>
+                </div>
+                <div class="card-footer bg-white">
+                    <button type="submit" class="btn btn-primary">ສ້າງເອກະສານ</button>
+                </div>
+            </div>
+
+
+
+            <!--                            //////                                    -->
+
+
+            <div id="add_data_Modal" class="modal fade">
+                <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                <div class="modal-header">
+                    
+                    <h4 id="insert_h" class="modal-title">ເບິ່ງໜ້າວຽກ
+                        
+                    </h4>
+                    
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                <form method="post" id="insert_form" autocomplete="off">
+                    
+                    
+                    <div class="form-group row">
+                        <label  class="col-sm-2 "><h5>ຫົວຂໍ້ວຽກ: </h5></label>
+                        <div class="col-sm-8">
+                            <h5>ໃບອອກວຽກນອກ</h5>
+                        </div>
+                        <div class="col-sm-2">
+                            <span class="badge badge-secondary float-center " ><font size="3"  >ລໍຖ້າອະນຸມັດ</font></span>
+                        </div>
+                               
+                    </div>    
+                    
+                    <div class="form-group row">
+                        <label  class="col-sm-2 "><h5>ລາຍລະອຽດ : </h5></label>
+                        <div class="col-sm-10">
+                            <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus cursus maximus lacus vel ullamcorper. Duis euismod, risus vel faucibus imperdiet, nisl massa congue dolor, ut mollis lacus tortor eget velit. Nam non urna risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis metus orci, consectetur sed risus at, accumsan imperdiet elit. Nullam semper finibus lacus nec volutpat. Fusce convallis nulla ipsum, et hendrerit elit feugiat non.</h6>
+                        </div>
+                        
+                               
+                    </div> 
+                    <div class="form-group row">
+                        <label class="col-sm-2 "><h5>ເວລາກຳນົດ :</h5></label>
+                        <div class="col-sm-10">
+                                
+                            <h5>ເລີມວັນທີ 12/03/2019 ຫາວັນທີ 12/03/2019</h5>
+    
+                        </div>
+                        
+                    </div>
+                    <div class="form-group row">
+                        <label  class="col-sm-2 "><h5>ສະມາຊີກ :</h5></label>
+                        <div class="col-sm-10">
+    
+    
+                               
+                                <div class="table-responsive">
+                                        <table id="example" class="table table-hover  " cellspacing="0" width="100%">
+                                        
+                                        <thead>
+                                        <tr>
+                                            <th>ລະຫັດ</th>
+                                            <th>ຊື່ສະມາຊິກ</th>
+                                            <th>ຄວາມສາມາດ</th>
+                                            
+                                            
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>0001</td>
+                                                        <td>ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ</td>
+                                                        <td><span class="badge  badge-success float-center " ><font size="3"  >ຫົວຫນ້າທີມ</font></span></td>
+                                                        
+                                                        
+                                                </tr>
+                                                <tr>
+                                                        <td>0002</td>
+                                                        <td>ທ້າວ ສອນໄຊ ເກດແກ້ວ</td>
+                                                        <td><span class="badge  badge-info float-center " ><font size="3"  >ຮ້ອງຫົວຫນ້າທີມ</font></span></td>
+                                                        
+                                                       
+                                                </tr>
+                                                <tr>
+                                                        <td>0003</td>
+                                                        <td>ທ້າວ ໄຊນະພາ ພົມວິຫານ</td>
+                                                        <td><span class="badge  badge-primary float-center " ><font size="3"  >ວິຊາການ</font></span></td>
+                                                       
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+    
+                        </div>
+                        
+                    </div>
+    
+                    
+    
+                </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+                </div>
+                </div>
+                </div> 
+        
+              
+            
+        
+                  <!--                            //////                                    -->
+
+                  <!--                           add job                                    -->
+
+
+            <div id="addjob_data_Modal" class="modal fade">
+                <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                <div class="modal-header">
+                    
+                    <h4 id="insert_h" class="modal-title">ເລືອກວຽກ
+                        
+                    </h4>
+                    
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                <form method="post" id="insert_form" autocomplete="off">
+                    
+                    
+                    
+                    
+                    <div class="form-group row">
+                        
+                        <div class="col-sm-12">
+    
+    
+                               
+                                <div class="table-responsive">
+                                        <table id="example" class="table table-hover  " cellspacing="0" width="100%">
+                                        
+                                        <thead>
+                                        <tr>
+                                            <th align='center'>ເລືອກ</th>
+                                            <th>ຫົວຂໍ້ວຽກ</th>
+                                            <th>ວັນທີສ້າງ</th>
+                                            <th>ຜູ້ສ້າງ</th>
+                                            
+                                            
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td >
+                                                                <div class="form-group form-check mb-0">
+                                                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                                        
+                                                                </div>
+                                                    
+                                                        </td>
+                                                        <td>ອອກແບບເວັບໄຊ</td>
+                                                        <td>22/3/2019</td>
+                                                        <td>ທ້າວ ແກ້ວ</td>
+                                                        
+                                                        
+                                                </tr>
+                                                <tr>
+                                                        <td>
+                                                            <div class="form-group form-check mb-0">
+                                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                                    
+                                                            </div>
+                                                        </td>
+                                                        <td>ເຊັກ Server</td>
+                                                        <td>22/3/2019</td>
+                                                        <td>ທ້າວ ແກ້ວ</td>
+                                                       
+                                                </tr>
+                                                <tr>
+                                                        <td>
+                                                                <div class="form-group form-check mb-0">
+                                                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                                        
+                                                                </div>
+                                                        </td>
+                                                        <td>ແປງຄອມ</td>
+                                                        <td>22/3/2019</td>
+                                                        <td>ທ້າວ ແກ້ວ</td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+    
+                        </div>
+                        
+                    </div>
+    
+                    
+    
+                </form>
+                </div>
+                <div class="modal-footer">
+                        <button type="button" class="btn btn-success " title="Add Jobs" name="add" id="addjobs_data" >ເລືອກວຽກ</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+                </div>
+                </div>
+                </div> 
+        
+              
+            
+        
+                  <!--                            //////                                    -->
+                  <!--                           add member                                    -->
+
+
+            <div id="addmember_data_Modal" class="modal fade">
+                    <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        
+                        <h4 id="insert_h" class="modal-title">ເລືອກສະມາຊີກ
+                            
+                        </h4>
+                        
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                    <form method="post" id="insert_form" autocomplete="off">
+                        
+                        
+                        
+                        
+                        <div class="form-group row">
+                            
+                            <div class="col-sm-12">
+        
+        
+                                   
+                                    <div class="table-responsive">
+                                            <table id="example3" class="table table-hover  " cellspacing="0" width="100%">
+                                            
+                                            <thead>
+                                            <tr>
+                                                <th align='center'>ເລືອກ</th>
+                                                <th>ຊື່ສະມາຊິກ</th>
+                                                <th>ພະແນກ</th>
+                                                <th>ຫນ້າໂຄງການ</th>
+                                                
+                                                
+                                                
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td >
+                                                                    <div class="form-group form-check mb-0">
+                                                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                                            
+                                                                    </div>
+                                                        
+                                                            </td>
+                                                            <td>ທ້າວ ແກ້ວ</td>
+                                                            <td>IT FontEnd</td>
+                                                            <td>
+                                                                    <div class="form-check">
+                                                                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" >
+                                                                            
+                                                                    </div>
+                                                            
+                                                            </td>
+                                                            
+                                                            
+                                                            
+                                                            
+                                                    </tr>
+                                                    <tr>
+                                                            <td>
+                                                                <div class="form-group form-check mb-0">
+                                                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                                        
+                                                                </div>
+                                                            </td>
+                                                            <td>ທ້າວ ແກ້ວ</td>
+                                                            <td>IT FontEnd</td>
+                                                            <td>
+                                                                    <div class="form-check">
+                                                                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" >
+                                                                            
+                                                                    </div>
+                                                            </td>
+                                                            
+                                                            
+                                                           
+                                                    </tr>
+                                                    <tr>
+                                                            <td>
+                                                                    <div class="form-group form-check mb-0">
+                                                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                                            
+                                                                    </div>
+                                                            </td>
+                                                            <td>ທ້າວ ແກ້ວ</td>
+                                                            <td>IT FontEnd</td>
+                                                            <td>
+                                                                    <div class="form-check">
+                                                                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+                                                                            
+                                                                    </div>
+                                                            </td>
+                                                            
+                                                            
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    
+        
+                            </div>
+                            
+                        </div>
+        
+                        
+        
+                    </form>
+                    </div>
+                    <div class="modal-footer">
+                            <button type="button" class="btn btn-success " title="Add Jobs" name="add" id="addjobs_data" >ເລືອກສະມາຊີກ</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                    </div>
+                    </div>
+                    </div> 
+            
+                  
+                
+            
+                      <!--                            //////                                    -->
+            
+        
+        
+    
+</div>
+
+
+  
+  
+ 
+
+  
+<script>
+        $(document).ready(function () {
+
+            $(document).on('click', '.back', function(){  
+                window.location.replace('me.html');
+            });
+            $('#example').DataTable();
+            $('#example2').DataTable();
+            $('#example3').DataTable();
+            
+            $("#DateStart").datetimepicker({format:'d-m-Y H:m:s'});
+            $("#DateEnd").datetimepicker({format:'d-m-Y H:m:s'});
+
+
+            $(document).on('click', '.View_data', function(){  
+                $('#add_data_Modal').modal('show');
+            });
+            $(document).on('click', '.addjobs_data', function(){  
+                $('#addjob_data_Modal').modal('show');
+            });
+
+            $(document).on('click', '.Addmember', function(){  
+                $('#addmember_data_Modal').modal('show');
+            });
+            
+
+
+
+
+
+
+
+            
+        });
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

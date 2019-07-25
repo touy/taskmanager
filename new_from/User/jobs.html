@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>DataTables | Gentelella</title>
+
+    <!-- Animate.css -->
+    <link href="../vendors/animate.css/animate.min.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../font.css" rel="stylesheet">
+    <link href="../cart.css" rel="stylesheet">
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    
+     <!-- PNotify -->
+   <link href="../vendors/pnotify/dist/pnotify.css" rel="stylesheet">
+   <link href="../vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
+   <link href="../vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
+ 
+ <!-- jQuery -->
+ <script src="../vendors/jquery/dist/jquery.min.js"></script>
+ <!-- Bootstrap -->
+ <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+ 
+
+ 
+ 
+  <!-- PNotify -->
+  <script src="../vendors/pnotify/dist/pnotify.js"></script>
+  <script src="../vendors/pnotify/dist/pnotify.buttons.js"></script>
+
+
+
+    <!-- Datatables -->
+    <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="../build/css/custom.min.css" rel="stylesheet">
+  </head>
+
+  <body class="nav-md" onload="getClient();"  style="font-family: 'Saysettha OT'">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+                <a href="desbord_user.html" class="site_title"><span>Task Managerment</span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+              <div class="profile_pic">
+                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                <span>Welcome,</span>
+                <h2>John Doe</h2>
+              </div>
+            </div>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+                <h3>Menu</h3>
+                <ul class="nav side-menu">
+                  <li><a><i class="fa fa-file"></i> Paning <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a>Document<span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu">
+                            <li class="sub_menu"><a href="Document.html" onclick="saveClient();">ຂອງຂ້ອຍ</a>
+                            </li>
+                            <li><a href="#">ກຸ່ມ</a>
+                            </li>
+                            <li><a href="#">ທີມ</a>
+                            </li>
+                            <li><a href="#">ພະແນກ</a>
+                            </li>
+                          </ul>
+                        </li>
+                      <li><a href="Paning_jobs.html" onclick="saveClient();">Jobs</a></li>
+                      
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-list-ul"></i> Manage <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="Apply.html" onclick="saveClient();"> Apply Document</a></li>
+                      <li><a href="Score.html" onclick="saveClient();">Score</a></li>
+                      
+                    </ul>
+                  </li>
+                  <li><a ><i class="fa fa-briefcase"></i> Jobs <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="jobs.html" onclick="saveClient();">ວຽກປະຈຳ</a></li>
+                     
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-user"></i> User <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="User.html" onclick="saveClient();">ຜູ້ໃຊ້ລະບົບ</a></li>
+                     
+                    </ul>
+                  </li>
+          
+                  <li><a><i class="fa fa-bar-chart-o"></i> Report <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="#">Report 1</a></li>
+                      <li><a href="#">Report 2</a></li>
+                     
+                    </ul>
+                  </li>
+                 
+                </ul>
+              </div>
+          
+              
+          
+            </div>
+            <!-- /sidebar menu -->
+
+           
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+            <nav>
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <img src="images/img.jpg" alt="">John Doe
+                    <span class=" fa fa-angle-down"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                    <li><a href="Profile.html"> Profile</a></li>
+                    <li>
+                      <a href="Change_password.html">Change password
+                      </a>
+                    </li>
+                    <li><a href="javascript:;">Help</a></li>
+                    <li><a href="../index.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                  </ul>
+                </li>
+
+                <li role="presentation" class="dropdown">
+                  <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-envelope-o"></i>
+                    <span class="badge bg-green">6</span>
+                  </a>
+                  <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <div class="text-center">
+                        <a>
+                          <strong>See All Alerts</strong>
+                          <i class="fa fa-angle-right"></i>
+                        </a>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+               
+              </div>
+
+             
+            </div>
+
+            <div class="clearfix"></div>
+            <div align="right">
+                <div id="notificationpanel"></div>
+                <div id="notificationpanellist"></div>
+                <div id="errorpanel"></div>
+                <div id="errorpanellist"></div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                  <label ><font size="4">ວຽກປະຈຳ</font> </label>
+                  <ul class="nav navbar-right panel_toolbox">
+                      <li> <button type="button" class="btn btn-success" title="ເພີ້ມ" name="add" id="add" ><i class="fa fa-plus"></i></button>
+                      </li>
+                    </ul>
+                 
+                  <div class="clearfix"></div>
+                </div>
+
+                <div class="table-responsive">
+                    <table id="table_date" class="table table-bordered" cellspacing="0" width="100%">
+                    
+                    <thead>
+                    <tr>
+                        <th><font size="3">ພະນັກງານ</font></th>
+                        <th><font size="3">ພະແນກ</font></th>
+                        <th><font size="3">ເວລາ</font></th>
+                        
+                        <th><font size="3">ຫົວຂໍ້ວຽກ</font></th>
+                        <th><font size="3">ລາຍອຽດ</font></th>
+                        <th><font size="3">Action</font></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                            <tr >
+                                    <td>
+                                        <img src="images/img.jpg" class="circle btn-round " alt="Cinque Terre" width="35" height="35">
+                                         ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ
+                                    </td>
+                                    <td >IT font End</td>
+                                    <td>8:00</td>
+                                   
+                                    <td>ເປີດເຊີເວີ</td>
+                                    <td>ສະຕາດເຊີວິດໂປແກຮມ</td>
+                                    <td>
+                                        <button id="1" type="button" class="btn btn-round btn-primary Edit">ແກ້ໄຂ</button>
+                                        <button id="1" type="button" class="btn btn-round btn-danger Delete">ລົບ</button>
+                           
+    
+                                    </td>
+                            </tr>
+                            <tr >
+                              <td>
+                                  <img src="images/img.jpg" class="circle btn-round " alt="Cinque Terre" width="35" height="35">
+                                  ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ
+                              </td>
+                              <td >IT font End</td>
+                              <td>9:30</td>
+                             
+                              <td>ອອກແບບຟອມ</td>
+                              <td>ອອກແບບໜ້າເວີບ</td>
+                              <td>
+                                  <button id="2" type="button" class="btn btn-round btn-primary Edit">ແກ້ໄຂ</button>
+                                  <button id="2" type="button" class="btn btn-round btn-danger Delete">ລົບ</button>
+                     
+
+                              </td>
+                            </tr>
+                          
+                         
+                    
+               
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    </tbody>
+                </table>
+                    </div>
+                
+                
+              </div>
+            </div>
+
+           
+
+            
+           
+
+            <div class="row">
+
+            </div>
+
+
+            <div id="add_data_Modal" class="modal fade">
+                <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <div class="row">
+                        <div class="col-sm-11">
+                          <h4 id="insert_h" class="modal-title">ວຽກປະຈຳ</h4>
+                        </div>
+                        <div class="col-sm-1">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                <form method="post" id="form" autocomplete="off">
+                               
+                  <div class="form-group row">
+                                    
+                    <div class="col-sm-4">
+                        <label  ><font size="3">ຫົວຂໍ້ວຽກ</font></label>
+                        <input id="titel_job" type="text" class="form-control"  >
+                    </div>
+                    
+                    <div class="col-sm-3">
+                            <label ><font size="3">ເວລາ</font></label>
+                            <select id="time" class="form-control" >
+                                    <option>ເລືອກ</option>
+                                    <option value="8:00 AM">8:00 AM</option>
+                                    <option value="8:30 AM">8:30 AM</option>
+                                    <option value="9:00 AM">9:00 AM</option>
+                                    <option value="9:30 AM">9:30 AM</option>
+                                    <option value="10:00 AM">10:00 AM</option>
+                                    <option value="10:30 AM">10:30 AM</option>
+                                    <option value="11:00 AM">11:00 AM</option>
+                                    <option value="11:30 AM">11:30 AM</option>
+                                    <option value="12:00 PM">12:00 PM</option>
+                                    <option value="12:30 PM">12:30 PM</option>
+                                    <option value="13:00 PM">13:00 PM</option>
+                                    <option value="13:30 PM">13:30 PM</option>
+                                    <option value="14:00 PM">14:00 PM</option>
+                                    <option value="14:30 PM">14:30 PM</option>
+                                    <option value="15:00 PM">15:00 PM</option>
+                                    <option value="15:30 PM">15:30 PM</option>
+                                    <option value="16:00 PM">16:00 PM</option>
+                                    <option value="16:30 PM">16:30 PM</option>
+                                    <option value="17:00 PM">17:00 PM</option>
+                                    <option value="17:30 PM">17:30 PM</option>
+                                    <option value="18:00 PM">18:00 PM</option>
+                                    <option value="18:30 PM">18:30 PM</option>
+                            </select>
+                    </div>
+                    <div class="col-sm-3">
+                            <label ><font size="3">ພະນັກງານ</font></label>
+                            <select id="user" class="form-control" >
+                                    <option>ເລືອກ</option>
+                                    <option value=" ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ"> ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ</option>
+                                    <option value="ທ້າວ ຂ">ທ້າວ ຂ</option>
+                                   
+                            </select>
+                    </div>
+                   
+            </div>
+            <div class="form-group row">
+                    
+                   
+                    <div class="col-sm-10">
+                            <label ><font size="3">ລາຍລະອຽດ</font></label>
+                            <textarea class="form-control" id="description" rows="3"></textarea>
+
+                    </div>
+                    <input type="hidden" class="form-control" id="type" >
+                    <input type="hidden" class="form-control" id="ues_id" >
+            </div>
+               
+                <input type="button" name="insert" id="save" value="ເພີ້ມ" class="btn btn-success" />
+                
+
+                <h5> </h5>
+                        <div id="myAlert" class="alert alert-danger collapse">
+                                <button type="button" class="close" id="linkClose">&times;</button>
+                                <strong>ຜິດພາດ! :</strong> ກະລູນາປ້ອນຂໍ້ມູນໃຫ້ຄົບ ຂໍຂອບໃຈ.
+                        </div>
+                      </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+                </div>
+                </div>
+                </div>
+
+
+
+          </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <script src="../vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- jQuery -->
+   
+    
+    <!-- Datatables -->
+    <script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="../vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="../vendors/jszip/dist/jszip.min.js"></script>
+    <script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
+    <script src="../sweetalert.min.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="../build/js/custom.js"></script>
+
+    <script>
+            
+            function addDelete(){
+
+               $('#table_date').DataTable();
+               $('.Edit').click(function () {
+                    
+                    $('#titel_job').val(this.getAttribute("data-titel"));
+                    $('#time').val(this.getAttribute("data-time"));
+                    $('#user').val(this.getAttribute("data-user"));
+                    $('#description').val(this.getAttribute("data-description"));
+                 
+               
+                    
+                    $('#add_data_Modal').modal('show');
+                    $('#type').val('Edit');
+                    $('#save').val('ແກ້ໄຂ');
+                    $('#ues_id').val(this.getAttribute("data-titel"));
+                  });
+        
+                 $('.Delete').click(function () {
+                              
+                    var delete_row = $(this).data("row");
+                    
+                    var table = document.getElementById("table_date");
+                      swal({
+                            title: "ລົບຂໍ້ມູນຜູ້ໃຊ້",
+                            text: "ລົບຂໍ້ມູນຜູ້ໃຊ້ ຫຼື່ບໍ່!",
+                            icon: "warning",
+                            buttons: true,
+                            dangerMode: true,
+                            })
+                            .then((willDelete) => {
+                              if (willDelete) {
+          
+                              $('#row' + delete_row).remove();
+                              
+                                new PNotify({
+                                      title: 'ແຈ້ງເຕືອນ',
+                                      text: 'ລົບຂໍ້ມູນ ! ສຳເລັດ.',
+                                      type: 'success',
+                                      
+                                      styling: 'bootstrap3'
+                                      });   
+                                  
+                              }      
+                        });   
+                          
+                              
+                   
+                            
+                  });
+
+            };
+                 
+
+                  $('#add').click(function () {
+                    
+                    $('#add_data_Modal').modal('show');
+                    $('#form')[0].reset();
+                    $('#type').val('Insert');
+                    $('#save').val('ເພີ້ມຊື່ຜູ້ໃຊ້');
+                  });
+
+                 addDelete();
+
+                  $('#save').click(function () {
+
+                          if($('#titel_job').val() == ''){
+                            new PNotify({
+                                        title: 'ແຈ້ງເຕືອນ',
+                                        text: 'ບໍ່ມີຂໍ້ມູນ ຫົວຂໍ້ວຽກ! ລະລຸນາປ້ອມຂໍ້ມູນໃຫ້ຄົບ.',
+                                        hide: false,
+                                        
+                                        styling: 'bootstrap3'
+                                        });   
+                                    
+                                
+
+                          }else if($('#time').val() == ''){
+
+                            new PNotify({
+                                        title: 'ແຈ້ງເຕືອນ',
+                                        text: 'ບໍ່ມີຂໍ້ມູນ Time ! ລະລຸນາປ້ອມຂໍ້ມູນໃຫ້ຄົບ.',
+                                        hide: false,
+                                        
+                                        styling: 'bootstrap3'
+                                        });  
+
+                          }else if($('#user').val() == ''){
+                            new PNotify({
+                                        title: 'ແຈ້ງເຕືອນ',
+                                        text: 'ບໍ່ມີຂໍ້ມູນ User ! ລະລຸນາປ້ອມຂໍ້ມູນໃຫ້ຄົບ.',
+                                        hide: false,
+                                        
+                                        styling: 'bootstrap3'
+                                        });  
+
+                          }else if($('#description').val() == ''){
+
+                            new PNotify({
+                                        title: 'ແຈ້ງເຕືອນ',
+                                        text: 'ບໍ່ມີຂໍ້ມູນ description ! ລະລຸນາປ້ອມຂໍ້ມູນໃຫ້ຄົບ.',
+                                        hide: false,
+                                        
+                                        styling: 'bootstrap3'
+                                        });  
+
+                          }
+                          
+                          else{
+
+                            
+                              if($('#type').val() == 'Insert'){
+                                //qry('createuser');
+
+                                var table = document.getElementById("table_date");
+                                var rows = table.getElementsByTagName("tr");
+                                var data_code = rows.length;
+                                var html_code = "<tr id='row"+data_code+"'>";
+                                    html_code += '<td > <img src="images/img.jpg" class="circle btn-round " alt="Cinque Terre" width="35" height="35"><font size="3"> '+$('#user').val()+'</font></td>';
+                                   
+                                    html_code += "<td >IT font End</td>";                  
+                                    html_code += "<td >"+$('#time').val()+"</td>";  
+                                    html_code += "<td >"+$('#titel_job').val()+"</td>";                 
+                                    html_code += '<td >'+$('#description').val()+'</td>';
+                                    html_code += '<td><button type="button" data-titel="'+$('#titel_job').val()+'"'; 
+                                    html_code += '                           data-time="'+$('#time').val()+'"'; 
+                                    html_code += '                           data-description="'+$('#description').val()+'" '; 
+                                    html_code += '                           data-user="'+$('#user').val()+'" '; 
+                                    html_code += 'class="btn btn-round btn-primary Edit">ແກ້ໄຂ</button>';
+                                    html_code += ' <button type="button" data-row="'+data_code+'" class="btn btn-round btn-danger Delete">ລົບ</button></td>';
+            
+                                    
+                                    html_code += "</tr>";  
+                                    $('#table_date').append(html_code);
+
+
+
+                                new PNotify({
+                                            title: 'ແຈ້ງເຕືອນ',
+                                            text: 'ເພີ້ມຂໍ້ມູນ ! ສຳເລັດ.',
+                                            type: 'success',
+                                            
+                                            styling: 'bootstrap3'
+                                            });
+                                addDelete();
+                              }else if($('#type').val() == 'Edit'){
+                                //qry('updateuser');
+                                var table = document.getElementById("table_date");
+                    
+                    var delete_row =$('#ues_id').val() ;
+                for (var i = 0, row; row = table.rows[i]; i++) {
+                
+                    var x  = document.getElementById("table_date").rows[i].cells.item(3).innerHTML;
+                  
+                    if(x == delete_row){
+                      
+                      document.getElementById("table_date").rows[i].cells.item(3).innerHTML=$('#titel_job').val();
+                      document.getElementById("table_date").rows[i].cells.item(4).innerHTML=$('#description').val();
+                      document.getElementById("table_date").rows[i].cells.item(2).innerHTML=$('#time').val();
+                         
+                    }
+                
+                }
+               
+
+                    new PNotify({
+                                title: 'ແຈ້ງເຕືອນ',
+                                text: 'ແກ້ຂໍ້ມູນ ! ສຳເລັດ.',
+                                type: 'success',
+                                
+                                styling: 'bootstrap3'
+                                });   
+
+                 
+                  }
+                  $('#add_data_Modal').modal('hide');
+
+                          }
+
+
+                                
+
+
+                              
+                          });
+
+
+
+
+            
+    
+    
+   
+      // DEFAULT FORMAT FOR CLIENT
+          var _client = {
+              accessedtime: new Date(),
+              clientip: "",
+              data: {},
+              gui: "",
+              lastupdate: "",
+              loginip: "",
+              logintime: "",
+              logintoken: "",
+              timeout: 86400,
+              username: "",
+          };
+      
+          function qry(command) {
+              var user = $('#username').val();
+              var pass = $('#password').val();
+              // all request data 
+              _client.data.user.username = user;
+              _client.data.user.password = pass;
+              _client.data.command=command;
+              // command list : 
+              // login 
+              // forgotpassword
+              // forgotusername
+              // changepassword 
+              // profile
+              // createuser
+              // updateuser
+              // verticalusersline
+              // 
+              // createdoc
+              // updatedoc
+              // createjob
+              // updatejob
+              // doclist
+              // joblist 
+              // approvaluserlist
+              // pendingapprovelist
+              // 
+      
+      
+      
+      
+              // HOW TO SET TO SERVER
+              $.ajax({
+                  type: 'POST', // METHOD 
+                  url: '/user', // PATH  or /admin
+                  contentType: 'application/json; charset=utf-8',
+                  dataType: 'json',
+                  data: _client, // DATA TO SEND
+                  success: function (data) {
+                      _client=data;
+                      bindData();
+                      $('#notificationpanel').html = "<p>" +_client.data.message + "</p>";
+                      $("#notificationpanel").fadeIn("slow",function(){
+                          $('#notificationpanel').fadeOut( "slow" );
+                      });
+      
+                      $('#notificationpanellist').append("<p>" +_client.data.message + "</p>");
+                      
+                  },
+                  failure: function (data) {
+                      _client=data;
+      
+                      $('#errorpanel').html = "<p>" + _client.data.errormessage + "</p>";
+                      $('#errorpanel').fadeIn("slow",function(){
+                          $('#errorpanel').fadeOut( "slow" );
+                      });
+                      // 
+                      $('#errorpanellist').append = ("<p>" + _client.data.errormessage + "</p>");
+                      console.log(_client.data.message);
+                  }
+              });
+          }
+          function bindData(){
+              var username=_client.username;
+              var ip = _client.loginip;
+              var logintime=_client.logintime;
+              $("#loginusername").text("welcome: "+username);
+              $("#loginip").text("IP: "+ip);
+              $("#logintime").text("login time: "+logintime);
+          }
+          function saveClient() {
+            
+            new PNotify({
+                                title: 'ແຈ້ງເຕືອນ',
+                                text: 'ແກ້ຂໍ້ມູນ ! ສຳເລັດ.',
+                                type: 'success',
+                                
+                                styling: 'bootstrap3'
+                                }); 
+              localStorage.setItem('taskmanagerclient', JSON.stringify(_client));
+          }
+      
+          function getClient() {
+              // check if it is set
+              
+              
+              try {
+                  _client = JSON.parse(localStorage.getItem('taskmanagerclient'));
+              } catch (error) {
+                  console.log('localstorage empty');
+                  // reset all data when local storage is empty
+                  _client = {
+                      accessedtime: new Date(),
+                      clientip: "",
+                      data: {},
+                      gui: "",
+                      lastupdate: "",
+                      loginip: "",
+                      logintime: "",
+                      logintoken: "",
+                      timeout: 86400,
+                      username: "",
+                  };
+      
+              }
+      
+          }
+      </script>
+
+  </body>
+</html>

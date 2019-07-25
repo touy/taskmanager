@@ -1,0 +1,60 @@
+<div class="col-md-12" *ngIf='!isdelete'>
+  <div class="row" >
+    <div class="col-md-12">
+      <nb-card class="col-md-12">
+        <nb-card-header>
+          <H4>Role list ---- By Admin</H4>
+        </nb-card-header>
+        <nb-card-body>
+          <div class="row ">
+            <div class="col-sm-6 input-group">
+              <h4>Role name</h4>
+              <input required id="rolename" type="text" nbInput fullWidth placeholder="rolename" autocomplete="off"
+                [value]="_selectedObj.rolename" (input)="_selectedObj.rolename = $event.target.value">
+            </div>
+          </div>
+        </nb-card-body>
+        <nb-card-footer>
+          <button type="submit" class="btn btn-success" (click)="update(_id,_rev,false)">
+            Save
+          </button>
+
+          &nbsp;
+          <button class="btn btn-default" (click)="cancel()">
+            close
+          </button>
+        </nb-card-footer>
+      </nb-card>
+    </div>
+
+  </div>
+</div>
+<div class="col-md-12" *ngIf='_id&&_rev&&isdelete'>
+  <div class="row" >
+    <div class="col-md-12">
+      <nb-card class="col-md-12">
+        <nb-card-header>
+          <H4>Role list ---- By Admin</H4>
+        </nb-card-header>
+        <nb-card-body>
+          <div class="row ">
+            <div class="col-sm-6 input-group">
+              <h4>Are you sure to delete this item ?</h4>
+            </div>
+          </div>
+        </nb-card-body>
+        <nb-card-footer>
+          <button type="submit" class="btn btn-success" (click)="update(_id,_rev,true)">
+            Save
+          </button>
+
+          &nbsp;
+          <button class="btn btn-default" (click)="cancel()">
+            close
+          </button>
+        </nb-card-footer>
+      </nb-card>
+    </div>
+
+  </div>
+</div>

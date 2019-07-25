@@ -1,0 +1,44 @@
+@import '../../@theme/styles/themes';
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/breakpoints';
+
+
+
+@include nb-install-component() {
+   
+    .infinite-cards {
+    nb-card {
+      &.own-scroll {
+        height: 35vh;
+      }
+    } 
+  }
+
+  .Lao {
+    nb-card-header {
+      font-family:"Saysettha OT";
+    } 
+  }
+
+
+  ngx-chartjs-line {
+    display: block;
+    height: nb-theme(card-height-medium);
+    width: 100%;
+
+    /deep/ chart {
+      display: block;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  
+
+  
+
+}
+
+
+
+

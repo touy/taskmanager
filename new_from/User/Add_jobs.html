@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>DataTables | Gentelella</title>
+
+    
+
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- bootstrap-daterangepicker -->
+    <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <!-- bootstrap-datetimepicker -->
+    <link href="../vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
+  
+    <!-- Font Awesome -->
+    <link href="../font.css" rel="stylesheet">
+    <link href="../cart.css" rel="stylesheet">
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+
+    <!-- Datatables -->
+    <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="../build/css/custom.min.css" rel="stylesheet">
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+                <a href="desbord_user.html" class="site_title"><span>Task Managerment</span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+              <div class="profile_pic">
+                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                <span>Welcome,</span>
+                <h2>John Doe</h2>
+              </div>
+            </div>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                <div class="menu_section">
+                  <h3>Menu</h3>
+                  <ul class="nav side-menu">
+                    <li><a><i class="fa fa-file"></i> Paning <span class="fa fa-chevron-down"></span></a>
+                      <ul class="nav child_menu">
+                          <li><a>Document<span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                              <li class="sub_menu"><a href="Document.html">ຂອງຂ້ອຍ</a>
+                              </li>
+                              <li><a href="#">ກຸ່ມ</a>
+                              </li>
+                              <li><a href="#">ທີມ</a>
+                              </li>
+                              <li><a href="#">ພະແນກ</a>
+                              </li>
+                            </ul>
+                          </li>
+                        <li><a href="Paning_jobs.html">Jobs</a></li>
+                        
+                      </ul>
+                    </li>
+                    <li><a><i class="fa fa-list-ul"></i> Manage <span class="fa fa-chevron-down"></span></a>
+                      <ul class="nav child_menu">
+                        <li><a href="Apply.html"> Apply Document</a></li>
+                        <li><a href="Score.html">Score</a></li>
+                        
+                      </ul>
+                    </li>
+                    <li><a ><i class="fa fa-briefcase"></i> Jobs <span class="fa fa-chevron-down"></span></a>
+                      <ul class="nav child_menu">
+                        <li><a href="jobs.html">ວຽກປະຈຳ</a></li>
+                       
+                      </ul>
+                    </li>
+                    <li><a><i class="fa fa-user"></i> User <span class="fa fa-chevron-down"></span></a>
+                      <ul class="nav child_menu">
+                        <li><a href="User.html">ຜູ້ໃຊ້ລະບົບ</a></li>
+                       
+                      </ul>
+                    </li>
+  
+                    <li><a><i class="fa fa-bar-chart-o"></i> Report <span class="fa fa-chevron-down"></span></a>
+                      <ul class="nav child_menu">
+                        <li><a href="#">Report 1</a></li>
+                        <li><a href="#">Report 2</a></li>
+                       
+                      </ul>
+                    </li>
+                   
+                  </ul>
+                </div>
+  
+                
+  
+              </div>
+            <!-- /sidebar menu -->
+
+           
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+            <nav>
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <img src="images/img.jpg" alt="">John Doe
+                    <span class=" fa fa-angle-down"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                    <li><a href="Profile.html"> Profile</a></li>
+                    <li>
+                      <a href="Change_password.html">Change password
+                      </a>
+                    </li>
+                    <li><a href="javascript:;">Help</a></li>
+                    <li><a href="../index.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                  </ul>
+                </li>
+
+                <li role="presentation" class="dropdown">
+                  <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-envelope-o"></i>
+                    <span class="badge bg-green">6</span>
+                  </a>
+                  <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <div class="text-center">
+                        <a>
+                          <strong>See All Alerts</strong>
+                          <i class="fa fa-angle-right"></i>
+                        </a>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+               
+               
+              </div>
+             
+
+             
+            </div>
+            
+
+            <div class="clearfix"></div>
+            <div align="right">
+                <div id="notificationpanel"></div>
+                <div id="notificationpanellist"></div>
+                <div id="errorpanel"></div>
+                <div id="errorpanellist"></div>
+            </div>
+            <div class="row">
+                
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                  <div class="x_panel">
+                    <div class="x_title">
+                        <label ><font size="4">ແຜນວຽກ</font> </label>
+                        <ul class="nav navbar-right panel_toolbox">
+                          <li id="button_update"> 
+                          </li>
+                        </ul>
+                      
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                      <br />
+                      <form class="form-horizontal form-label-left" autocomplete="off">
+                          <div class="form-group row">
+                              <label  class="col-sm-2 "><font size="3">ຫົວຂໍ້ວຽກ:</font></label>
+                              <div class="col-sm-10">
+                                  <input id="titel" type="text" class="form-control"  >
+                                  
+                              </div>
+                              <!--<div class="col-sm-2">
+                                      <span class="badge  float-center " ><font size="3"  >ລໍຖ້າອະນຸມັດ</font></span>
+                              </div> -->
+                                     
+                          </div>    
+                       
+                          <div class="form-group row">
+                              <label  class="col-sm-2 "><font size="3"  >ລາຍລະອຽດ :</font></label>
+                              <div class="col-sm-10">
+                                  <textarea id="description" required="required" name="textarea" class="form-control "></textarea>
+                              </div>
+                              
+                                     
+                          </div> 
+                          <div class="form-group row">
+                              <label class="col-sm-2 "><font size="3"  >ເວລາກຳນົດ :</font></label>
+                             
+                              
+                                  <div class='col-sm-4'>
+                                     
+                                      <div class="form-group">
+                                          <div class='input-group date' id='DateStart'>
+                                              <input type='text' class="form-control" id='DateStartVal' />
+                                              <span class="input-group-addon">
+                                                 <span class="glyphicon glyphicon-calendar"></span>
+                                              </span>
+                                          </div>
+                                      </div>
+                                  </div>
+          
+                                  <label  class="col-sm-1"><font size="3">ຫາວັນທີ </font></label>
+          
+                                  <div class='col-sm-4'>
+                                      
+                                      <div class="form-group">
+                                          <div class='input-group date' id='DateEnd'>
+                                              <input type='text' class="form-control" id="DateEndVal" />
+                                              <span class="input-group-addon">
+                                                 <span class="glyphicon glyphicon-calendar"></span>
+                                              </span>
+                                          </div>
+                                      </div>
+                                  </div>
+          
+          
+                              
+                              
+                              
+                          </div>
+                          <div class="form-group row">
+                              <label  class="col-sm-2 "><font size="3"  >ສະມາຊີກ :</font></label>
+                              <div class="col-sm-10">
+          
+          
+                                     
+                                      <div class="table-responsive">
+                                              <table id="table_custom" class="table table-bordered" cellspacing="0" width="100%">
+                                              
+                                              <thead>
+                                              <tr>
+                                                  <th width="10%"><font size="3">ຮູບພາບ</font></th>
+                                                  <th><font size="3">ຊື່ສະມາຊິກ</font></th>
+                                                  <th><font size="3">Action</font></th>
+                                                  <th width="15%"><font size="3">ຫົວໜ້າທີມ</font></th>
+                                                 
+                                                  
+                                              </tr>
+                                              </thead>
+                                              <tbody id="list_custom">
+                                                      
+                                                    
+
+
+
+                                                      
+                                              </tbody>
+                                          </table>
+                                          
+                                      </div>
+                                      <button type="button" class="btn btn-success Menber" title="Add Menber" name="add" id="add" >ເພີ້ມສະມາຊິກ</button>
+                                      
+          
+                              </div>
+                              
+                          </div>
+                          <div class="form-group row">
+                              <label  class="col-sm-2 "><font size="3"  ></label></label>
+                                <div class="col-sm-10">
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox" value=""> ສາມາດເພີ້ມວຽກໄດ້
+                                    </label>
+                                    <label>
+                                      <input type="checkbox" value=""> ສາມາດແກ້ໄຂວຽກ
+                                    </label>
+                                  </div>
+                                </div>
+                          </div>
+                          <div class="form-group row">
+                            <label  class="col-sm-2 "><font size="3"  >ຫນ້າວຽກທີປະຕິບັນ</label></label>
+                            <div class="col-sm-10">
+
+
+                                   
+                                    <div class="table-responsive">
+                                            <table id="table_job" class="table table-bordered" cellspacing="0" width="100%">
+                                            
+                                            <thead>
+                                            <tr>
+                                                
+                                                <th><font size="3">ລະຫັດ</font></th>
+                                                <th><font size="3">ຫົວຂໍ້ວຽກ</font></th>
+                                                <th><font size="3">ວັນທີເລີມ</font></th>
+                                                <th><font size="3">ວັນທີກຳນົດ</font></th>
+                                                <th><font size="3">ສະຖານະ</font></th>
+                                                <th><font size="3">Action</font></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="list_job">
+                                                   
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <button type="button" class="btn btn-success addjobs_data" title="Add Jobs" name="add" id="addjobs_data" >ເລືອກວຽກ</button>
+                                    <button type="button" class="btn btn-success" title="Crate Jobs" name="add" id="add" >ສ້າງວຽກ</button>
+                            </div>
+                            
+                        </div>
+                        
+  
+                        <div class="form-group">
+                            <hr/>
+                            <button type="button" class="btn btn-primary save_jobs">ບັນທືກ</button>
+                            <a href="Paning_jobs.html" class="btn btn-primary">ຍົກເລີກ</a>
+                            
+                         
+                        </div>
+  
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                </div>
+
+            
+           
+
+           
+
+            
+           
+
+            <div class="row">
+
+            </div>
+
+
+            <div id="add_data_Modal_select_job" class="modal fade">
+                <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                <div class="modal-header">
+                  <div class="row">
+                    <div class="col-sm-11">
+                      <label ><font size="4">ເລືອກວຽກ</font> </label>
+                      
+                    </div>
+                    <div class="col-sm-1">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+                </div>
+                </div>
+                <div class="modal-body">
+                <form method="post"  autocomplete="off">
+                    
+                    
+                  
+                    <div class="form-group row">
+                        
+                        <div class="col-sm-12">
+    
+    
+                               
+                                <div class="table-responsive">
+                                        <table id="data_job" class="table table-bordered" >
+                                        
+                                        <thead>
+                                        <tr>
+                                            <th  width="10%">ເລືອກ</th>
+                                            <th >ຫົວຂໍ້ວຽກ</th>
+                                            <th>ວັນທີເລີມ</th>
+                                            <th>ວັນທີກຳນົດ</th>
+                                            
+                                           
+                                            
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                                  <td> 
+                                                    <div class="form-group form-check mb-0">
+                                                        <input type="checkbox" class="form-check-input" value="0001" name="Check_job">
+                                                    </div>
+                                                  </td>
+                                                  <td>ແປງຄອມ</td>
+                                                  <td>12/3/2019</td>
+                                                  <td>13/3/2019</td>
+                                                 
+                                                  
+                                          </tr>
+                                          <tr>
+                                                  <td> 
+                                                    <div class="form-group form-check mb-0">
+                                                        <input type="checkbox" class="form-check-input" value="0002" name="Check_job">
+                                                    </div>
+                                                  </td>
+                                                  <td>ເຊັກ Server</td>
+                                                  <td>12/3/2019</td>
+                                                  <td>13/3/2019</td>
+                                                 
+                                                 
+                                          </tr>
+                                          <tr>
+                                                  <td> 
+                                                    <div class="form-group form-check mb-0">
+                                                        <input type="checkbox" class="form-check-input" value="0003" name="Check_job">
+                                                    </div>
+                                                  </td>
+                                                  <td>ອອກແບບເວັບໄຊ</td>
+                                                  <td>19/3/2019</td>
+                                                  <td>22/3/2019</td>
+                                                 
+                                          </tr>
+                                  </tbody>
+                                    </table>
+                                </div>
+                                
+    
+                        </div>
+                        
+                    </div>
+                    <!--
+                    <div class="form-group row">
+                            <label  class="col-sm-2 "><font size="3"  >ຫນ້າວຽກ :</font></label>
+                            <div class="col-sm-10">
+    
+    
+                                   
+                                    <div class="table-responsive">
+                                            <table id="example2" class="table table-bordered" >
+                                            
+                                            <thead>
+                                            <tr>
+                                                <th><font size="3">ລະຫັດ</font></th>
+                                                <th><font size="3">ຫົວຂໍ້ວຽກ</font></th>
+                                                <th><font size="3">ວັນທີເລີມ</font></th>
+                                                <th><font size="3">ວັນທີກຳນົດ</font></th>
+                                               
+                                                
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td><font size="3">0001</font></td>
+                                                            <td><font size="3">ແປງຄອມ</font></td>
+                                                            <td><font size="3">12/3/2019</font></td>
+                                                            <td><font size="3">13/3/2019</font></td>
+                                                          
+                                                            
+                                                    </tr>
+                                                    <tr>
+                                                            <td><font size="3">0002</font></td>
+                                                            <td><font size="3">ເຊັກ Server</font></td>
+                                                            <td><font size="3">12/3/2019</font></td>
+                                                            <td><font size="3">13/3/2019</font></td>
+                                                           
+                                                           
+                                                    </tr>
+                                                    <tr>
+                                                            <td><font size="3">0003</font></td>
+                                                            <td><font size="3">ອອກແບບເວັບໄຊ</font></td>
+                                                            <td><font size="3">19/3/2019</font></td>
+                                                            <td><font size="3">22/3/2019</font></td>
+                                                            
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                             </div>
+                            
+                        </div>
+                      -->   
+                </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success" id="add_job">ບັນທືກ</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+                </div>
+                </div>
+                </div>
+
+
+                <div id="add_data_Modal" class="modal fade">
+                  <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                  <div class="modal-header">
+                    <div class="row">
+                      <div class="col-sm-11">
+                        <label ><font size="4">ເລືອກພະນັກງານ</font> </label>
+                        
+                      </div>
+                      <div class="col-sm-1">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                  </div>
+                  </div>
+                  <div class="modal-body">
+                  <form method="post" id="insert_form" autocomplete="off">
+                      
+                      
+                    
+                      <div class="form-group row">
+                          
+                          <div class="col-sm-12">
+      
+      
+                                 
+                                  <div class="table-responsive">
+                                          <table id="data_employee" class="table table-bordered" >
+                                          
+                                          <thead>
+                                          <tr>
+                                              <th  width="10%"><font size="3">ເລືອກ</font></th>
+                                              <th  width="10%"><font size="3">ຮູບພາບ</font></th>
+                                              <th><font size="3">ຊື່ສະມາຊິກ</font></th>
+                                              
+                                             
+                                              
+                                          </tr>
+                                          </thead>
+                                          <tbody>
+                                                  <tr>
+                                                          <td>
+                                                              <div class="form-group form-check mb-0">
+                                                                  <input type="checkbox" class="form-check-input" name="exampleCheck1">
+                                                                  
+                                                              </div>
+                                                          </td>
+                                                          <td>
+                                                              <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                                  <img src="images/img.jpg" alt="">
+                                                                  
+                                                                </a>
+                                                          </td>
+                                                          <td>ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ</td>
+                                                         
+                                                         
+                                                          
+                                                  </tr>
+                                                  <tr>
+                                                          <td>
+                                                              <div class="form-group form-check mb-0">
+                                                                  <input type="checkbox" class="form-check-input" name="exampleCheck1">
+                                                              </div>  
+                                                          </td>
+                                                          <td>
+                                                              <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                                  <img src="images/img.jpg" alt="">
+                                                                  
+                                                                </a>
+                                                          </td>
+                                                          <td>ທ້າວ ສອນໄຊ ເກດແກ້ວ</td>
+                                                          
+                                                          
+                                                         
+                                                  </tr>
+                                                  <tr>
+                                                          <td>
+                                                              <div class="form-group form-check mb-0">
+                                                                  <input type="checkbox" class="form-check-input" name="exampleCheck1">
+                                                              </div> 
+                                                          </td>
+                                                          <td>
+                                                              <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                                  <img src="images/img.jpg" alt="">
+                                                                  
+                                                                </a>
+                                                          </td>
+                                                          <td>ທ້າວ ໄຊນະພາ ພົມວິຫານ</td>
+                                                         
+                                                          
+                                                  </tr>
+                                          </tbody>
+                                      </table>
+                                  </div>
+                                  
+      
+                          </div>
+                          
+                      </div>
+                     
+                  </form>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="submit" class="btn btn-success" id="add_custom">ບັນທືກ</button>
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                  </div>
+                  </div>
+                  </div>
+
+                <div id="add_data_Modal_list" class="modal fade">
+                  <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                  <div class="modal-header">
+                    <div class="row">
+                      <div class="col-sm-11">
+                        <label ><font size="4">ລາຍການວຽກ</font> </label>
+                        
+                      </div>
+                      <div class="col-sm-1">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                  </div>
+                  </div>
+                  <div class="modal-body">
+                  <form method="post" id="insert_form" autocomplete="off">
+                      
+                      
+                    
+                      <div class="form-group row">
+                          
+                          <div class="col-sm-12">
+      
+      
+                                 
+                            <div class="table-responsive">
+                              <table id="" class="table table-bordered" cellspacing="0" width="100%">
+                              
+                              <thead>
+                              <tr>
+                                  
+                                  <th><font size="3">ລະຫັດ</font></th>
+                                  <th><font size="3">ຫົວຂໍ້ວຽກ</font></th>
+                                  <th><font size="3">ວັນທີເລີມ</font></th>
+                                  <th><font size="3">ວັນທີກຳນົດ</font></th>
+                                  <th><font size="3">ສະຖານະ</font></th>
+                                  
+                              </tr>
+                              </thead>
+                              <tbody>
+                                      <tr >
+                                              <td>0001</td>
+                                              <td>ແປງຄອມ</td>
+                                              <td>12/3/2019</td>
+                                              <td>13/3/2019</td>
+                                              <td><span class="badge  badge-success float-center " ><font size="3"  >ສຳເລັດ</font></span></td>
+                                             
+                                              
+                                      </tr>
+                                      <tr>
+                                              <td>0002</td>
+                                              <td>ເຊັກ Server</td>
+                                              <td>12/3/2019</td>
+                                              <td>13/3/2019</td>
+                                              <td><span class="badge  badge-danger float-center " ><font size="3"  >ໂຈການເຮັດວຽກ</font></span></td>
+                                              
+                                             
+                                      </tr>
+                                      <tr>
+                                              <td>0003</td>
+                                              <td>ອອກແບບເວັບໄຊ</td>
+                                              <td>19/3/2019</td>
+                                              <td>22/3/2019</td>
+                                              <td><span class="badge  badge-primary float-center " ><font size="3"  >ກຳລັງດຳເນີນງານ</font></span></td>
+                                              
+                                      </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                                  
+      
+                          </div>
+                          
+                      </div>
+                      </form>
+                  </div>
+                  <div class="modal-footer">
+                     
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                  </div>
+                  </div>
+                  </div>
+  
+
+
+
+          </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+    
+     <!-- jQuery -->
+     <script src="../vendors/jquery/dist/jquery.min.js"></script>
+     <!-- Bootstrap -->
+     <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+     <!-- bootstrap-daterangepicker -->
+     <script src="../vendors/moment/min/moment.min.js"></script>
+     <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+     <!-- bootstrap-datetimepicker -->    
+     <script src="../vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+    <!-- Datatables -->
+    <script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="../vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="../vendors/jszip/dist/jszip.min.js"></script>
+    <script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="../build/js/custom.min.js"></script>
+
+    <script>
+            
+            
+             $(document).ready(function () {
+
+                  try {
+                    var url_string = (window.location.href).toLowerCase();
+                    var url = new URL(url_string);
+                    var titel = url.searchParams.get("titel");
+                    var description = url.searchParams.get("description");
+                    var datestart = url.searchParams.get("datestart");
+                    var dateend = url.searchParams.get("dateend");
+                    var Update = url.searchParams.get("update");
+                    var table = url.searchParams.get("custom");
+                    $('#titel').val(titel);
+                    $('#description').val(description);
+                    $('#DateStartVal').val(datestart);
+                    $('#DateEndVal').val(dateend);
+
+                    table=JSON.parse(table);
+                    
+
+                    var html_code = ' ';
+                   
+                    for ( i in table.menber) {
+                      
+                      html_code +="<tr class='rj'>";
+                                  html_code +='<td><a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">';
+                                  html_code +='<img src="images/img.jpg" alt="">';              
+                                  html_code +='</a></td>';
+                                  
+                                  html_code +="<td>"+ table.menber[i]["name"]+"</td>";
+                                  html_code +='<td><a id="" class="btn btn-round btn-success  View_list" data-toggle="tooltip" title="View"><i class="fa fa-file"></i></a></td>';
+                                  html_code +="<td>";
+                                  html_code +='<div class="form-check">';
+                                  html_code +='<input class="form-check-input" type="radio" name="exampleRadios"  value="option1" >';
+                                  html_code +='</div>';          
+                                  html_code +='</td>';
+                                  html_code +="</tr >";
+                     
+                    }
+                   
+                   
+                    $('#list_custom').append(html_code);
+
+                    var table_job = url.searchParams.get("jobs");                  
+                    table_job=JSON.parse(table_job);
+                   
+                    var html_job = ' '; 
+                    for ( i in table_job.job) {
+                      
+                      html_job +="<tr class='rjs'>";
+                      html_job +='<td>'+ table_job.job[i]["id"]+'</td>';
+                      html_job +='<td>'+ table_job.job[i]["name"]+'</td>';
+                      html_job +='<td>'+ table_job.job[i]["datesart"]+'</td>';
+                      html_job +='<td>'+ table_job.job[i]["dateend"]+'</td>';
+                      html_job +='<td></td>';
+                      html_job +='<td><a id="" class="btn btn-round btn-success  View_list" data-toggle="tooltip" title="View"><i class="fa fa-file"></i></a>';
+                      html_job +='<a href="Add_jobs.html?titel='+table_job.job[i]["name"]+'&datestart='+table_job.job[i]["datesart"]+'&dateend='+table_job.job[i]["dateend"]+'" class="btn btn-round btn-primary   add_sub_job" data-toggle="tooltip" title="View">ເພີ້ມວຽກ</a>  </td>';
+                      html_job +="</tr >";
+
+
+
+                      }
+                    $('#list_job').append(html_job); 
+
+
+
+
+
+
+                    if(Update){
+                      $('#button_update').append('<button type="hidden" class="btn btn-success Add" title="Update" name="add" id="Update" >ສຳເລັດ</button>');
+                      
+                    }
+                   
+                  } catch (err) {
+                   
+                  }
+                  
+
+                  $('#DateStart').datetimepicker({
+                      format: 'DD/MM/YYYY'
+                  });
+                  $('#DateEnd').datetimepicker({
+                  format: 'DD/MM/YYYY'
+                  });
+                  $('#table_date').DataTable();
+               
+                  
+                   $(document).on('click', '.Menber', function(){  
+                     $('#add_data_Modal').modal('show');
+                  });
+
+                  $(document).on('click', '.View_list', function(){  
+                     $('#add_data_Modal_list').modal('show');
+                  });
+
+                   $(document).on('click', '.View_list', function(){  
+                     $('#add_data_Modal_list').modal('show');
+                  });
+
+                   $(document).on('click', '#addjobs_data', function(){  
+                     $('#add_data_Modal_select_job').modal('show');
+                  });
+
+                  $(document).on('click', '.save_jobs', function(){  
+                     
+                    
+                     var titel = $('#titel').val();
+                     var description = $('#description').val();
+                     var datestart = $('#DateStartVal').val();
+                     var dateend = $('#DateEndVal').val(); 
+
+                     
+
+                     var table = document.getElementById("table_custom");
+                     var data_menber = '{"menber":[';
+                   
+                      for (var i = 0, row; row = table.rows[i]; i++) {
+                      
+                        
+                          if(i == 1){
+                            
+                            data_menber+='{"Name":"'+document.getElementById("table_custom").rows[i].cells.item(1).innerHTML+'"}';
+                            
+                          
+                          }
+                          if(i > 1){
+                            data_menber+=',{"Name":"'+document.getElementById("table_custom").rows[i].cells.item(1).innerHTML+'"}';
+                          }
+                         
+                      
+                      }
+                    
+                   
+                    data_menber+=']}';
+                    data_menber=JSON.parse(data_menber);
+                    data_menber=JSON.stringify(data_menber);
+                    
+                    
+
+                    var table_job = document.getElementById("table_job");
+                     var data_job = '{"job":[';
+                      for (var i = 0, row; row = table_job.rows[i]; i++) {
+                      
+                        
+                          if(i == 1){
+                            
+                            data_job+='{"id":"'+document.getElementById("table_job").rows[i].cells.item(0).innerHTML+'"';
+                            data_job+=',"Name":"'+document.getElementById("table_job").rows[i].cells.item(1).innerHTML+'"';
+                            data_job+=',"datesart":"'+document.getElementById("table_job").rows[i].cells.item(2).innerHTML+'"';
+                            data_job+=',"dateend":"'+document.getElementById("table_job").rows[i].cells.item(3).innerHTML+'"}';
+                            
+                          
+                          }
+                          if(i > 1){
+                            data_job+=',{"id":"'+document.getElementById("table_job").rows[i].cells.item(0).innerHTML+'"';
+                            data_job+=',"Name":"'+document.getElementById("table_job").rows[i].cells.item(1).innerHTML+'"';
+                            data_job+=',"datesart":"'+document.getElementById("table_job").rows[i].cells.item(2).innerHTML+'"';
+                            data_job+=',"dateend":"'+document.getElementById("table_job").rows[i].cells.item(3).innerHTML+'"}';
+                          }
+                         
+                      
+                      }
+
+                      data_job+=']}';
+                   
+                      
+                     
+                      data_job=JSON.parse(data_job);
+                      data_job=JSON.stringify(data_job); 
+                      
+                       
+                       window.location.replace("Paning_jobs.html?titel="+titel+"&description="+description+"&datestart="+datestart+"&dateend="+dateend+"&json="+data_menber+"&data_job="+data_job);
+                   });
+                  
+
+                  $(document).on('click', '#add_custom', function(){  
+                    var html_code = ' ';
+                    var table = document.getElementById("data_employee");
+                    var checkboxes = document.getElementsByName("exampleCheck1");
+                    
+                    for(var i = 0; i < checkboxes.length; i++){
+                            if(checkboxes[i].checked)
+                                {
+                                 
+                                  html_code +="<tr class='rj'>";
+                                  html_code +='<td><a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">';
+                                  html_code +='<img src="images/img.jpg" alt="">';              
+                                  html_code +='</a></td>';
+                                  html_code +="<td>"+ document.getElementById("data_employee").rows[i+1].cells.item(2).innerHTML+"</td>";
+                                  html_code +='<td><a id="" class="btn btn-round btn-success  View_list" data-toggle="tooltip" title="View"><i class="fa fa-file"></i></a></td>';
+                                  html_code +="<td>";
+                                  
+                                  html_code +='<div class="form-check">';
+                                  html_code +='<input class="form-check-input" type="radio" name="exampleRadios"  value="option1" >';
+                                  html_code +='</div>';          
+                                  html_code +='</td>';
+                                  html_code +="</tr >";
+                                  
+                                  
+                                }
+
+                                 
+                    
+                    }    
+                    $('.rj').remove();  
+                    $('#list_custom').append(html_code);
+                    $('#add_data_Modal').modal('hide');
+                    
+                    getClient();
+                  });
+
+                    $(document).on('click', '#add_job', function(){  
+                    var html_code = ' ';
+                    var table = document.getElementById("data_job");
+                    var checkboxes = document.getElementsByName("Check_job");
+                  
+                    for(var i = 0; i < checkboxes.length; i++){
+                            if(checkboxes[i].checked)
+                                {
+                                  var id = i+1;
+                                  html_code +="<tr class='ro'>";
+                                  html_code +='<td>000'+id+'</td>';
+                                  html_code +="<td>"+ document.getElementById("data_job").rows[i+1].cells.item(1).innerHTML+"</td>";
+                                  html_code +="<td>"+ document.getElementById("data_job").rows[i+1].cells.item(2).innerHTML+"</td>";
+                                  html_code +="<td>"+ document.getElementById("data_job").rows[i+1].cells.item(3).innerHTML+"</td>";
+                                  html_code +="<td></td>";
+                                  html_code +='<td><a id="" class="btn btn-round btn-success  View_list" data-toggle="tooltip" title="View"><i class="fa fa-file"></i></a>';
+                                  html_code +='<a href="Add_jobs.html?titel='+document.getElementById("data_job").rows[i+1].cells.item(1).innerHTML+'&datestart='+document.getElementById("data_job").rows[i+1].cells.item(2).innerHTML+'&dateend='+document.getElementById("data_job").rows[i+1].cells.item(3).innerHTML+'" class="btn btn-round btn-primary   add_sub_job" data-toggle="tooltip" title="View">ເພີ້ມວຽກ</a> ';
+                                  html_code +="</td>";
+                                  html_code +="</tr >";
+                                  
+                                  
+                                }
+
+                                 
+                    
+                    }    
+                    $('.ro').remove();  
+                    $('#list_job').append(html_code);
+                    $('#add_data_Modal_select_job').modal('hide');
+                    
+                    getClient();
+                  });
+
+                  
+            
+
+            
+
+
+
+
+             });
+    
+    
+    </script>
+    <script type="text/javascript">
+      // DEFAULT FORMAT FOR CLIENT
+          var _client = {
+              accessedtime: new Date(),
+              clientip: "",
+              data: {},
+              gui: "",
+              lastupdate: "",
+              loginip: "",
+              logintime: "",
+              logintoken: "",
+              timeout: 86400,
+              username: "",
+          };
+
+           
+
+
+      
+          function login() {
+              var user = $('#username').val();
+              var pass = $('#password').val();
+              // all request data 
+              _client.data.user.username = user;
+              _client.data.user.password = pass;
+              _client.data.command='login';
+              // command list : 
+              // login 
+              // forgotpassword
+              // forgotusername
+              // changepassword 
+              // profile
+              // createuser
+              // updateuser
+              // verticalusersline
+              // 
+              // createdoc
+              // updatedoc
+              // createjob
+              // updatejob
+              // doclist
+              // joblist 
+              // approvaluserlist
+              // pendingapprovelist
+              // 
+      
+      
+      
+      
+              // HOW TO SET TO SERVER
+              $.ajax({
+                  type: 'POST', // METHOD 
+                  url: '/user', // PATH  or /admin
+                  contentType: 'application/json; charset=utf-8',
+                  dataType: 'json',
+                  data: _client, // DATA TO SEND
+                  success: function (data) {
+                      _client=data;
+                      bindData();
+                      $('#notificationpanel').html = "<p>" +_client.data.message + "</p>";
+                      $("#notificationpanel").fadeIn("slow",function(){
+                          $('#notificationpanel').fadeOut( "slow" );
+                      });
+      
+                      $('#notificationpanellist').append("<p>" +_client.data.message + "</p>");
+                      
+                  },
+                  failure: function (data) {
+                      _client=data;
+      
+                      $('#errorpanel').html = "<p>" + _client.data.errormessage + "</p>";
+                      $('#errorpanel').fadeIn("slow",function(){
+                          $('#errorpanel').fadeOut( "slow" );
+                      });
+                      // 
+                      $('#errorpanellist').append = ("<p>" + _client.data.errormessage + "</p>");
+                      console.log(_client.data.message);
+                  }
+              });
+          }
+          function bindData(){
+              var username=_client.username;
+              var ip = _client.loginip;
+              var logintime=_client.logintime;
+              $("#loginusername").text("welcome: "+username);
+              $("#loginip").text("IP: "+ip);
+              $("#logintime").text("login time: "+logintime);
+          }
+          function saveClient() {
+              localStorage.setItem('taskmanagerclient', JSON.stringify(_client));
+          }
+      
+          function getClient() {
+              // check if it is set
+              new PNotify({
+                            title: 'ແຈ້ງເຕືອນ',
+                            text: 'ບໍ່ມີຂໍ້ມູນ ຜູ້ດູແລ ! ລະລຸນາປ້ອມຂໍ້ມູນໃຫ້ຄົບ.',
+                            hide: false,
+                            
+                            styling: 'bootstrap3'
+                            });
+              try {
+                  _client = JSON.parse(localStorage.getItem('taskmanagerclient'));
+              } catch (error) {
+                  console.log('localstorage empty');
+                  // reset all data when local storage is empty
+                  _client = {
+                      accessedtime: new Date(),
+                      clientip: "",
+                      data: {},
+                      gui: "",
+                      lastupdate: "",
+                      loginip: "",
+                      logintime: "",
+                      logintoken: "",
+                      timeout: 86400,
+                      username: "",
+                  };
+      
+              }
+      
+          }
+      </script>
+
+  </body>
+</html>

@@ -1,0 +1,113 @@
+<h2 class="grid-h">ເພີມແຜນການເຮັດວຽກ</h2>
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>
+        <h3></h3>
+      </nb-card-header>
+      <nb-card-body>
+
+        <div class="row ">
+          <div class="col-sm-2 input-group">
+            <h3>ຫົວຂໍ້ວຽກ</h3>
+          </div>
+          <div class="col-sm-10 input-group">
+            <input type="text" nbInput fullWidth placeholder="ຫົວຂໍ້ວຽກ" (input)="_selectedJob.jobname = $event.target.value">
+          </div>
+
+        </div>
+        <br />
+        <div class="row ">
+
+          <div class="col-sm-2 input-group">
+            <h3>ລາຍລະອຽດ</h3>
+          </div>
+          <div class="col-sm-10 input-group">
+
+
+            <textarea rows="5" placeholder="ລາຍລະອຽດ" class="form-control"
+              (change)="_selectedJob.description = $event.target.value">{{_selectedJob.description}} </textarea>
+          </div>
+
+
+        </div>
+        <br />
+        <div class="row ">
+
+          <div class="col-sm-2 input-group">
+            <h4>ເວລາກຳນົດ :</h4>
+          </div>
+          <div class="col-sm-3 ">
+
+            <input type="date" nbInput fullWidth placeholder="ວັນທີເລີ້ມຕົ້ນ" [nbDatepicker]="datestart"  (input)="_selectedJob.starttime = $event.target.value" />
+            <!--<nb-datepicker #datestart format="dd-MM-yyyy"></nb-datepicker>-->
+          </div>
+          <div class="col-sm-2 input-group">
+            <h4>ຫາວັນທີ :</h4>
+          </div>
+
+          <div class="col-sm-3 ">
+            <input type="date" nbInput fullWidth placeholder="ວັນທີກຳນົດ" [nbDatepicker]="dateend" (input)="_selectedJob.endtime = $event.target.value" />
+          </div>
+
+
+
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-sm-2 input-group">
+            <h3>ສະມາຊີກ :</h3>
+          </div>
+
+          <div class="col-sm-10">
+            <button type="button" class="btn btn-success" title="Add Menber" data-toggle="modal"
+              data-target="#add_data_Modal" (click)="member_add()">ເພີ້ມສະມາຊິກ</button>
+          </div>
+          <br>
+          <div class="col-sm-10"><h5>ຊື່ສະມາຊິກ :</h5></div>
+          <!-- <ng-templete *ngFor="let m in selectedMembers; index as i ">
+            <div class="col-sm-10" >{{m.assignedname}}</div>
+          </ng-templete> -->
+        </div>
+        <div class=" row">
+          <label class="col-sm-2 "></label>
+          <div class="col-sm-10">
+            <br />
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" value=""> ສາມາດເພີ້ມວຽກໄດ້
+              </label>
+              &nbsp;
+              <label>
+                <input type="checkbox" value=""> ສາມາດແກ້ໄຂວຽກ
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-2 input-group">
+            <h3>ໜ້າວຽກ :</h3>
+          </div>
+          <div class="col-sm-10">
+            <button type="button" class="btn btn-success" title="Add Menber" data-toggle="modal"
+              data-target="#add_data_Modal" (click)=" job_add() ">ເພີ້ມວຽກ</button>
+          </div>
+         <br>
+         <div class="col-sm-10"><h5>ຫົວຂໍ້ວຽກ :</h5></div>
+
+        </div>
+      </nb-card-body>
+      <nb-card-footer>
+        <button class="btn btn-success" (click)="updatejob()">
+          Savehhh
+        </button>
+        &nbsp;
+        <button class="btn btn-default" (click)="goblack()">
+          close
+        </button>
+
+      </nb-card-footer>
+    </nb-card>
+  </div>
+</div>

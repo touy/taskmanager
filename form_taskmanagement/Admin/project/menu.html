@@ -1,0 +1,152 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../../css/bootadmin.min.css">
+    <link rel="stylesheet" href="../../css/datatables.min.css">
+    <link rel="stylesheet" href="../../css/fullcalendar.min.css">
+    <link rel="stylesheet" href="../../css/font.css">
+
+
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/bootadmin.min.js"></script>
+    <script src="../../js/datatables.min.js"></script>
+    <script src="../../js/moment.min.js"></script>
+    
+
+    
+    
+
+    <title>System Name</title>
+    
+</head>
+<body class="bg-light" style="font-family: 'Phetsarath OT'">
+
+<nav class="navbar navbar-expand navbar-dark bg-dark shadow">
+    <a class="sidebar-toggle mr-3" href="#"><i class="fa fa-bars"></i></a>
+    <a class="navbar-brand" href="#">System Name</a>
+
+    <div class="navbar-collapse collapse">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a href="../main.html" class="nav-link"><i class="material-icons"></i><font size="4"> ກັບຄືນ</font></a></li>
+            
+        </ul>
+    </div>
+</nav>
+
+
+            
+
+<div class="bg-light py-5 text-center">
+        <div class="container">
+           
+    
+            <h1>Task Managerment</h1>
+            <p class="lead mb-4">A few reasons to choose BootAdmin.</p>
+    
+            <div class="row">
+                
+                <div class="col-md-4 project">
+                <span class="fa-stack fa-5x mb-2">
+                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                    
+                    <i class="fas fa-file fa-stack-1x fa-inverse"></i>
+                    
+                </span>
+                    <h4>ເອກະສານ</h4>
+                    <p class="mb-4">Document</p>
+                </div>
+                <div class="col-md-4 follow">
+                <span class="fa-stack fa-5x mb-2">
+                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fas fa-briefcase fa-stack-1x fa-inverse"></i>
+                    
+                  <!--  -->
+                    
+                </span>
+                    <h4>ວຽກຂອງຂ້ອຍ</h4>
+                    <p class="mb-4"> My Jobs</p>
+                </div>
+
+               
+
+               
+                
+                <div class="col-md-4 report">
+                    <span class="fa-stack fa-5x mb-2">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fas fa-arrow-left fa-stack-1x fa-inverse"></i>
+                        
+                    </span>
+                        <h4>ກັບຄືນ</h4>
+                        <p class="mb-4">Back</p>
+                    </div>
+                    
+               
+              
+                
+            </div>
+        </div>
+    </div>
+    
+          
+       
+  
+  
+ 
+
+  
+<script>
+        $(document).ready(function () {
+
+           
+
+           
+
+
+            
+
+             $(document).on('click', '.project', function(){  
+                 
+                window.location.replace('menu_doc.html');
+                  
+            });
+            $(document).on('click', '.user', function(){  
+                 
+                 window.location.replace('user/user.html');
+                   
+             });
+            $(document).on('click', '.follow', function(){  
+                 
+                 window.location.replace('jobs.html');
+                   
+             });
+             $(document).on('click', '.report', function(){  
+
+                 
+                    window.location.replace('../main.html');
+                 
+                 
+                 
+                   
+             });
+
+            
+        });
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>
