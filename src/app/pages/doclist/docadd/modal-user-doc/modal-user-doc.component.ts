@@ -24,6 +24,7 @@ export class ModalUserDocComponent  {
   @Input() isdelete: boolean;
   _selectedUser: Igijuser;
   _selectedUsers: Igijuser[];
+  _lar: Igijuser[];
   userList: Igijuser[];
  
  docList: Idocument[];
@@ -37,6 +38,7 @@ export class ModalUserDocComponent  {
     this.userList = new Array<Ogijuser>();
     this._selectedUser = new Ogijuser();
    this._selectedUsers=new Array<Ogijuser>();
+   this._lar =new Array<Ogijuser>();
    
   }
 
@@ -145,7 +147,7 @@ export class ModalUserDocComponent  {
 
 
   close() {
-    this.ref.close({ command: 'update' });
+    this.ref.close({ command: 'update', l:this._lar });
   }
 
   loadUserList() {
@@ -212,6 +214,8 @@ addm(id: string, rev: string){
     
     if(result.command==='update'){
       this._selectedUsers = result.s;
+      this._lar = result.s;
+    
     }
     //this.loadUserList();
     let peras=new OpermissionsAssigned();
