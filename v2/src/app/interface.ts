@@ -1306,7 +1306,6 @@ export interface IpermissionAssigned { // public remote
 }
 export class OpermissionAssigned implements IpermissionAssigned {// public  remote
     _id: string | undefined; _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
-    // permissionid: string | undefined;
     permissionlevel: string | undefined;
     assignedname: string | undefined;
     permission: Ipermissions; // dont need because we have permission id
@@ -1316,7 +1315,6 @@ export class OpermissionAssigned implements IpermissionAssigned {// public  remo
     admin: string | undefined;
     owners: Array<string>;
     creator: string | undefined;
-    // memberaccepted: Array<ImemberRequest>;
     constructor(permissionid: string = '', assignedname: string = '', permissionlevel: string = '') {
         // this.permissionid = permissionid;
         this.assignedname = assignedname;
