@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import axios from 'axios'
 import { HttpClient } from '@angular/common/http';
-import { Igijuser, MyDataBaseNames, Irolelist, Orolelist, Utils, systemlist, Iclient, logTypes, loginfo, Idbconfig, Xdbconfig, I_user, globalcommands, Oclient } from './interface';
+import { Igijuser, MyDataBaseNames, Irolelist, Orolelist, Utils, Systemlist, Iclient, LogTypes, Loginfo, Idbconfig, Xdbconfig, Iuser, Globalcommands, Oclient } from './interface';
 import pouchdbwebsql from 'pouchdb-adapter-websql';
 import 'rxjs/add/observable/of'
 import 'rxjs/add/operator/map';
@@ -26,7 +26,7 @@ export class mHelper {
     db_global_no: PouchDB.Database<any>;
     db_user: PouchDB.Database<any>;
     _client: Iclient;
-    myuser: I_user;
+    myuser: Iuser;
     mydbconfig: Idbconfig;
     dbconfig: Idbconfig;
     //remoteCouch: string = MyDataBaseNames.remoteCouch; // DEVELOPING ENV ONLY
@@ -55,7 +55,7 @@ export class mHelper {
     }
     gettemprefix(){
         this._client=new Oclient();
-        let url = `${MyDataBaseNames.taskmanagerserver}${MyDataBaseNames.tempprefix}`;
+        let url = `${MyDataBaseNames.taskmanagerserver}${MyDataBaseNames.dbtempprefix}`;
         axios.post(url,this._client).then(res=>{
             this._client=JSON.parse(res.data) as Iclient;
         }).catch(err=>{
@@ -323,12 +323,12 @@ export class mHelper {
                     return x.isprivate
                 })
             }).catch(err => {
-                this.logging(username, systemlist.taskmanagerweb, this._client, logTypes.error, err.message, 'LOGIN')
+                this.logging(username, Systemlist.taskmanagerweb, this._client, LogTypes.error, err.message, 'LOGIN')
                 console.log((err));
                 // sync client here
             });
         }).catch(err => {
-            this.logging(username, systemlist.taskmanagerweb, this._client, logTypes.error, err.message, 'LOGIN')
+            this.logging(username, Systemlist.taskmanagerweb, this._client, LogTypes.error, err.message, 'LOGIN')
             console.log((err));
 
         });
@@ -336,7 +336,7 @@ export class mHelper {
     logout() {
         this.db_user.logOut().then(res => {
             console.log('OK LOGGED OUT');
-            this.logging(this.myuser.name, systemlist.taskmanagerweb, this._client, logTypes.failed, 'log out failed', 'LOGOUT');
+            this.logging(this.myuser.name, Systemlist.taskmanagerweb, this._client, LogTypes.failed, 'log out failed', 'LOGOUT');
         }
         ).catch(err => {
             console.log(err);
@@ -353,7 +353,7 @@ export class mHelper {
 
             } else {
                 console.log('Change password succeeded');
-                parent.logging(parent.myuser.name, parent.currentsystem, parent._client, logTypes.success, 'change password', 'change password 339')
+                parent.logging(parent.myuser.name, parent.currentsystem, parent._client, LogTypes.success, 'change password', 'change password 339')
             }
         })
     }
@@ -365,7 +365,7 @@ export class mHelper {
             this.gettemprefix();
         }
         this._client.data.user=user;
-        this._client.data.command=globalcommands.register;
+        this._client.data.command=Globalcommands.register;
         let db = new pouchdb(`${MyDataBaseNames.dbclient}-${this._client.gui}`);// temporary prefix
         db.put(this._client).then(res=>{
             console.log(res);// client has been created and need to activate the key for registration.
@@ -477,10 +477,10 @@ export class mHelper {
     logging(user: string | undefined,
         system: string | undefined,
         client: Iclient | undefined,
-        type: logTypes | undefined,
+        type: LogTypes | undefined,
         message: string | undefined,
         src: string | undefined) {
-        let l = new loginfo();
+        let l = new Loginfo();
         l.logtime/// need to set to +7 tz
         l.user = user;
         l.system = system;
