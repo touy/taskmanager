@@ -4,7 +4,7 @@
     <nb-card>
       <nb-card-header>
           <div class="row">
-            <h3 class="col-md-11" >Jobs of day</h3>
+            <h3 class="col-md-11" >regularjob of day</h3>
             <div class="col-md-1" ><button  class="btn btn-success" (click)="job_add()">
                 <i class="fas fa-plus-square"></i>
               </button></div>
@@ -17,18 +17,41 @@
               <table class="table table-bordered ">
                 <thead>
                   <tr>
-                    <th> jobname</th>
-                    <th> dockid </th>
-                    <th> createdtime </th>
-                    <th> starttime </th>
-                    <th> endtime </th>
-                    <th> Complete</th>
+ 
+                    <th> ຊື່ວຽກ</th>
+                    <th>ລາຍລະອຽດວຽກ</th>
+                    <th> ແຜນສໍາເລັກເອກະສານ </th>
+                    <th> ເວລາເລີ້ມເຮັດເອກະສານ </th>
+                    <th>ເລີມວຽກ</th>
+                    <th> ເວລາເຮັດເອກະສານແລ້ວ </th>
+                    <th>ສໍາເລັດ</th>
+
+                    
+
                   </tr>
                 </thead>
                 <tbody>
-                 
 
-                  <tr>
+                    <tr *ngFor="let j of jobList; index as i" >
+                     
+                        <td>{{j.jobname}}</td>
+                        <td>{{j.description}}</td>
+                        <td>{{j.createdtime | date:'short' }}</td>
+                        <td>{{j.starttime | date:'short' }}</td>
+                        <td><input type="checkbox" [checked]="j.starttime" (input)="startJob(j)"></td>
+                        <td>{{j.endtime | date:'short' }}</td>
+ 
+                        <td><input type="checkbox" [checked]="j.endtime" (input)="endJob(j)"></td>
+                        
+                        <!--ເຮັດແຊັກບອກໃຫ້ບັນທືກລົງຖານຂໍ້ມູນ
+                        disabled:ກັນບໍ່ໃຫ້ປົດແຊັກບອກກັບsຖ້າມີຂໍ້ມູນຢູ່ j.endtime
+                        checcke:ຖ້າມີຂໍ້ມູນຢູ່ j.endtime ແລ້ວໃຫ້ແຊກບອກແຮັດວຽກ
+                        input:ເຮົາຕ້ອງການບັນທືກໃນຄໍລໍລໍໃດ
+                        -->
+                    </tr>
+                      
+
+                 <!-- <tr>
                     <td>k</td>
                     <td>1</td>
                     <td>10:00 AM</td>
@@ -36,6 +59,7 @@
                     <td>12:00 PM</td>
                     <td><input type="checkbox" name="vehicle" value="Bike"> </td>
                   </tr>
+                  -->
 
                 </tbody>
               </table>
@@ -45,7 +69,4 @@
       </nb-card-body>
     </nb-card>
   </div>
-  
-  
 </div>
-

@@ -19,7 +19,10 @@ import { SettingComponent } from './setting/setting.component';
 import { UserRolesComponent } from './user-roles/user-roles.component';
 import { RoleListComponent } from './role-list/role-list.component';
 import { RegularJobComponent } from './regular-job/regular-job.component';
+import{RegularJobCompleComponent} from './regular-job-comple/regular-job-comple.component' 
 import { ProjectJobsComponent } from './project-jobs/project-jobs.component';
+import { DoclistComponent } from './doclist/doclist.component';
+import { DocaddComponent } from './doclist/docadd/docadd.component';
 
 
 const PAGES_COMPONENTS = [
@@ -53,7 +56,10 @@ const PAGES_COMPONENTS = [
     UserRolesComponent,
     RoleListComponent,
     RegularJobComponent,
+    RegularJobCompleComponent,
     ProjectJobsComponent,
+    DoclistComponent,
+    DocaddComponent,
 
   ],
 })

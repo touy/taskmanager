@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>
+        <div class="row">
+          <h3 class="col-md-11">doclist</h3>
+          <div class="col-md-1"><button class="btn btn-success" (click)="add()">
+              <i class="fas fa-plus-square"></i>
+            </button></div>
+        </div>
+
+      </nb-card-header>
+      <nb-card-body>
+
+        <div class="table-responsive">
+          <table class="table table-bordered ">
+            <thead>
+              <tr>
+
+                <th> ຊື່ເອກະສານ</th>
+                <th>ລາຍລະອຽດ</th>
+                <th> ວັນທີສ້າງເອກະສານ </th>
+                <th> ເວລາເລີ້ມເຮັດເອກະສານ </th>
+                <th>ສໍາເລັດ</th>
+
+
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr *ngFor="let d of docList; index as i">
+
+                <td>{{d.jobname}}</td>
+                <td>{{d.description}}</td>
+                <td>{{d.createdtime | date:'short' }}</td>
+                <td>{{d.starttime | date:'short' }}</td>
+                <td>{{d.endtime | date:'short' }}</td>
+
+
+
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

@@ -1,51 +1,46 @@
-<h2 class="grid-h">Jobs of day Add </h2>
+
+
 <div class="row" *ngIf="!isdelete">
   <div class="col-md-12">
     <nb-card class="col-md-12">
       <nb-card-header>
-        <h3>Job</h3>
+        <h3>ຟອມເພີ່ມວຽກ</h3>
       </nb-card-header>
       <nb-card-body>
+          <!--<div class="row ">
+              <div class="col-sm-12 ">
+                <h3>ລະຫັດ</h3>             
+                <input type="text" nbInput fullWidth placeholder="ລະຫັຫັດ">
+              </div> 
+          </div> -->
+             
           <div class="row ">
-              <div class="col-sm-6 input-group">
-                <h3>ຫົວຂໍ້ວຽກ</h3>             
-                <input type="text" nbInput fullWidth placeholder="Name">
+              <div class="col-sm-12">
+                <h3>ຊື່</h3>       
+                  
+                <input type="text" nbInput fullWidth  placeholder="ຊື່ວຽກ" [value]="_selectedJob.jobname"  (input)="job.jobname = $event.target.value">
               </div> 
           </div> 
           <br/>
+
+          <div class="row">
+            <div class="col-sm-12" >
+              <h3>ລາຍລະອຽດວຽກ</h3>         
+                    <textarea  rows="6" nbInput fullWidth placeholder="ລາຍລະອຽດວຽກ" [value]="_selectedJob.description" (change)="job.description = $event.target.value" >{{job.description}}</textarea> 
+                    <!-- <input type="text" nbInput fullWidth  placeholder="ລາຍລະອຽດວຽກ" [value]="job.description" (input)="job.description = $event.target.value">--> 
+                      
+                  </div> 
+              </div> 
+          
           <div class="row ">
+              <div class="col-sm-6 input-group">
+                <h4>ເວລາເຮັດເອກະສານ</h4>             
+              {{timenow}}  
+              </div> 
             
-              <div class="col-sm-6 input-group">
-                  <h3>ເວລາ</h3>             
-                  <select class="form-control" >
-                      <option value="">ເລືອກ</option>
-                      <option value="ທ້າວ ກ">ທ້າວ ກ</option>
-                      <option value="">ທ້າວ ຂ</option>
-                      <option value="">ນາງ ງ</option>
-                      <option value="">ທ້າວ ຈ</option>
-                  </select>
-              </div>
-          </div>  
-          <br/>
-          <div class="row ">
-              <div class="col-sm-12 input-group">
-                  <h3>ພະນັກງານ</h3>             
-                  <select class="form-control" >
-                      <option value="">ເລືອກ</option>
-                      <option value="ທ້າວ ກ">ທ້າວ ກ</option>
-                      <option value="">ທ້າວ ຂ</option>
-                      <option value="">ນາງ ງ</option>
-                      <option value="">ທ້າວ ຈ</option>
-                  </select>
-              </div>    
           </div> 
-          <br/>
-          <div class="row ">
-              <div class="col-sm-6 input-group">
-                  <h3>ລາຍລະອຽດ</h3>             
-                  <textarea rows="6" placeholder="Text Area" class="form-control"></textarea>
-              </div> 
-          </div> 
+          <br>
+          
       </nb-card-body>
     <nb-card-footer>
         <button  class="btn btn-success" (click)="updatejob()" >

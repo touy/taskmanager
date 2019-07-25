@@ -11,7 +11,7 @@ import { Ojob,Ijob, MyDataBaseNames } from '../../../interface';
   styleUrls: ['./modal-job.component.scss']
 })
 export class ModalJobComponent  {
-  
+  myDate = Date.now();
   private db: PouchDB.Database<{}>;
   remoteCouch = 'http://admin:admin@localhost:5984/job-';
 
@@ -21,6 +21,8 @@ export class ModalJobComponent  {
   @Input() _rev: string;
   @Input() isdelete:boolean ;
   _selectedJob: Ijob;
+  timenow:Date=new Date();
+  now: string;
   constructor(protected ref: NbDialogRef<ModalJobComponent> ,public _Location:Location,public router:Router) {
 
     this.job=new Ojob();
@@ -35,6 +37,7 @@ export class ModalJobComponent  {
 
     if(this._id){
       this.getjob(this._id);
+      
     }else{
       this._selectedJob=new Ojob();
     }
@@ -83,6 +86,8 @@ export class ModalJobComponent  {
 
 
   insert(){
+    this.job.createdtime=this.timenow+''; //ບັນທືກເວລາປະຈຸບັນເຂົ້ນເຂົ້າຖານຂໍ້ມູນ
+    this.job.starttime=new Date().toISOString()+''; //ບັນທືກເວລາປະຈຸບັນເຂົ້ນເຂົ້າຖານຂໍ້ມູນ
     this.db.put(this.job, { force: true }, (err, res) => {
       if (err) {
         console.log('err after put'

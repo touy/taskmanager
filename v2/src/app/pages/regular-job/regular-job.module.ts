@@ -12,3 +12,4 @@ import { RegularJobComponent } from './regular-job.component';
   ]
 })
 export class RegularJobModule { }
+

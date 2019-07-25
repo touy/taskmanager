@@ -1,0 +1,171 @@
+<h2 class="grid-h">Document Add</h2>
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>
+        <h3>Document</h3>
+      </nb-card-header>
+      <nb-card-body>
+
+        <div class="row ">
+          <div class="col-sm-2 input-group">
+            <h3>ຫົວຂໍ້ເອກະສານ</h3>
+          </div>
+          <div class="col-sm-10 input-group">
+            <input type="text" nbInput fullWidth placeholder="ຊື່ເອກະສານ" (input)="doc.docname = $event.target.value">
+          </div>
+
+        </div>
+        <br />
+        <div class="row ">
+          <div class="col-sm-2 input-group">
+            <h3>ສົງຫາຜູ້ອານຸມັດ</h3>
+          </div>
+          <div class="col-sm-3 input-group">
+            <select class="form-control">
+              <option value="">ເລືອກ</option>
+              <option value="ທ້າວ ກ">ທ້າວ ກ</option>
+              <option value="">ທ້າວ ຂ</option>
+              <option value="">ນາງ ງ</option>
+              <option value="">ທ້າວ ຈ</option>
+            </select>
+          </div>
+
+        </div>
+        <br />
+        <div class="row ">
+
+          <div class="col-sm-2 input-group">
+            <h3>ລາຍລະອຽດ</h3>
+          </div>
+          <div class="col-sm-10 input-group">
+
+
+            <textarea rows="6" nbInput fullWidth placeholder="ລາຍລະອຽດວຽກ"
+              (change)="doc.description = $event.target.value"></textarea>
+          </div>
+
+
+        </div>
+        <br />
+        <div class="row ">
+
+          <div class="col-sm-2 input-group">
+            <h3>ເວລາກຳນົດ :</h3>
+          </div>
+          <div class="col-sm-3 ">
+
+            <input type="date" nbInput fullWidth (input)="doc.starttime = $event.target.value">
+
+          </div>
+          <div class="col-sm-1 input-group">
+            <h3>ຫາວັນທີ</h3>
+          </div>
+
+          <div class="col-sm-3 ">
+
+
+
+            <input type="date" nbInput fullWidth (input)="doc.endtime = $event.target.value">
+
+
+
+          </div>
+
+
+
+        </div>
+        <br />
+        <div class="row ">
+
+          <div class="col-sm-2 input-group">
+            <h3>ເອກະສານຕິດຄັດ :</h3>
+          </div>
+          <div class="col-sm-3 input-group">
+
+            <input id="file" type="file" class="form-control" multiple>
+
+          </div>
+
+
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-sm-2 input-group">
+            <h3>ສະມາຊີກ :</h3>
+          </div>
+
+          <div class="col-sm-10">
+            <div class="table-responsive">
+              <template *ngFor="let m of doc.memers">
+
+              </template>
+
+            </div>
+            <button type="button" class="btn btn-success" title="Add Menber" data-toggle="modal"
+              data-target="#add_data_Modal" (click)="addmember()">ເພີ້ມສະມາຊິກaaa</button>
+            <br />
+
+
+          </div>
+
+        </div>
+        <div class="col-sm-2 input-group">
+          <h5>ຊື່ສະມາຊີກ :</h5>
+        </div>
+
+        <div class=" row">
+          <label class="col-sm-2 "></label>
+          <div class="col-sm-10">
+            <br />
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" value=""> ສາມາດເພີ້ມວຽກໄດ້
+              </label>
+              &nbsp;
+              <label>
+                <input type="checkbox" value=""> ສາມາດແກ້ໄຂວຽກ
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-2 input-group">
+            <h3>ໜ້າວຽກ :</h3>
+          </div>
+
+          <div class="col-sm-10">
+
+
+
+
+
+            <button type="button" class="btn btn-success addjobs_data" title="Add Jobs" name="add" id="addjobs_data"
+              (click)="addjobs()">ເລືອກວຽກ</button>
+            &nbsp;
+            <button type="button" class="btn btn-success" title="Crate Jobs" name="add" id="add">ສ້າງວຽກ</button>
+
+
+          </div>
+
+        </div>
+
+      </nb-card-body>
+      <nb-card-footer>
+        <button class="btn btn-success" (click)="insertdoc()">
+          Savesdd
+        </button>
+        &nbsp;
+        <button class="btn btn-default" (click)="goblack()">
+          close
+        </button>
+
+      </nb-card-footer>
+    </nb-card>
+  </div>
+
+
+
+
+</div>

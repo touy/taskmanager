@@ -12,7 +12,7 @@
                 <h3>ຫົວຂໍ້ວຽກ</h3>             
               </div>
               <div class="col-sm-10 input-group">
-                <input type="text" nbInput fullWidth placeholder="ຫົວຂໍ້ວຽກ">
+                <input type="text" nbInput fullWidth placeholder="ຫົວຂໍ້ວຽກ"  [value]="Doc.docname" (input)="Doc.docname = $event.target.value">
               </div>
               
           </div> 
@@ -41,7 +41,7 @@
               <div class="col-sm-10 input-group">
                
                  
-                  <textarea rows="5" placeholder="ລາຍລະອຽດ" class="form-control"></textarea>
+                  <textarea rows="5" placeholder="ລາຍລະອຽດ" class="form-control" [value]="Doc.description" (input)="Doc.description = $event.target.value"></textarea>
               </div>
              
               
@@ -54,10 +54,8 @@
                 </div>
               <div class="col-sm-3 ">
                
-                 <input nbInput fullWidth
-                 placeholder="ວັນທີເລີ້ມຕົ້ນ"
-                 [nbDatepicker]="datestart" />
-                 <nb-datepicker #datestart  format="dd-MM-yyyy"></nb-datepicker>
+                 <input type="date" nbInput fullWidth placeholder="ວັນທີເລີ້ມຕົ້ນ"  [value]="Doc.starttime" (input)="Doc.starttime = $event.target.value"/>
+                
               </div>
               <div class="col-sm-1 input-group">
                   <h3>ຫາວັນທີ</h3>             
@@ -67,11 +65,9 @@
                
               
                
-                  <input nbInput fullWidth
-                  placeholder="ວັນທີກຳນົດ"
-                  [nbDatepicker]="dateend" />
+                  <input type="date"  nbInput fullWidth placeholder="ວັນທີກຳນົດ" [value]="Doc.endtime" (input)="Doc.endtime = $event.target.value"/>
 
-                  <nb-datepicker #dateend format="dd-MM-yyyy"></nb-datepicker>
+                  
                
                </div>
               
@@ -94,59 +90,20 @@
           </div> 
           <br/>
           <div class="row">
-              <div class="col-sm-2 input-group">
-                  <h3>ສະມາຊີກ :</h3>          
-              </div>
-           
-            <div class="col-sm-10">
-  
-  
-                   
-                    <div class="table-responsive">
-                            <table id="example" class="table table-bordered" >
-                            
-                            <thead>
-                            <tr>
-                                <th>ລະຫັດ</th>
-                                <th>ຊື່ສະມາຊິກ</th>
-                                <th>ຄວາມສາມາດ</th>
-                               
-                                
-                            </tr>
-                            </thead>
-                            <tbody>
-                                    <tr>
-                                            <td>0001</td>
-                                            <td>ທ້າວ ໂຊກໄຊ ແກ້ວພິລາວັນ</td>
-                                            <td><span class="badge badge-pill badge-success">ຫົວຫນ້າທີມ</span></td>
-                                          
-                                           
-                                            
-                                    </tr>
-                                    <tr>
-                                            <td>0002</td>
-                                            <td>ທ້າວ ສອນໄຊ ເກດແກ້ວ</td>
-                                            <td></td>
-                                           
-                                            
-                                           
-                                    </tr>
-                                    <tr>
-                                            <td>0003</td>
-                                            <td>ທ້າວ ໄຊນະພາ ພົມວິຫານ</td>
-                                            <td></td>
-                                           
-                                            
-                                    </tr>
-                            </tbody>
-                        </table>
-                       
-                    </div>
-                    <button type="button" class="btn btn-success" title="Add Menber"  data-toggle="modal" data-target="#add_data_Modal" (click)="addmember()">ເພີ້ມສະມາຊິກ</button>
-                    <br/>
-                    
-  
-            </div>
+
+                <div class="col-sm-2 input-group">
+                  <h4>ສະມາຊີກ :</h4>
+                </div>
+                <div class="col-sm-10">
+                  <button type="button" class="btn btn-success" title="Add Menber" data-toggle="modal"
+                    data-target="#add_data_Modal" (click)="addmember()">ເພີ້ມສະມາຊິກ</button>
+                </div>
+                <br>
+                <div class="col-sm-10"><h5>ຊື່ສະມາຊິກ :</h5></div>
+                <!-- <ng-templete *ngFor="let m in selectedMembers; index as i ">
+                  <div class="col-sm-10" >{{m.assignedname}}</div>
+                </ng-templete> -->
+              
             
           </div>
           <div class=" row">
@@ -170,90 +127,29 @@
                   <h3>ໜ້າວຽກ :</h3>        
               </div>
             
-            <div class="col-sm-10">
-  
-  
-                   
-              <div class="table-responsive">
-                <table id="example2" class="table table-bordered" >
+             
+                  <div class="col-sm-10">
+                    <button type="button" class="btn btn-success" title="Add Menber" data-toggle="modal"
+                      data-target="#add_data_Modal" (click)=" addjobs() ">ເລືອກວຽກ</button>
+                      <button type="button" class="btn btn-success" title="Add Menber" data-toggle="modal"
+                      data-target="#add_data_Modal" (click)=" cratejob() ">ສ້າງວຽກ</button>
+                  </div>
+                 <br>
+                 <div class="col-sm-10"><h5>ຫົວຂໍ້ວຽກ :</h5></div>
+        
                 
-                <thead>
-                <tr>
-                    <th>ລະຫັດ</th>
-                    <th>ຫົວຂໍ້ວຽກ</th>
-                    <th>ວັນທີເລີມ</th>
-                    <th>ວັນທີກຳນົດ</th>
-                    <th>ສະຖານະພາບ</th>
-                    <th>Action</th>
-                   
-                   
-                    
-                </tr>
-                </thead>
-                <tbody>
-                        
-                        <tr>
-                                <td>0001</td>
-                                <td>ແປງຄອມ</td>
-                                <td>12/3/2019</td>
-                                <td>13/3/2019</td>
-                                <td></td>
-                                <td><button  id="" class="btn btn-round btn-success  View_list" data-toggle="tooltip" title="View"><i class="fa fa-file"></i></button>
-                                  <button  id="" class="btn btn-round btn-info     add_sub_job" data-toggle="tooltip" title="Add Sub jobs"><i class="fas fa-plus-square"></i></button>
-                                </td>
-                               
-                              
-                                
-                        </tr>
-                        <tr>
-                                <td>0002</td>
-                                <td>ເຊັກ Server</td>
-                                <td>12/3/2019</td>
-                                <td>13/3/201</td>
-                                <td></td>
-                                <td><button  id="" class="btn btn-round btn-success  View_list" data-toggle="tooltip" title="View"><i class="fa fa-file"></i></button>
-                                  <button  id="" class="btn btn-round btn-info     add_sub_job" data-toggle="tooltip" title="Add Sub jobs"><i class="fas fa-plus-square"></i></button>
-                                </td>
-                               
-                               
-                        </tr>
-                        <tr>
-                                <td>0003</td>
-                                <td>ອອກແບບເວັບໄຊ</td>
-                                <td>19/3/2019</td>
-                                <td>22/3/2019</td>
-                                <td></td>
-                                <td><button  id="" class="btn btn-round btn-success  View_list" data-toggle="tooltip" title="View"><i class="fa fa-file"></i></button>
-                                  <button  id="" class="btn btn-round btn-info     add_sub_job" data-toggle="tooltip" title="Add Sub jobs"><i class="fas fa-plus-square"></i></button>
-                                </td>
-                                
-                                
-                        </tr> 
-                </tbody>
-            </table>
-        </div>
-
-                                    <button type="button" class="btn btn-success addjobs_data" title="Add Jobs" name="add" id="addjobs_data" >ເລືອກວຽກ</button>
-                                    &nbsp;
-                                    <button type="button" class="btn btn-success" title="Crate Jobs" name="add" id="add" >ສ້າງວຽກ</button>
-                    
-  
-            </div>
             
           </div>
          
-              
-        
-        
-         
-
-
+        <!--ແຖວຈອບ-->         
       </nb-card-body>
     <nb-card-footer>
-        <button  class="btn btn-success" >
+        <button  class="btn btn-success" (click)="save()" >
             Save
         </button>
+
         &nbsp;
+
         <button  class="btn btn-default" (click)="goblack()">
             close
         </button>
@@ -261,10 +157,6 @@
     </nb-card-footer>
     </nb-card>
   </div>
-
-  
-  
-  
 </div>
 
 

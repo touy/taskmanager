@@ -1,0 +1,69 @@
+
+<div class="row">
+    <div class="col-md-12">
+      <nb-card>
+        <nb-card-header>
+            <div class="row">
+              <h3 class="col-md-11" >regularJob Comple</h3>
+             
+                 
+            </div>
+          
+        </nb-card-header>
+        <nb-card-body>
+          
+            <div class="table-responsive">
+                <table class="table table-bordered ">
+                  <thead>
+                    <tr>
+                    <!--<th>ລະຫັດ</th>-->  
+                      <th> ຊື່ວຽກ</th>
+                      <th>ລາຍລະອຽດວຽກ</th>
+                      <th> ເວລາສ້າງເອກະສານ </th>
+                      <th> ເວລາເລີ້ມເຮັດເອກະສານ </th>
+                      <th> ເວລາເຮັດເອກະສານແລ້ວ </th>
+                      
+  
+                    </tr>
+                  </thead>
+                  <tbody>
+                   <!-- {{setNow()}} ການທົດລອງການນວງເວລາ-->
+                    <ng-container *ngFor="let j of jobList index as i" > <!--ແປງຊື່ຕົວປຽນໃຫ້ສັນລົງ-->
+                      <tr *ngIf="j.endtime"><!--ເອີນສະເພາະເພາະຂໍ້ມູນທີວ-->
+                         <!-- <td>{{j._id}} -- {{showTimeDiff()}} </td> -->
+                          <td>{{j.jobname}}</td>
+                          <td>{{j.description}}</td>
+                          <td>{{j.createdtime | date:'short'}}</td>
+                          <td>{{j.starttime | date:'short'}}</td>
+                          <td>{{j.endtime | date:'short'}}</td>
+                          
+                      </tr>
+                    </ng-container>
+
+                    <!-- <ng-container *ngFor="let j of showCompleted(); index as i" > 
+                      <tr >
+                          <td>{{j._id}}</td>
+                          <td>{{j.jobname}}</td>
+                          <td>{{j.description}}</td>
+                          <td>{{j.createdtime | date:'short'}}</td>
+                          <td>{{j.starttime | date:'short'}}</td>
+                          <td>{{j.endtime | date:'short'}}</td>
+                          
+                      </tr>
+                    </ng-container> ແບບເອີນໃຊ້ຟັງຊັນ -->
+                    
+                      
+
+                  </tbody>
+                </table>
+              </div>
+  
+  
+        </nb-card-body>
+      </nb-card>
+    </div>
+    
+    
+  </div>
+  
+  

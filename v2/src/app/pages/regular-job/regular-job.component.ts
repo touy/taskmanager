@@ -10,13 +10,14 @@ import pouchdb from 'pouchdb';
   styleUrls: ['./regular-job.component.scss']
 })
 export class RegularJobComponent implements OnInit {
-
+  
   jobList: Ijob[];
   selectedJob: Ijob;
   private dbjob: PouchDB.Database<{}>; // job db
   private dbdoc: PouchDB.Database<{}>;
   remoteCouch = 'http://admin:admin@localhost:5984/job-';
   constructor(private dialogService: NbDialogService, private router: Router) {
+    
     this.jobList = new Array<Ojob>();
     this.selectedJob= new Ojob();
     // dbfullname=prefixname+dbname+prefix
@@ -100,22 +101,25 @@ export class RegularJobComponent implements OnInit {
       //console.log(res);
       for (let index = 0; index < res.rows.length; index++) {
         parent.jobList.push(<Ijob><unknown>res.rows[index].doc);
+        console.log(res.rows[index].doc);
+        
       }
     }).catch(err => {
       console.log(err);
     });
   }
 
-
   job_add() {
-    
-   this.dialogService.open(ModalRegularJobComponent, {
+    let dlg = this.dialogService.open(ModalRegularJobComponent, {
       context: {
         _id: '',
-        _rev: '',
-        isdelete:false
+        _rev: ''
         //close:parent.modelClose
       }
+    });
+
+    dlg.onClose.subscribe(result => {
+      this.loadjobList();
     });
   }
 
@@ -160,4 +164,43 @@ export class RegularJobComponent implements OnInit {
 
 
   }
+  endJob(j:Ijob){   //ສ້າງຟັງຊັນໃຫ້ກັບເຊັກບອກໃນ(HTML)
+   // j.starttime?j.starttime='':j.starttime=''
+    j.endtime?j.endtime='':j.endtime=new Date().toISOString(); 
+    this.updatejob(j); //ອັບເດລົງຖານຂໍ້ມູນ
+    //  ຖ້າວ່າ j.endtime?j.endtime=''   ໃຫ້ເທົ່າກັບເປົ່ບເປົ່າວ່າງ ບໍ່ມີຄ່າແມ່ນເຊັກບອກບໍ່ເຮັດວຽກ  
+    //ຫຼືວ່າ :j.endtime=new Date().toISOString();ເປົ່າວ່າງແລວແອດເວລາປະຈຸບັນໃສ
+  }
+
+          //  canceljob(c:Ijob){
+          //  c.cancel?c.cancel='':'';
+          //  this.updatejob(j);
+          // }
+  updatejob(j:Ijob){ //ບັນທືກເຊັກບອກລົງຖານຂໍ້ມູນ
+    this.dbjob.put(j,{force:true}).then(res=>{
+      console.log(res);
+      
+    }).catch(err=>{
+      console.log((err));
+    });
+  }
+
+
+  startJob(s:Ijob){   //ສ້າງຟັງຊັນໃຫ້ກັບເຊັກບອກໃນ(HTML)
+   // s.endtime?s.endtime='':s.endtime=''
+    s.starttime?s.starttime='':s.starttime=new Date().toISOString(); 
+    this.updateStartjob(s); //ອັບເດລົງຖານຂໍ້ມູນ
+    //  ຖ້າວ່າ j.endtime?j.endtime=''   ໃຫ້ເທົ່າກັບເປົ່ບເປົ່າວ່າງ ບໍ່ມີຄ່າແມ່ນເຊັກບອກບໍ່ເຮັດວຽກ  
+    //ຫຼືວ່າ :j.endtime=new Date().toISOString();ເປົ່າວ່າງແລວແອດເວລາປະຈຸບັນໃສ
+  }
+
+  updateStartjob(s:Ijob){ //ບັນທືກເຊັກບອກລົງຖານຂໍ້ມູນ
+    this.dbjob.put(s,{force:true}).then(res=>{
+      console.log(res);
+      
+    }).catch(err=>{
+      console.log((err));
+    });
+  }
+
 }

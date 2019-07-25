@@ -25,8 +25,15 @@ import{ModalJobComponent} from './pages/jobofday/modal-job/modal-job.component';
 import{ModalJobPlanComponent} from './pages/job-plan/modal-jobplan/modal-jobplan.component';
 import { ModleMenberComponent } from './pages/project-jobs/modle-menber/modle-menber.component';
 import { ModalRegularJobComponent } from './pages/regular-job/modal-regularjob/modal-regularjob.component';
+import { ModleJobsComponent } from './pages/project-jobs/modle-jobs/modle-jobs.component';
+
+import{ModalAddJobComponent} from './pages/job-plan/add-plan-job/modal-add-job/modal-add-job.component';
+import{ModalAddMemberComponent} from './pages/job-plan/add-plan-job/modal-add-member/modal-add-member.component';
 
 
+import {ModaljobComponent} from './pages/doclist/docadd/modal-job/modal-job.Component';
+import {ModalUserDocComponent} from './pages/doclist/docadd/modal-user-doc/modal-user-doc.component';
+import {ModalMComponent} from './pages/doclist/docadd/modal-m-doc/modal-m-doc.component';
 
 
 @NgModule({
@@ -41,6 +48,13 @@ import { ModalRegularJobComponent } from './pages/regular-job/modal-regularjob/m
     ModalRegularJobComponent,
     ModalUserRoleComponent,
     ModalRoleListComponent,
+    ModleJobsComponent,
+    ModalAddJobComponent,
+    ModalAddMemberComponent,
+    ModalUserDocComponent,
+    ModaljobComponent,
+   ModalMComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -62,6 +76,13 @@ import { ModalRegularJobComponent } from './pages/regular-job/modal-regularjob/m
     ModalRegularJobComponent,
     ModalUserRoleComponent,
     ModalRoleListComponent,
+    ModleJobsComponent,
+    ModalAddJobComponent,
+    ModalAddMemberComponent,
+    ModalUserDocComponent,
+    ModaljobComponent,
+    ModalMComponent,
+    
   ],
   bootstrap: [AppComponent],
   providers: [

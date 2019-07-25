@@ -24,7 +24,6 @@ export class ModalUserComponent  {
   @Input() isdelete:boolean ;
   _selectedUser: Igijuser;
   constructor(protected ref: NbDialogRef<ModalUserComponent> ,public _Location:Location,public router:Router) {
-
     this.user=new Ogijuser();
     this.user._rev = '';
     this.user._id = nano_time.now();

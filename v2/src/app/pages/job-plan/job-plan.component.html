@@ -22,17 +22,17 @@
                     <th> ວັນທີເລີມ </th>
                     <th> ວັນທີກຳນົດ </th>
                     <th> ສະຖານະ </th>
-                    <th> Actions</th>
+              
                   </tr>
                 </thead>
                 <tbody>
                  
-                  <tr>
-                    <td>0001</td>
-                    <td>ໃບອອກວຽກນອກ</td>
-                    <td>12/04/2019</td>
-                    <td>12/04/2019</td>
-                    <td>ສຳເລັດ</td>
+                  <tr *ngFor="let j of jobList; index as i" >
+                    <td>{{j._id}}</td>
+                    <td>{{j.jobname}}</td>
+                    <td>{{j.starttime | date:'short' }}</td>
+                    <td>{{j.endtime | date:'short' }}</td>
+                    <td><input type="checkbox"> Comple/Cancel</td>
                     <td>
                       <a nbButton shape="round" status="info" (click)="edit()"><i class="fas fa-edit"></i></a>&nbsp;   
                       <a nbButton shape="round" status="danger" ><i class="fas fa-trash-alt"></i></a>

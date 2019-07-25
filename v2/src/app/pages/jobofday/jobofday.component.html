@@ -17,22 +17,29 @@
               <table class="table table-bordered ">
                 <thead>
                   <tr>
-                    <th> ພະນັກງານ</th>
-                    <th> ພະແນກ </th>
-                    <th> ເວລາ </th>
-                    <th> ຫົວຂໍ້ວຽກ </th>
-                    <th> ລາຍລະອຽດ </th>
-                    <th> Actions</th>
+                   
+                
+                    <th> ຊື່ວຽກ</th>
+                    <th>ລາຍລະອຽດວຽກ</th>
+                    <th> ເວລາສ້າງເອກະສານ </th>
+                    <th> ເວລາເລີ້ມເຮັດເອກະສານ </th>
+                    <th> ເວລາເຮັດເອກະສານແລ້ວ </th>
+                    <th> </th>
+                    <th>ຈັດການ</th>
                   </tr>
                 </thead>
                 <tbody>
                  
                   <tr *ngFor="let j of jobList; index as i" >
-                    <td>{{j.jobname}}</td>
-                    <td>{{j.department}}</td>
-                    <td>{{j.createdtime}}</td>
-                    <td>{{j._id}}</td>
-                    <td></td>
+                       
+                    
+                        <td>{{j.jobname}}</td>
+                        <td>{{j.description}}</td>
+                        <td>{{j.createdtime | date:'short' }}</td>
+                        <td>{{j.starttime | date:'short' }}</td>
+                        <td>{{j.endtime | date:'short' }}</td>
+                        <td><input type="checkbox" [checked]="j.endtime" (input)="endJob(j)"></td>
+                    
                     <td>
                       <a nbButton shape="round" status="info" (click)="job_edit(j._id,j._rev)"><i class="fas fa-edit"></i></a>&nbsp;   
                      <a nbButton shape="round" status="danger" (click)="job_edit(j._id,j._rev,true)"><i class="fas fa-trash-alt"></i></a> 
