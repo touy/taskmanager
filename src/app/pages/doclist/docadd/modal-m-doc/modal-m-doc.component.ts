@@ -3,7 +3,7 @@ import { NbDialogRef } from '@nebular/theme';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import pouchdb from 'pouchdb';
-import { Igijuser, Ogijuser, nano_time, MyDataBaseNames } from '../../../../interface';
+import { Igijuser, Ogijuser, nano_time,IpermissionAssigned, MyDataBaseNames, OpermissionsAssigned } from '../../../../interface';
 import { ModalUserDocComponent } from '../modal-user-doc/modal-user-doc.component';
 
 
@@ -17,7 +17,7 @@ export class ModalMComponent {
   private db: PouchDB.Database<{}>;
   dbname: string;
   remoteCouch = 'http://admin:admin@localhost:5984/';
-
+  p:IpermissionAssigned;
   user: Igijuser;
   //usercom : UserComponent;
   @Input() _id: string;
@@ -36,7 +36,9 @@ export class ModalMComponent {
     this.userList = new Array<Ogijuser>();
     this._selectedUser = new Ogijuser();
    
-   
+    this.p = new OpermissionsAssigned();
+    this.p._rev ='';
+  
   }
 
   ngOnInit() {
@@ -222,7 +224,18 @@ export class ModalMComponent {
      });
    }
    
-  
+  insertP(){
+    this.db.put(this.p, { force: true }, (err, res) => {
+      if (err) {
+        console.log('err after put'
+        );
+        console.log(err);
+      } else {
+        console.log('after put');
+        console.log(res);
+      }
+    });
+  }
 
 }
 

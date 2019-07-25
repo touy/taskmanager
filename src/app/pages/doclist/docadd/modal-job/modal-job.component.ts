@@ -16,8 +16,9 @@ export class ModaljobComponent {
   private dbjob: PouchDB.Database<{}>; // job db
   private dbdoc: PouchDB.Database<{}>;
   remoteCouch = 'http://admin:admin@localhost:5984/job-';
+  _selectedJobs: Ijob[];
 
-  constructor(private dialogService: NbDialogService, private router: Router) {
+  constructor(protected ref: NbDialogRef<ModaljobComponent>,private dialogService: NbDialogService, private router: Router) {
     this.jobList = new Array<Ojob>();
     this.selectedJob = new Ojob();
     // dbfullname=prefixname+dbname+prefix
@@ -33,6 +34,7 @@ export class ModaljobComponent {
   ngOnInit() {
     this.remoteCouch += MyDataBaseNames.dbjob; /// + prefix
     this.dbjob = new pouchdb(MyDataBaseNames.dbjob); // + prefix
+    this._selectedJobs =new Array<Ijob>();
     this.sync();
     this.loadjobList();
   }
@@ -110,11 +112,6 @@ export class ModaljobComponent {
     });
   }
 
-
-
-
-
-
   showCompleted() {  //ຟັງຊັນເອີນສະເພາະຂໍ້ມູນທີມີ j.endtime 
     return this.jobList.filter(j => {
       return j.endtime;
@@ -127,6 +124,27 @@ export class ModaljobComponent {
   showTimeDiff() {    //ຟັງຊັນທົດລອງນວງເວລາ
     let m = Date.now();
     return (m - this.now) + '/' + m;
+  }
+
+  gojob(){
+    this.router.navigate(['pages/regularjob'],{})
+  
+  }
+
+  close() {
+    this.ref.close({ command: 'update' ,j:this._selectedJobs});
+    console.log()
+  }
+
+  selectJob(u:Ijob,e){
+    
+    //this._selectedUser=u;
+    if ( e.target.checked ){
+      this._selectedJobs.push(u);
+    }else if(e.target.checked!==undefined){
+      this._selectedJobs=this._selectedJobs.filter(x=>{return JSON.stringify(x)!==JSON.stringify(u)})
+    }
+
   }
 }
 

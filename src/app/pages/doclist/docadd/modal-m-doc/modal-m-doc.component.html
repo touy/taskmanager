@@ -4,26 +4,57 @@
     <nb-card>
 
       <nb-card-body>
+        <div class="row">
+            <div class="col-sm-4 input-group">
+                <p>permissionid: </p>
+              </div>
+              <div class="col-sm-3 input-group">
+                  <select class="form-control">
+                    <option value="">ເລືອກ</option>
+                    <option value="ທ້າວ ກ">ທ້າວ ກ</option>
+                    <option value="">ທ້າວ ຂ</option>
+                    <option value="">ນາງ ງ</option>
+                    <option value="">ທ້າວ ຈ</option>
+                  </select>
+                </div>
+        </div>
+
+        <br>
+        <br>
+
+        <div class="row ">
+            <div class="col-sm-4 input-group">
+              <p>permissionlevel: </p>
+            </div>
+            <div class="col-sm-3 input-group">
+              <select class="form-control">
+                <option value="">ເລືອກ</option>
+                <option value="ທ້າວ ກ">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+              </select>
+            </div>
+  
+          </div>
+          <br>
+          <br>
+          <div class="row ">
+              <div class="col-sm-4 input-group">
+                <p>assignedname:</p>
+              </div>
+              <div class="col-sm-8 input-group">
+                <input type="text" nbInput fullWidth placeholder="assignedname" (input)="p.assignedname = $event.target.value" >
+              </div>
+    
+            </div>
+
         <div class="row">ສະມາຊີກ :
           <div *ngFor="let u of _selectedUsers">
             <b>{{u._id}};</b>
           </div>
         </div>
-        <div class=" row">
-          <label class="col-sm-2 "></label>
-          <div class="col-sm-10">
-            <br />
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" value=""> ສາມາດເພີ້ມວຽກໄດ້
-              </label>
-              &nbsp;
-              <label>
-                <input type="checkbox" value=""> ສາມາດແກ້ໄຂວຽກ
-              </label>
-            </div>
-          </div>
-        </div>
+       
 
         <div class="table-responsive">
           <table class="table table-bordered ">

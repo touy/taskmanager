@@ -20,7 +20,7 @@
                   <tr>
                     <th> ຊື່ຜູ້ໃຊ້</th>
                     <th> ລະຫັດ </th>
-                    <th>ເລືອກ</th>
+                  
                   
                   </tr>
                 </thead>
@@ -29,14 +29,15 @@
 
             <tr *ngFor="let u of _selectedUsers; index as i">
                     <div>
-                    <td>{{u.firstname}}</td>
-                    <td>{{u._id}}</td>
-                    <td> 
+                         <td>{{u._id}}</td>
+                         <td>{{u.firstname}}</td>
+                
+                   <!--<td> 
                         <input type="checkbox" >
-                    </td>
-                  
-                  </tr> 
-                </div>
+                    </td>--> 
+                     </div>
+             </tr> 
+              
                 </tbody>
               </table>
             </div>
