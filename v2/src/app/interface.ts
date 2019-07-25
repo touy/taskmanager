@@ -1,5 +1,6 @@
 
 import * as Nano from 'nano';
+import { MapType } from '@angular/compiler';
 export class Utils {
     static now() {
         // const nano_time = require('nano-time');
@@ -73,7 +74,7 @@ export class Commonenames {
     static readonly root: 'root';
     static readonly default: 'default';
 }
-export class Permissionstaus {
+export class Permissionstatus {
     static readonly read: 'read';
     static readonly none: 'none';
     static readonly readwrite: 'readwrite';
@@ -1328,7 +1329,7 @@ export class OpermissionAssigned implements IpermissionAssigned {// public  remo
 export interface Ipermissions { // public -- remote
     _id: string | undefined;
     _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
-    permissionname: string | undefined;
+    permissionname: Permissionstatus | undefined;
     permissionlevel: number;
     status: string | undefined; // read or write or none
 }
@@ -1338,6 +1339,7 @@ export class Opermissions implements Ipermissions { // public -- remote
     permissionlevel: number;
     status: string | undefined;
     constructor(permissionname: string = '') {
+        
         this.permissionname = permissionname;
 
 
