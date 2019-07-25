@@ -1292,13 +1292,11 @@ export class OReport implements IReport { // public  remote
 // }
 export interface IpermissionAssigned { // public remote
     _id: string | undefined; _rev: string | undefined; isdefault: string | undefined; lastupdate: string | undefined;
-    // permissionid: string | undefined;
     permissionlevel: string | undefined;
     assignedname: string | undefined;
     permission: Ipermissions;
     title: string | undefined;
     admin: string | undefined;
-    // memberaccepted: Array<ImemberRequest>;
     starttime: string | undefined;
     endtime: string | undefined;
     owners: Array<string>;
