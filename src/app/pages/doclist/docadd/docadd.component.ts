@@ -19,6 +19,7 @@ export class DocaddComponent implements OnInit {
   remoteCouch = 'http://admin:admin@localhost:5984/job-';
   now:Date=new Date();
   doc: Idocument;
+  job:Ijob;
   //usercom : UserComponent;
   @Input() _id: string;
   @Input() _rev: string;
@@ -91,6 +92,9 @@ export class DocaddComponent implements OnInit {
 
 
   insertdoc(){
+
+    //this.job.createdtime=this.now+''; //ບັນທືກເວລາປະຈຸບັນເຂົ້ນເຂົ້າຖານຂໍ້ມູນ
+    //  this.job.jobs=this._selectedJobs+'';
       console.log(this.doc);
     let m=new OpermissionsAssigned();
     
@@ -163,7 +167,7 @@ export class DocaddComponent implements OnInit {
       //this.loadUserList();
       console.log(result);
       if(result.command==='update'){
-       this._selectedUsers = result.u;
+       this._selectedUsers = result.l;
      }
     });
   }
