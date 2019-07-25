@@ -36,6 +36,7 @@ export class ModalMComponent {
     this.userList = new Array<Ogijuser>();
     this._selectedUser = new Ogijuser();
    
+   
   }
 
   ngOnInit() {

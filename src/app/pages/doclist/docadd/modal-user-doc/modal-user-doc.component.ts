@@ -3,7 +3,7 @@ import { NbDialogRef, NbDialogService } from '@nebular/theme';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import pouchdb from 'pouchdb';
-import { Igijuser, Ogijuser, nano_time, MyDataBaseNames, Idocument } from '../../../../interface';
+import { Igijuser, Ogijuser, nano_time, MyDataBaseNames, Idocument, OpermissionsAssigned } from '../../../../interface';
 
 import {ModalMComponent} from '../modal-m-doc/modal-m-doc.component';
 @Component({
@@ -27,7 +27,7 @@ export class ModalUserDocComponent  {
   userList: Igijuser[];
  
  docList: Idocument[];
-  
+
  
   constructor(protected ref: NbDialogRef<ModalUserDocComponent>,private dialogService: NbDialogService, public _Location: Location, public router: Router) {
     this.user = new Ogijuser();
@@ -37,6 +37,7 @@ export class ModalUserDocComponent  {
     this.userList = new Array<Ogijuser>();
     this._selectedUser = new Ogijuser();
    this._selectedUsers=new Array<Ogijuser>();
+   
   }
 
   ngOnInit() {
@@ -210,9 +211,11 @@ addm(id: string, rev: string){
     console.log(result);
     
     if(result.command==='update'){
-      
+      this._selectedUsers = result.s;
     }
     //this.loadUserList();
+    let peras=new OpermissionsAssigned();
+    peras;
   });
 }
 
