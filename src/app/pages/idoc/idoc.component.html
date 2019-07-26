@@ -1,0 +1,84 @@
+<h2 class="grid-h ">Document List</h2>
+
+<button class="btn btn-success" (click)=" gotoDoc()">
+    ໄປໜ້າເອກະສານ
+</button>
+<br />
+<br />
+<div class="infinite-cards row">
+    <div class="col-md-12 col-lg-4 col-xxxl-4">
+        <nb-card class="own-scroll">
+            <nb-card-header>ເອກະສານທີ່ອະນຸມັດ</nb-card-header>
+            <nb-list>
+                <nb-list-item>
+                    <div class="row">
+                        <div class="col-md-12" *ngFor="let d of docList index as i">
+                          <div *ngIf="d.status">
+                            <h5>ລະຫັດ : {{d._id}}</h5><br />
+                            <h5>ຊື່ໂຄງການ : {{d.docname}}</h5><br />
+                            <p>ວັນທີເລີ່ມ : {{d.starttime}}</p>
+                            <p>ວັນທີສີນສຸດ : {{d.endtime}}</p>
+                            <p>ສະຖານະ : {{d.status}}</p>
+                         
+                            <hr>
+                          </div>
+                            <br>
+                        </div>
+
+                    </div>
+                </nb-list-item>
+
+            </nb-list>
+        </nb-card>
+    </div>
+
+    <div class="col-md-12 col-lg-4 col-xxxl-4">
+        <nb-card class="own-scroll">
+            <nb-card-header>ກຳລັງດຳເນີນການ</nb-card-header>
+            <nb-list>
+                <nb-list-item>
+                    <div class="row">
+                        <div class="col-md-12" *ngFor="let d of docList index as i">
+                            <div *ngIf="d.starttime">
+                                <h5>ລະຫັດ : {{d._id}}</h5><br />
+                                <h5>ຊື່ໂຄງການ : {{d.docname}}</h5><br />
+                                <p>ວັນທີເລີ່ມ : {{d.starttime}}</p>
+                                <p>ສະຖານະ : {{d.status}}</p>
+                              <!--<div class="col-md-12">
+                                    <a nbButton shape="round" status="info"><i class="fas fa-edit"></i></a>
+                                </div>-->  
+                                <hr>
+                            </div>
+                        </div>
+
+                    </div>
+                </nb-list-item>
+            </nb-list>
+        </nb-card>
+    </div>
+
+    <div class="col-md-12 col-lg-4 col-xxxl-4">
+        <nb-card class="own-scroll">
+            <nb-card-header>ສຳເລັດແລ້ວ</nb-card-header>
+            <nb-list>
+                <nb-list-item>
+                    <div class="row">
+                        <div class="col-md-12" *ngFor="let d of docList index as i">
+                            <div *ngIf="d.endtime">
+                                <h5>ລະຫັດ : {{d._id}}</h5><br />
+                                <h5>ຊື່ໂຄງການ : {{d.docname}}</h5><br />                              
+                                <p>ວັນທີສີນສຸດ : {{d.endtime}}</p>
+                                <p>ສະຖານະ : {{d.status}}</p>
+                                <br>
+                                <hr>
+                            </div>
+
+                        </div>
+                    </div>
+                </nb-list-item>
+            </nb-list>
+        </nb-card>
+    </div>
+
+
+</div>

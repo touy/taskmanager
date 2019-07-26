@@ -23,6 +23,7 @@ import{RegularJobCompleComponent} from './regular-job-comple/regular-job-comple.
 import { ProjectJobsComponent } from './project-jobs/project-jobs.component';
 import { DoclistComponent } from './doclist/doclist.component';
 import { DocaddComponent } from './doclist/docadd/docadd.component';
+import { IdocComponent } from './idoc/idoc.component';
 
 
 const PAGES_COMPONENTS = [
@@ -60,6 +61,7 @@ const PAGES_COMPONENTS = [
     ProjectJobsComponent,
     DoclistComponent,
     DocaddComponent,
+    IdocComponent,
 
   ],
 })

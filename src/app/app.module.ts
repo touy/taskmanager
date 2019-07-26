@@ -36,6 +36,7 @@ import {ModalUserDocComponent} from './pages/doclist/docadd/modal-user-doc/modal
 import {ModalMComponent} from './pages/doclist/docadd/modal-m-doc/modal-m-doc.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent, 
@@ -54,6 +55,7 @@ import {ModalMComponent} from './pages/doclist/docadd/modal-m-doc/modal-m-doc.co
     ModalUserDocComponent,
     ModaljobComponent,
    ModalMComponent,
+
     
   ],
   imports: [

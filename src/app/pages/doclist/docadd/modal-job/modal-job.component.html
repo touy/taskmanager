@@ -1,4 +1,4 @@
-
+<!--
 <div class="row">
   <div class="col-md-12">
     <nb-card>
@@ -20,7 +20,7 @@
       <nb-card-body>
         
 
-          <div class="row">ສະມາຊີກ :
+          <div class="row">ວຽກ :
               <div *ngFor="let u of _selectedJobs">
                 <b>{{u._id}};</b>
               </div>
@@ -29,7 +29,7 @@
               <table class="table table-bordered ">
                 <thead>
                   <tr>
-                  <!--<th>ລະຫັດ</th>-->  
+                 <th>ລະຫັດ</th> 
                     <th> ຊື່ວຽກ</th>
                     <th>ລາຍລະອຽດວຽກ</th>
                     <th> ເລືອກ </th>
@@ -67,4 +67,80 @@
   
   
 </div>
+-->
 
+
+
+<div class="row" >
+  <div class="col-md-12">
+    <nb-card class="col-md-12">
+      <nb-card-header>
+        <h3>ຟອມເພີ່ມວຽກ</h3>
+      </nb-card-header>
+      <nb-card-body>
+   
+             
+          <div class="row ">
+              <div class="col-sm-12">
+                <h3>ຊື່</h3>       
+                  
+                <input type="text" nbInput fullWidth  placeholder="ຊື່ວຽກ" (input)="job.jobname = $event.target.value">
+              </div> 
+          </div> 
+          <br/>
+
+          <div class="row">
+            <div class="col-sm-12" >
+              <h3>ລາຍລະອຽດວຽກ</h3>          
+                    <textarea  rows="6" nbInput fullWidth placeholder="ລາຍລະອຽດວຽກ" (change)="job.description = $event.target.value" > </textarea> 
+                    <!-- <input type="text" nbInput fullWidth  placeholder="ລາຍລະອຽດວຽກ" [value]="job.description" (input)="job.description = $event.target.value">--> 
+                      
+                  </div> 
+              </div> 
+          
+          <div class="row ">
+              <div class="col-sm-6 input-group">
+              <h3>ສະມາຊິກ :</h3>    
+
+
+              </div> 
+            
+          </div> 
+          <br>
+          
+      </nb-card-body>
+    <nb-card-footer>
+        <button  class="btn btn-success" (click)="updatejob()" >
+            Save
+        </button>
+        &nbsp;
+        <button  class="btn btn-default" (click)="close()">
+            close
+        </button>
+
+    </nb-card-footer>
+    </nb-card>
+  </div>
+</div>
+<!--<div class="row" *ngIf="isdelete">
+    <div class="col-md-12">
+      <nb-card class="col-md-12">
+        <nb-card-header>
+          <h3>Delete Job</h3>
+        </nb-card-header>
+        <nb-card-body>
+          Are you sure to delete this item ?
+        </nb-card-body>
+      <nb-card-footer>
+          <button  class="btn btn-success" (click)="updatejob()" >
+              Confrim
+          </button>
+          &nbsp;
+          <button  class="btn btn-default" (click)="close()">
+              Cancel
+          </button>
+  
+      </nb-card-footer>
+      </nb-card>
+    </div>
+  </div> -->

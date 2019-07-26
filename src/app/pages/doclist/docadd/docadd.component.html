@@ -121,22 +121,7 @@
         </div>
        
 
-        <div class=" row">
-          <label class="col-sm-2 "></label>
-          <div class="col-sm-10">
-            <br />
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" value=""> ສາມາດເພີ້ມວຽກໄດ້
-              </label>
-              &nbsp;
-              <label>
-                <input type="checkbox" value=""> ສາມາດແກ້ໄຂວຽກ
-              </label>
-            </div>
-          </div>
-        </div>
-
+ 
         <div class="row">
           <div class="col-sm-2 input-group">
             <h3>ໜ້າວຽກ :</h3>
@@ -144,22 +129,79 @@
         
         <div class="col-sm-10">
           <button type="button" class="btn btn-success addjobs_data" title="Add Jobs" name="add" id="addjobs_data"
-            (click)="addjobs()">ເລືອກວຽກ</button>
+            (click)="addjobs()">ສ້າງວຽກ</button>
         <br>
         <br>
-        
-          <div class="row">
+      </div> 
+
+      <div class="row">
+        <div class="col-sm-2 input-group">
+          <h5>ໜ້າວຽກ :</h5>
+          <div *ngFor="let u of _selectedJob">
+            <b>{{u.jobname}};</b>
+          </div>
+        </div>
+      </div>
+
+
+        <div class="table-responsive">
+          <table class="table table-bordered ">
+            <thead>
+              <tr>
+              <!--<th>ລະຫັດ</th>-->  
+                <th> ຊື່ວຽກ</th>
+                <th>ລາຍລະອຽດວຽກ</th>
+                <th> ເລືອກ </th>
+           
+                
+
+              </tr>
+            </thead>
+            <tbody>
+      
+              <ng-container *ngFor="let j of jobList index as i" > 
+                <tr >
+                   <!-- <td> <input type="checkbox" data-md-icheck (change)="selectJob(j,$event)" />
+                      <span *ngIf="marked">{{j._id}}</span>
+                      <span *ngIf="!marked">{{j._id}}</span>
+                   </td> --> 
+
+
+                
+                    <!--<td>{{j.jobname}}</td>-->
+
+                    <td> <input type="checkbox" data-md-icheck (change)="selectJob(j,$event)" />
+                      <span *ngIf="marked">{{j.jobname}}</span>
+                      <span *ngIf="!marked">{{j.jobname}}</span>
+                   </td>
+
+                    <td>{{j.description}}</td>
+                    <td>{{j.members}}</td>
+                  
+                   
+              
+               
+                    
+                </tr>
+              </ng-container>
+
+            </tbody>
+          </table>
+        </div>
+
+
+  <!--   <div class="row">
             <div class="col-sm-2 input-group">
               <H5>ໜ້າວຽກ :</H5>
             </div>
             <div *ngFor="let j of _selectedJobs; index as i">
               <h5>{{j.jobname}}<b>;</b></h5>
             </div>
-          </div>
-        </div>
+          </div>-->
+        </div>    
 
          
-        </div>
+       
 
       </nb-card-body>
       <nb-card-footer>

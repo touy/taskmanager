@@ -1,9 +1,9 @@
 import { Component, OnInit,Input} from '@angular/core';
-import { NbDialogService } from '@nebular/theme';
+import { NbDialogRef, NbDialogService } from '@nebular/theme';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import pouchdb from 'pouchdb';
-import { Idocument, Odocument,  MyDataBaseNames, Opermissions, OpermissionsAssigned,Ijob,Ojob } from '../../../interface';
+import { Idocument, Odocument,  MyDataBaseNames, Opermissions, OpermissionsAssigned,Ijob,Ojob,Igijuser } from '../../../interface';
 import {ModalUserDocComponent} from './modal-user-doc/modal-user-doc.component';
 import {ModaljobComponent} from './modal-job/modal-job.Component';
 import { Iuser } from '../../user-roles/modal-user-roles/modal-user-roles.component';
@@ -16,6 +16,9 @@ import { Iuser } from '../../user-roles/modal-user-roles/modal-user-roles.compon
 export class DocaddComponent implements OnInit {
   myDate = Date.now(); //ປະກາດຟັງຊັນເອີນໃຊ້ຢູ່ insert ເວລາປະຈຸບັນ
   private db: PouchDB.Database<{}>;
+
+  jobList: Ijob[];
+  docList: Idocument[];
   remoteCouch = 'http://admin:admin@localhost:5984/job-';
   now:Date=new Date();
   doc: Idocument;
@@ -27,8 +30,11 @@ export class DocaddComponent implements OnInit {
   _selecteddoc: Idocument;
   _selectedJobs: Ijob[];
   _selectedUsers: Iuser[];
+  userList: Igijuser[];
+  _selectedJob: Ijob[];
+  _k:Ijob[];
 
-  constructor(private dialogService: NbDialogService, private router: Router, public _Location: Location, private route: ActivatedRoute) {
+  constructor(/*protected ref,*/private dialogService: NbDialogService, private router: Router, public _Location: Location, private route: ActivatedRoute) {
     setInterval(() => {
       this.now = new Date();
     }, 1000);
@@ -37,13 +43,19 @@ export class DocaddComponent implements OnInit {
     this.doc._id = '';
    
     this.db = new pouchdb(MyDataBaseNames.dbdoc);
-
-    
+    this.docList = new Array<Odocument>();
+    this.jobList = new Array<Ojob>();
+     this._selectedJob= new Array<Ijob>();
+    // this._k =new Array<Ojob>();
+  
+ 
   }
 
   ngOnInit() {
-    
-   
+
+    this.loadjobList();
+    this.loaddocList();
+
     if(this._id){
       this.getdoc(this._id);
     }else{
@@ -96,10 +108,21 @@ export class DocaddComponent implements OnInit {
     //this.job.createdtime=this.now+''; //ບັນທືກເວລາປະຈຸບັນເຂົ້ນເຂົ້າຖານຂໍ້ມູນ
     //  this.job.jobs=this._selectedJobs+'';
       console.log(this.doc);
+      ///
     let m=new OpermissionsAssigned();
-    
-    this.doc.members.push(m);
+    this._selectedUsers.forEach((v,i,a)=>{
+      m=new OpermissionsAssigned();
+      m.admin='this user';
+      m.assignedname=v.username;
+      m.endtime;
+      m.starttime;
+      m.permissionlevel='1';
+      m.title='team mate';
+      this.doc.members.push(m);
+    });
+    //
 
+    //
     this.db.post(this.doc,{}, (err, res) => {
       if (err) {
         console.log('err after put');
@@ -164,32 +187,86 @@ export class DocaddComponent implements OnInit {
     });
 
     dlg.onClose.subscribe(result => {
-      //this.loadUserList();
+
       console.log(result);
+      
       if(result.command==='update'){
        this._selectedUsers = result.l;
+       
+
      }
     });
+
   }
 
 
   addjobs() {
-    let dlg = this.dialogService.open(ModaljobComponent, {
-
+    let dlg = this.dialogService.open(ModaljobComponent, { 
+      
     });
 
     dlg.onClose.subscribe(result => {
       console.log(result);
       if(result.command==='update'){
         this._selectedJobs = result.j;
+        this._k = result.j;
+       // this._addJob = result.j;
       }
+     // this.ref.close({ command: 'update' , j:this._k});
+   //console.log();
     });
+  
   }
 
   goblack(){
     this.router.navigate(['/pages/doclist/'],{})
   }
 
+  loadjobList() {
+    const pageSize = 10;
+    const offSet = 0;
+    const parent = this;
+    this.jobList.length = 0;
+    this.jobList = new Array<Ijob>();
+    this.db.allDocs({ limit: pageSize, skip: offSet, descending: true, include_docs: true }).then(res => {
+      //console.log(res);
+      for (let index = 0; index < res.rows.length; index++) {
+        parent.jobList.push(<Ijob><unknown>res.rows[index].doc);
+        console.log(res.rows[index].doc);
+
+      }
+    }).catch(err => {
+    //  console.log(err);
+    });
+  }
 
 
+  loaddocList() {
+    const pageSize = 10;
+    const offSet = 0;
+    const parent = this;
+    this.docList.length = 0;
+    this.docList = new Array<Idocument>();
+    this.db.allDocs({ limit: pageSize, skip: offSet, descending: true, include_docs: true }).then(res => {
+      //console.log(res);
+      for (let index = 0; index < res.rows.length; index++) {
+        parent.docList.push(<Idocument><unknown>res.rows[index].doc);
+        console.log(res.rows[index].doc);
+
+      }
+    }).catch(err => {
+    //  console.log(err);
+    });
+  }
+
+  selectJob(j:Ijob,e){
+    
+    //this._selectedUser=u;
+    if ( e.target.checked ){
+      this._selectedJob.push(j);
+    }else if(e.target.checked!==undefined){
+      this._selectedJob=this._selectedJob.filter(x=>{return JSON.stringify(x)!==JSON.stringify(j)})
+    }
+
+  }
 }

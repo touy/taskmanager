@@ -8,6 +8,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
     home: true,
   },
   {
+    title: 'ເອກະສານຂອງຂ້ອຍ',
+    icon: 'ion-document-text',
+    link: '/pages/idoc',
+  },
+
+  {
     title: 'ວຽກທີ່ຂ້ອຍດູແລ',
     icon: 'ion-document-text',
     link: '/pages/dashboard-them',

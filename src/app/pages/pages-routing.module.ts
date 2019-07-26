@@ -33,6 +33,7 @@ import { RegularJobComponent } from './regular-job/regular-job.component';
 import{RegularJobCompleComponent} from './regular-job-comple/regular-job-comple.component';
 import { DoclistComponent } from './doclist/doclist.component';
 import { DocaddComponent } from './doclist/docadd/docadd.component';
+import { IdocComponent } from './idoc/idoc.component';
 
 const routes: Routes = [{
   path: '',
@@ -65,8 +66,10 @@ const routes: Routes = [{
     path: 'Dadd',
     component:  DocaddComponent,
   },
- 
-
+ {
+  path:'idoc',
+  component: IdocComponent,
+ },
 
 {
   path: 'regularjobComple',
