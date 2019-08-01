@@ -64,6 +64,7 @@
                     <div class="row">
                         <div class="col-md-12" *ngFor="let j of jobList index as i">
                             <div *ngIf="j.starttime">
+                              <h6></h6>
                             <h5>ຊື່ໂຄງການ : {{j.jobname}}</h5><br />
                             <p> ແຜນສໍາເລັດວຽກ : {{j.createdtime | date:'short'}}</p>
                             <p>ວັນທີເລີມ : {{j.starttime | date:'short'}}</p>
@@ -87,11 +88,11 @@
                     <div class="row">
                         <div class="col-md-12" *ngFor="let j of jobList index as i">
                             <div *ngIf="j.endtime">
-                       
-                                <h5>ຊື່ໂຄງການ : {{j.jobname}}</h5><br />
-                                <p> ແຜນສໍາເລັດວຽກ : {{j.createdtime | date:'short'}}</p>
-                                <p>ວັນທີເລີ່ມ : {{j.starttime | date:'short'}}</p>
-                                <p>ວັນທີສີນສຸດ : {{j.endtime | date:'short'}}</p>
+                                <h6></h6>
+                                <h4>ຊື່ໂຄງການ : {{j.jobname}}</h4><br />
+                                <h5> ແຜນສໍາເລັດວຽກ : {{j.createdtime | date:'short'}}</h5>
+                                <h5>ວັນທີເລີ່ມ : {{j.starttime | date:'short'}}</h5>
+                                <h5>ວັນທີສີນສຸດ : {{j.endtime | date:'short'}}</h5>
                                 <br>
                                 <hr>
                             </div>

@@ -7,11 +7,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/dashboard',
     home: true,
   },
-  {
+ /* {
     title: 'ເອກະສານຂອງຂ້ອຍ',
     icon: 'ion-document-text',
     link: '/pages/idoc',
-  },
+  }, */
 
   {
     title: 'ວຽກທີ່ຂ້ອຍດູແລ',
@@ -28,14 +28,14 @@ export const MENU_ITEMS: NbMenuItem[] = [
     children: [
       {
         title: 'Document',
-        link: '',
-        children: [
-          {
+        link: '/pages/idoc',
+       /*  children: [
+        {
             title: 'My ',
             link: '/pages/doclist',
     
           },
-          {
+         {
             title: 'Groups ',
             link: '/pages/extra-components/stepper',
           },
@@ -46,16 +46,16 @@ export const MENU_ITEMS: NbMenuItem[] = [
           {
             title: 'Department ',
             link: '/pages/extra-components/stepper',
-          },
+          }, 
          
          
-        ],
+        ], */
 
       },
-      {
-        title: 'Job',
-        link: '/pages/Plan-jobs',
-      },
+     // {
+      //  title: 'Job',
+      //  link: '/pages/Plan-jobs',
+      //},
      
      
     ],

@@ -55,20 +55,21 @@ import {ModalMComponent} from './pages/doclist/docadd/modal-m-doc/modal-m-doc.co
     ModalUserDocComponent,
     ModaljobComponent,
    ModalMComponent,
-
+  
+   
     
-  ],
+  ]
+  ,
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
-    
 
     NgbModule.forRoot(),
     ThemeModule.forRoot(),
     CoreModule.forRoot(),
-   
+
   ],
   entryComponents: [
     ModalJobComponent,
@@ -89,6 +90,7 @@ import {ModalMComponent} from './pages/doclist/docadd/modal-m-doc/modal-m-doc.co
   bootstrap: [AppComponent],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
+
   ],
 })
 export class AppModule {

@@ -1,10 +1,12 @@
 import { Component, Input } from '@angular/core';
-import { NbDialogRef } from '@nebular/theme';
+import { NbDialogRef,NbDialogService } from '@nebular/theme';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import pouchdb from 'pouchdb';
+
 import { Igijuser, Ogijuser, nano_time,IpermissionAssigned, MyDataBaseNames, OpermissionsAssigned } from '../../../../interface';
 import { ModalUserDocComponent } from '../modal-user-doc/modal-user-doc.component';
+import { ModaljobComponent } from '../modal-job/modal-job.Component';
 
 
 @Component({
@@ -28,7 +30,7 @@ export class ModalMComponent {
   userList: Igijuser[];
   
  
-  constructor(protected ref: NbDialogRef<ModalMComponent>, public _Location: Location, public router: Router) {
+  constructor(protected ref: NbDialogRef<ModalMComponent>, public _Location: Location, public router: Router,private dialogService: NbDialogService) {
     this.user = new Ogijuser();
     this.user._rev = '';
     this.user._id = nano_time.now();
@@ -235,6 +237,28 @@ export class ModalMComponent {
         console.log(res);
       }
     });
+  }
+
+  addjob(id1: string, rev1: string){
+    let parent = this;
+    let dlg = this.dialogService.open(ModaljobComponent, {
+      context: {
+        _id: id1,
+        _rev: rev1,
+  
+      }
+    });
+    dlg.onClose.subscribe(result => {
+      console.log(result);
+      
+      if(result.command==='update'){
+        this._selectedUsers = result.s;
+      
+      
+      }
+   console.log()
+    });
+  
   }
 
 }

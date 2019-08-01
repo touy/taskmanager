@@ -6,6 +6,7 @@ import pouchdb from 'pouchdb';
 import { Igijuser, Ogijuser, nano_time, MyDataBaseNames, Idocument, OpermissionsAssigned } from '../../../../interface';
 
 import {ModalMComponent} from '../modal-m-doc/modal-m-doc.component';
+import { ModaljobComponent } from '../../../../../../v2/src/app/pages/doclist/docadd/modal-job/modal-job.Component';
 @Component({
   selector: 'ngx-modal',
   templateUrl: './modal-user-doc.component.html',
@@ -148,6 +149,7 @@ export class ModalUserDocComponent  {
 
   close() {
     this.ref.close({ command: 'update', l:this._lar });
+    console.log();
   }
 
   loadUserList() {
@@ -222,6 +224,8 @@ addm(id: string, rev: string){
     peras;
   });
 }
+
+
 
 ch(u:Igijuser){   
 

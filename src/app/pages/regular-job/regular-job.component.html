@@ -41,7 +41,7 @@
                         <td><input type="checkbox" [checked]="j.starttime" (input)="startJob(j)"></td>
                         <td>{{j.endtime | date:'short' }}</td>
  
-                        <td><input type="checkbox" [disabled]="j.endtime" [checked]="j.endtime" (input)="endJob(j)"></td>
+                        <td><input type="checkbox" [checked]="j.endtime" (input)="endJob(j)"></td>
                         
                         <!--ເຮັດແຊັກບອກໃຫ້ບັນທືກລົງຖານຂໍ້ມູນ
                         disabled:ກັນບໍ່ໃຫ້ປົດແຊັກບອກກັບsຖ້າມີຂໍ້ມູນຢູ່ j.endtime

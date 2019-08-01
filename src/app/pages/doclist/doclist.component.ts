@@ -111,53 +111,49 @@ export class DoclistComponent implements OnInit {
     this.router.navigate(['/pages/Dadd'],{})
   }
 
-  Approved(d:Idocument){   
-    d.status?d.status='':d.status = "ອານຸມັດ"; 
-    this.updateApproved(d); 
-   
-  }
-
-  updateApproved(d:Idocument){ 
-    this.dbdoc.put(d,{force:true}).then(res=>{
-      console.log(res);
-      
-    }).catch(err=>{
-      console.log((err));
-    });
-  }
-
-
-
-  Start(s:Idocument){  
-    s.endtime?s.endtime='':s.endtime ='' 
-    s.starttime?s.starttime='':s.starttime = new Date().toISOString(); 
-    this.updateStart(s); 
-   
-  }
   
-  updateStart(s:Idocument){ 
-    this.dbdoc.put(s,{force:true}).then(res=>{
-      console.log(res);
-      
-    }).catch(err=>{
-      console.log((err));
-    });
-  }
 
-  End(s:Idocument){  
-    s.starttime?s.starttime='':s.starttime='' 
-    s.endtime?s.endtime='':s.endtime = new Date().toISOString(); 
-    this.updateStart(s); 
-   
-  }
+  startdoc(s:Idocument){  
+     s.starttime?s.starttime='':s.starttime=new Date().toISOString(); 
+     this.updateStartdoc(s); 
+   }
+ 
+   updateStartdoc(s:Idocument){ 
+     this.dbdoc.put(s,{force:true}).then(res=>{
+       console.log(res);
+       
+     }).catch(err=>{
+       console.log((err));
+     });
+   }
   
-  updateEnd(s:Idocument){ 
-    this.dbdoc.put(s,{force:true}).then(res=>{
-      console.log(res);
-      
-    }).catch(err=>{
-      console.log((err));
-    });
-  }
+   enddoc(j:Idocument){  
+     j.endtime?j.endtime='':j.endtime=new Date().toISOString(); 
+     this.updatedoc(j); 
+   }
+ 
+   updatedoc(j:Idocument){ 
+     this.dbdoc.put(j,{force:true}).then(res=>{
+       console.log(res);
+       
+     }).catch(err=>{
+       console.log((err));
+     });
+   }
+
+   status(n:Idocument){  
+     n.status?n.status='':n.status='ອານຸມັດ'; 
+     this.updatestatus(n); 
+   
+   }
+ 
+   updatestatus(n:Idocument){ 
+     this.dbdoc.put(n,{force:true}).then(res=>{
+       console.log(res);
+       
+     }).catch(err=>{
+       console.log((err));
+     });
+   }
 
 }

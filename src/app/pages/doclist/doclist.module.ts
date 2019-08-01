@@ -3,11 +3,17 @@ import { CommonModule } from '@angular/common';
 
 import { ThemeModule } from '../../@theme/theme.module';
 import {DoclistComponent} from './doclist.component';
+
+
 @NgModule({
-  declarations: [ DoclistComponent  ],
+  declarations: [ DoclistComponent,  ],
   imports: [
     CommonModule,
     ThemeModule,
-  ]
+  ],
+
+
 })
+
+
 export class DoclistModule { }

@@ -15,4 +15,15 @@ table,th,tr,td { font-size: 20px; }
     }
    
   }
+
+  nb-card{
+    /* Set "my-sec-counter" to 0 */
+    counter-reset: my-sec-counter;
+  }
+
+  h6::before {
+    /* Increment "my-sec-counter" by 1 */
+    counter-increment: my-sec-counter;
+    content: "No" counter(my-sec-counter) ".";
+  }
   

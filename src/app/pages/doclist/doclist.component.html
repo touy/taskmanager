@@ -8,7 +8,9 @@
               <i class="fas fa-plus-square"></i>
             </button></div>
         </div>
-
+          <div>
+            <input type="text" placeholder="ຄົນຫາ" >
+          </div>
       </nb-card-header>
       <nb-card-body>
 
@@ -19,12 +21,12 @@
 
                 <th> ຊື່ເອກະສານ</th>
                 <th>ລາຍລະອຽດ</th>
-                <th>ຊື່ສະມາຊິກ</th>
-                <th>ຊື່ວຽກ</th>
                 <th> ວັນທີສ້າງເອກະສານ </th>
+                <th>ອານຸມັດເອກະສານ</th>
                 <th> ເວລາເລີ້ມເຮັດເອກະສານ </th>
-                <th>ວັນທີສໍາເລັດ</th>
-                <th>ສະຖານະ</th>
+                <th>ເລີມວຽກ</th>
+                <th>ເວລາສໍາເລັດເອກະສານ</th>
+                <th>ສໍາເລັດ</th>
 
 
               </tr>
@@ -35,20 +37,15 @@
 
                 <td>{{d.jobname}}</td>
                 <td>{{d.description}}</td>
-                <td>{{d.members}}</td>
-                <td>{{d.jobs}}</td>
                 <td>{{d.createdtime | date:'short' }}</td>
-                <td>{{d.starttime | date:'short' }}
-                  <input type="checkbox" [checked]="d.starttime" (input)="Start(d)">
-                </td>
-                
-                <td>{{d.endtime | date:'short' }}
-                    <input type="checkbox" [checked]="d.endtime" (input)="End(d)">
-                </td>
-                <td>{{d.status}}</td>
                 <td>
-                  <input type="checkbox"  [checked]="d.status" (input)="Approved(d)">
+                  {{d.status}}
+                  <input type="checkbox" [checked]="d.status" (input)="status(d)">
                 </td>
+                <td>{{d.starttime | date:'short' }}</td>
+                <td><input type="checkbox" [checked]="d.starttime" (input)="startdoc(d)"></td>
+                <td>{{d.endtime | date:'short' }}</td>
+                <td><input type="checkbox" [checked]="d.endtime" (input)="enddoc(d)"></td>
 
 
               </tr>
